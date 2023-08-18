@@ -1,0 +1,18 @@
+<div class="container">
+  <p class="label">Related Products</p>
+  <div class="slider">
+    <button mat-icon-button class="action-button previous-button">
+      <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    <div class="card-container">
+      <app-product-cards
+        *ngFor="let product of listProducts; let i = index"
+        [product]="product"
+        [shouldShowAddToCart]="false">
+      </app-product-cards>
+    </div>
+    <button mat-icon-button class="action-button next-button">
+      <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<!-- app header bar -->
+<mat-toolbar color="primary" class="container sticky-header" id="mat-toolbar">
+  <div (click)="navigateToHome()" class="home-container">
+    <mat-icon class="apple-icon">apple</mat-icon>
+    <span class="home-title">My Apple Store</span>
+  </div>
+  <span class="example-spacer"></span>
+  <button (click)="navigateToCart()" mat-icon-button aria-label="cart">
+    <mat-icon>shop</mat-icon>
+  </button>
+</mat-toolbar>
+<!-- should render under space for align other app components -->
+<div class="top-bar-under-space"></div>

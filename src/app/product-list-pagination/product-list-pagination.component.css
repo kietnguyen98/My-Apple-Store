@@ -1,0 +1,97 @@
+.paginator-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.paginator-header-badge {
+    text-transform: capitalize;
+    font-weight: 500;
+    width: fit-content;
+    color: var(--app-secondary-color);
+}
+
+.paginator-header-badge > p {
+    width: fit-content;
+    font-size: var(--app-font-size-small);
+}
+
+.page-size-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.page-size-selector {
+    width: 150px;
+    height: 30px;
+    padding: 2px 8px; 
+    background-color: white;
+    outline: unset;
+    box-shadow: var(--app-badge-box-shadow);
+    font-size: var(--app-font-size-extra-small);
+    border-radius: var(--app-border-radius-small);
+    font-weight: 500;
+    border: none;
+}
+
+.page-size-selector:focus-visible{
+    outline: unset;
+}
+
+.paginator-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-select-container{
+    margin-top: 80px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.page-select-button {
+    padding: auto;
+    border: unset;
+    background-color: transparent;
+    width: 36px;
+    height: 36px;
+    color: var(--app-secondary-color);
+    font-size: var(--app-font-size-medium);
+    border-radius: 50%;
+
+}
+
+.jump-page-button {
+    cursor: pointer;
+    color: var(--app-secondary-color);
+    width: 40px;
+    height: 40px;
+    font-size: var(--app-font-size-large);
+    border-radius: 50%;
+    padding: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jump-page-button:hover{
+    background-color: var(--app-accent-color);
+
+}
+
+.button-selected {
+    background-color: var(--app-primary-color);
+    color: white;
+}
+
+.button-unselected:hover {
+    background-color: var(--app-accent-color);
+}

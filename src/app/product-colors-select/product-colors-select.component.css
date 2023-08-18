@@ -1,0 +1,22 @@
+.label {
+    font-size: var(--app-font-size-small);
+    text-transform: capitalize;
+    font-weight: 500;
+    color: var(--app-primary-color);
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.options-container{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.check-icon{
+    color: white;
+}
+
+.option-button{
+    border: 2px solid white;
+}

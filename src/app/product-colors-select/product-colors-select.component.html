@@ -1,0 +1,14 @@
+<p class="label">Color</p>
+<div class="options-container">
+  <button
+    mat-fab
+    [matTooltip]="option.name"
+    *ngFor="let option of options"
+    [style]="'background-color: ' + option.code"
+    (click)="handleChangeColor(option)"
+    class="option-button">
+    <mat-icon class="check-icon" *ngIf="currentOption?.value === option.value"
+      >check</mat-icon
+    >
+  </button>
+</div>

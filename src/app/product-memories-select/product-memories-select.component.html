@@ -1,0 +1,12 @@
+<p class="label">Memory capacity</p>
+<div class="options-container">
+  <mat-chip-listbox>
+    <mat-chip-option
+      *ngFor="let option of options"
+      [selected]="option.value === currentOption?.value"
+      [selectable]="option.value !== currentOption?.value"
+      (selectionChange)="handleChangeMemoryCapacity(option)"
+      >{{ option.name }}</mat-chip-option
+    >
+  </mat-chip-listbox>
+</div>

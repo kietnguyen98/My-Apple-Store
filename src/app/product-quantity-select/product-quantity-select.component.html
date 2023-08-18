@@ -1,0 +1,18 @@
+<p class="label">Quantity</p>
+<div class="quantity-selector">
+  <button
+    type="button"
+    matRipple
+    class="decrease-button"
+    (click)="decreaseQuantity()">
+    <mat-icon>remove</mat-icon>
+  </button>
+  <div class="quantity-value">{{ quantity }}</div>
+  <button
+    type="button"
+    matRipple
+    class="increase-button"
+    (click)="increaseQuantity()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

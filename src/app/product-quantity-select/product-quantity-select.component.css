@@ -1,0 +1,47 @@
+.label {
+    font-size: var(--app-font-size-small);
+    text-transform: capitalize;
+    font-weight: 500;
+    color: var(--app-primary-color);
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.quantity-selector{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--app-quantity-selector-box-shadow);
+    border-radius: var(--app-border-radius-large);
+}
+
+.decrease-button, .increase-button{
+    border: none;
+    width: 48px;
+    height: 36px;
+    background-color: white;
+}
+
+.decrease-button {
+    border-right: 1px solid var(--app-accent-color);
+    border-top-left-radius: var(--app-border-radius-large);
+    border-bottom-left-radius: var(--app-border-radius-large);
+}
+
+.increase-button {
+    border-left: 1px solid var(--app-accent-color);
+    border-top-right-radius: var(--app-border-radius-large);
+    border-bottom-right-radius: var(--app-border-radius-large);
+}
+
+.quantity-value{
+    width:  48px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: var(--app-font-size-medium);
+}

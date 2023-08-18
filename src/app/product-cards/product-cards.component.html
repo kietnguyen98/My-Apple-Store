@@ -1,0 +1,36 @@
+<mat-card *ngIf="product" class="card-container">
+  <mat-card-content>
+    <div matRipple class="image-container">
+      <img
+        class="image"
+        mat-card-image
+        [alt]="'image of ' + product.name"
+        [src]="product.imageUrl" />
+    </div>
+    <div class="content-container">
+      <p class="name">{{ product.name }}</p>
+      <p class="description">{{ product.description }}</p>
+      <p class="price" *ngIf="product.price">
+        {{
+          product.price + (product.memoryCapacities?.[0]?.plusPrice || 0)
+            | currency
+        }}
+      </p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <a class="fluid-button" [routerLink]="['/products', product.name]">
+      <button class="fluid-button" mat-flat-button color="primary">
+        Check it out !
+      </button>
+    </a>
+    <button
+      *ngIf="shouldShowAddToCart"
+      class="fluid-button"
+      mat-flat-button
+      color="warn"
+      (notify)="onNotify()">
+      Add to cart
+    </button>
+  </mat-card-actions>
+</mat-card>

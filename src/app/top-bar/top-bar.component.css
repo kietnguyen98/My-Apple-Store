@@ -1,0 +1,40 @@
+.container {
+    height: var(--app-header-height);
+}
+
+.top-bar-box-shadow {
+    box-shadow: var(--app-header-box-shadow);
+}
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.home-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.apple-icon{
+    width: var(--app-font-size-large);
+    height: var(--app-font-size-large);
+    font-size: var(--app-font-size-large);
+}
+
+.home-title {
+    font-size: var(--app-font-size-medium);
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.top-bar-under-space{
+    width: 100%;
+    height: var(--app-header-height);
+}

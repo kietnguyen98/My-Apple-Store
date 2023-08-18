@@ -1,0 +1,99 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// define custom color palette
+
+$dark-palette: (
+  50: #f8f8f8,
+  100: #f1f1f1,
+  200: #e7e7e7,
+  300: #d7d7d7,
+  400: #b3b3b3,
+  500: #939393,
+  600: #6b6b6b,
+  700: #575757,
+  800: #393939,
+  900: #191919,
+  contrast: (
+    50: rgba(black, 0.9),
+    100: rgba(black, 0.9),
+    200: rgba(black, 0.9),
+    300: rgba(black, 0.9),
+    400: rgba(black, 0.9),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$orange-palette: (
+  50: #fae9e7,
+  100: #feccbd,
+  200: #fdab93,
+  300: #fc8a68,
+  400: #fc7048,
+  500: #fc5729,
+  600: #f15125,
+  700: #e34a20,
+  800: #d5441c,
+  900: #bb3715,
+  contrast: (
+    50: rgba(black, 0.9),
+    100: rgba(black, 0.9),
+    200: rgba(black, 0.9),
+    300: rgba(black, 0.9),
+    400: rgba(black, 0.9),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$platinum-palette: (
+  50: #f7f9f7,
+  100: #f0f2f0,
+  200: #e6e8e6,
+  300: #d6d8d6,
+  400: #b2b4b2,
+  500: #929392,
+  600: #6a6b6a,
+  700: #565856,
+  800: #383938,
+  900: #181918,
+  contrast: (
+    50: rgba(black, 0.9),
+    100: rgba(black, 0.9),
+    200: rgba(black, 0.9),
+    300: rgba(black, 0.9),
+    400: rgba(black, 0.9),
+    500: rgba(black, 0.9),
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+// integrate color 
+
+$theme-dark: mat.define-palette($dark-palette, 900);
+$theme-platinum: mat.define-palette($platinum-palette, 200);
+$theme-orange: mat.define-palette($orange-palette, 600, 300, 400);
+
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $theme-dark,
+      accent: $theme-platinum,
+      warn: $theme-orange,
+    ),
+    typography: mat.define-typography-config(),
+  )
+);
+
+@include mat.all-component-themes($theme);

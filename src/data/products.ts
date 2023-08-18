@@ -1,0 +1,349 @@
+import { IMAGE_URL, SUB_IMAGE_URLS } from "../constants";
+import { v4 as uuidv4 } from "uuid";
+import { ICategory, categories } from "./categorys";
+import { IMemoryCapacity, memoryCapacities } from "./memory";
+import {
+  IColor,
+  iPhone14Colors,
+  iPhone13ProMaxColors,
+  iPhone12ProMaxColors,
+  iPhone11ProColors,
+  iPhoneXSColors,
+  iPhoneSEColors,
+  iPhoneXColors,
+  iPhone8Colors,
+} from "./colors";
+export interface IProduct {
+  id: string;
+  name: string;
+  price: number;
+  category: ICategory;
+  description: string;
+  imageUrl: string;
+  memoryCapacities?: Array<IMemoryCapacity>;
+  colors?: Array<IColor>;
+  subImageUrls?: Array<string>;
+}
+
+export const products: Array<IProduct> = [
+  // iPhone data
+  {
+    id: uuidv4(),
+    name: "iPhone 7 Plus",
+    price: 199,
+    category: categories[0],
+    description:
+      "On the seventh day the designers rested. In came the engineers. And the master of controversy struck again. Apple is proud of the bold move of removing the audio jack. But in pretty much every other aspect they've seemingly taken the conservative route. On the outside, the new iPhone looks basically the same as the iPhone 6/6s.On the seventh day the designers rested. In came the engineers. And the master of controversy struck again. Apple is proud of the bold move of removing the audio jack. But in pretty much every other aspect they've seemingly taken the conservative route. On the outside, the new iPhone looks basically the same as the iPhone 6/6s.",
+    imageUrl: IMAGE_URL.Iphone7PlusImageUrl,
+    memoryCapacities: [
+      memoryCapacities[0],
+      memoryCapacities[1],
+      memoryCapacities[2],
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "iPhone 14 Pro Max",
+    price: 1199,
+    category: categories[0],
+    description:
+      "The best iPhone ever, version 2022, size XL - we have the iPhone 14 Pro Max. The list of novelties this year includes the notch morphing into a pill, the introduction of an Always-On display, and an all-new primary camera - and while you can get all of that on the 14 Pro, the extra screen estate and longevity coupled with the Max's 'ultimate' status mean it has a market niche of its own.",
+    imageUrl: IMAGE_URL.Iphone14PromaxImageUrl,
+    memoryCapacities: [
+      memoryCapacities[2],
+      memoryCapacities[3],
+      memoryCapacities[4],
+    ],
+    colors: iPhone14Colors,
+    subImageUrls: [
+      SUB_IMAGE_URLS.Iphone14ProMaxSubImage1Url,
+      SUB_IMAGE_URLS.Iphone14ProMaxSubImage2Url,
+      SUB_IMAGE_URLS.Iphone14ProMaxSubImage3Url,
+      SUB_IMAGE_URLS.Iphone14ProMaxSubImage4Url,
+      SUB_IMAGE_URLS.Iphone14ProMaxSubImage5Url,
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "iPhone 13 Pro Max",
+    price: 1099,
+    category: categories[0],
+    description:
+      "Not just the best iPhone ever, but also the one with the 'biggest camera update ever' - that would be this year's iPhone 13 Pro, which we have here in Max size. Joining those larger and better cameras, we have a high refresh rate display, more battery, the mandatory chipset upgrade - the 13 Pro Max ticks all the boxes for improving everything that's important. We're here to see by just how much.",
+    imageUrl: IMAGE_URL.Iphone13PromaxImageUrl,
+    memoryCapacities: [
+      memoryCapacities[1],
+      memoryCapacities[2],
+      memoryCapacities[3],
+    ],
+    colors: iPhone13ProMaxColors,
+  },
+  {
+    id: uuidv4(),
+    name: "iPhone X",
+    price: 699,
+    category: categories[0],
+    description:
+      "The anniversary iPhone is here. The iPhone X. Or the iPhone 10. The name is as confusing as the product itself is game-changing. Tim Cook's vision finally overwhelmed Steve Jobs ideological remnants. A new dawn for the iPhones has begun, free of the iconic Home key and the notorious screen bezels.",
+    imageUrl: IMAGE_URL.IphoneXImageUrl,
+    colors: iPhoneXColors,
+    memoryCapacities: [
+      memoryCapacities[0],
+      memoryCapacities[1],
+      memoryCapacities[2],
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "iPhone 14 Plus",
+    price: 1099,
+    category: categories[0],
+    description:
+      "Exit iPhone mini, enter iPhone Plus! Indeed, the rumors came true, and this year Apple launched a bigger non-Pro model instead of a mini one. We can only guess what Apple's plans are about the mini model, but today's review is about Apple's newest addition to the iPhone series - the iPhone 14 Plus.",
+    imageUrl: IMAGE_URL.Iphone14PlusImageUrl,
+    memoryCapacities: [
+      memoryCapacities[2],
+      memoryCapacities[3],
+      memoryCapacities[4],
+    ],
+    colors: iPhone14Colors,
+  },
+  {
+    id: uuidv4(),
+    name: "iPhone 12 Pro Max",
+    price: 999,
+    category: categories[0],
+    description:
+      "With the Apple iPhone 12 Pro Max, our collection is finally complete. It is the biggest, heaviest, most powerful, and most feature-rich iPhone Apple has made so far, and that's enough to make it the best-seller it was designed to become.",
+    imageUrl: IMAGE_URL.Iphone12PromaxImageUrl,
+    colors: iPhone12ProMaxColors,
+    memoryCapacities: [
+      memoryCapacities[1],
+      memoryCapacities[2],
+      memoryCapacities[3],
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "iPhone 8 Plus",
+    price: 299,
+    category: categories[0],
+    description:
+      "In another place and another time, the Apple iPhone 8 Plus would have been one of the hottest things around. Swathed in hype, causing a stir, bringing the free ride of the competition's flagships to an abrupt and painful halt.",
+    imageUrl: IMAGE_URL.Iphone8PlusImageUrl,
+    colors: iPhone8Colors,
+    memoryCapacities: [
+      memoryCapacities[0],
+      memoryCapacities[1],
+      memoryCapacities[2],
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "iPhone 11 Pro Max",
+    price: 899,
+    category: categories[0],
+    description:
+      "It's September and the well-oiled Apple marketing machine is in full swing yet again. Apple's iPhone event this fall brought us the iPhone 11 trio. And with that, we say goodbye to the iPhone XR that was replaced by the iPhone 11, and begone iPhone XS - enter iPhone 11 Pro.",
+    imageUrl: IMAGE_URL.Iphone11PromaxImageUrl,
+    colors: iPhone11ProColors,
+    memoryCapacities: [
+      memoryCapacities[1],
+      memoryCapacities[2],
+      memoryCapacities[3],
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "iPhone XS Max",
+    price: 799,
+    category: categories[0],
+    description:
+      "The iPhone X was not just a milestone for Apple. It also turned out to be the cornerstone the next generation of iPhones is being built around. And while the anniversary iPhone wowed everyone, many people voiced their wish for a Plus size model after the excitement had worn off. And this year Apple is righting this wrong with the iPhone XS Max.",
+    imageUrl: IMAGE_URL.IphoneXSmaxImageUrl,
+    colors: iPhoneXSColors,
+    memoryCapacities: [
+      memoryCapacities[1],
+      memoryCapacities[2],
+      memoryCapacities[3],
+    ],
+  },
+  {
+    id: uuidv4(),
+    name: "iPhone SE (2022)",
+    price: 999,
+    category: categories[0],
+    description:
+      "The Special Edition iPhone, also known as the cheapest iPhone, or the retro one, has been refreshed, and is now available for purchase. It's a very minor refresh of the phone with the same name from 2020, most upgrades stemming from the new chipset and its accompanying 5G modem.",
+    imageUrl: IMAGE_URL.IphoneSE2022ImageUrl,
+    colors: iPhoneSEColors,
+    memoryCapacities: [
+      memoryCapacities[1],
+      memoryCapacities[2],
+      memoryCapacities[3],
+    ],
+  },
+  // iPad data
+  {
+    id: uuidv4(),
+    name: "iPad Air (2020)",
+    price: 499,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadAir2020ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iPad Air (2022)",
+    price: 699,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadAir2022ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iPad Mini (2021)",
+    price: 799,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadMini2021ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iPad Pro 10",
+    price: 699,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadPro10ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iPad Pro 11 (2020)",
+    price: 899,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadPro112020ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iPad Pro 11 (2021)",
+    price: 999,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadPro112021ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iPad Pro 11 (2022)",
+    price: 1099,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadPro112022ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iPad Pro 12 (2020)",
+    price: 999,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadPro122020ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iPad Pro 12 (2021)",
+    price: 1099,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadPro122021ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iPad Pro 12 (2022)",
+    price: 1199,
+    category: categories[1],
+    description: "",
+    imageUrl: IMAGE_URL.IpadPro122022ImageUrl,
+  },
+  // iWatch data
+  {
+    id: uuidv4(),
+    name: "iWatch SE",
+    price: 399,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchSEImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iWatch SE (2022)",
+    price: 799,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchSE2022ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iWatch Series 6 Aluminum",
+    price: 599,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchSeries6AluminumImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iWatch Series 6 Edition",
+    price: 599,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchSeries6EditionImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iWatch Series 7",
+    price: 699,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchSeries7ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iWatch Series 7 Aluminum",
+    price: 799,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchSeries7AluminumImageUrl,
+  },
+
+  {
+    id: uuidv4(),
+    name: "iWatch Series 7 Edition",
+    price: 899,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchSeries7EditionImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iWatch Series 8",
+    price: 899,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchSeries8ImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iWatch Series 8 Aluminum",
+    price: 999,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchSeries8AluminumImageUrl,
+  },
+  {
+    id: uuidv4(),
+    name: "iWatch Ultra",
+    price: 1099,
+    category: categories[2],
+    description: "",
+    imageUrl: IMAGE_URL.IwatchUltraImageUrl,
+  },
+];

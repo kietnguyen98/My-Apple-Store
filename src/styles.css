@@ -1,0 +1,51 @@
+/* Global Styles */
+:root{
+  /* dimension values */
+  --app-header-height: 60px;
+  --app-breadcrumbs-height: 48px;
+  --app-side-nav-width: 300px;
+
+  /* color values */
+  --app-primary-color: #191919;
+  --app-secondary-color: #6b6b6b;
+  --app-accent-color: #e6e8e6;
+  --app-warn-color: #f15125;
+
+  /* font size values */
+  --app-font-size-extra-small: 14px;
+  --app-font-size-small: 16px;
+  --app-font-size-medium: 18px;
+  --app-font-size-large: 24px;
+  --app-font-size-extra-large: 32px;
+  --app-font-size-extra-extra-large: 48px;
+  
+  /* border radius values */
+  --app-border-radius-extra-small: 4px;
+  --app-border-radius-small: 8px;
+  --app-border-radius-medium: 12px;
+  --app-border-radius-large: 16px;
+
+  /* box shadow values */
+  --app-badge-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  --app-header-box-shadow:  rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  --app-quantity-selector-box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+* {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}

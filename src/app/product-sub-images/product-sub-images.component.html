@@ -1,0 +1,32 @@
+<div class="container slider">
+  <button
+    mat-mini-fab
+    color="primary"
+    class="action-button prev-button"
+    (click)="handleSlidePrevious()">
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+  <div class="slides">
+    <div
+      class="slide"
+      *ngFor="let imageUrl of listImageUrl; let i = index"
+      [id]="'slide_product_image_' + i">
+      <div
+        mat-ripple
+        [class]="
+          'image-container ' +
+          (currentImageUrl === imageUrl ? 'selected' : 'unselected')
+        "
+        (click)="handleChangeCurrentImageUrl(imageUrl)">
+        <img [alt]="'sub images'" [src]="imageUrl" />
+      </div>
+    </div>
+  </div>
+  <button
+    mat-mini-fab
+    color="primary"
+    class="action-button next-button"
+    (click)="handleSlideNext()">
+    <mat-icon>navigate_next</mat-icon>
+  </button>
+</div>

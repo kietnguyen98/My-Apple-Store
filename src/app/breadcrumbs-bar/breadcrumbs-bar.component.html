@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="content-container">
+    <a [href]="'/'" class="breadcrumb-value"> <mat-icon>home</mat-icon> Home</a>
+    <div class="breadcrumb-tag" *ngFor="let link of links">
+      <span>/</span>
+      <a class="breadcrumb-value" [href]="link.to">{{ link.name }}</a>
+    </div>
+  </div>
+</div>

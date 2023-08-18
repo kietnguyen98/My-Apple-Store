@@ -1,0 +1,79 @@
+<div class="container" *ngIf="product">
+  <app-breadcrumbs-bar></app-breadcrumbs-bar>
+  <div class="layout-container">
+    <div class="main-content-container">
+      <div class="images-container">
+        <div class="main-image-container">
+          <img [alt]="'image of ' + product.name" [src]="currentImageUrl" />
+        </div>
+        <div
+          class="sub-images-container"
+          *ngIf="product.imageUrl && product.subImageUrls">
+          <app-product-sub-images
+            [listImageUrl]="[product.imageUrl].concat(product.subImageUrls)"
+            (changeImageUrl)="
+              handleChangeCurrentImageUrl($event)
+            "></app-product-sub-images>
+        </div>
+      </div>
+      <div class="content-container">
+        <p class="product-category">{{ product.category.name }}</p>
+        <p class="product-name">{{ product.name }}</p>
+        <p class="product-description">{{ product.description }}</p>
+        <div class="action-container">
+          <div class="product-price-container">
+            <p class="product-price-label">price per product</p>
+            <p class="product-price">{{ currentProductPrice | currency }}</p>
+          </div>
+          <div
+            class="memories-capactity-container"
+            *ngIf="product.memoryCapacities">
+            <app-product-memories-select
+              (changeMemoryCapacity)="handleChangeMemoryCapacity($event)"
+              [options]="
+                product.memoryCapacities
+              "></app-product-memories-select>
+          </div>
+          <div class="colors-container" *ngIf="product.colors">
+            <app-product-colors-select
+              [options]="product.colors"></app-product-colors-select>
+          </div>
+          <div class="quantity-container">
+            <app-product-quantity-select
+              (changeQuantity)="
+                handleChangeQuantity($event)
+              "></app-product-quantity-select>
+          </div>
+        </div>
+        <div class="final-action-container">
+          <div class="total-price-container">
+            <p class="total-price-label">Price in total</p>
+            <p class="total-price-value">{{ totalPrice | currency }}</p>
+          </div>
+          <div class="button-container">
+            <button
+              class="action-button"
+              type="button"
+              mat-raised-button
+              color="primary">
+              Buy
+            </button>
+            <button
+              class="action-button"
+              type="button"
+              mat-raised-button
+              color="warn">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-content-container">
+      <div class="related-products-container">
+        <app-products-related [listProducts]="listRelatedProducts">
+        </app-products-related>
+      </div>
+    </div>
+  </div>
+</div>
