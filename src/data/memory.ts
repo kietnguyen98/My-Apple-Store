@@ -1,13 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
+import { TMemoryCapacities } from "@/types";
 
-export interface IMemoryCapacity {
-  id: string;
-  name: string;
-  plusPrice: number;
-  value: number;
-}
-
-export const memoryCapacities: Array<IMemoryCapacity> = [
+export const memoryCapacities: TMemoryCapacities = [
   {
     id: uuidv4(),
     name: "64 GB",

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { IProduct, products } from "@/data/products";
+import { products } from "@/data/products";
+import { TProducts } from "@/types";
 import { CATEGORIES, PRICES } from "@/constants";
 import { PAGINATION } from "@/constants";
 import { COMPONENT_DIMENSIONS } from "@/constants";
@@ -22,7 +23,7 @@ export class ProductListComponent implements OnInit {
   productsPerPage: number = PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[0].value;
 
   // current list of products
-  products: Array<IProduct> = [...products].filter(
+  products: TProducts = [...products].filter(
     product =>
       (this.currentCategoryValue !== CATEGORIES.ALL_VALUE
         ? product.category.name === this.currentCategoryValue
@@ -30,7 +31,7 @@ export class ProductListComponent implements OnInit {
       product.price >= this.currentStartPriceValue &&
       product.price <= this.currentEndPriceValue
   );
-  productsToShow: Array<IProduct> = [...this.products].slice(
+  productsToShow: TProducts = [...this.products].slice(
     (this.currentPage - 1) * this.productsPerPage,
     this.currentPage * this.productsPerPage
   );

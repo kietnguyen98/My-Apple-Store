@@ -1,11 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
+import { TCategories } from "@/types";
 
-export interface ICategory {
-  id: string;
-  name: string;
-}
-
-export const categories: Array<ICategory> = [
+export const categories: TCategories = [
   {
     id: uuidv4(),
     name: "iPhone",

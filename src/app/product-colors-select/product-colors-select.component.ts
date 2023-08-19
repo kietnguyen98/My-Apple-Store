@@ -1,14 +1,13 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { IColor } from "@/data/colors";
-
+import { TColor, TColors } from "@/types";
 @Component({
   selector: "app-product-colors-select",
   templateUrl: "./product-colors-select.component.html",
   styleUrls: ["./product-colors-select.component.css"],
 })
 export class ProductColorsSelectComponent implements OnInit {
-  @Input() options: Array<IColor> = [];
-  currentOption: IColor | null = null;
+  @Input() options: TColors = [];
+  currentOption: TColor | null = null;
 
   ngOnInit(): void {
     if (this.options.length > 0) {
@@ -16,7 +15,7 @@ export class ProductColorsSelectComponent implements OnInit {
     }
   }
 
-  handleChangeColor(newColor: IColor) {
+  handleChangeColor(newColor: TColor) {
     this.currentOption = newColor;
   }
 }

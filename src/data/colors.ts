@@ -1,13 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
+import { TColors } from "@/types";
 
-export interface IColor {
-  id: string;
-  name: string;
-  value: string;
-  code: string;
-}
-
-const iPhone14Colors: Array<IColor> = [
+const iPhone14Colors: TColors = [
   {
     id: uuidv4(),
     name: "black",
@@ -29,7 +23,7 @@ const iPhone14Colors: Array<IColor> = [
   },
 ];
 
-const iPhone13ProMaxColors: Array<IColor> = [
+const iPhone13ProMaxColors: TColors = [
   {
     id: uuidv4(),
     name: "blue",
@@ -57,7 +51,7 @@ const iPhone13ProMaxColors: Array<IColor> = [
   },
 ];
 
-const iPhone12ProMaxColors: Array<IColor> = [
+const iPhone12ProMaxColors: TColors = [
   {
     id: uuidv4(),
     name: "graphite",
@@ -79,7 +73,7 @@ const iPhone12ProMaxColors: Array<IColor> = [
   },
 ];
 
-const iPhone11ProColors: Array<IColor> = [
+const iPhone11ProColors: TColors = [
   {
     id: uuidv4(),
     name: "green",
@@ -101,7 +95,7 @@ const iPhone11ProColors: Array<IColor> = [
   },
 ];
 
-const iPhoneXSColors: Array<IColor> = [
+const iPhoneXSColors: TColors = [
   {
     id: uuidv4(),
     name: "black",
@@ -117,7 +111,7 @@ const iPhoneXSColors: Array<IColor> = [
   { id: uuidv4(), name: "gold", value: "gold", code: "#F5DDC5" },
 ];
 
-const iPhoneSEColors: Array<IColor> = [
+const iPhoneSEColors: TColors = [
   {
     id: uuidv4(),
     name: "silver",
@@ -134,7 +128,7 @@ const iPhoneSEColors: Array<IColor> = [
   { id: uuidv4(), name: "rose", value: "rose", code: "#e8c1bc" },
 ];
 
-const iPhoneXColors: Array<IColor> = [
+const iPhoneXColors: TColors = [
   {
     id: uuidv4(),
     name: "silver",
@@ -149,7 +143,7 @@ const iPhoneXColors: Array<IColor> = [
   },
 ];
 
-const iPhone8Colors: Array<IColor> = [
+const iPhone8Colors: TColors = [
   {
     id: uuidv4(),
     name: "silver",

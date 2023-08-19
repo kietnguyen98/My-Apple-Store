@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
-import { IMemoryCapacity } from "@/data/memory";
+import { TMemoryCapacity, TMemoryCapacities } from "@/types";
 
 @Component({
   selector: "app-product-memories-select",
@@ -7,10 +7,10 @@ import { IMemoryCapacity } from "@/data/memory";
   styleUrls: ["./product-memories-select.component.css"],
 })
 export class ProductMemoriesSelectComponent implements OnInit {
-  @Input() options: Array<IMemoryCapacity> = [];
-  @Output() changeMemoryCapacity = new EventEmitter<IMemoryCapacity>();
+  @Input() options: TMemoryCapacities = [];
+  @Output() changeMemoryCapacity = new EventEmitter<TMemoryCapacity>();
 
-  currentOption: IMemoryCapacity | null = null;
+  currentOption: TMemoryCapacity | null = null;
 
   ngOnInit(): void {
     if (this.options.length > 0) {
@@ -18,7 +18,7 @@ export class ProductMemoriesSelectComponent implements OnInit {
     }
   }
 
-  handleChangeMemoryCapacity(newValue: IMemoryCapacity) {
+  handleChangeMemoryCapacity(newValue: TMemoryCapacity) {
     if (newValue !== this.currentOption) {
       this.currentOption = newValue;
       this.changeMemoryCapacity.emit(this.currentOption);

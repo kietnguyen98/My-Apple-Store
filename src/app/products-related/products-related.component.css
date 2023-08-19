@@ -4,8 +4,8 @@
 
 .label {
     font-weight: 500;
-    font-size: var(--app-font-size-medium);
-    color: var(--app-secondary-color);
+    font-size: var(--app-font-size-large);
+    color: var(--app-primary-color);
 }
 
 .slider{

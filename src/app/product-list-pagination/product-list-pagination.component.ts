@@ -4,16 +4,17 @@ import {
   Output,
   EventEmitter,
   OnChanges,
+  OnInit,
 } from "@angular/core";
 import { PAGINATION } from "@/constants";
-import { INumElementsPerPageOption } from "@/types";
+import { TNumElementsPerPageOptions } from "@/types";
 
 @Component({
   selector: "app-product-list-pagination",
   templateUrl: "./product-list-pagination.component.html",
   styleUrls: ["./product-list-pagination.component.css"],
 })
-export class ProductListPaginationComponent implements OnChanges {
+export class ProductListPaginationComponent implements OnInit, OnChanges {
   @Input() totalElements: number = 0;
   @Output() changeCurrentPage = new EventEmitter<number>();
   @Output() changeNumElementsPerPage = new EventEmitter<number>();
@@ -22,11 +23,17 @@ export class ProductListPaginationComponent implements OnChanges {
   elementPerPage: number = PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[0].value;
   pageMin: number = 1;
   pageMax: number = 1;
-  numElementsPerPageOptions: Array<INumElementsPerPageOption> =
+  elementsPerPageOptions: TNumElementsPerPageOptions =
     PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS;
 
   ngOnChanges(): void {
     this.updateOnProductsChange();
+  }
+
+  ngOnInit(): void {
+    this.changeElementsPerPage(
+      PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value
+    );
   }
 
   selectPage(newPage: number) {
@@ -48,8 +55,9 @@ export class ProductListPaginationComponent implements OnChanges {
     }
   }
 
-  changeElementsPerPage(event: any) {
-    const newValue = event.target.value;
+  changeElementsPerPage(event: any | number) {
+    const newValue: number =
+      typeof event === "number" ? event : event.target.value;
     this.elementPerPage = newValue;
     this.pageMax = Math.ceil(this.totalElements / this.elementPerPage);
     this.selectPage(this.pageMin);

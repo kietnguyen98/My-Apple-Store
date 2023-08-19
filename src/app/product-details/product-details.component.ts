@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { IMemoryCapacity } from "@/data/memory";
-import { IColor } from "@/data/colors";
-import { IProduct, products } from "../../data/products";
+import { TProduct, TMemoryCapacity, TColor, TProducts } from "@/types";
+import { products } from "../../data/products";
 import { CartService } from "../cart.service";
 
 @Component({
@@ -11,14 +10,14 @@ import { CartService } from "../cart.service";
   styleUrls: ["./product-details.component.css"],
 })
 export class ProductDetailsComponent implements OnInit {
-  product: IProduct | undefined;
+  product: TProduct | undefined;
   currentImageUrl: string | undefined = "";
-  currentMemoryCapacity: IMemoryCapacity | undefined;
-  currentColor: IColor | undefined;
+  currentMemoryCapacity: TMemoryCapacity | undefined;
+  currentColor: TColor | undefined;
   currentProductPrice: number = 0;
   currentQuantity: number = 1;
   totalPrice: number = 0;
-  listRelatedProducts: Array<IProduct> = [];
+  listRelatedProducts: TProducts = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -46,7 +45,7 @@ export class ProductDetailsComponent implements OnInit {
     );
   }
 
-  handleChangeMemoryCapacity(newValue: IMemoryCapacity) {
+  handleChangeMemoryCapacity(newValue: TMemoryCapacity) {
     this.currentMemoryCapacity = newValue;
     this.updateCurrentProductPrice();
     this.updateTotalProductPrice();
@@ -76,7 +75,7 @@ export class ProductDetailsComponent implements OnInit {
 
   // cart services
 
-  addToCart(product: IProduct) {
+  addToCart(product: TProduct) {
     this.cartService.addToCart(product);
     window.alert("Your product has been added to the cart !");
   }

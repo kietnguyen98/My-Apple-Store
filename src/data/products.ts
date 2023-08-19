@@ -1,9 +1,8 @@
 import { IMAGE_URL, SUB_IMAGE_URLS } from "../constants";
 import { v4 as uuidv4 } from "uuid";
-import { ICategory, categories } from "./categorys";
-import { IMemoryCapacity, memoryCapacities } from "./memory";
+import { categories } from "./categories";
+import { memoryCapacities } from "./memory";
 import {
-  IColor,
   iPhone14Colors,
   iPhone13ProMaxColors,
   iPhone12ProMaxColors,
@@ -13,19 +12,9 @@ import {
   iPhoneXColors,
   iPhone8Colors,
 } from "./colors";
-export interface IProduct {
-  id: string;
-  name: string;
-  price: number;
-  category: ICategory;
-  description: string;
-  imageUrl: string;
-  memoryCapacities?: Array<IMemoryCapacity>;
-  colors?: Array<IColor>;
-  subImageUrls?: Array<string>;
-}
+import { TProducts } from "@/types";
 
-export const products: Array<IProduct> = [
+export const products: TProducts = [
   // iPhone data
   {
     id: uuidv4(),

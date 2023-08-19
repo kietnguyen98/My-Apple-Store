@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { IBreadcrumbLink } from "@/types";
+import { TBreadcrumbLink } from "@/types";
 
 @Component({
   selector: "app-breadcrumbs-bar",
@@ -8,7 +8,7 @@ import { IBreadcrumbLink } from "@/types";
   styleUrls: ["./breadcrumbs-bar.component.css"],
 })
 export class BreadcrumbsBarComponent implements OnInit {
-  links: Array<IBreadcrumbLink> = [];
+  links: Array<TBreadcrumbLink> = [];
 
   constructor(private router: Router) {}
 
@@ -19,7 +19,7 @@ export class BreadcrumbsBarComponent implements OnInit {
       .filter(link => link.length > 0);
 
     for (let i = 0; i < linkNames.length; i++) {
-      let link: IBreadcrumbLink;
+      let link: TBreadcrumbLink;
       if (i > 0) {
         let linkTo = "";
         for (let j = 0; j <= i; j++) {

@@ -11,8 +11,9 @@
         class="page-size-selector"
         (change)="changeElementsPerPage($event)">
         <option
-          *ngFor="let option of numElementsPerPageOptions"
-          [value]="option.value">
+          *ngFor="let option of elementsPerPageOptions"
+          [value]="option.value"
+          [selected]="option.value === elementPerPage">
           {{ option.name }}
         </option>
       </select>

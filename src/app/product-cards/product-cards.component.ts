@@ -1,13 +1,12 @@
 import { Component, Input } from "@angular/core";
-import { IProduct } from "@/data/products";
-
+import { TProduct } from "@/types";
 @Component({
   selector: "app-product-cards",
   templateUrl: "./product-cards.component.html",
   styleUrls: ["./product-cards.component.css"],
 })
 export class ProductCardsComponent {
-  @Input() product: IProduct | undefined;
+  @Input() product: TProduct | undefined;
   @Input() shouldShowAddToCart: boolean = true;
 
   onNotify() {

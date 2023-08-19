@@ -1,6 +1,6 @@
-import { INumElementsPerPageOption } from "@/types";
+import { TNumElementsPerPageOption } from "@/types";
 
-const NUM_ELEMENTS_PER_PAGE_OPTIONS: Array<INumElementsPerPageOption> = [
+const NUM_ELEMENTS_PER_PAGE_OPTIONS: Array<TNumElementsPerPageOption> = [
   {
     name: "5 per page",
     value: 5,

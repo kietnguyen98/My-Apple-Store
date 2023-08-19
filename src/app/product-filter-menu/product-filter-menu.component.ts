@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from "@angular/core";
-import { ICategory, categories } from "@/data/categorys";
+import { categories } from "@/data/categories";
+import { TCategories } from "@/types";
 import { PRICES } from "@/constants";
 import { CATEGORIES } from "@/constants";
 import { MatRadioChange } from "@angular/material/radio";
@@ -10,7 +11,7 @@ import { MatRadioChange } from "@angular/material/radio";
   styleUrls: ["./product-filter-menu.component.css"],
 })
 export class ProductFilterMenuComponent {
-  categories: Array<ICategory> | undefined = [...categories];
+  categories: TCategories | undefined = [...categories];
   currentCategory: string = CATEGORIES.ALL_VALUE;
   startPrice: number = PRICES.DEFAULT_FILTER_START_PRICE;
   endPrice: number = PRICES.DEFAULT_FILTER_END_PRICE;
