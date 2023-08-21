@@ -3,9 +3,10 @@
 }
 
 .label {
-    font-weight: 500;
-    font-size: var(--app-font-size-large);
+    font-weight: 600;
+    font-size: var(--app-font-size-medium);
     color: var(--app-primary-color);
+    text-transform: uppercase;
 }
 
 .slider{

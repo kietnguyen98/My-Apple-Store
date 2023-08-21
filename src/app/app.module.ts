@@ -40,6 +40,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatSelectModule } from "@angular/material/select";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatRippleModule } from "@angular/material/core";
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   imports: [
@@ -87,6 +88,7 @@ import { MatRippleModule } from "@angular/material/core";
     ProductQuantitySelectComponent,
     ProductSubImagesComponent,
     ProductsRelatedComponent,
+    CarouselComponent,
   ],
   bootstrap: [AppComponent],
 })
