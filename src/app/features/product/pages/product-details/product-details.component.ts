@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, ParamMap } from "@angular/router";
 import { TProduct, TMemoryCapacity, TColor, TProducts } from "@/types";
 import { products } from "@/data/products";
 import { CartService } from "@/app/features/cart/service/cart.service";
-
+import { ROUTE_PARAMS } from "@/configs/routes";
 @Component({
   selector: "app-product-details",
   templateUrl: "./product-details.component.html",
@@ -25,12 +25,13 @@ export class ProductDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const productNameFromRoute = routeParams.get("productName");
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const productNameFromRoute = params.get(ROUTE_PARAMS.PRODUCT_NAME);
 
-    this.product = products.find(
-      product => product.name === productNameFromRoute
-    );
+      this.product = products.find(
+        product => product.name === productNameFromRoute
+      );
+    });
 
     this.currentImageUrl = this.product?.imageUrl;
     this.currentMemoryCapacity = this.product?.memoryCapacities?.[0];
