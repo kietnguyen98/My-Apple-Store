@@ -6,7 +6,7 @@ import { TProduct } from "@/types";
   styleUrls: ["./product-cards.component.css"],
 })
 export class ProductCardsComponent {
-  @Input() product: TProduct | undefined;
+  @Input() product?: TProduct;
   @Input() shouldShowAddToCart: boolean = true;
 
   onNotify() {
