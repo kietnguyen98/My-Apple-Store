@@ -12,6 +12,7 @@ import { ProductColorsSelectComponent } from "./components/product-colors-select
 import { ProductQuantitySelectComponent } from "./components/product-quantity-select/product-quantity-select.component";
 import { ProductSubImagesComponent } from "./components/product-sub-images/product-sub-images.component";
 import { ProductsRelatedComponent } from "./components/products-related/products-related.component";
+import { ProductDescriptionAndRateModule } from "./components/product-description-and-rate/product-description-and-rate.module";
 
 // share component
 import { ShareModule } from "@/app/share/share.module";
@@ -46,6 +47,7 @@ import { MatButtonModule } from "@angular/material/button";
     MatSidenavModule,
     ShareModule,
     MatButtonModule,
+    ProductDescriptionAndRateModule,
   ],
   declarations: [
     // components

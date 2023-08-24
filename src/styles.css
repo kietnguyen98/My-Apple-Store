@@ -10,6 +10,7 @@
   --app-secondary-color: #6b6b6b;
   --app-accent-color: #e6e8e6;
   --app-warn-color: #f15125;
+  --app-background-color: #fafafa
 
   /* font size values */
   --app-font-size-extra-small: 14px;
@@ -26,9 +27,9 @@
   --app-border-radius-large: 16px;
 
   /* box shadow values */
+  --app-container-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   --app-badge-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   --app-header-box-shadow:  rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  --app-quantity-selector-box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 * {

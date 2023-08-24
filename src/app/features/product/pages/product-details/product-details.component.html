@@ -4,7 +4,9 @@
     <div class="main-content-container">
       <div class="images-container">
         <div class="main-image-container">
-          <img [alt]="'image of ' + product.name" [src]="currentImageUrl" />
+          <div class="main-image-wrapper">
+            <img [alt]="'image of ' + product.name" [src]="currentImageUrl" />
+          </div>
         </div>
         <div
           class="sub-images-container"
@@ -67,11 +69,13 @@
         </div>
       </div>
     </div>
-    <div class="sub-content-container">
-      <div class="related-products-container">
-        <app-products-related [listProducts]="listRelatedProducts">
-        </app-products-related>
-      </div>
+    <div class="description-and-rating-container">
+      <app-product-description-and-rate
+        [product]="product"></app-product-description-and-rate>
+    </div>
+    <div class="related-products-container">
+      <app-products-related [listProducts]="listRelatedProducts">
+      </app-products-related>
     </div>
   </div>
 </div>

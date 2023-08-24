@@ -1,0 +1,13 @@
+<div class="container" *ngIf="product">
+  <p class="label">Product's description</p>
+  <p class="description">{{ product.description }}</p>
+  <p class="label">Product's images</p>
+  <div class="images-container">
+    <img class="image" alt="product-main-image" [src]="product.imageUrl" />
+    <img
+      class="image"
+      *ngFor="let imageUrl of product.subImageUrls"
+      alt="product-sub-image"
+      [src]="imageUrl" />
+  </div>
+</div>

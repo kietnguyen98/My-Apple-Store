@@ -1,0 +1,11 @@
+.container{
+    width: 100%;
+    background-color: white;
+    border-radius: var(--app-border-radius-small);  
+    box-shadow: var(--app-container-box-shadow);
+    padding: 30px
+}
+
+.label{
+    font-size: var(--app-font-size-extra-large);
+}

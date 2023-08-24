@@ -1,11 +1,7 @@
-.container{
-    padding: 0px 20px;
-}
-
 .label {
-    font-weight: 600;
+    font-weight: 500;
     font-size: var(--app-font-size-medium);
-    color: var(--app-primary-color);
+    color: var(--app-secondary-color);
     text-transform: uppercase;
     text-align: center;
 }

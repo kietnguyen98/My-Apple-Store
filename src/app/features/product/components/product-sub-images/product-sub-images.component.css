@@ -10,7 +10,7 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .slides {
-    width: 600px;
+    width: 500px;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
@@ -26,8 +26,8 @@
 }
 
 .slide {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     flex-shrink: 0;
     scroll-snap-align: start;
 }
@@ -36,8 +36,8 @@
     border-radius: var(--app-border-radius-small);
     box-shadow: var(--app-badge-box-shadow);
     transition: all 0.25s ease-in-out;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     padding: 2px;
 }
 
@@ -63,15 +63,15 @@
 
 .action-button {
     position: absolute;
-    z-index: 9999;
+    z-index: 1;
 }
 
 .prev-button{
     top: calc(50% - 48px / 2);
-    left: calc(-48px - 20px);
+    left: calc(-48px);
 }
 
 .next-button{
     top: calc(50% - 48px / 2);
-    right: calc(-48px - 20px);
+    right: calc(-48px);
 }

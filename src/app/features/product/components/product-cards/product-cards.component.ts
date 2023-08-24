@@ -14,7 +14,12 @@ export class ProductCardsComponent {
   constructor(private router: Router) {}
 
   onGetDetailProduct() {
-    this.router.navigate([PATH.LIST_PRODUCTS, this.product?.name]);
+    this.router
+      .navigateByUrl("/dummy", { skipLocationChange: true })
+      .then(() => {
+        this.router.navigate([PATH.LIST_PRODUCTS, this.product?.name]);
+        window.scrollTo(0, 0);
+      });
   }
 
   onNotify() {
