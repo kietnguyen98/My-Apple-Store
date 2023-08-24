@@ -19,17 +19,19 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <a class="fluid-button" [routerLink]="['/products', product.name]">
-      <button class="fluid-button" mat-flat-button color="primary">
-        Check it out !
-      </button>
-    </a>
+    <button
+      class="fluid-button"
+      mat-flat-button
+      color="primary"
+      (click)="onGetDetailProduct()">
+      Check it out !
+    </button>
     <button
       *ngIf="shouldShowAddToCart"
       class="fluid-button"
       mat-flat-button
       color="warn"
-      (notify)="onNotify()">
+      (click)="onNotify()">
       Add to cart
     </button>
   </mat-card-actions>

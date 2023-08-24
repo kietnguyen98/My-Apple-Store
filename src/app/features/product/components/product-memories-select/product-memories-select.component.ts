@@ -1,21 +1,26 @@
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
-import { TMemoryCapacity, TMemoryCapacities } from "@/types";
-
+import { TMemoryCapacity, TMemoryCapacities, TProduct } from "@/types";
+import { ProductService } from "../../services/product.service";
 @Component({
   selector: "app-product-memories-select",
   templateUrl: "./product-memories-select.component.html",
   styleUrls: ["./product-memories-select.component.css"],
 })
-export class ProductMemoriesSelectComponent implements OnInit {
-  @Input() options: TMemoryCapacities = [];
-  @Output() changeMemoryCapacity = new EventEmitter<TMemoryCapacity>();
+export class ProductMemoriesSelectComponent {
+  options: TMemoryCapacities = [];
+  currentOption?: TMemoryCapacity;
+  @Output() changeMemoryCapacity = new EventEmitter<TMemoryCapacity>(true);
 
-  currentOption: TMemoryCapacity | null = null;
-
-  ngOnInit(): void {
-    if (this.options.length > 0) {
-      this.currentOption = this.options[0];
-    }
+  constructor(private productService: ProductService) {
+    this.productService
+      .getProductDetail()
+      .subscribe((data: TProduct | null) => {
+        this.options = data?.memoryCapacities || [];
+        setTimeout(() => {
+          // wrap setTimeout function here to avoid NG0100 error
+          this.handleChangeMemoryCapacity(this.options[0]);
+        }, 0);
+      });
   }
 
   handleChangeMemoryCapacity(newValue: TMemoryCapacity) {

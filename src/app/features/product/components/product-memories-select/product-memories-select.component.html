@@ -3,6 +3,7 @@
   <mat-chip-listbox>
     <mat-chip-option
       *ngFor="let option of options"
+      [value]="option.value"
       [selected]="option.value === currentOption?.value"
       [selectable]="option.value !== currentOption?.value"
       (selectionChange)="handleChangeMemoryCapacity(option)"

@@ -29,14 +29,12 @@
             class="memories-capactity-container"
             *ngIf="product.memoryCapacities">
             <app-product-memories-select
-              (changeMemoryCapacity)="handleChangeMemoryCapacity($event)"
-              [options]="
-                product.memoryCapacities
+              (changeMemoryCapacity)="
+                handleChangeMemoryCapacity($event)
               "></app-product-memories-select>
           </div>
           <div class="colors-container" *ngIf="product.colors">
-            <app-product-colors-select
-              [options]="product.colors"></app-product-colors-select>
+            <app-product-colors-select></app-product-colors-select>
           </div>
           <div class="quantity-container">
             <app-product-quantity-select

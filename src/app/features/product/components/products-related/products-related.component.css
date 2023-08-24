@@ -7,6 +7,7 @@
     font-size: var(--app-font-size-medium);
     color: var(--app-primary-color);
     text-transform: uppercase;
+    text-align: center;
 }
 
 .slider{
@@ -30,6 +31,10 @@
     scrollbar-width: none;  /* Firefox */
 }
 
+.product-card{
+    width: 360px;
+}
+
 
 .card-container::-webkit-scrollbar {
     display: none;
@@ -40,11 +45,11 @@
 }
 
 .previous-button {
-    top: calc(50% - 48px);
+    top: calc(50% - 48px / 2);
     left: 0px;
 }
 
 .next-button {
-    top: calc(50% - 48px);
-    right: 0px;
+    top: calc(50% - 48px / 2);
+    right: -8px;
 }

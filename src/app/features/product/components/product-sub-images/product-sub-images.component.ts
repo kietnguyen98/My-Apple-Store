@@ -29,7 +29,7 @@ export class ProductSubImagesComponent implements OnInit {
       element.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
-        inline: "center",
+        inline: "start",
       });
     }
   }
@@ -42,7 +42,7 @@ export class ProductSubImagesComponent implements OnInit {
       element.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
-        inline: "center",
+        inline: "start",
       });
     }
   }

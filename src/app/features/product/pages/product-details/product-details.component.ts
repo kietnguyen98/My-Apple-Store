@@ -1,15 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { TProduct, TMemoryCapacity, TColor, TProducts } from "@/types";
 import { products } from "@/data/products";
 import { CartService } from "@/app/features/cart/service/cart.service";
 import { ROUTE_PARAMS } from "@/configs/routes";
+import { ProductService } from "../../services/product.service";
 @Component({
   selector: "app-product-details",
   templateUrl: "./product-details.component.html",
   styleUrls: ["./product-details.component.css"],
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent {
   product: TProduct | undefined;
   currentImageUrl: string | undefined = "";
   currentMemoryCapacity: TMemoryCapacity | undefined;
@@ -21,23 +22,24 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
-  ) {}
-
-  ngOnInit(): void {
+    private cartService: CartService,
+    private productService: ProductService
+  ) {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const productNameFromRoute = params.get(ROUTE_PARAMS.PRODUCT_NAME);
 
       this.product = products.find(
         product => product.name === productNameFromRoute
       );
-    });
 
-    this.currentImageUrl = this.product?.imageUrl;
-    this.currentMemoryCapacity = this.product?.memoryCapacities?.[0];
-    this.currentColor = this.product?.colors?.[0];
-    this.updateCurrentProductPrice();
-    this.updateTotalProductPrice();
+      this.currentMemoryCapacity = undefined;
+      this.productService.setProductDetail(this.product as TProduct);
+      this.refreshProductInfo(this.product as TProduct);
+    });
+  }
+
+  refreshProductInfo(product: TProduct) {
+    this.currentImageUrl = product.imageUrl;
 
     this.listRelatedProducts = products.filter(
       product =>
@@ -54,7 +56,6 @@ export class ProductDetailsComponent implements OnInit {
 
   handleChangeQuantity(newValue: number) {
     this.currentQuantity = newValue;
-    this.updateCurrentProductPrice();
     this.updateTotalProductPrice();
   }
 

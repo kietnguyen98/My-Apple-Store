@@ -1,17 +1,25 @@
 <div class="container">
   <p class="label">Related Products</p>
   <div class="slider">
-    <button mat-icon-button class="action-button previous-button">
+    <button
+      mat-icon-button
+      class="action-button previous-button"
+      (click)="handleSlidePrevious()">
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
     <div class="card-container">
       <app-product-cards
         *ngFor="let product of listProducts; let i = index"
+        [id]="'related_product_' + i"
         [product]="product"
-        [shouldShowAddToCart]="false">
+        [shouldShowAddToCart]="false"
+        class="card-width-360px">
       </app-product-cards>
     </div>
-    <button mat-icon-button class="action-button next-button">
+    <button
+      mat-icon-button
+      class="action-button next-button"
+      (click)="handleSlideNext()">
       <mat-icon>arrow_forward_ios</mat-icon>
     </button>
   </div>

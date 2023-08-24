@@ -5,6 +5,14 @@
     transition: all 0.25s ease-in-out;
 }
 
+:host-context(.card-width-360px) .card-container  {
+    width: 360px;
+ }
+
+ :host-context(.card-width-320px) .card-container  {
+    width: 320px;
+ }
+
 .card-container:hover {
     box-shadow: var(--app-header-box-shadow);
 }
@@ -51,7 +59,7 @@
 mat-card-actions{
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 10px 20px;
     gap: 10px;

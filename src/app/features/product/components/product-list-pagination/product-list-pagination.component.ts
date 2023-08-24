@@ -1,33 +1,25 @@
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  OnChanges,
-  OnInit,
-} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { PAGINATION } from "@/constants";
-import { TNumElementsPerPageOptions } from "@/types";
-
+import { TNumElementsPerPageOptions, TProducts } from "@/types";
+import { ProductService } from "../../services/product.service";
 @Component({
   selector: "app-product-list-pagination",
   templateUrl: "./product-list-pagination.component.html",
   styleUrls: ["./product-list-pagination.component.css"],
 })
-export class ProductListPaginationComponent implements OnInit, OnChanges {
-  @Input() totalElements: number = 0;
-  @Output() changeCurrentPage = new EventEmitter<number>();
-  @Output() changeNumElementsPerPage = new EventEmitter<number>();
-
+export class ProductListPaginationComponent implements OnInit {
+  totalElements: number = 0;
   currentPage: number = 1;
-  elementPerPage: number = PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[0].value;
+  elementPerPage: number = PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value;
   pageMin: number = 1;
   pageMax: number = 1;
   elementsPerPageOptions: TNumElementsPerPageOptions =
     PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS;
 
-  ngOnChanges(): void {
-    this.updateOnProductsChange();
+  constructor(private productService: ProductService) {
+    this.productService
+      .getListProducts()
+      .subscribe((data: TProducts) => (this.totalElements = data.length));
   }
 
   ngOnInit(): void {
@@ -39,7 +31,10 @@ export class ProductListPaginationComponent implements OnInit, OnChanges {
   selectPage(newPage: number) {
     if (newPage !== this.currentPage) {
       this.currentPage = newPage;
-      this.changeCurrentPage.emit(newPage);
+      this.productService.setQueryParams({
+        page: this.currentPage,
+        offset: this.elementPerPage,
+      });
     }
   }
 
@@ -61,7 +56,10 @@ export class ProductListPaginationComponent implements OnInit, OnChanges {
     this.elementPerPage = newValue;
     this.pageMax = Math.ceil(this.totalElements / this.elementPerPage);
     this.selectPage(this.pageMin);
-    this.changeNumElementsPerPage.emit(newValue);
+    this.productService.setQueryParams({
+      page: this.currentPage,
+      offset: this.elementPerPage,
+    });
   }
 
   updateOnProductsChange() {

@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from "@angular/core";
-
+import { ProductService } from "../../services/product.service";
 @Component({
   selector: "app-product-quantity-select",
   templateUrl: "./product-quantity-select.component.html",
@@ -7,7 +7,14 @@ import { Component, Output, EventEmitter } from "@angular/core";
 })
 export class ProductQuantitySelectComponent {
   quantity: number = 1;
-  @Output() changeQuantity = new EventEmitter<number>();
+  @Output() changeQuantity = new EventEmitter<number>(true);
+
+  constructor(private productService: ProductService) {
+    this.productService.getProductDetail().subscribe(() => {
+      this.quantity = 1;
+      this.changeQuantity.emit(this.quantity);
+    });
+  }
 
   increaseQuantity() {
     if (this.quantity < 99) {

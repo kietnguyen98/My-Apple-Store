@@ -20,6 +20,9 @@ import { ShareModule } from "@/app/share/share.module";
 import { ProductListComponent } from "./pages/product-list/product-list.component";
 import { ProductDetailsComponent } from "./pages/product-details/product-details.component";
 
+// services
+import { ProductService } from "./services/product.service";
+
 // angular material modules
 import { MatIconModule } from "@angular/material/icon";
 import { MatChipsModule } from "@angular/material/chips";
@@ -59,6 +62,7 @@ import { MatButtonModule } from "@angular/material/button";
     ProductListComponent,
     ProductDetailsComponent,
   ],
+  providers: [ProductService],
   exports: [
     // pages
     ProductListComponent,

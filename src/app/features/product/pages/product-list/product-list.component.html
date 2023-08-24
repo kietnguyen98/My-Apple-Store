@@ -2,19 +2,12 @@
   <app-breadcrumbs-bar></app-breadcrumbs-bar>
   <mat-drawer-container autosize class="drawer-container">
     <mat-drawer #drawer opened class="side-nav" mode="side" id="side-drawer">
-      <app-product-filter-menu
-        (categoryChange)="onCategoryChange($event)"
-        (startPriceChange)="onStartPriceChange($event)"
-        (endPriceChange)="onEndPriceChange($event)"
-        (sortPriceChange)="onSortPriceChange($event)" />
+      <app-product-filter-menu />
     </mat-drawer>
     <mat-drawer-content>
       <div class="products-list-container">
         <div class="product-list-paginator">
-          <app-product-list-pagination
-            [totalElements]="products.length"
-            (changeCurrentPage)="onChangeCurrentPage($event)"
-            (changeNumElementsPerPage)="onChangeNumProductsPerPage($event)">
+          <app-product-list-pagination>
             <div class="product-list">
               <app-product-cards
                 *ngFor="let product of productsToShow"
