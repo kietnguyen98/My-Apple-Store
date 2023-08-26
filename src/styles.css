@@ -3,14 +3,16 @@
   /* dimension values */
   --app-header-height: 60px;
   --app-breadcrumbs-height: 48px;
-  --app-side-nav-width: 300px;
+  --app-side-nav-width: 240px;
+  --app-container-fix-width-md: 1200px;
+  --app-container-fix-width-lg: 1400px;
 
   /* color values */
   --app-primary-color: #191919;
   --app-secondary-color: #6b6b6b;
   --app-accent-color: #e6e8e6;
   --app-warn-color: #f15125;
-  --app-background-color: #fafafa
+  --app-background-color: #fafafa;
 
   /* font size values */
   --app-font-size-extra-small: 14px;
@@ -19,6 +21,11 @@
   --app-font-size-large: 24px;
   --app-font-size-extra-large: 32px;
   --app-font-size-extra-extra-large: 48px;
+
+  /* font weight values */
+  --app-font-weight-light: 300;
+  --app-font-weight-regular: 400;
+  --app-font-weight-bold: 700;
   
   /* border radius values */
   --app-border-radius-extra-small: 4px;
@@ -27,13 +34,14 @@
   --app-border-radius-large: 16px;
 
   /* box shadow values */
+  --app-border-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   --app-container-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   --app-badge-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   --app-header-box-shadow:  rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 * {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Lato, sans-serif;
   box-sizing: border-box;
 }
 

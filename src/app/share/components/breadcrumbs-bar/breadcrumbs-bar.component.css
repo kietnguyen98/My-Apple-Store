@@ -5,15 +5,15 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    box-shadow: var(--app-header-box-shadow);
+    box-shadow: var(--app-border-box-shadow);
     position: relative;
     z-index: 9;
 }
 
 .breadcrumb-value {
+    font-size: var(--app-font-size-extra-small);
     color: var(--app-primary-color);
     text-transform: capitalize;
-    font-size: var(--app-font-size-extra-small);
     display: flex;
     align-items: center;
     gap: 4px;
@@ -30,7 +30,7 @@
 }
 
 .breadcrumb-value:hover{
-    font-weight: 500;
+    font-weight: var(--app-font-weight-bold);
 }
 
 .content-container {

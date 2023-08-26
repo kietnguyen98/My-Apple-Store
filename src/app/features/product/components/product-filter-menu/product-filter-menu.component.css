@@ -1,9 +1,9 @@
 .container {
-    padding: 20px;
+    padding: 15px;
 }
 
 mat-slider{
-    width: 240px;
+    width: 180px;
 }
 
 .container-title {
@@ -15,4 +15,17 @@ mat-slider{
     flex-direction: column;
     margin: 15px 0;
     align-items: flex-start;
+}
+
+h5 {
+    margin: 4px 0px;
+}
+
+p {
+    font-size: var(--app-font-size-extra-small);
+    margin: 4px 0px;
+}
+
+strong {
+    font-size: var(--app-font-size-extra-small);
 }

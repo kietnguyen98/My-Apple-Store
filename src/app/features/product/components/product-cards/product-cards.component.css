@@ -1,6 +1,5 @@
 .card-container {
     width: 100%;
-    padding: 20px;
     box-shadow: var(--app-badge-box-shadow);
     transition: all 0.25s ease-in-out;
 }
@@ -9,9 +8,9 @@
     width: 360px;
  }
 
- :host-context(.card-width-320px) .card-container  {
-    width: 320px;
- }
+:host-context(.card-width-320px) .card-container  {
+   width: 320px;
+}
 
 .card-container:hover {
     box-shadow: var(--app-header-box-shadow);
@@ -26,18 +25,23 @@
 }
 
 .content-container{
-    padding: 0px 15px;
+    padding: 10px;
+}
+
+.content-container > p {
+    margin: 8px 0px;
 }
 
 .image {
-    height: 320px;
+    height: 240px;
 }
 
 .name{
     text-transform: uppercase;
     text-align: center;
-    font-weight: 600;
+    font-weight: var(--app-font-weight-regular);
     font-size: var(--app-font-size-medium);
+    color: var(--app-primary-color);
 }
 
 .description{
@@ -52,7 +56,7 @@
 .price {
     text-transform: uppercase;
     text-align: center;
-    font-weight: 500;
+    font-weight: var(--app-font-weight-regular);
     font-size: var(--app-font-size-medium);
 }
 
@@ -61,7 +65,7 @@ mat-card-actions{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0px 16px 16px 16px;
     gap: 10px;
 }
 
