@@ -8,10 +8,12 @@ import { AppComponent } from "./app.component";
 
 // global modules
 import { ShareModule } from "./share/share.module";
+import { ProductModule } from "./features/product/product.module";
+import { CartModule } from "./features/cart/cart.module";
 
 // routing module
 import { AppRoutingModule } from "./app-routing.module";
-import { ProductModule } from "./features/product/product.module";
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -20,6 +22,7 @@ import { ProductModule } from "./features/product/product.module";
     AppRoutingModule,
     ShareModule,
     ProductModule,
+    CartModule,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

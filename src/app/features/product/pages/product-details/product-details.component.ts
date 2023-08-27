@@ -2,9 +2,9 @@ import { Component } from "@angular/core";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { TProduct, TMemoryCapacity, TColor, TProducts } from "@/types";
 import { products } from "@/data/products";
-import { CartService } from "@/app/features/cart/service/cart.service";
 import { ROUTE_PARAMS } from "@/configs/routes";
 import { ProductService } from "../../services/product.service";
+import { CartService } from "@/app/features/cart/service/cart.service";
 @Component({
   selector: "app-product-details",
   templateUrl: "./product-details.component.html",
@@ -76,9 +76,12 @@ export class ProductDetailsComponent {
   }
 
   // cart services
-
-  addToCart(product: TProduct) {
-    this.cartService.addToCart(product);
-    window.alert("Your product has been added to the cart !");
+  addToCart() {
+    this.cartService.addToCart({
+      product: this.product as TProduct,
+      selectedColor: this.currentColor,
+      selectedMemory: this.currentMemoryCapacity,
+      quantity: this.currentQuantity,
+    });
   }
 }

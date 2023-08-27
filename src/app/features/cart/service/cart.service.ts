@@ -1,31 +1,39 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { TProduct, TProducts } from "@/types";
+import { TCartItems, TColor, TMemoryCapacity, TProduct } from "@/types";
+import { Observable, Subject } from "rxjs";
+import { v4 as uuidv4 } from "uuid";
 
+type TAddToCartProps = {
+  product: TProduct;
+  selectedColor?: TColor;
+  selectedMemory?: TMemoryCapacity;
+  quantity: number;
+};
 @Injectable({
   providedIn: "root",
 })
 export class CartService {
-  items: TProducts = [];
+  items: TCartItems = [];
+  itemsSubject = new Subject<TCartItems>();
 
-  constructor(private httpClient: HttpClient) {}
-
-  addToCart(product: TProduct) {
-    this.items.push(product);
+  getItems(): Observable<TCartItems> {
+    return this.itemsSubject.asObservable();
   }
 
-  getItems() {
-    return this.items;
-  }
+  addToCart({
+    product,
+    selectedColor,
+    selectedMemory,
+    quantity,
+  }: TAddToCartProps) {
+    this.items.push({
+      id: uuidv4(),
+      product: product,
+      selectedColor: selectedColor ? selectedColor : undefined,
+      selectedMemory: selectedMemory ? selectedMemory : undefined,
+      quantity: quantity,
+    });
 
-  clearCart() {
-    this.items = [];
-    return this.items;
-  }
-
-  getShippingPrices() {
-    return this.httpClient.get<Array<{ type: string; price: number }>>(
-      "/assets/shipping.json"
-    );
+    this.itemsSubject.next(this.items);
   }
 }

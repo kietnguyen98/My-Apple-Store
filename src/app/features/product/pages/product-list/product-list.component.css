@@ -18,13 +18,13 @@
 
 .products-list-container {
     width: auto;
-    padding: 20px 60px 20px 60px;
+    padding: 20px;
 }
 
 .product-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 32px;
+    gap: 16px;
 }
 
 mat-drawer-content{
