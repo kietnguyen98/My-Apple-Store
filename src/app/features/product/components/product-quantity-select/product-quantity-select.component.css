@@ -18,6 +18,7 @@
 }
 
 .decrease-button, .increase-button{
+    cursor: pointer;
     border: none;
     width: 48px;
     height: 36px;

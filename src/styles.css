@@ -2,10 +2,10 @@
 :root{
   /* dimension values */
   --app-header-height: 60px;
-  --app-breadcrumbs-height: 48px;
+  --app-breadcrumbs-height: 40px;
   --app-side-nav-width: 240px;
   --app-container-fix-width-md: 1200px;
-  --app-container-fix-width-lg: 1400px;
+  --app-container-fix-width-lg: 1200px;
 
   /* color values */
   --app-primary-color: #191919;

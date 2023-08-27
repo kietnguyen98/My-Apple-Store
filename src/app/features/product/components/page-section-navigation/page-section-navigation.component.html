@@ -1,0 +1,14 @@
+<div class="container" name="page-section-navigation">
+  <p class="label">Jump to:</p>
+  <div
+    [ngClass]="{
+      section: true,
+      selected: section.isSelected,
+      unselected: !section.isSelected
+    }"
+    *ngFor="let section of sections"
+    (click)="scrollToSection(section.idForHref)">
+    <p class="section-label">{{ section.label }}</p>
+  </div>
+</div>
+<div class="dummy"></div>

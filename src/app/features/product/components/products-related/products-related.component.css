@@ -17,7 +17,7 @@
     
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    gap: 16px;
 
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -26,11 +26,6 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
-
-.product-card{
-    width: 360px;
-}
-
 
 .card-container::-webkit-scrollbar {
     display: none;

@@ -1,7 +1,8 @@
 <div class="container" *ngIf="product">
   <app-breadcrumbs-bar></app-breadcrumbs-bar>
   <div class="layout-container">
-    <div class="main-content-container">
+    <app-page-section-navigation></app-page-section-navigation>
+    <div class="main-content-container" id="main">
       <div class="images-container">
         <div class="main-image-container">
           <div class="main-image-wrapper">
@@ -69,11 +70,11 @@
         </div>
       </div>
     </div>
-    <div class="description-and-rating-container">
+    <div class="description-and-rating-container" id="desc-and-rate">
       <app-product-description-and-rate
         [product]="product"></app-product-description-and-rate>
     </div>
-    <div class="related-products-container">
+    <div class="related-products-container" id="related-products">
       <app-products-related [listProducts]="listRelatedProducts">
       </app-products-related>
     </div>

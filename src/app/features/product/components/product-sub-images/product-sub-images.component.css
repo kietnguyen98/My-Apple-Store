@@ -10,24 +10,24 @@
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .slides {
-    width: 500px;
+    width: 300px;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
 
 .slides {
-    padding: 24px 6px;
+    padding: 24px 8px;
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: 8px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
 
 .slide {
-    width: 100px;
-    height: 100px;
+    width: 64px;
+    height: 64px;
     flex-shrink: 0;
     scroll-snap-align: start;
 }
@@ -36,8 +36,8 @@
     border-radius: var(--app-border-radius-small);
     box-shadow: var(--app-badge-box-shadow);
     transition: all 0.25s ease-in-out;
-    width: 100px;
-    height: 100px;
+    width: 64px;
+    height: 64px;
     padding: 2px;
 }
 

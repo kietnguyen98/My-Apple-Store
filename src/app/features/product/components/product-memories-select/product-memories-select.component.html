@@ -7,7 +7,10 @@
       [selected]="option.value === currentOption?.value"
       [selectable]="option.value !== currentOption?.value"
       (selectionChange)="handleChangeMemoryCapacity(option)"
-      >{{ option.name }}</mat-chip-option
-    >
+      >{{ option.name }}
+      <span *ngIf="option.plusPrice > 0">{{
+        " " + "(+" + (option.plusPrice | currency) + ")"
+      }}</span>
+    </mat-chip-option>
   </mat-chip-listbox>
 </div>

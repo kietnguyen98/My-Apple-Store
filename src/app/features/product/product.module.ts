@@ -13,6 +13,7 @@ import { ProductQuantitySelectComponent } from "./components/product-quantity-se
 import { ProductSubImagesComponent } from "./components/product-sub-images/product-sub-images.component";
 import { ProductsRelatedComponent } from "./components/products-related/products-related.component";
 import { ProductDescriptionAndRateModule } from "./components/product-description-and-rate/product-description-and-rate.module";
+import { PageSectionNavigationComponent } from "./components/page-section-navigation/page-section-navigation.component";
 
 // share component
 import { ShareModule } from "@/app/share/share.module";
@@ -60,6 +61,7 @@ import { MatButtonModule } from "@angular/material/button";
     ProductQuantitySelectComponent,
     ProductSubImagesComponent,
     ProductsRelatedComponent,
+    PageSectionNavigationComponent,
     // pages
     ProductListComponent,
     ProductDetailsComponent,
