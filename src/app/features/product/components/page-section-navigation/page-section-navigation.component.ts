@@ -38,8 +38,6 @@ export class PageSectionNavigationComponent implements OnInit, OnDestroy {
   private getNavigationSectionSelected: (() => void) | undefined;
 
   ngOnInit(): void {
-    console.log();
-
     const elementList: NodeListOf<HTMLElement> = document.getElementsByName(
       "page-section-navigation"
     );

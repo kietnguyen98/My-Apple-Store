@@ -34,6 +34,7 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatCardModule } from "@angular/material/card";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatButtonModule } from "@angular/material/button";
+import { MatRippleModule } from "@angular/material/core";
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { MatButtonModule } from "@angular/material/button";
     MatSidenavModule,
     ShareModule,
     MatButtonModule,
+    MatRippleModule,
     ProductDescriptionAndRateModule,
   ],
   declarations: [

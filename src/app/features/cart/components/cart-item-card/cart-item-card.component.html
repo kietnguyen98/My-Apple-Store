@@ -1,0 +1,53 @@
+<div class="container" *ngIf="item">
+  <div class="info-container">
+    <div class="image-wrapper">
+      <img
+        class="image"
+        [src]="item.product.imageUrl"
+        alt="product-main-image" />
+    </div>
+    <div class="info-wrapper">
+      <p class="main-title product-name">{{ item.product.name }}</p>
+      <p class="sub-title selected-color">
+        Color: {{ item.selectedColor?.name }}
+      </p>
+      <p class="sub-title selected-memory-capacity">
+        Memory: {{ item.selectedMemory?.name }}
+      </p>
+      <p class="sub-title price-per-product">
+        Price:
+        {{
+          item.product.price + (item.selectedMemory?.plusPrice || 0) | currency
+        }}
+      </p>
+    </div>
+  </div>
+  <div class="action-container">
+    <p class="price-value">
+      Price in total:
+      {{
+        (item.product.price + (item.selectedMemory?.plusPrice || 0)) *
+          item.quantity | currency
+      }}
+    </p>
+    <div class="action-wrapper">
+      <app-cart-item-quantity-select
+        [itemId]="item.id"
+        [quantity]="item.quantity"></app-cart-item-quantity-select>
+      <button
+        mat-flat-button
+        color="primary"
+        class="action-button"
+        (click)="onGetDetailProduct()">
+        Detail
+      </button>
+      <button
+        mat-flat-button
+        color="danger"
+        class="action-button"
+        (click)="openDialog()">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

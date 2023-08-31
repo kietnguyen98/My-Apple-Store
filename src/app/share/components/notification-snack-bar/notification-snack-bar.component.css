@@ -1,0 +1,66 @@
+:host {
+    display: flex;
+  }
+
+.container{
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  .progress-bar{
+    position: absolute;
+    z-index: 999;
+    bottom: -16px;
+    left: -16px;
+    width: 344px;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .icon-background {
+    background-color: white;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    .icon{
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      width: 32px;
+      height: 32px;
+      font-size: 32px;
+      color: var(--app-success-color);
+    }
+  }
+
+  .message {  
+    color: white; 
+    font-size: var(--app-font-size-small);
+    font-weight: var(--app-font-weight-regular);
+  }
+}
+
+.close-button {
+  color: var(--app-accent-color);
+  width: 24px;
+  height: 24px;
+
+  .mat-icon{
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .mat-mdc-button-touch-target{
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -15,4 +15,8 @@ export class CartToggleButtonComponent {
       .getItems()
       .subscribe(listItems => (this.cartItems = listItems));
   }
+
+  toggleSidenav() {
+    this.cartService.toggleSidenav();
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { TProducts } from "@/types";
 import { COMPONENT_DIMENSIONS } from "@/constants";
 import { ProductService } from "../../services/product.service";
@@ -8,14 +8,13 @@ import { scrollToTopImmediately } from "@/utilities/functions";
   templateUrl: "./product-list.component.html",
   styleUrls: ["./product-list.component.css"],
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
   // current list of products
   products: TProducts = [];
   productsToShow: TProducts = [];
+  getStickyDrawer: (() => void) | undefined;
 
-  constructor(private productService: ProductService) {}
-
-  ngOnInit(): void {
+  constructor(private productService: ProductService) {
     this.productService
       .getListProducts()
       .subscribe((data: TProducts) => (this.products = data));
@@ -26,9 +25,11 @@ export class ProductListComponent implements OnInit {
         this.productsToShow = data;
         scrollToTopImmediately();
       });
+  }
 
+  ngOnInit(): void {
     const drawerElement = document.getElementById("side-drawer");
-    function onScroll() {
+    this.getStickyDrawer = () => {
       if (drawerElement) {
         if (window.scrollY > COMPONENT_DIMENSIONS.APP_BREADCRUMBS_HEIGHT) {
           return drawerElement.classList.add("side-nav-sticky");
@@ -36,12 +37,12 @@ export class ProductListComponent implements OnInit {
           return drawerElement.classList.remove("side-nav-sticky");
         }
       }
-    }
+    };
 
-    window.addEventListener("scroll", () => onScroll());
+    window.addEventListener("scroll", this.getStickyDrawer);
   }
 
-  share() {
-    window.alert("The product has been shared!");
+  ngOnDestroy(): void {
+    window.removeEventListener("scroll", this.getStickyDrawer as () => void);
   }
 }

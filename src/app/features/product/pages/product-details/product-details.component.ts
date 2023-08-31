@@ -33,6 +33,7 @@ export class ProductDetailsComponent {
       );
 
       this.currentMemoryCapacity = undefined;
+      this.currentColor = undefined;
       this.productService.setProductDetail(this.product as TProduct);
       this.refreshProductInfo(this.product as TProduct);
     });
@@ -52,6 +53,10 @@ export class ProductDetailsComponent {
     this.currentMemoryCapacity = newValue;
     this.updateCurrentProductPrice();
     this.updateTotalProductPrice();
+  }
+
+  handleChangeColor(newValue: TColor) {
+    this.currentColor = newValue;
   }
 
   handleChangeQuantity(newValue: number) {

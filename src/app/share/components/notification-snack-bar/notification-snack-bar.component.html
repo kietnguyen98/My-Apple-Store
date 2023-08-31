@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="content">
+    <div class="icon-background">
+      <mat-icon class="icon">check_circle</mat-icon>
+    </div>
+    <span class="message">
+      {{ data.message }}
+    </span>
+  </div>
+  <button
+    mat-mini-fab
+    color="primary"
+    class="close-button"
+    (click)="snackBarRef.dismissWithAction()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, Output, EventEmitter } from "@angular/core";
 import { TMemoryCapacity, TMemoryCapacities, TProduct } from "@/types";
 import { ProductService } from "../../services/product.service";
 @Component({
@@ -9,7 +9,7 @@ import { ProductService } from "../../services/product.service";
 export class ProductMemoriesSelectComponent {
   options: TMemoryCapacities = [];
   currentOption?: TMemoryCapacity;
-  @Output() changeMemoryCapacity = new EventEmitter<TMemoryCapacity>(true);
+  @Output() changeMemoryCapacity = new EventEmitter<TMemoryCapacity>();
 
   constructor(private productService: ProductService) {
     this.productService

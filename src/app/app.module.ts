@@ -13,7 +13,6 @@ import { CartModule } from "./features/cart/cart.module";
 
 // routing module
 import { AppRoutingModule } from "./app-routing.module";
-
 @NgModule({
   imports: [
     BrowserModule,

@@ -1,0 +1,40 @@
+.quantity-selector{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--app-border-box-shadow);
+}
+
+.decrease-button, .increase-button{
+    cursor: pointer;
+    border: none;
+    width: 32px;
+    height: 32px;
+    background-color: var(--app-accent-color);
+}
+
+.decrease-button {
+    border-right: 1px solid var(--app-accent-color);
+}
+
+.increase-button {
+    border-left: 1px solid var(--app-accent-color);
+}
+
+.quantity-value{
+    width: 40px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: var(--app-font-weight-regular);
+    font-size: var(--app-font-size-small);
+}
+
+.icon{
+    height: var(--app-font-size-small);
+    width: var(--app-font-size-small);
+    font-size: var(--app-font-size-small);
+}

@@ -1,9 +1,16 @@
 /* Global Styles */
 :root{
   /* dimension values */
+  /* components */
   --app-header-height: 60px;
   --app-breadcrumbs-height: 40px;
   --app-side-nav-width: 240px;
+  --app-cart-side-nav-width: 320px;
+  --app-cart-side-nav-height: calc(100vh - var(--app-header-height));
+  --app-cart-side-nav-header-height: 40px;
+  --app-cart-side-nav-footer-height: 100px;
+  
+  /* container */
   --app-container-fix-width-md: 1200px;
   --app-container-fix-width-lg: 1200px;
 
@@ -12,6 +19,8 @@
   --app-secondary-color: #6b6b6b;
   --app-accent-color: #e6e8e6;
   --app-warn-color: #f15125;
+  --app-success-color: #28a745;
+  --app-danger-color: #dc3545;
   --app-background-color: #fafafa;
 
   /* font size values */
@@ -57,4 +66,25 @@ body {
 
 a {
   text-decoration: none;
+}
+
+/* mat button color values */
+
+.mat-success {
+  color: white !important;
+  background-color: var(--app-success-color) !important;
+}
+
+.mat-danger {
+  color: white !important;
+  background-color: var(--app-danger-color) !important;
+}
+
+/* global component styles */
+.mat-mdc-snack-bar-container {
+  &.snack-bar-container {
+    --mdc-snackbar-container-color: var(--app-primary-color);
+    --mat-mdc-snack-bar-button-color: var(--app-primary-color) ;
+    --mdc-snackbar-supporting-text-color: var(--app-primary-color);
+  }
 }
