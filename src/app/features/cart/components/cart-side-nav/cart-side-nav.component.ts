@@ -2,7 +2,8 @@ import { Component, OnInit } from "@angular/core";
 
 import { CartService } from "../../service/cart.service";
 import { TCartItems } from "@/types";
-
+import { Router } from "@angular/router";
+import { PATH } from "@/configs/routes";
 @Component({
   selector: "app-cart-side-nav",
   templateUrl: "./cart-side-nav.component.html",
@@ -15,7 +16,10 @@ export class CartSideNavComponent implements OnInit {
   totalItems: number = 0;
   totalPrices: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const sidenav = document.getElementById("cart-sidenav") as HTMLElement;
@@ -50,5 +54,10 @@ export class CartSideNavComponent implements OnInit {
         document.body.style.touchAction = "auto";
       }
     });
+  }
+
+  onGetProductPage() {
+    this.cartService.toggleSidenav();
+    this.router.navigate([PATH.LIST_PRODUCTS]);
   }
 }
