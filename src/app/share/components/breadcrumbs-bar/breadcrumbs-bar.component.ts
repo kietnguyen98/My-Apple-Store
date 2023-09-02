@@ -1,6 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { TBreadcrumbLink } from "@/types";
+import { MatIcon } from "@angular/material/icon";
+
+const BREADCRUMB_ICONS: Array<{ name: string; iconName: string }> = [
+  { name: "products", iconName: "devices_other" },
+  { name: "iPhone", iconName: "phone_iphone" },
+  { name: "iPad", iconName: "tablet_mac" },
+  { name: "iWatch", iconName: "watch" },
+];
 
 @Component({
   selector: "app-breadcrumbs-bar",
@@ -18,23 +26,25 @@ export class BreadcrumbsBarComponent implements OnInit {
       .split("/")
       .filter(link => link.length > 0);
 
+    console.log(linkNames);
+
     for (let i = 0; i < linkNames.length; i++) {
       let link: TBreadcrumbLink;
-      if (i > 0) {
-        let linkTo = "";
-        for (let j = 0; j <= i; j++) {
-          linkTo += `/${linkNames[j]}`;
-        }
-        link = {
-          name: linkNames[i],
-          to: linkTo,
-        };
-      } else {
-        link = {
-          name: linkNames[i],
-          to: `/${linkNames[i]}`,
-        };
+      let linkTo = "";
+      for (let j = 0; j <= i; j++) {
+        linkTo += `/${linkNames[j]}`;
       }
+      let iconName = "";
+      console.log(linkNames[i]);
+      BREADCRUMB_ICONS.forEach(e => {
+        if (linkNames[i].includes(e.name)) iconName = e.iconName;
+      });
+
+      link = {
+        name: linkNames[i],
+        to: linkTo,
+        iconName: iconName,
+      };
 
       this.links.push(link);
     }
