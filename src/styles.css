@@ -30,7 +30,9 @@
   --app-font-size-large: 24px;
   --app-font-size-extra-large: 32px;
   --app-font-size-extra-extra-large: 48px;
-
+  --home-font-size-medium: 60px;
+  --home-font-size-large: 72px;
+  
   /* font weight values */
   --app-font-weight-light: 300;
   --app-font-weight-regular: 400;

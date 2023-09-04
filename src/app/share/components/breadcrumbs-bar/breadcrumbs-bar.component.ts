@@ -26,8 +26,6 @@ export class BreadcrumbsBarComponent implements OnInit {
       .split("/")
       .filter(link => link.length > 0);
 
-    console.log(linkNames);
-
     for (let i = 0; i < linkNames.length; i++) {
       let link: TBreadcrumbLink;
       let linkTo = "";
@@ -35,7 +33,6 @@ export class BreadcrumbsBarComponent implements OnInit {
         linkTo += `/${linkNames[j]}`;
       }
       let iconName = "";
-      console.log(linkNames[i]);
       BREADCRUMB_ICONS.forEach(e => {
         if (linkNames[i].includes(e.name)) iconName = e.iconName;
       });

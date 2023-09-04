@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
 import { COMPONENT_DIMENSIONS } from "@/constants";
+import { PATH } from "@/configs/routes";
 @Component({
   selector: "app-top-bar",
   templateUrl: "./top-bar.component.html",
@@ -11,25 +12,30 @@ export class TopBarComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    const matToolbarElement = document.getElementById("mat-toolbar");
+    const headerBar = document.getElementById("header-bar");
     function changeHeaderState() {
-      if (matToolbarElement) {
+      if (headerBar) {
         if (window.scrollY >= COMPONENT_DIMENSIONS.APP_BREADCRUMBS_HEIGHT) {
-          matToolbarElement.classList.add("top-bar-box-shadow");
+          headerBar.classList.add("top-bar-box-shadow");
         } else {
-          matToolbarElement.classList.remove("top-bar-box-shadow");
+          headerBar.classList.remove("top-bar-box-shadow");
         }
       }
     }
 
     window.addEventListener("scroll", () => changeHeaderState());
+
+    const currentRoute = this.router.url.replaceAll("/", "");
+    if (currentRoute === PATH.HOME) {
+      const headerBarDummy = document.getElementById("header-bar-dummy");
+      if (headerBarDummy && headerBar) {
+        headerBarDummy.style.display = "none";
+        headerBar.style.backgroundColor = "transparent";
+      }
+    }
   }
 
   navigateToHome() {
-    this.router.navigate(["/"]);
-  }
-
-  navigateToCart() {
-    this.router.navigate(["/", "cart"]);
+    this.router.navigate([PATH.HOME]);
   }
 }

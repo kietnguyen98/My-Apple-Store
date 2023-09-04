@@ -1,5 +1,5 @@
 <!-- app header bar -->
-<mat-toolbar color="primary" class="container sticky-header" id="mat-toolbar">
+<mat-toolbar color="primary" class="container sticky-header" id="header-bar">
   <div (click)="navigateToHome()" class="home-container">
     <mat-icon class="apple-icon">apple</mat-icon>
     <span class="home-title">My Apple Store</span>
@@ -8,4 +8,4 @@
   <app-cart-toggle-button></app-cart-toggle-button>
 </mat-toolbar>
 <!-- should render under space for align other app components -->
-<div class="top-bar-under-space"></div>
+<div class="top-bar-under-space" id="header-bar-dummy"></div>

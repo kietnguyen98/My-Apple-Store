@@ -1,0 +1,137 @@
+p{
+    margin: 0px;
+}
+
+.container {
+    margin-top: 16px;
+    color: white;
+    font-size: var(--app-font-size-medium);
+    font-weight: var(--app-font-weight-regular);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .flash-icon{
+        color: var(--app-warn-color);
+    }
+
+    .timmer-container{
+        padding: 8px 16px;
+        font-size: var(--app-font-size-large);
+        font-weight: var(--app-font-weight-regular);
+    }
+}
+
+
+/* markup class */
+
+.countdown{
+    display: flex;
+    gap: 30px;
+
+    .time-section {
+        text-align: center;
+        font-size: var(--app-font-size-small);
+        
+        .time-group {
+            display: flex;
+            gap: 4px;
+
+            .time-segment {
+                display: block; 
+                font-size: var(--app-font-size-extra-large);
+                font-weight: var(--app-font-weight-bold);
+                width: 32px;
+
+                .segment-display {
+                    position: relative;
+                    height: 100%;
+
+                    .segment-display__top, .segment-display__bottom {
+                        overflow: hidden;
+                        text-align: center;
+                        width: 100%;
+                        height: 50%;
+                        position: relative;
+                    }
+
+                    .segment-display__top{
+                        background-color: white;
+                        color: var(--app-primary-color);
+                        line-height: 1.5;
+                    }
+
+                    .segment-display__bottom{
+                        background-color: var(--app-accent-color);
+                        color: var(--app-primary-color);
+                        line-height: 0;
+                    }
+                }
+
+                .segment-overlay {
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    width: 32px;
+                    perspective: 400px;
+
+                    .segment-overlay__top, .segment-overlay__bottom {
+                        position: absolute;
+                        overflow: hidden;
+                        text-align: center;
+                        width: 100%;
+                        height: 50%;
+                    }
+
+                    .segment-overlay__top {
+                        top: 0;
+                        line-height: 1.5;
+                        color: var(--app-primary-color);
+                        background-color: white;
+                    }
+
+                    .segment-overlay__bottom {
+                        bottom: 0;
+                        line-height: 0;
+                        color: var(--app-primary-color);
+                        background-color: var(--app-accent-color);
+                        border-top: 1px solid var(--app-primary-color);
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* animation class */
+.segment-overlay.flip .segment-overlay__top{
+    transform-origin: bottom;
+    animation: flip-top 0.75s linear;
+}
+
+.segment-overlay.flip .segment-overlay__bottom{
+    transform-origin: top;
+    animation: flip-bottom 0.75s linear;
+}
+
+@keyframes flip-top {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    50%, 100% {
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes flip-bottom {
+    0%, 50% {
+        transform: rotateX(90deg);
+    }
+
+    100% {
+        transform: rotateX(0deg);
+    }
+}
