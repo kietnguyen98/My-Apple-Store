@@ -17,7 +17,11 @@
       <div class="flash-sale-container">
         <app-home-flash-sale></app-home-flash-sale>
       </div>
-      <button mat-flat-button color="accent" class="shop-now-button">
+      <button
+        mat-raised-button
+        color="warn"
+        class="shop-now-button"
+        (click)="getListProductsPage()">
         <mat-icon class="shopping-icon">shopping_cart</mat-icon> shop now
       </button>
     </div>

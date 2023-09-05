@@ -1,14 +1,16 @@
 <div class="container">
   <div class="content-container">
-    <a [href]="'/'" class="breadcrumb-value"> <mat-icon>home</mat-icon> Home</a>
+    <p class="breadcrumb-value" (click)="navigateTo('/')">
+      <mat-icon>home</mat-icon> Home
+    </p>
     <div class="breadcrumb-tag" *ngFor="let link of links">
       <span><mat-icon>keyboard_arrow_right</mat-icon></span>
-      <a class="breadcrumb-value" [href]="link.to"
-        ><mat-icon *ngIf="link.iconName && link.iconName.length > 0">{{
+      <p class="breadcrumb-value" (click)="navigateTo(link.to)">
+        <mat-icon *ngIf="link.iconName && link.iconName.length > 0">{{
           link.iconName
         }}</mat-icon>
-        {{ link.name }}</a
-      >
+        {{ link.name }}
+      </p>
     </div>
   </div>
 </div>

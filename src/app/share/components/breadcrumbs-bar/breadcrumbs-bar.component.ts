@@ -46,4 +46,8 @@ export class BreadcrumbsBarComponent implements OnInit {
       this.links.push(link);
     }
   }
+
+  navigateTo(link: string) {
+    this.router.navigateByUrl(link);
+  }
 }

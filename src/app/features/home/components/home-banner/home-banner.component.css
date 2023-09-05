@@ -3,16 +3,16 @@ p{
 }
 
 .container{
-    height: 625px;
+    height: var(--home-banner-fix-height);
     background-color: var(--app-primary-color);
     display: flex;
     justify-content: center;
     align-items: center;    
 
     .main-banner{
-        height: 625px;
+        height: var(--home-banner-fix-height);
         width: var(--app-container-fix-width-lg);
-        padding: 150px 50px;
+        padding: 120px 30px;
         display: flex;
         flex-direction: row;  
         align-items: center;
@@ -27,14 +27,15 @@ p{
                 position: absolute;
                 z-index: 1;
                 top: 5%;
-                left: 0;
+                left: 5%;
                 height: 90%;
+                border-radius: 50%;
 
                 /* @keyframes duration | easing-function | delay |
                 iteration-count | direction | fill-mode | play-state | name */
 
                 opacity: 0;
-                animation: 2s ease 1s forwards fade-in, 2s ease 1s forwards box-shadow-fade-in;
+                animation: 2s ease 0.5s forwards fade-in, 2s ease 0.5s forwards box-shadow-fade-in;
             }
 
             .main-image{
@@ -44,8 +45,6 @@ p{
                 left: 0;
                 height: 100%;
                 width: auto;
-                animation-name: fade-in;
-                animation-duration: 2s;
             }
         }
        
@@ -62,6 +61,7 @@ p{
                 color: white;
                 animation-name: fade-in;
                 animation-duration: 2s;
+                letter-spacing: -1px;
             }
 
             .description {
@@ -78,7 +78,7 @@ p{
             }
 
             .shop-now-button{
-                font-size: var(--app-font-size-medium);
+                font-size: var(--app-font-size-small);
                 font-weight: var(--app-font-weight-regular);
                 text-transform: uppercase;
                 letter-spacing: -1px;
@@ -137,8 +137,9 @@ p{
     }
 
     100%{
-        box-shadow: 20px 0 60px #fff,
-        10px 0 100px #f0f,
-        30px 0 100px #0ff;
+        box-shadow: 
+        20px 0 90px #fff,
+        10px 0 150px #f0f,
+        30px 0 150px #0ff;
     }
 }

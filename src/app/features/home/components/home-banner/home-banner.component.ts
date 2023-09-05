@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { PATH } from "@/configs/routes";
 
 @Component({
   selector: "app-home-banner",
@@ -6,5 +8,9 @@ import { Component } from "@angular/core";
   styleUrls: ["./home-banner.component.css"],
 })
 export class HomeBannerComponent {
-  constructor() {}
+  constructor(private router: Router) {}
+
+  getListProductsPage() {
+    this.router.navigateByUrl(PATH.LIST_PRODUCTS);
+  }
 }

@@ -9,7 +9,8 @@
   --app-cart-side-nav-height: calc(100vh - var(--app-header-height));
   --app-cart-side-nav-header-height: 40px;
   --app-cart-side-nav-footer-height: 100px;
-  
+  --home-banner-fix-height: 625px;
+
   /* container */
   --app-container-fix-width-md: 1200px;
   --app-container-fix-width-lg: 1200px;
@@ -30,8 +31,8 @@
   --app-font-size-large: 24px;
   --app-font-size-extra-large: 32px;
   --app-font-size-extra-extra-large: 48px;
-  --home-font-size-medium: 60px;
-  --home-font-size-large: 72px;
+  --home-font-size-medium: 56px;
+  --home-font-size-large: 64px;
   
   /* font weight values */
   --app-font-weight-light: 300;
