@@ -17,7 +17,7 @@ p{
         flex-direction: row;
         justify-content: center;   
         align-items: center;
-    
+        
         .flash-icon {
             color: var(--app-warn-color);
         }
@@ -144,3 +144,14 @@ p{
         transform: rotateX(0deg);
     }
 }
+
+@keyframes text-neon {
+    from {
+      text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #fff, 0 0 16px var(--app-warn-color),
+        0 0 20px var(--app-warn-color), 0 0 24px var(--app-warn-color), 0 0 28px var(--app-warn-color), 0 0 32px var(--app-warn-color);
+    }
+    to {
+      text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px var(--app-warn-color),
+        0 0 10px var(--app-warn-color), 0 0 12px var(--app-warn-color), 0 0 14px var(--app-warn-color), 0 0 16px var(--app-warn-color);
+    }
+  }

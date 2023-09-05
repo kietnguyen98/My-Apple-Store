@@ -1,0 +1,86 @@
+p {
+    margin: 0px;
+}
+
+.container {
+    background-color: var(--app-primary-color);
+    padding-top: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    
+    .title {
+        font-size: var(--app-font-size-extra-extra-large);
+        font-weight: var(--app-font-weight-regular);
+        text-align: center;
+        color: white;
+    }
+
+    .product-container{
+        width: var(--app-container-fix-width-lg);
+        padding: 0px 100px 100px 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+    
+        .content-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+
+            .category{
+                color: var(--app-secondary-color);
+                font-weight: var(--app-font-weight-regular);
+                font-size: var(--app-font-size-small);
+                text-transform: uppercase;
+                text-align: center;
+            }
+
+            .product-name{
+                color: white;
+                font-weight: var(--app-font-weight-regular);
+                font-size: var(--app-font-size-large);
+                text-transform: capitalize;
+                text-align: center;
+            }
+
+            .description {
+                color: white;
+                font-weight: var(--app-font-weight-light);
+                font-size: var(--app-font-size-extra-large);
+            }
+        }
+
+        .action-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+
+            .learn-more-button, .buy-button {
+                font-weight: var(--app-font-weight-regular);
+                font-size: var(--app-font-size-small);
+            }
+        }
+
+        .image-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .image.medium-size {
+                width: 75%;
+            }
+
+            .image.small-size{
+                width: 50%;
+            }
+        }
+    }
+}

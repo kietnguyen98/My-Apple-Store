@@ -59,9 +59,9 @@ p{
                 font-size: var(--home-font-size-medium);
                 text-transform: uppercase;
                 color: white;
-                animation-name: fade-in;
-                animation-duration: 2s;
                 letter-spacing: -1px;
+
+                animation: 1s ease-in fade-in;
             }
 
             .description {
@@ -88,7 +88,6 @@ p{
 
                 animation-name: slide-left-in;
                 animation-duration: 2s;
-                /* animation-delay: 2s; */
 
                 .shopping-icon{
                     height: 24px;
@@ -143,3 +142,14 @@ p{
         30px 0 150px #0ff;
     }
 }
+
+@keyframes text-neon {
+    from {
+      text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #fff, 0 0 16px var(--app-warn-color),
+        0 0 20px var(--app-warn-color), 0 0 24px var(--app-warn-color), 0 0 28px var(--app-warn-color), 0 0 32px var(--app-warn-color);
+    }
+    to {
+      text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px var(--app-warn-color),
+        0 0 10px var(--app-warn-color), 0 0 12px var(--app-warn-color), 0 0 14px var(--app-warn-color), 0 0 16px var(--app-warn-color);
+    }
+  }
