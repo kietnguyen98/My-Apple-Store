@@ -10,7 +10,8 @@
   --app-cart-side-nav-header-height: 40px;
   --app-cart-side-nav-footer-height: 100px;
   --home-banner-fix-height: 625px;
-
+  --home-section-gap: 80px;
+  
   /* container */
   --app-container-fix-width-md: 1200px;
   --app-container-fix-width-lg: 1200px;

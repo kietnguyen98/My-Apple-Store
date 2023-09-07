@@ -49,9 +49,12 @@ export class CartSideNavComponent implements OnInit {
         document.body.style.overflow = "hidden";
         document.body.style.touchAction = "none";
       } else {
-        sidenav.classList.remove("sticky-sidenav");
-        document.body.style.overflow = "auto";
-        document.body.style.touchAction = "auto";
+        // set delay time to wait for sidenav's animation complete
+        setTimeout(() => {
+          sidenav.classList.remove("sticky-sidenav");
+          document.body.style.overflow = "auto";
+          document.body.style.touchAction = "auto";
+        }, 300);
       }
     });
   }

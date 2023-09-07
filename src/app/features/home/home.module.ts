@@ -3,9 +3,9 @@ import { CommonModule } from "@angular/common";
 
 // components
 import { HomeBannerComponent } from "./components/home-banner/home-banner.component";
-import { HomeProductBubbleComponent } from "./components/home-product-bubble/home-product-bubble.component";
 import { HomeFlashSaleComponent } from "./components/home-flash-sale/home-flash-sale.component";
 import { HomeProductExhibitionsComponent } from "./components/home-product-exhibitions/home-product-exhibitions.component";
+import { HomeCategoryShortcutComponent } from "./components/home-category-shortcut/home-category-shortcut.component";
 
 // pages
 import { HomeComponent } from "./pages/home/home.component";
@@ -19,8 +19,8 @@ import { MatIconModule } from "@angular/material/icon";
   declarations: [
     //components
     HomeBannerComponent,
-    HomeProductBubbleComponent,
     HomeFlashSaleComponent,
+    HomeCategoryShortcutComponent,
     HomeProductExhibitionsComponent,
     // pages
     HomeComponent,

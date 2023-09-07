@@ -4,19 +4,33 @@ p {
 
 .container {
     background-color: var(--app-primary-color);
-    padding-top: 64px;
+    padding-top: var(--home-section-gap);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 64px;
     
-    .title {
-        font-size: var(--app-font-size-extra-extra-large);
-        font-weight: var(--app-font-weight-regular);
-        text-align: center;
-        color: white;
+    .intro-container{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        
+        .title {
+            font-size: var(--app-font-size-extra-extra-large);
+            font-weight: var(--app-font-weight-regular);
+            text-align: center;
+            color: white;
+        }
+    
+        .description{
+            color: white;
+            font-size: var(--app-font-size-medium);
+            font-weight: var(--app-font-weight-regular);
+            text-align: center;
+        }
     }
+ 
 
     .product-container{
         width: var(--app-container-fix-width-lg);

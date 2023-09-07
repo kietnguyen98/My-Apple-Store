@@ -11,6 +11,7 @@
       <p class="name">{{ product.name }}</p>
       <p class="description">{{ product.description }}</p>
       <p class="price" *ngIf="product.price">
+        From
         {{
           product.price + (product.memoryCapacities?.[0]?.plusPrice || 0)
             | currency

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="intro-container">
+    <p class="title">30+ Products in our store</p>
+    <p class="description">
+      Many products with reasonable price corresponds to perfect quality
+    </p>
+  </div>
+  <div class="action-container">
+    <button mat-button color="warn" class="see-all-button">See all</button>
+  </div>
+  <div class="categories-container">
+    <div class="category-card" *ngFor="let category of categories">
+      <div class="slide-up-wrapper">
+        <div class="image-container">
+          <div class="image-wrapper">
+            <img
+              class="image"
+              [src]="category.imageUrl"
+              alt="iphone category image" />
+          </div>
+        </div>
+        <div class="content-container">
+          <p class="name">{{ category.name }}</p>
+        </div>
+      </div>
+      <div class="slide-down-wrapper">
+        <div class="action-container">
+          <p class="description-text">
+            {{ category.description }}
+          </p>
+          <button
+            mat-flat-button
+            color="accent"
+            class="see-more-button"
+            (click)="getProductsByCategoryPage(category.to)">
+            See more
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

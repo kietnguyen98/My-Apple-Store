@@ -1,6 +1,6 @@
 .card-container {
     width: 100%;
-    box-shadow: var(--app-badge-box-shadow);
+    box-shadow: var(--app-border-box-shadow);
     transition: all 0.25s ease-in-out;
 }
 
@@ -54,7 +54,6 @@
 }
 
 .price {
-    text-transform: uppercase;
     text-align: center;
     font-weight: var(--app-font-weight-regular);
     font-size: var(--app-font-size-medium);
