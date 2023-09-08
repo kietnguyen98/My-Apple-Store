@@ -6,6 +6,7 @@ p {
     --action-container-max-height: 120px;
     background-color: var(--app-primary-color);
     padding-top: var(--home-section-gap);
+    padding-bottom: var(--home-section-gap);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,7 +49,7 @@ p {
 
         .category-card{
             flex: 1;
-            transition: all ease-in-out 0.25s;
+            transition: all ease-in-out 0.3s;
             border-radius: var(--app-border-radius-medium);
             padding: 24px;
 
@@ -56,7 +57,7 @@ p {
                 padding-bottom: 16px;
                 background-color: var(--app-primary-color);
                 transform: translateY(calc(var(--action-container-max-height) / 2));
-                transition: all 0.25s ease-in-out;
+                transition: all 0.3s ease-in-out;
                 z-index: 2;
                 position: relative;
 
@@ -92,7 +93,7 @@ p {
 
             .slide-down-wrapper{
                 transform: translateY(calc(0px - (var(--action-container-max-height) / 2)));
-                transition: all 0.25s ease-in-out;
+                transition: all 0.3s ease-in-out;
                 .action-container{
                     position: relative;
                     z-index: 1;

@@ -77,6 +77,30 @@ p{
                 text-transform: uppercase;
             }
 
+            .flash-sale-container{
+                margin-top: 32px;
+
+                .flash-sale-title {
+                    font-size: var(--app-font-size-large);
+                    font-weight: var(--app-font-weight-regular);
+                    color: white;
+                    margin-bottom: 8px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;   
+                    align-items: center;
+                    
+                    .flash-icon {
+                        color: var(--app-warn-color);
+                    }
+                }
+
+                .flash-sale-clock-container{
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            }
+
             .shop-now-button{
                 font-size: var(--app-font-size-small);
                 font-weight: var(--app-font-weight-regular);

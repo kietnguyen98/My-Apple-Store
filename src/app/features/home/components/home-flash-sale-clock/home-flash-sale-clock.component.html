@@ -1,10 +1,13 @@
 <div class="container">
-  <p class="flash-sale-title">
-    <mat-icon class="flash-icon">flash_on</mat-icon> Super Flash sale 13/13 in
-  </p>
-
-  <div class="countdown">
-    <div class="time-section" id="countdown-clock-days">
+  <div
+    [ngClass]="{
+      countdown: true,
+      'light-mode': mode === 'light',
+      'dark-mode': mode === 'dark',
+      'size-medium': size === 'medium',
+      'size-big': size === 'big'
+    }">
+    <div class="time-section" [id]="elementIdPrefix + '-countdown-clock-days'">
       <p class="label">Days</p>
       <div class="time-group">
         <div class="time-segment">
@@ -29,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="time-section" id="countdown-clock-hours">
+    <div class="time-section" [id]="elementIdPrefix + '-countdown-clock-hours'">
       <p class="label">Hours</p>
       <div class="time-group">
         <div class="time-segment">
@@ -54,7 +57,9 @@
         </div>
       </div>
     </div>
-    <div class="time-section" id="countdown-clock-minutes">
+    <div
+      class="time-section"
+      [id]="elementIdPrefix + '-countdown-clock-minutes'">
       <p class="label">Minutes</p>
       <div class="time-group">
         <div class="time-segment">
@@ -79,7 +84,9 @@
         </div>
       </div>
     </div>
-    <div class="time-section" id="countdown-clock-seconds">
+    <div
+      class="time-section"
+      [id]="elementIdPrefix + '-countdown-clock-seconds'">
       <p class="label">Seconds</p>
       <div class="time-group">
         <div class="time-segment">

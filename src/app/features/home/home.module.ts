@@ -3,9 +3,10 @@ import { CommonModule } from "@angular/common";
 
 // components
 import { HomeBannerComponent } from "./components/home-banner/home-banner.component";
-import { HomeFlashSaleComponent } from "./components/home-flash-sale/home-flash-sale.component";
+import { HomeFlashSaleClockComponent } from "./components/home-flash-sale-clock/home-flash-sale-clock.component";
 import { HomeProductExhibitionsComponent } from "./components/home-product-exhibitions/home-product-exhibitions.component";
 import { HomeCategoryShortcutComponent } from "./components/home-category-shortcut/home-category-shortcut.component";
+import { HomeFlashSaleProductsComponent } from "./components/home-flash-sale-products/home-flash-sale-products.component";
 
 // pages
 import { HomeComponent } from "./pages/home/home.component";
@@ -19,9 +20,10 @@ import { MatIconModule } from "@angular/material/icon";
   declarations: [
     //components
     HomeBannerComponent,
-    HomeFlashSaleComponent,
+    HomeFlashSaleClockComponent,
     HomeCategoryShortcutComponent,
     HomeProductExhibitionsComponent,
+    HomeFlashSaleProductsComponent,
     // pages
     HomeComponent,
   ],
