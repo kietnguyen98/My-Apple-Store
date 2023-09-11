@@ -5,13 +5,16 @@
     </p>
     <p class="description">Get all you need with the cheapest price</p>
   </div>
+  <div class="action-container">
+    <button mat-button color="warn" class="see-all-button">See All</button>
+  </div>
   <div class="clock-container">
     <app-home-flash-sale-clock
       elementIdPrefix="home-flash-sale-products"
       mode="dark"
       size="big"></app-home-flash-sale-clock>
   </div>
-  <div class="flash-sale-products-container">
+  <div class="products-container">
     <div class="wrapper" id="flash-sale-products-card-wrapper">
       <div class="product-card" *ngFor="let product of products">
         <div class="image-container">
@@ -26,7 +29,12 @@
                 | currency
             }}
           </p>
-          <button mat-flat-button color="warn">See more</button>
+          <button
+            mat-flat-button
+            color="warn"
+            (click)="navigateToProduct(product.name)">
+            See more
+          </button>
         </div>
       </div>
     </div>

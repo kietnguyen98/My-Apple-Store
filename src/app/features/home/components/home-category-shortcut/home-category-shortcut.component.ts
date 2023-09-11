@@ -44,4 +44,8 @@ export class HomeCategoryShortcutComponent {
   getProductsByCategoryPage(path: string) {
     this.router.navigateByUrl(path);
   }
+
+  getToProductsPage() {
+    this.router.navigateByUrl(PATH.LIST_PRODUCTS);
+  }
 }

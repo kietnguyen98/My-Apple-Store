@@ -46,6 +46,13 @@ p{
         }
     }
 
+    .action-container{
+        .see-all-button {
+            font-weight: var(--app-font-weight-regular);
+            font-size: var(--app-font-size-small);
+        }
+    }
+
     .clock-container{
         display: flex;
         justify-content: flex-start;
@@ -53,7 +60,7 @@ p{
         gap: 16px;
     }
 
-    .flash-sale-products-container {
+    .products-container {
         width: 100%;
         margin-top: 32px;
         overflow-x: hidden;

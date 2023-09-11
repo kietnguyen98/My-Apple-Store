@@ -6,7 +6,13 @@
     </p>
   </div>
   <div class="action-container">
-    <button mat-button color="warn" class="see-all-button">See all</button>
+    <button
+      mat-button
+      color="warn"
+      class="see-all-button"
+      (click)="getToProductsPage()">
+      See all
+    </button>
   </div>
   <div class="categories-container">
     <div class="category-card" *ngFor="let category of categories">

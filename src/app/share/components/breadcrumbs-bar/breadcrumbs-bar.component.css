@@ -11,6 +11,7 @@
 }
 
 .breadcrumb-value {
+    cursor: pointer;
     font-size: var(--app-font-size-extra-small);
     color: var(--app-primary-color);
     text-transform: capitalize;

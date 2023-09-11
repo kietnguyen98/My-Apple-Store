@@ -1,7 +1,8 @@
 import { products } from "@/data/products";
 import { TProducts } from "@/types";
 import { Component, OnInit, OnDestroy } from "@angular/core";
-
+import { Router } from "@angular/router";
+import { PATH } from "@/configs/routes";
 @Component({
   selector: "app-home-flash-sale-products",
   templateUrl: "./home-flash-sale-products.component.html",
@@ -16,12 +17,18 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
   PRODUCT_CARD_WIDTH: number = 240;
   PRODUCT_CARDS_GAP: number = 16;
 
+  constructor(private router: Router) {}
+
   slowDownSlideSpeed() {
     this.slideSpeed = 0.025;
   }
 
   speedUpSlideSpeed() {
     this.slideSpeed = 0.1;
+  }
+
+  navigateToProduct(productName: string) {
+    this.router.navigate([PATH.LIST_PRODUCTS, productName]);
   }
 
   ngOnInit(): void {
@@ -35,7 +42,7 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
 
     const getProductsSlide = (timeStamp: number) => {
       if (this.previousTimeStamp === 0) {
-        // this branch run one time in the very first time
+        // this branch run once in the very first time
         // when the timeStamp === 0
 
         for (let element of listCardElements) {

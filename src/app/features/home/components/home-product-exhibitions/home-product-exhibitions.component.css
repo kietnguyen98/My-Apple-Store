@@ -5,6 +5,7 @@ p {
 .container {
     background-color: var(--app-primary-color);
     padding-top: var(--home-section-gap);
+    padding-bottom: var(--home-section-gap);
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -4,7 +4,7 @@ p{
 
 .container {
     --clock-size-medium: 24px;
-    --clock-size-big: 32px;
+    --clock-size-big: 40px;
 }
 
 /* markup class */
@@ -170,7 +170,7 @@ p{
                 .segment-display {
                     width: var(--clock-size-medium);
                     height: calc(var(--clock-size-medium) * 1.5);
-                    font-size: var(--app-font-size-large);
+                    font-size: var(--clock-size-medium);
                     .segment-overlay{
                         width: var(--clock-size-medium);
                     }
@@ -191,7 +191,7 @@ p{
                 .segment-display {
                     width: var(--clock-size-big);
                     height: calc(var(--clock-size-big) * 1.5);
-                    font-size: var(--app-font-size-extra-large);
+                    font-size: var(--clock-size-big);
                     .segment-overlay{
                         width: var(--clock-size-big);
                     }
