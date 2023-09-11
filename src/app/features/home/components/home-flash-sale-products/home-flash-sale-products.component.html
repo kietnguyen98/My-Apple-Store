@@ -12,12 +12,22 @@
       size="big"></app-home-flash-sale-clock>
   </div>
   <div class="flash-sale-products-container">
-    <div class="wrapper">
+    <div class="wrapper" id="flash-sale-products-card-wrapper">
       <div class="product-card" *ngFor="let product of products">
         <div class="image-container">
           <img [src]="product.imageUrl" alt="hot product image" class="image" />
         </div>
-        <div class="overlay"></div>
+        <div class="overlay">
+          <p class="product-name">{{ product.name }}</p>
+          <p class="product-price">
+            From
+            {{
+              product.price + (product.memoryCapacities?.[0]?.plusPrice || 0)
+                | currency
+            }}
+          </p>
+          <button mat-flat-button color="warn">See more</button>
+        </div>
       </div>
     </div>
   </div>
