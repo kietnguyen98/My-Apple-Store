@@ -1,0 +1,19 @@
+<div class="container">
+  <p class="label">Categories</p>
+  <mat-chip-listbox>
+    <mat-chip-option
+      color="primary"
+      [selected]="currentCategory === 'all'"
+      [selectable]="currentCategory !== 'all'"
+      (selectionChange)="handleChangeCategory('all')"
+      >All</mat-chip-option
+    >
+    <mat-chip-option
+      *ngFor="let category of categories"
+      [selected]="currentCategory === category.name"
+      [selectable]="currentCategory !== category.name"
+      (selectionChange)="handleChangeCategory(category.name)"
+      >{{ category.name }}</mat-chip-option
+    >
+  </mat-chip-listbox>
+</div>

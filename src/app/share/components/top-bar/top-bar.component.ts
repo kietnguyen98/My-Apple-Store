@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
-
 import { COMPONENT_DIMENSIONS } from "@/constants";
 import { PATH } from "@/configs/routes";
+import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
 @Component({
+  providers: [HeaderSearchInputComponent],
   selector: "app-top-bar",
   templateUrl: "./top-bar.component.html",
   styleUrls: ["./top-bar.component.css"],

@@ -4,8 +4,13 @@
     <mat-icon class="apple-icon">apple</mat-icon>
     <span class="home-title">My Apple Store</span>
   </div>
-  <span class="example-spacer"></span>
-  <app-cart-toggle-button></app-cart-toggle-button>
+  <span class="spacer"></span>
+  <div class="action-container">
+    <app-header-search-input></app-header-search-input>
+    <button mat-flat-button color="accent">Login</button>
+    <button mat-button color="accent">Sign Up</button>
+    <app-cart-toggle-button></app-cart-toggle-button>
+  </div>
 </mat-toolbar>
 <!-- should render under space for align other app components -->
 <div class="top-bar-under-space" id="header-bar-dummy"></div>

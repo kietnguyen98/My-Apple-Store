@@ -1,5 +1,5 @@
 .side-nav {
-    width: var(--app-side-nav-width);
+    width: var(--app-product-filter-side-nav-width);
     height:  calc(100vh - var(--app-header-height));
 }
 

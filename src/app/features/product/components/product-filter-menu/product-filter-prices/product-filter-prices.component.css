@@ -1,0 +1,22 @@
+p {
+    margin: 0px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    
+    .label{
+        font-size: var(--app-font-size-extra-small);
+        font-weight: var(--app-font-weight-bold);
+    }
+
+    .value-range{
+        font-size: var(--app-font-size-extra-small);
+        font-weight: var(--app-font-weight-regular);
+    }
+
+    .value-slider{
+        width: 180px;
+    }
+}

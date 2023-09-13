@@ -7,9 +7,14 @@ import { DummyComponent } from "./share/pages/dummy/dummy.component";
 import { PATH } from "@/configs/routes";
 
 const routes: Routes = [
-  { path: PATH.HOME, component: HomeComponent },
-  { path: PATH.DUMMY, component: DummyComponent },
-  { path: PATH.LIST_PRODUCTS, component: ProductListComponent },
+  {
+    path: PATH.HOME,
+    title: "My Apple Store",
+    pathMatch: "full",
+    component: HomeComponent,
+  },
+  { path: PATH.DUMMY, pathMatch: "full", component: DummyComponent },
+  { path: PATH.LIST_PRODUCTS, title: "Store", component: ProductListComponent },
   {
     path: PATH.PRODUCT_DETAIL,
     component: ProductDetailsComponent,

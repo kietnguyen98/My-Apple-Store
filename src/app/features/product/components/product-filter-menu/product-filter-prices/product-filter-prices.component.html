@@ -1,0 +1,23 @@
+<div class="container">
+  <p class="label">Prices</p>
+  <p class="value-range">
+    Range: {{ startPrice | currency }} - {{ endPrice | currency }}
+  </p>
+  <mat-slider
+    [min]="MIN_PRICE"
+    [max]="MAX_PRICE"
+    step="100"
+    discrete
+    showTickMarks
+    [displayWith]="formatPriceSliderLabel"
+    class="value-slider">
+    <input
+      [value]="startPrice"
+      matSliderStartThumb
+      (valueChange)="handleStartPriceChange($event)" />
+    <input
+      [value]="endPrice"
+      matSliderEndThumb
+      (valueChange)="handleEndPriceChange($event)" />
+  </mat-slider>
+</div>

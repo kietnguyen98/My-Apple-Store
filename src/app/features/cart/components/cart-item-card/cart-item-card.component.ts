@@ -40,7 +40,7 @@ export class CartItemCardComponent {
 
   onGetDetailProduct() {
     this.router
-      .navigateByUrl("/dummy", { skipLocationChange: true })
+      .navigateByUrl(PATH.DUMMY, { skipLocationChange: true })
       .then(() => {
         this.router.navigate([PATH.LIST_PRODUCTS, this.item?.product?.name]);
         window.scrollTo(0, 0);

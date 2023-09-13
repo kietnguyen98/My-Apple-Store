@@ -22,8 +22,9 @@ export class BreadcrumbsBarComponent implements OnInit {
 
   ngOnInit(): void {
     const linkNames = this.router.url
-      .replaceAll("%20", " ")
-      .split("/")
+      .split("?")[0] // remove query params path
+      .replaceAll("%20", " ") // encode
+      .split("/") // split to segments
       .filter(link => link.length > 0);
 
     for (let i = 0; i < linkNames.length; i++) {

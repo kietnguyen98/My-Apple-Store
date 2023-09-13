@@ -1,0 +1,78 @@
+.container{
+    --search-width: 300px;
+    --search-height: 36px;
+    --input-width: 240px;
+    --icon-size: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--search-height);
+    width: var(--search-width);
+    background-color: black;
+    border-radius: var(--app-border-radius-large);
+    transition: all 0.2s linear;
+
+    .input {
+        width: var(--input-width);
+        height: var(--search-height);
+        background-color: inherit;
+        transition: all 0.2s linear;
+
+        border: none;
+        padding: 4px 16px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: var(--app-border-radius-large) 0px 0px var(--app-border-radius-large);
+    
+        font-size: var(--app-font-size-small);
+        font-weight: var(--app-font-weight-regular);
+    }
+
+    .input:focus-visible{
+        outline: none;
+    }
+
+    .search-button{
+        background-color: inherit;
+        transition: all 0.2s linear;
+        height: var(--search-height);
+        min-width: calc(var(--search-width) - var(--input-width));
+        width: calc(var(--search-width) - var(--input-width));
+        padding: 0px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0px var(--app-border-radius-large) var(--app-border-radius-large) 0px;
+
+        .icon{
+            color: white;
+            transition: all 0.2s linear;
+            height: var(--icon-size);
+            width: var(--icon-size);
+            font-size: var(--icon-size);
+            margin: 0px;
+        }
+    }
+}
+
+.container:hover{
+    background-color: white;
+    
+    .search-button{
+        .icon{
+            color: var(--app-primary-color);
+        }
+    }
+}
+
+.toggle-light{
+    background-color: white;
+    
+    .search-button{
+        .icon{
+            color: var(--app-primary-color);
+        }
+    }
+}

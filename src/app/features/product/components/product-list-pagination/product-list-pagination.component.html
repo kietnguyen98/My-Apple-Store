@@ -1,23 +1,37 @@
 <div class="container">
-  <div class="paginator-header">
+  <div class="paginator-header" *ngIf="totalElements > 0">
     <div class="product-number paginator-header-badge">
       <p>
-        Number of Products: <span> {{ totalElements }} </span>
+        Number of products:
+        <span>
+          {{ totalElements }}
+        </span>
+        <span *ngIf="searchTerm"
+          >(match search keyword: "<span class="search-term">{{
+            searchTerm
+          }}</span
+          >")</span
+        >
       </p>
     </div>
     <div class="page-size-container paginator-header-badge">
       <p>Paginate by:</p>
-      <select
-        class="page-size-selector"
-        (change)="changeElementsPerPage($event)">
+      <select class="page-size-selector" (change)="changeOffset($event)">
         <option
           *ngFor="let option of elementsPerPageOptions"
           [value]="option.value"
-          [selected]="option.value === elementPerPage">
+          [selected]="option.value === currentOffset">
           {{ option.name }}
         </option>
       </select>
     </div>
+  </div>
+
+  <div class="no-products-container" *ngIf="totalElements === 0">
+    <p class="title">No products match this search !</p>
+    <p class="guide-text">
+      Please, check your search keyword or update the filter
+    </p>
   </div>
 
   <div class="paginator-body">
@@ -25,7 +39,7 @@
     <ng-content> </ng-content>
   </div>
 
-  <div class="paginator-footer">
+  <div class="paginator-footer" *ngIf="totalElements > 0">
     <div class="page-select-container">
       <mat-icon
         matRipple

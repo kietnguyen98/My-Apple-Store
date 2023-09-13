@@ -4,7 +4,7 @@
   /* components */
   --app-header-height: 60px;
   --app-breadcrumbs-height: 40px;
-  --app-side-nav-width: 240px;
+  --app-product-filter-side-nav-width: 240px;
   --app-cart-side-nav-width: 320px;
   --app-cart-side-nav-height: calc(100vh - var(--app-header-height));
   --app-cart-side-nav-header-height: 40px;

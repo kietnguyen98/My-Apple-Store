@@ -3,8 +3,11 @@ import { Injectable } from "@angular/core";
 import { products } from "@/data/products";
 import { CATEGORIES, PAGINATION } from "@/constants";
 import { Observable, Subject, BehaviorSubject } from "rxjs";
+import { ActivatedRoute } from "@angular/router";
+import { QUERY_PARAM_KEYS } from "@/constants";
 
 export type TProductsQueryParams = {
+  searchTerm?: string;
   category?: string;
   startPrice?: number;
   endPrice?: number;
@@ -26,7 +29,13 @@ export class ProductService {
   };
   detailProduct: TProduct | null = null;
 
-  constructor() {}
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.setQueryParams({
+        searchTerm: params[QUERY_PARAM_KEYS.SEARCH] || "",
+      });
+    });
+  }
 
   setProductDetail(product: TProduct) {
     this.detailProduct = product;
@@ -38,6 +47,7 @@ export class ProductService {
   }
 
   setQueryParams({
+    searchTerm,
     category,
     startPrice,
     endPrice,
@@ -47,6 +57,7 @@ export class ProductService {
   }: TProductsQueryParams) {
     this.queryParams = {
       ...this.queryParams,
+      searchTerm: searchTerm || this.queryParams.searchTerm,
       category: category || this.queryParams.category,
       startPrice: startPrice || this.queryParams.startPrice,
       endPrice: endPrice || this.queryParams.endPrice,
@@ -61,10 +72,18 @@ export class ProductService {
 
   setListProducts() {
     let tempProducts = [...products];
+    const searchTerm = this.queryParams.searchTerm;
     const category = this.queryParams.category;
     const startPrice = this.queryParams.startPrice;
     const endPrice = this.queryParams.endPrice;
     const sortPriceDirection = this.queryParams.sortPriceDirection;
+
+    // filter by search term
+    if (searchTerm) {
+      tempProducts = tempProducts.filter(product =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
 
     // filter by category values
     if (category) {

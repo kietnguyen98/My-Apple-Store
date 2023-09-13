@@ -1,5 +1,36 @@
 .container {
     height: var(--app-header-height);
+    width: 100%;
+
+    .home-container{
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+    
+        .apple-icon{
+            width: var(--app-font-size-large);
+            height: var(--app-font-size-large);
+            font-size: var(--app-font-size-large);
+        }
+    
+        .home-title {
+            font-size: var(--app-font-size-medium);
+        }
+    }
+
+    .spacer {
+        flex: 1 1 auto;
+    }
+
+    .action-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    }
 }
 
 .background-transition{
@@ -15,28 +46,6 @@
     top: 0;
     width: 100%;
     z-index: 999;
-}
-
-.home-container{
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-}
-
-.apple-icon{
-    width: var(--app-font-size-large);
-    height: var(--app-font-size-large);
-    font-size: var(--app-font-size-large);
-}
-
-.home-title {
-    font-size: var(--app-font-size-medium);
-}
-
-.example-spacer {
-    flex: 1 1 auto;
 }
 
 .top-bar-under-space{

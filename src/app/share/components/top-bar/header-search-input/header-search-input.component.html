@@ -1,0 +1,16 @@
+<div class="container" id="header-search-container">
+  <input
+    type="text"
+    placeholder="please enter search keys"
+    class="input"
+    id="header-search-input"
+    [value]="searchTerm"
+    (input)="changeSearchTerm($event)" /><button
+    class="search-button"
+    mat-flat-button
+    matTooltip="Search"
+    (click)="getSearchProducts()"
+    [disabled]="!searchTerm">
+    <mat-icon class="icon">search</mat-icon>
+  </button>
+</div>

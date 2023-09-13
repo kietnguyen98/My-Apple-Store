@@ -11,9 +11,8 @@
 }
 
 .paginator-header-badge {
-    text-transform: capitalize;
-    font-weight: var(--app-font-weight-regular);
     width: fit-content;
+    font-weight: var(--app-font-weight-regular);
     color: var(--app-secondary-color);
 }
 
@@ -24,6 +23,11 @@
 
 .paginator-header-badge > p > span {
     color: var(--app-primary-color);
+}
+
+.paginator-header-badge span.search-term{
+    color: var(--app-warn-color);
+    font-weight: var(--app-font-weight-bold);
 }
 
 .page-size-container {
@@ -50,6 +54,20 @@
     outline: unset;
 }
 
+.no-products-container{
+    .title {
+        font-size: var(--app-font-size-medium);
+        font-weight: var(--app-font-weight-bold);
+        color: var(--app-primary-color);
+    }
+
+    .guide-text{
+        font-size: var(--app-font-size-small);
+        font-weight: var(--app-font-weight-regular);
+        color: var(--app-secondary-color);
+    }
+}
+
 .paginator-footer {
     display: flex;
     justify-content: center;
@@ -66,6 +84,7 @@
 }
 
 .page-select-button {
+    cursor: pointer;
     padding: auto;
     border: unset;
     background-color: transparent;
@@ -74,7 +93,6 @@
     color: var(--app-secondary-color);
     font-size: var(--app-font-size-medium);
     border-radius: 50%;
-
 }
 
 .jump-page-button {

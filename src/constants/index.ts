@@ -4,6 +4,7 @@ import * as CATEGORIES from "./categories";
 import * as COMPONENT_DIMENSIONS from "./dimensions";
 import * as PAGINATION from "./pagination";
 import * as SUB_IMAGE_URLS from "./sub-images";
+import * as QUERY_PARAM_KEYS from "./query-params";
 
 export {
   IMAGE_URL,
@@ -12,4 +13,5 @@ export {
   COMPONENT_DIMENSIONS,
   PAGINATION,
   SUB_IMAGE_URLS,
+  QUERY_PARAM_KEYS,
 };

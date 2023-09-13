@@ -5,7 +5,6 @@ import { RouterModule } from "@angular/router";
 // components
 import { ProductAlertsComponent } from "./components/product-alerts/product-alerts.component";
 import { ProductCardsComponent } from "./components/product-cards/product-cards.component";
-import { ProductFilterMenuComponent } from "./components/product-filter-menu/product-filter-menu.component";
 import { ProductListPaginationComponent } from "./components/product-list-pagination/product-list-pagination.component";
 import { ProductMemoriesSelectComponent } from "./components/product-memories-select/product-memories-select.component";
 import { ProductColorsSelectComponent } from "./components/product-colors-select/product-colors-select.component";
@@ -14,6 +13,9 @@ import { ProductSubImagesComponent } from "./components/product-sub-images/produ
 import { ProductsRelatedComponent } from "./components/products-related/products-related.component";
 import { ProductDescriptionAndRateModule } from "./components/product-description-and-rate/product-description-and-rate.module";
 import { PageSectionNavigationComponent } from "./components/page-section-navigation/page-section-navigation.component";
+
+// local modules
+import { ProductFilterMenuModule } from "./components/product-filter-menu/product-filter-menu.module";
 
 // share component
 import { ShareModule } from "@/app/share/share.module";
@@ -29,8 +31,6 @@ import { ProductService } from "./services/product.service";
 import { MatIconModule } from "@angular/material/icon";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatTooltipModule } from "@angular/material/tooltip";
-import { MatSliderModule } from "@angular/material/slider";
-import { MatRadioModule } from "@angular/material/radio";
 import { MatCardModule } from "@angular/material/card";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatButtonModule } from "@angular/material/button";
@@ -39,11 +39,10 @@ import { MatRippleModule } from "@angular/material/core";
 @NgModule({
   imports: [
     CommonModule,
+    ProductFilterMenuModule,
     MatIconModule,
     MatChipsModule,
     MatTooltipModule,
-    MatSliderModule,
-    MatRadioModule,
     MatCardModule,
     RouterModule,
     MatSidenavModule,
@@ -56,7 +55,6 @@ import { MatRippleModule } from "@angular/material/core";
     // components
     ProductAlertsComponent,
     ProductCardsComponent,
-    ProductFilterMenuComponent,
     ProductListPaginationComponent,
     ProductMemoriesSelectComponent,
     ProductColorsSelectComponent,

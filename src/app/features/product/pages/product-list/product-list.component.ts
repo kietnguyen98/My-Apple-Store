@@ -10,15 +10,10 @@ import { scrollToTopImmediately } from "@/utilities/functions";
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   // current list of products
-  products: TProducts = [];
   productsToShow: TProducts = [];
   getStickyDrawer: (() => void) | undefined;
 
   constructor(private productService: ProductService) {
-    this.productService
-      .getListProducts()
-      .subscribe((data: TProducts) => (this.products = data));
-
     this.productService
       .getListProductsByPagination()
       .subscribe((data: TProducts) => {

@@ -1,60 +1,11 @@
 <div class="container">
   <div class="filter-container">
-    <h5 class="container-title">Filter by</h5>
-    <div class="filter-box">
-      <p><strong>Categories</strong></p>
-      <mat-chip-listbox>
-        <mat-chip-option
-          color="primary"
-          [selected]="currentCategory === 'all'"
-          [selectable]="currentCategory !== 'all'"
-          (selectionChange)="handleChangeCategory('all')"
-          >All</mat-chip-option
-        >
-        <mat-chip-option
-          *ngFor="let category of categories"
-          [selected]="currentCategory === category.name"
-          [selectable]="currentCategory !== category.name"
-          (selectionChange)="handleChangeCategory(category.name)"
-          >{{ category.name }}</mat-chip-option
-        >
-      </mat-chip-listbox>
-    </div>
-    <div class="filter-box">
-      <p><strong>Prices</strong></p>
-      <p>Range: {{ startPrice | currency }} - {{ endPrice | currency }}</p>
-      <mat-slider
-        min="100"
-        max="2000"
-        step="100"
-        discrete
-        showTickMarks
-        [displayWith]="formatPriceSliderLabel">
-        <input
-          [value]="startPrice"
-          matSliderStartThumb
-          (valueChange)="handleStartPriceChange($event)" />
-        <input
-          [value]="endPrice"
-          matSliderEndThumb
-          (valueChange)="handleEndPriceChange($event)" />
-      </mat-slider>
-    </div>
+    <p class="title">Filter by</p>
+    <app-product-filter-categories></app-product-filter-categories>
+    <app-product-filter-prices></app-product-filter-prices>
   </div>
   <div class="sort-container">
-    <h5 class="container-title">Sort by</h5>
-    <div class="sort-box">
-      <p><strong>Prices</strong></p>
-      <mat-radio-group
-        class="radio-group"
-        (change)="handleSortPriceValueChange($event)">
-        <mat-radio-button
-          color="primary"
-          *ngFor="let option of PRICE_SORT_OPTIONS"
-          [value]="option.value">
-          {{ option.name }}
-        </mat-radio-button>
-      </mat-radio-group>
-    </div>
+    <p class="title">Sort by</p>
+    <app-product-sort-by-prices></app-product-sort-by-prices>
   </div>
 </div>
