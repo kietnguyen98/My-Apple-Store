@@ -15,6 +15,9 @@ import { CartModule } from "./features/cart/cart.module";
 // routing module
 import { AppRoutingModule } from "./app-routing.module";
 
+// services
+import { RouteService } from "./share/services/route.service";
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { AppRoutingModule } from "./app-routing.module";
     ProductModule,
     CartModule,
   ],
+  providers: [RouteService],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
 })

@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { TBreadcrumbLink } from "@/types";
-import { MatIcon } from "@angular/material/icon";
 
 const BREADCRUMB_ICONS: Array<{ name: string; iconName: string }> = [
   { name: "products", iconName: "devices_other" },
@@ -24,6 +23,8 @@ export class BreadcrumbsBarComponent implements OnInit {
     const linkNames = this.router.url
       .split("?")[0] // remove query params path
       .replaceAll("%20", " ") // encode
+      .replaceAll("%28", "(") // encode
+      .replaceAll("%29", ")") // encode
       .split("/") // split to segments
       .filter(link => link.length > 0);
 

@@ -3,8 +3,7 @@ import { Injectable } from "@angular/core";
 import { products } from "@/data/products";
 import { CATEGORIES, PAGINATION } from "@/constants";
 import { Observable, Subject, BehaviorSubject } from "rxjs";
-import { ActivatedRoute } from "@angular/router";
-import { QUERY_PARAM_KEYS } from "@/constants";
+import { RouteService } from "@/app/share/services/route.service";
 
 export type TProductsQueryParams = {
   searchTerm?: string;
@@ -29,11 +28,9 @@ export class ProductService {
   };
   detailProduct: TProduct | null = null;
 
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.setQueryParams({
-        searchTerm: params[QUERY_PARAM_KEYS.SEARCH] || "",
-      });
+  constructor(private routeService: RouteService) {
+    this.routeService.getParamSearchTerm().subscribe(searchTerm => {
+      this.setQueryParams({ searchTerm: searchTerm || "" });
     });
   }
 

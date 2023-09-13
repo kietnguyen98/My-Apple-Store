@@ -1,7 +1,5 @@
-import { PATH } from "@/configs/routes";
 import { Component, OnInit } from "@angular/core";
-import { Params, Router, ActivatedRoute } from "@angular/router";
-import { QUERY_PARAM_KEYS } from "@/constants";
+import { RouteService } from "@/app/share/services/route.service";
 
 @Component({
   selector: "app-header-search-input",
@@ -11,13 +9,10 @@ import { QUERY_PARAM_KEYS } from "@/constants";
 export class HeaderSearchInputComponent implements OnInit {
   searchTerm: string = "";
 
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {
-    this.activatedRoute.queryParams.subscribe(queryParams => {
-      if (queryParams[QUERY_PARAM_KEYS.SEARCH]) {
-        this.searchTerm = queryParams[QUERY_PARAM_KEYS.SEARCH];
+  constructor(private routeService: RouteService) {
+    this.routeService.getParamSearchTerm().subscribe(searchTerm => {
+      if (searchTerm) {
+        this.searchTerm = searchTerm;
         this.focusSearchBox();
       } else {
         this.searchTerm = "";
@@ -31,11 +26,7 @@ export class HeaderSearchInputComponent implements OnInit {
   }
 
   getSearchProducts() {
-    let searchParams: Params = {};
-    searchParams[QUERY_PARAM_KEYS.SEARCH] = this.searchTerm;
-    this.router.navigate([PATH.LIST_PRODUCTS], {
-      queryParams: searchParams,
-    });
+    this.routeService.getSearchProducts(this.searchTerm);
   }
 
   focusSearchBox() {
