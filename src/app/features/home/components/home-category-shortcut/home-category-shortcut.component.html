@@ -10,7 +10,7 @@
       mat-button
       color="warn"
       class="see-all-button"
-      (click)="getToProductsPage()">
+      (click)="getToProductsPage('all')">
       See all
     </button>
   </div>
@@ -38,7 +38,7 @@
             mat-flat-button
             color="accent"
             class="see-more-button"
-            (click)="getProductsByCategoryPage(category.to)">
+            (click)="getToProductsPage(category.value)">
             See more
           </button>
         </div>

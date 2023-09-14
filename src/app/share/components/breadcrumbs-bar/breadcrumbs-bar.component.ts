@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 import { TBreadcrumbLink } from "@/types";
+import { routeHelper } from "@/utilities/helperFunctions";
+import { RouteService } from "../../services/route.service";
 
 const BREADCRUMB_ICONS: Array<{ name: string; iconName: string }> = [
   { name: "products", iconName: "devices_other" },
@@ -17,14 +18,12 @@ const BREADCRUMB_ICONS: Array<{ name: string; iconName: string }> = [
 export class BreadcrumbsBarComponent implements OnInit {
   links: Array<TBreadcrumbLink> = [];
 
-  constructor(private router: Router) {}
+  constructor(private routeService: RouteService) {}
 
   ngOnInit(): void {
-    const linkNames = this.router.url
+    const linkNames = routeHelper
+      .encodeUrl(this.routeService.router.url)
       .split("?")[0] // remove query params path
-      .replaceAll("%20", " ") // encode
-      .replaceAll("%28", "(") // encode
-      .replaceAll("%29", ")") // encode
       .split("/") // split to segments
       .filter(link => link.length > 0);
 
@@ -50,6 +49,6 @@ export class BreadcrumbsBarComponent implements OnInit {
   }
 
   navigateTo(link: string) {
-    this.router.navigateByUrl(link);
+    this.routeService.navigateWithUrlOnly({ path: link });
   }
 }

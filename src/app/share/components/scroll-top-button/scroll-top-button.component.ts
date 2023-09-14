@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { COMPONENT_DIMENSIONS } from "@/constants";
-import { scrollToTopSmooth } from "@/utilities/functions";
+import { windowScrollHelper } from "@/utilities/helperFunctions";
 
 @Component({
   selector: "app-scroll-top-button",
@@ -23,5 +23,5 @@ export class ScrollTopButtonComponent implements OnInit {
     });
   }
 
-  scrollToTop = scrollToTopSmooth;
+  scrollToTop = windowScrollHelper.scrollToTopSmooth;
 }

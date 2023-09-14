@@ -1,123 +1,145 @@
-.paginator-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 18px;
-    padding: 4px 16px;
-    background-color: white;
-    box-shadow: var(--app-border-box-shadow);
-    border-radius: var(--app-border-radius-small);
-}
+.container{
+    height: 100%;
+    width: 100%;
 
-.paginator-header-badge {
-    width: fit-content;
-    font-weight: var(--app-font-weight-regular);
-    color: var(--app-secondary-color);
-}
-
-.paginator-header-badge > p {
-    width: fit-content;
-    font-size: var(--app-font-size-extra-small);
-}
-
-.paginator-header-badge > p > span {
-    color: var(--app-primary-color);
-}
-
-.paginator-header-badge span.search-term{
-    color: var(--app-warn-color);
-    font-weight: var(--app-font-weight-bold);
-}
-
-.page-size-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-}
-
-.page-size-selector {
-    width: 150px;
-    height: 30px;
-    padding: 2px 8px; 
-    background-color: white;
-    outline: unset;
-    box-shadow: var(--app-badge-box-shadow);
-    font-size: var(--app-font-size-extra-small);
-    border-radius: var(--app-border-radius-small);
-    font-weight: var(--app-font-weight-regular);
-    border: none;
-}
-
-.page-size-selector:focus-visible{
-    outline: unset;
-}
-
-.no-products-container{
-    .title {
-        font-size: var(--app-font-size-medium);
-        font-weight: var(--app-font-weight-bold);
-        color: var(--app-primary-color);
+    .paginator-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+        padding: 4px 16px;
+        background-color: white;
+        box-shadow: var(--app-border-box-shadow);
+        border-radius: var(--app-border-radius-small);
     }
-
-    .guide-text{
-        font-size: var(--app-font-size-small);
+    
+    .paginator-header-badge {
+        width: fit-content;
         font-weight: var(--app-font-weight-regular);
         color: var(--app-secondary-color);
     }
-}
-
-.paginator-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.page-select-container{
-    margin-top: 80px;
-    width: fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-}
-
-.page-select-button {
-    cursor: pointer;
-    padding: auto;
-    border: unset;
-    background-color: transparent;
-    width: 36px;
-    height: 36px;
-    color: var(--app-secondary-color);
-    font-size: var(--app-font-size-medium);
-    border-radius: 50%;
-}
-
-.jump-page-button {
-    cursor: pointer;
-    color: var(--app-secondary-color);
-    width: 40px;
-    height: 40px;
-    font-size: var(--app-font-size-large);
-    border-radius: 50%;
-    padding: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.jump-page-button:hover{
-    background-color: var(--app-accent-color);
-
-}
-
-.button-selected {
-    background-color: var(--app-primary-color);
-    color: white;
-}
-
-.button-unselected:hover {
-    background-color: var(--app-accent-color);
+    
+    .paginator-header-badge > p {
+        width: fit-content;
+        font-size: var(--app-font-size-extra-small);
+    }
+    
+    .paginator-header-badge > p > span {
+        color: var(--app-primary-color);
+    }
+    
+    .paginator-header-badge span.search-term{
+        color: var(--app-warn-color);
+        font-weight: var(--app-font-weight-bold);
+    }
+    
+    .page-size-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .page-size-selector {
+        width: 150px;
+        height: 30px;
+        padding: 2px 8px; 
+        background-color: white;
+        outline: unset;
+        box-shadow: var(--app-badge-box-shadow);
+        font-size: var(--app-font-size-extra-small);
+        border-radius: var(--app-border-radius-small);
+        font-weight: var(--app-font-weight-regular);
+        border: none;
+    }
+    
+    .page-size-selector:focus-visible{
+        outline: unset;
+    }
+    
+    .no-products-container{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+    
+        .title {
+            margin: 0px;
+            font-size: var(--app-font-size-large);
+            font-weight: var(--app-font-weight-bold);
+            color: var(--app-primary-color);
+        }
+    
+        .guide-text{
+            margin: 0px;
+            font-size: var(--app-font-size-medium);
+            font-weight: var(--app-font-weight-regular);
+            color: var(--app-secondary-color);
+        }
+    
+        .reset-button {
+            margin-top: 16px;
+            height: 48px;
+            font-size: var(--app-font-size-medium);
+            font-weight: var(--app-font-weight-regular);
+            letter-spacing: 0px;
+        }
+    }
+    
+    .paginator-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .page-select-container{
+        margin-top: 80px;
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+    
+    .page-select-button {
+        cursor: pointer;
+        padding: auto;
+        border: unset;
+        background-color: transparent;
+        width: 36px;
+        height: 36px;
+        color: var(--app-secondary-color);
+        font-size: var(--app-font-size-medium);
+        border-radius: 50%;
+    }
+    
+    .jump-page-button {
+        cursor: pointer;
+        color: var(--app-secondary-color);
+        width: 40px;
+        height: 40px;
+        font-size: var(--app-font-size-large);
+        border-radius: 50%;
+        padding: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .jump-page-button:hover{
+        background-color: var(--app-accent-color);
+    
+    }
+    
+    .button-selected {
+        background-color: var(--app-primary-color);
+        color: white;
+    }
+    
+    .button-unselected:hover {
+        background-color: var(--app-accent-color);
+    }
 }

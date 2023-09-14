@@ -14,11 +14,17 @@ const routes: Routes = [
     component: HomeComponent,
   },
   { path: PATH.DUMMY, pathMatch: "full", component: DummyComponent },
-  { path: PATH.LIST_PRODUCTS, title: "Store", component: ProductListComponent },
+  {
+    path: PATH.LIST_PRODUCTS,
+    title: "Store",
+    pathMatch: "full",
+    component: ProductListComponent,
+  },
   {
     path: PATH.PRODUCT_DETAIL,
     component: ProductDetailsComponent,
   },
+  { path: "**", redirectTo: PATH.HOME, pathMatch: "full" },
 ];
 
 @NgModule({

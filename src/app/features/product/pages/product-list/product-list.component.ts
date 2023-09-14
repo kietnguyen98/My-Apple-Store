@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { TProducts } from "@/types";
 import { COMPONENT_DIMENSIONS } from "@/constants";
 import { ProductService } from "../../services/product.service";
-import { scrollToTopImmediately } from "@/utilities/functions";
+import { windowScrollHelper } from "@/utilities/helperFunctions";
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",
@@ -18,7 +18,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       .getListProductsByPagination()
       .subscribe((data: TProducts) => {
         this.productsToShow = data;
-        scrollToTopImmediately();
+        windowScrollHelper.scrollToTopImmediately();
       });
   }
 

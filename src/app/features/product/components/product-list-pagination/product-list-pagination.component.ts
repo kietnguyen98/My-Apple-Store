@@ -2,7 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { PAGINATION, QUERY_PARAM_KEYS } from "@/constants";
 import { TNumElementsPerPageOptions, TProducts } from "@/types";
 import { ProductService } from "../../services/product.service";
-import { ActivatedRoute } from "@angular/router";
+import { RouteService } from "@/app/share/services/route.service";
+import { PATH } from "@/configs/routes";
 @Component({
   selector: "app-product-list-pagination",
   templateUrl: "./product-list-pagination.component.html",
@@ -20,16 +21,16 @@ export class ProductListPaginationComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private activatedRoute: ActivatedRoute
+    private routeService: RouteService
   ) {
     this.productService.getListProducts().subscribe((data: TProducts) => {
       this.totalElements = data.length;
       this.updatePageMax();
     });
 
-    this.activatedRoute.queryParams.subscribe(
-      queryParams => (this.searchTerm = queryParams[QUERY_PARAM_KEYS.SEARCH])
-    );
+    this.routeService
+      .getParamSearchTerm()
+      .subscribe(searchTerm => (this.searchTerm = searchTerm));
   }
 
   ngOnInit(): void {
@@ -40,8 +41,8 @@ export class ProductListPaginationComponent implements OnInit {
     if (newPage !== this.currentPage) {
       this.currentPage = newPage;
       this.productService.setQueryParams({
-        page: this.currentPage,
-        offset: this.currentOffset,
+        key: QUERY_PARAM_KEYS.PAGE,
+        value: this.currentPage,
       });
     }
   }
@@ -69,13 +70,17 @@ export class ProductListPaginationComponent implements OnInit {
     this.updatePageMax();
     this.selectPage(this.pageMin);
     this.productService.setQueryParams({
-      page: this.currentPage,
-      offset: this.currentOffset,
+      key: QUERY_PARAM_KEYS.OFFSET,
+      value: this.currentOffset,
     });
   }
 
   updateOnProductsChange() {
     this.updatePageMax();
     this.selectPage(this.pageMin);
+  }
+
+  resetAllFilter() {
+    this.routeService.navigateWithUrlOnly({ path: PATH.LIST_PRODUCTS });
   }
 }

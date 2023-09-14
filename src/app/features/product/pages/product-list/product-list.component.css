@@ -8,17 +8,20 @@
     top: var(--app-header-height);
 }
 
-.products-list-container {
-    width: auto;
-    padding: 20px;
-}
-
-.product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    gap: 16px;
-}
-
 .drawer-content{
     min-height: calc(100vh - var(--app-header-height) - var(--app-breadcrumbs-height));
+    width: auto;
+    padding: 20px;
+
+    .product-list-pagination-container{
+        height: 100%;
+        width: 100%;
+        
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 16px;
+        }
+        
+    }
 }

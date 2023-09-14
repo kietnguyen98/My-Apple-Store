@@ -1,12 +1,13 @@
 import { Component } from "@angular/core";
 import { PATH } from "@/configs/routes";
-import { Router } from "@angular/router";
+import { RouteService } from "@/app/share/services/route.service";
+import { CATEGORIES_VALUE, QUERY_PARAM_KEYS } from "@/constants";
 
 type THomeIntroCategory = {
   imageUrl: string;
   name: string;
   description: string;
-  to: string;
+  value: (typeof CATEGORIES_VALUE)[keyof typeof CATEGORIES_VALUE];
 };
 
 @Component({
@@ -15,7 +16,7 @@ type THomeIntroCategory = {
   styleUrls: ["./home-category-shortcut.component.css"],
 })
 export class HomeCategoryShortcutComponent {
-  constructor(private router: Router) {}
+  constructor(private routeService: RouteService) {}
 
   categories: Array<THomeIntroCategory> = [
     {
@@ -23,29 +24,30 @@ export class HomeCategoryShortcutComponent {
       name: "IPhone",
       description:
         "Get the best phone for you and your lover, those products are perfect made with high quality. With this item, you will be a pro vip person",
-      to: PATH.LIST_PRODUCTS,
+      value: CATEGORIES_VALUE.IPHONE,
     },
     {
       imageUrl: "/assets/images/categories/ipad.png",
       name: "IPad",
       description:
         "Get the best tablet for you and your lover, those products are perfect made with high quality. With this item, you will be a pro vip person",
-      to: PATH.LIST_PRODUCTS,
+      value: CATEGORIES_VALUE.IPAD,
     },
     {
       imageUrl: "/assets/images/categories/iwatch.png",
       name: "IWatch",
       description:
         "Get the best watch for you and your lover, those products are perfect made with high quality. With this item, you will be a pro vip person",
-      to: PATH.LIST_PRODUCTS,
+      value: CATEGORIES_VALUE.IWATCH,
     },
   ];
 
-  getProductsByCategoryPage(path: string) {
-    this.router.navigateByUrl(path);
-  }
-
-  getToProductsPage() {
-    this.router.navigateByUrl(PATH.LIST_PRODUCTS);
+  getToProductsPage(
+    category: (typeof CATEGORIES_VALUE)[keyof typeof CATEGORIES_VALUE]
+  ) {
+    this.routeService.navigateWithParams({
+      path: PATH.LIST_PRODUCTS,
+      queryParams: [{ key: QUERY_PARAM_KEYS.CATEGORY, value: category }],
+    });
   }
 }

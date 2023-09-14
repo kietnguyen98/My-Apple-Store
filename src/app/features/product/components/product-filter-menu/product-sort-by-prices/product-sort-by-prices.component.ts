@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { ProductService } from "../../../services/product.service";
 import { MatRadioChange } from "@angular/material/radio";
-import { PRICES } from "@/constants";
+import { PRICES, QUERY_PARAM_KEYS } from "@/constants";
 
 @Component({
   selector: "app-product-sort-by-prices",
@@ -15,9 +15,10 @@ export class ProductSortByPricesComponent {
   constructor(private productService: ProductService) {}
 
   handleSortPriceValueChange(newValue: MatRadioChange) {
-    this.sortPriceValue = newValue.value;
+    this.sortPriceValue = newValue.value as number;
     this.productService.setQueryParams({
-      sortPriceDirection: this.sortPriceValue || undefined,
+      key: QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
+      value: this.sortPriceValue,
     });
   }
 }

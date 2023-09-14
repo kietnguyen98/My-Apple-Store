@@ -1,6 +1,6 @@
-const ALL_VALUE = "all";
-const IPHONE_VALUE = "iPhone";
-const IPAD_VALUE = "iPad";
-const IWATCH_VALUE = "iWatch";
+const ALL = "all";
+const IPHONE = "iPhone";
+const IPAD = "iPad";
+const IWATCH = "iWatch";
 
-export { ALL_VALUE, IPHONE_VALUE, IPAD_VALUE, IWATCH_VALUE };
+export { ALL, IPHONE, IPAD, IWATCH };

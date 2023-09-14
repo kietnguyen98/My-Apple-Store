@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnDestroy } from "@angular/core";
-import { updateTimeSection } from "@/utilities/functions";
+import { countDownClockHelper } from "@/utilities/helperFunctions";
 
 type TCountDownClockMode = "dark" | "light";
 type TCountDownClockSize = "medium" | "big";
@@ -31,16 +31,19 @@ export class HomeFlashSaleClockComponent implements OnInit, OnDestroy {
         );
         const seconds = Math.floor((this.countDownTime % (60 * 1000)) / 1000);
 
-        updateTimeSection(`${this.elementIdPrefix}-countdown-clock-days`, days);
-        updateTimeSection(
+        countDownClockHelper.updateTimeSection(
+          `${this.elementIdPrefix}-countdown-clock-days`,
+          days
+        );
+        countDownClockHelper.updateTimeSection(
           `${this.elementIdPrefix}-countdown-clock-hours`,
           hours
         );
-        updateTimeSection(
+        countDownClockHelper.updateTimeSection(
           `${this.elementIdPrefix}-countdown-clock-minutes`,
           minutes
         );
-        updateTimeSection(
+        countDownClockHelper.updateTimeSection(
           `${this.elementIdPrefix}-countdown-clock-seconds`,
           seconds
         );

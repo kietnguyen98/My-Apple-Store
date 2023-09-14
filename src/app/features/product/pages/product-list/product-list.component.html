@@ -5,17 +5,13 @@
       <app-product-filter-menu />
     </mat-drawer>
     <mat-drawer-content class="drawer-content">
-      <div class="products-list-container">
-        <div class="product-list-paginator">
-          <app-product-list-pagination>
-            <div class="product-list">
-              <app-product-cards
-                *ngFor="let product of productsToShow"
-                [product]="product" />
-            </div>
-          </app-product-list-pagination>
+      <app-product-list-pagination class="product-list-pagination-container">
+        <div class="product-list">
+          <app-product-cards
+            *ngFor="let product of productsToShow"
+            [product]="product" />
         </div>
-      </div>
+      </app-product-list-pagination>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>
