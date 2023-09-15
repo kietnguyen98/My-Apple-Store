@@ -1,11 +1,17 @@
 <div class="container">
   <div class="content-container">
-    <p class="breadcrumb-value" (click)="navigateTo('/')">
+    <p class="breadcrumb-value active-breadcrumb" (click)="navigateTo('/')">
       <mat-icon>home</mat-icon> Home
     </p>
     <div class="breadcrumb-tag" *ngFor="let link of links">
       <span><mat-icon>keyboard_arrow_right</mat-icon></span>
-      <p class="breadcrumb-value" (click)="navigateTo(link.to)">
+      <p
+        [ngClass]="{
+          'breadcrumb-value': true,
+          'active-breadcrumb': link.isActive,
+          'inActive-breadcrumb': !link.isActive
+        }"
+        (click)="link.isActive && navigateTo(link.to)">
         <mat-icon *ngIf="link.iconName && link.iconName.length > 0">{{
           link.iconName
         }}</mat-icon>

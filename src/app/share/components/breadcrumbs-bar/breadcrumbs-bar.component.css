@@ -11,7 +11,6 @@
 }
 
 .breadcrumb-value {
-    cursor: pointer;
     font-size: var(--app-font-size-extra-small);
     color: var(--app-primary-color);
     text-transform: capitalize;
@@ -32,8 +31,16 @@
     justify-content: center;
 }
 
-.breadcrumb-value:hover{
+.active-breadcrumb {
+    cursor: pointer;
+}
+
+.active-breadcrumb:hover{
     font-weight: var(--app-font-weight-bold);
+}
+
+.inActive-breadcrumb{
+    cursor: auto;
 }
 
 .content-container {

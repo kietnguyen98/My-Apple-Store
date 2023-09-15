@@ -42,6 +42,7 @@ export class BreadcrumbsBarComponent implements OnInit {
         name: linkNames[i],
         to: linkTo,
         iconName: iconName,
+        isActive: i < linkNames.length - 1 ? true : false,
       };
 
       this.links.push(link);
