@@ -16,7 +16,7 @@ export class ProductFilterCategoriesComponent {
   constructor(private routeService: RouteService) {
     this.routeService
       .getParamCategory()
-      .subscribe(param => (this.currentCategory = param));
+      .subscribe(paramValue => (this.currentCategory = paramValue as string));
   }
 
   handleChangeCategory(newCategory: string) {

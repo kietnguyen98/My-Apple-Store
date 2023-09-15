@@ -6,3 +6,4 @@ export type * from "./link.type";
 export type * from "./product.type";
 export type * from "./cart-item.type";
 export type * from "./common.type";
+export type * from "./query-params.type";

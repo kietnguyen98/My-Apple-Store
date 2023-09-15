@@ -17,10 +17,10 @@ export class ProductFilterPricesComponent {
   constructor(private routeService: RouteService) {
     this.routeService
       .getParamStartPrice()
-      .subscribe(value => (this.startPrice = value));
+      .subscribe(paramValue => (this.startPrice = paramValue as number));
     this.routeService
       .getParamEndPrice()
-      .subscribe(value => (this.endPrice = value));
+      .subscribe(paramValue => (this.endPrice = paramValue as number));
   }
 
   formatPriceSliderLabel(value: number): string {
@@ -30,14 +30,20 @@ export class ProductFilterPricesComponent {
   handleStartPriceChange(newValue: number) {
     this.routeService.navigateWithParams({
       path: PATH.LIST_PRODUCTS,
-      queryParams: [{ key: QUERY_PARAM_KEYS.START_PRICE, value: newValue }],
+      queryParams: [
+        { key: QUERY_PARAM_KEYS.START_PRICE, value: newValue },
+        { key: QUERY_PARAM_KEYS.END_PRICE, value: this.endPrice },
+      ],
     });
   }
 
   handleEndPriceChange(newValue: number) {
     this.routeService.navigateWithParams({
       path: PATH.LIST_PRODUCTS,
-      queryParams: [{ key: QUERY_PARAM_KEYS.END_PRICE, value: newValue }],
+      queryParams: [
+        { key: QUERY_PARAM_KEYS.START_PRICE, value: this.startPrice },
+        { key: QUERY_PARAM_KEYS.END_PRICE, value: newValue },
+      ],
     });
   }
 }

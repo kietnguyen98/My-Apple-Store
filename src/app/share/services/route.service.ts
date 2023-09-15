@@ -5,8 +5,12 @@ import { CATEGORIES_VALUE, PRICES, QUERY_PARAM_KEYS } from "@/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { PATH } from "@/configs/routes";
 import { routeHelper } from "@/utilities/helperFunctions";
-import { TSetQueryParamsProps } from "@/app/features/product/services/product.service";
 import { windowScrollHelper } from "@/utilities/helperFunctions";
+import {
+  TSetQueryParamsProps,
+  TQueryParamKeyForSubscribes,
+  TQueryParamValueForSubscribes,
+} from "@/types";
 
 type TNavigateWithUrlOnly = {
   path: string | Array<string>;
@@ -19,15 +23,42 @@ type TNavigateWithParamsProps = {
 };
 @Injectable()
 export class RouteService {
-  queryParams: Params = {};
-  paramSearchTermSubject = new BehaviorSubject<string>("");
-  paramCategorySubject = new BehaviorSubject<string>(CATEGORIES_VALUE.ALL);
-  paramStartPriceSubject = new BehaviorSubject<number>(
-    PRICES.DEFAULT_FILTER_START_PRICE
-  );
-  paramEndPriceSubject = new BehaviorSubject<number>(
-    PRICES.DEFAULT_FILTER_END_PRICE
-  );
+  urlQueryParams: Params = {};
+
+  queryParamsKeysForSubscribes: Array<TQueryParamKeyForSubscribes> = [
+    QUERY_PARAM_KEYS.SEARCH_TERM,
+    QUERY_PARAM_KEYS.CATEGORY,
+    QUERY_PARAM_KEYS.START_PRICE,
+    QUERY_PARAM_KEYS.END_PRICE,
+  ];
+
+  queryParamsSubscribesDefaultValue: Record<
+    TQueryParamKeyForSubscribes,
+    TQueryParamValueForSubscribes
+  > = {
+    searchTerm: "",
+    category: CATEGORIES_VALUE.ALL,
+    startPrice: PRICES.DEFAULT_FILTER_START_PRICE,
+    endPrice: PRICES.DEFAULT_FILTER_END_PRICE,
+  };
+
+  queryParamSubjects: Record<
+    TQueryParamKeyForSubscribes,
+    BehaviorSubject<TQueryParamValueForSubscribes>
+  > = {
+    searchTerm: new BehaviorSubject<TQueryParamValueForSubscribes>(
+      this.queryParamsSubscribesDefaultValue[QUERY_PARAM_KEYS.SEARCH_TERM]
+    ),
+    category: new BehaviorSubject<TQueryParamValueForSubscribes>(
+      this.queryParamsSubscribesDefaultValue[QUERY_PARAM_KEYS.CATEGORY]
+    ),
+    startPrice: new BehaviorSubject<TQueryParamValueForSubscribes>(
+      this.queryParamsSubscribesDefaultValue[QUERY_PARAM_KEYS.START_PRICE]
+    ),
+    endPrice: new BehaviorSubject<TQueryParamValueForSubscribes>(
+      this.queryParamsSubscribesDefaultValue[QUERY_PARAM_KEYS.END_PRICE]
+    ),
+  };
 
   constructor(
     public router: Router,
@@ -68,89 +99,76 @@ export class RouteService {
       }
     });
 
-    // subscribe for search term
-    this.activatedRoute.queryParams
-      .pipe(filter(params => params[QUERY_PARAM_KEYS.SEARCH_TERM]))
-      .subscribe(param => {
-        const paramValue = param[QUERY_PARAM_KEYS.SEARCH_TERM] as string;
+    this.queryParamsKeysForSubscribes.forEach(queryParamKey => {
+      this.activatedRoute.queryParams
+        // get exact query param
+        .pipe(filter(params => params[queryParamKey]))
+        // subscribe that query param
+        .subscribe(param => {
+          const paramValue = param[queryParamKey];
 
-        this.updateQueryParams({
-          key: QUERY_PARAM_KEYS.SEARCH_TERM,
-          value: paramValue,
+          this.updateUrlQueryParams({
+            key: queryParamKey,
+            value: paramValue,
+          });
+          this.queryParamSubjects[queryParamKey].next(
+            paramValue || this.queryParamsSubscribesDefaultValue[queryParamKey]
+          );
         });
-        this.paramSearchTermSubject.next(paramValue || "");
-      });
-
-    // subscribe for category
-    this.activatedRoute.queryParams
-      .pipe(filter(params => params[QUERY_PARAM_KEYS.CATEGORY]))
-      .subscribe(param => {
-        const paramValue = param[QUERY_PARAM_KEYS.CATEGORY] as string;
-
-        this.updateQueryParams({
-          key: QUERY_PARAM_KEYS.CATEGORY,
-          value: paramValue,
-        });
-        this.paramCategorySubject.next(paramValue || CATEGORIES_VALUE.ALL);
-      });
-
-    // subscribe for start price
-    this.activatedRoute.queryParams
-      .pipe(filter(params => params[QUERY_PARAM_KEYS.START_PRICE]))
-      .subscribe(param => {
-        const paramValue = param[QUERY_PARAM_KEYS.START_PRICE] as number;
-
-        this.updateQueryParams({
-          key: QUERY_PARAM_KEYS.START_PRICE,
-          value: paramValue,
-        });
-        this.paramStartPriceSubject.next(
-          paramValue || PRICES.DEFAULT_FILTER_START_PRICE
-        );
-      });
-
-    // subscribe for end price
-    this.activatedRoute.queryParams
-      .pipe(filter(params => params[QUERY_PARAM_KEYS.END_PRICE]))
-      .subscribe(param => {
-        const paramValue = param[QUERY_PARAM_KEYS.END_PRICE] as number;
-
-        this.updateQueryParams({
-          key: QUERY_PARAM_KEYS.END_PRICE,
-          value: paramValue,
-        });
-        this.paramEndPriceSubject.next(
-          paramValue || PRICES.DEFAULT_FILTER_END_PRICE
-        );
-      });
+    });
   }
 
-  updateQueryParams({ key, value }: TSetQueryParamsProps) {
+  // declare all query params observable
+  // search term
+
+  getParamSearchTerm(): Observable<TQueryParamValueForSubscribes> {
+    return this.queryParamSubjects[QUERY_PARAM_KEYS.SEARCH_TERM].asObservable();
+  }
+
+  // category
+  getParamCategory(): Observable<TQueryParamValueForSubscribes> {
+    return this.queryParamSubjects[QUERY_PARAM_KEYS.CATEGORY].asObservable();
+  }
+
+  // min price
+  getParamStartPrice(): Observable<TQueryParamValueForSubscribes> {
+    return this.queryParamSubjects[QUERY_PARAM_KEYS.START_PRICE].asObservable();
+  }
+
+  // max price
+  getParamEndPrice(): Observable<TQueryParamValueForSubscribes> {
+    return this.queryParamSubjects[QUERY_PARAM_KEYS.END_PRICE].asObservable();
+  }
+
+  updateUrlQueryParams({ key, value }: TSetQueryParamsProps) {
     if (value) {
-      this.queryParams[key] = value;
+      this.urlQueryParams[key] = value;
     } else {
-      delete this.queryParams[key];
+      delete this.urlQueryParams[key];
     }
 
     // should reorder query params here
-    this.queryParams = routeHelper.sortQueryParamsInOrder(this.queryParams);
+    this.urlQueryParams = routeHelper.sortQueryParamsInOrder(
+      this.urlQueryParams
+    );
   }
 
   resetAllQueryParams() {
-    this.queryParams = {};
-    this.paramSearchTermSubject.next("");
-    this.paramCategorySubject.next(CATEGORIES_VALUE.ALL);
-    this.paramStartPriceSubject.next(PRICES.DEFAULT_FILTER_START_PRICE);
-    this.paramEndPriceSubject.next(PRICES.DEFAULT_FILTER_END_PRICE);
+    this.urlQueryParams = {};
+    this.queryParamsKeysForSubscribes.forEach(queryParamKey => {
+      this.queryParamSubjects[queryParamKey].next(
+        this.queryParamsSubscribesDefaultValue[queryParamKey]
+      );
+    });
   }
 
   navigateWithParams({ path, queryParams }: TNavigateWithParamsProps) {
     queryParams.forEach(({ key, value }) =>
-      this.updateQueryParams({ key: key, value: value })
+      this.updateUrlQueryParams({ key: key, value: value })
     );
 
     this.router
-      .navigate([path], { queryParams: this.queryParams })
+      .navigate([path], { queryParams: this.urlQueryParams })
       .then(() => windowScrollHelper.scrollToTopImmediately());
   }
 
@@ -177,25 +195,5 @@ export class RouteService {
         .navigateByUrl(url)
         .then(() => windowScrollHelper.scrollToTopImmediately());
     }
-  }
-
-  // search term
-  getParamSearchTerm(): Observable<string> {
-    return this.paramSearchTermSubject.asObservable();
-  }
-
-  // category
-  getParamCategory(): Observable<string> {
-    return this.paramCategorySubject.asObservable();
-  }
-
-  // min price
-  getParamStartPrice(): Observable<number> {
-    return this.paramStartPriceSubject.asObservable();
-  }
-
-  // max price
-  getParamEndPrice(): Observable<number> {
-    return this.paramEndPriceSubject.asObservable();
   }
 }

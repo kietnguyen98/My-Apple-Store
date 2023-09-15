@@ -30,7 +30,7 @@ export class ProductListPaginationComponent implements OnInit {
 
     this.routeService
       .getParamSearchTerm()
-      .subscribe(searchTerm => (this.searchTerm = searchTerm));
+      .subscribe(paramValue => (this.searchTerm = paramValue as string));
   }
 
   ngOnInit(): void {

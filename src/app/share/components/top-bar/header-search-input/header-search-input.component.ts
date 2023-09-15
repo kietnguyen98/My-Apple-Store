@@ -12,9 +12,9 @@ export class HeaderSearchInputComponent implements OnInit {
   searchTerm: string = "";
 
   constructor(private routeService: RouteService) {
-    this.routeService.getParamSearchTerm().subscribe(searchTerm => {
-      if (searchTerm) {
-        this.searchTerm = searchTerm;
+    this.routeService.getParamSearchTerm().subscribe(paramValue => {
+      if (paramValue) {
+        this.searchTerm = paramValue as string;
         this.focusSearchBox();
       } else {
         this.searchTerm = "";

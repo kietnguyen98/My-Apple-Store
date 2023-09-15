@@ -1,22 +1,15 @@
-import { TProduct, TProducts } from "@/types";
+import {
+  TProduct,
+  TProducts,
+  TProductsQueryParams,
+  TSetQueryParamsProps,
+} from "@/types";
 import { Injectable } from "@angular/core";
 import { products } from "@/data/products";
 import { CATEGORIES_VALUE, PAGINATION } from "@/constants";
 import { Observable, Subject, BehaviorSubject } from "rxjs";
 import { RouteService } from "@/app/share/services/route.service";
 import { QUERY_PARAM_KEYS } from "@/constants";
-
-type TProductsQueryParams = Partial<
-  Record<
-    (typeof QUERY_PARAM_KEYS)[keyof typeof QUERY_PARAM_KEYS],
-    string | number
-  >
->;
-
-export type TSetQueryParamsProps = {
-  key: (typeof QUERY_PARAM_KEYS)[keyof typeof QUERY_PARAM_KEYS];
-  value: string | number;
-};
 
 @Injectable({ providedIn: "root" })
 export class ProductService {
@@ -76,6 +69,7 @@ export class ProductService {
     this.setListProducts();
   }
 
+  // list products filter
   setListProducts() {
     let tempProducts = [...products];
     const searchTerm = this.queryParams.searchTerm;
@@ -130,6 +124,7 @@ export class ProductService {
     return this.listProductsSubject.asObservable();
   }
 
+  // list products by pagination after filter
   setListProductsByPagination() {
     const page = (this.queryParams.page as number) || 1;
     const offset =
