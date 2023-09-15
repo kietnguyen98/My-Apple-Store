@@ -16,6 +16,7 @@ export type TQueryParamKeyForSubscribes =
   | typeof QUERY_PARAM_KEYS.SEARCH_TERM
   | typeof QUERY_PARAM_KEYS.CATEGORY
   | typeof QUERY_PARAM_KEYS.START_PRICE
-  | typeof QUERY_PARAM_KEYS.END_PRICE;
-
-export type TQueryParamValueForSubscribes = string | number;
+  | typeof QUERY_PARAM_KEYS.END_PRICE
+  | typeof QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION
+  | typeof QUERY_PARAM_KEYS.PAGE
+  | typeof QUERY_PARAM_KEYS.OFFSET;

@@ -30,7 +30,15 @@ export class ProductListPaginationComponent implements OnInit {
 
     this.routeService
       .getParamSearchTerm()
-      .subscribe(paramValue => (this.searchTerm = paramValue as string));
+      .subscribe(paramValue => (this.searchTerm = paramValue));
+
+    this.routeService
+      .getParamPage()
+      .subscribe(paramValue => (this.currentPage = Number(paramValue)));
+
+    this.routeService
+      .getParamOffset()
+      .subscribe(paramValue => (this.currentOffset = Number(paramValue)));
   }
 
   ngOnInit(): void {
@@ -40,9 +48,12 @@ export class ProductListPaginationComponent implements OnInit {
   selectPage(newPage: number) {
     if (newPage !== this.currentPage) {
       this.currentPage = newPage;
-      this.productService.setQueryParams({
-        key: QUERY_PARAM_KEYS.PAGE,
-        value: this.currentPage,
+      this.routeService.navigateWithParams({
+        path: PATH.LIST_PRODUCTS,
+        queryParams: [
+          { key: QUERY_PARAM_KEYS.PAGE, value: this.currentPage },
+          { key: QUERY_PARAM_KEYS.OFFSET, value: this.currentOffset },
+        ],
       });
     }
   }
@@ -69,9 +80,12 @@ export class ProductListPaginationComponent implements OnInit {
     this.currentOffset = newValue;
     this.updatePageMax();
     this.selectPage(this.pageMin);
-    this.productService.setQueryParams({
-      key: QUERY_PARAM_KEYS.OFFSET,
-      value: this.currentOffset,
+    this.routeService.navigateWithParams({
+      path: PATH.LIST_PRODUCTS,
+      queryParams: [
+        { key: QUERY_PARAM_KEYS.PAGE, value: this.currentPage },
+        { key: QUERY_PARAM_KEYS.OFFSET, value: this.currentOffset },
+      ],
     });
   }
 

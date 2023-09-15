@@ -1,16 +1,17 @@
 import { Injectable } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { filter } from "rxjs/operators";
-import { CATEGORIES_VALUE, PRICES, QUERY_PARAM_KEYS } from "@/constants";
+import {
+  CATEGORIES_VALUE,
+  PAGINATION,
+  PRICES,
+  QUERY_PARAM_KEYS,
+} from "@/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { PATH } from "@/configs/routes";
 import { routeHelper } from "@/utilities/helperFunctions";
 import { windowScrollHelper } from "@/utilities/helperFunctions";
-import {
-  TSetQueryParamsProps,
-  TQueryParamKeyForSubscribes,
-  TQueryParamValueForSubscribes,
-} from "@/types";
+import { TSetQueryParamsProps, TQueryParamKeyForSubscribes } from "@/types";
 
 type TNavigateWithUrlOnly = {
   path: string | Array<string>;
@@ -30,33 +31,48 @@ export class RouteService {
     QUERY_PARAM_KEYS.CATEGORY,
     QUERY_PARAM_KEYS.START_PRICE,
     QUERY_PARAM_KEYS.END_PRICE,
+    QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
+    QUERY_PARAM_KEYS.PAGE,
+    QUERY_PARAM_KEYS.OFFSET,
   ];
 
   queryParamsSubscribesDefaultValue: Record<
     TQueryParamKeyForSubscribes,
-    TQueryParamValueForSubscribes
+    string
   > = {
     searchTerm: "",
     category: CATEGORIES_VALUE.ALL,
-    startPrice: PRICES.DEFAULT_FILTER_START_PRICE,
-    endPrice: PRICES.DEFAULT_FILTER_END_PRICE,
+    startPrice: PRICES.DEFAULT_FILTER_START_PRICE.toString(),
+    endPrice: PRICES.DEFAULT_FILTER_END_PRICE.toString(),
+    sortPriceDirection: "0",
+    page: "1",
+    offset: PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value.toString(),
   };
 
   queryParamSubjects: Record<
     TQueryParamKeyForSubscribes,
-    BehaviorSubject<TQueryParamValueForSubscribes>
+    BehaviorSubject<string>
   > = {
-    searchTerm: new BehaviorSubject<TQueryParamValueForSubscribes>(
-      this.queryParamsSubscribesDefaultValue[QUERY_PARAM_KEYS.SEARCH_TERM]
+    searchTerm: new BehaviorSubject<string>(
+      this.queryParamsSubscribesDefaultValue.searchTerm
     ),
-    category: new BehaviorSubject<TQueryParamValueForSubscribes>(
-      this.queryParamsSubscribesDefaultValue[QUERY_PARAM_KEYS.CATEGORY]
+    category: new BehaviorSubject<string>(
+      this.queryParamsSubscribesDefaultValue.category
     ),
-    startPrice: new BehaviorSubject<TQueryParamValueForSubscribes>(
-      this.queryParamsSubscribesDefaultValue[QUERY_PARAM_KEYS.START_PRICE]
+    startPrice: new BehaviorSubject<string>(
+      this.queryParamsSubscribesDefaultValue.startPrice
     ),
-    endPrice: new BehaviorSubject<TQueryParamValueForSubscribes>(
-      this.queryParamsSubscribesDefaultValue[QUERY_PARAM_KEYS.END_PRICE]
+    endPrice: new BehaviorSubject<string>(
+      this.queryParamsSubscribesDefaultValue.endPrice
+    ),
+    sortPriceDirection: new BehaviorSubject<string>(
+      this.queryParamsSubscribesDefaultValue.sortPriceDirection
+    ),
+    page: new BehaviorSubject<string>(
+      this.queryParamsSubscribesDefaultValue.page
+    ),
+    offset: new BehaviorSubject<string>(
+      this.queryParamsSubscribesDefaultValue.offset
     ),
   };
 
@@ -106,7 +122,6 @@ export class RouteService {
         // subscribe that query param
         .subscribe(param => {
           const paramValue = param[queryParamKey];
-
           this.updateUrlQueryParams({
             key: queryParamKey,
             value: paramValue,
@@ -120,24 +135,34 @@ export class RouteService {
 
   // declare all query params observable
   // search term
-
-  getParamSearchTerm(): Observable<TQueryParamValueForSubscribes> {
+  getParamSearchTerm(): Observable<string> {
     return this.queryParamSubjects[QUERY_PARAM_KEYS.SEARCH_TERM].asObservable();
   }
-
   // category
-  getParamCategory(): Observable<TQueryParamValueForSubscribes> {
+  getParamCategory(): Observable<string> {
     return this.queryParamSubjects[QUERY_PARAM_KEYS.CATEGORY].asObservable();
   }
-
   // min price
-  getParamStartPrice(): Observable<TQueryParamValueForSubscribes> {
+  getParamStartPrice(): Observable<string> {
     return this.queryParamSubjects[QUERY_PARAM_KEYS.START_PRICE].asObservable();
   }
-
   // max price
-  getParamEndPrice(): Observable<TQueryParamValueForSubscribes> {
+  getParamEndPrice(): Observable<string> {
     return this.queryParamSubjects[QUERY_PARAM_KEYS.END_PRICE].asObservable();
+  }
+  // sort price direction
+  getParamSortPriceDirection(): Observable<string> {
+    return this.queryParamSubjects[
+      QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION
+    ].asObservable();
+  }
+  // page
+  getParamPage(): Observable<string> {
+    return this.queryParamSubjects[QUERY_PARAM_KEYS.PAGE].asObservable();
+  }
+  // offset
+  getParamOffset(): Observable<string> {
+    return this.queryParamSubjects[QUERY_PARAM_KEYS.OFFSET].asObservable();
   }
 
   updateUrlQueryParams({ key, value }: TSetQueryParamsProps) {
@@ -163,9 +188,26 @@ export class RouteService {
   }
 
   navigateWithParams({ path, queryParams }: TNavigateWithParamsProps) {
-    queryParams.forEach(({ key, value }) =>
-      this.updateUrlQueryParams({ key: key, value: value })
-    );
+    // check which param has change before navigate
+    // if the changed param is not page and offset => reset page and offset
+    let shouldResetPageAndOffset = true;
+
+    queryParams.forEach(({ key, value }) => {
+      this.updateUrlQueryParams({ key: key, value: value });
+      if (key === QUERY_PARAM_KEYS.PAGE || key === QUERY_PARAM_KEYS.OFFSET)
+        shouldResetPageAndOffset = false;
+    });
+
+    if (shouldResetPageAndOffset) {
+      this.updateUrlQueryParams({
+        key: QUERY_PARAM_KEYS.PAGE,
+        value: this.queryParamsSubscribesDefaultValue.page,
+      });
+      this.updateUrlQueryParams({
+        key: QUERY_PARAM_KEYS.OFFSET,
+        value: this.queryParamsSubscribesDefaultValue.offset,
+      });
+    }
 
     this.router
       .navigate([path], { queryParams: this.urlQueryParams })

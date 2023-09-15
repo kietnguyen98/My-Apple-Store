@@ -17,10 +17,10 @@ export class ProductFilterPricesComponent {
   constructor(private routeService: RouteService) {
     this.routeService
       .getParamStartPrice()
-      .subscribe(paramValue => (this.startPrice = paramValue as number));
+      .subscribe(paramValue => (this.startPrice = Number(paramValue)));
     this.routeService
       .getParamEndPrice()
-      .subscribe(paramValue => (this.endPrice = paramValue as number));
+      .subscribe(paramValue => (this.endPrice = Number(paramValue)));
   }
 
   formatPriceSliderLabel(value: number): string {

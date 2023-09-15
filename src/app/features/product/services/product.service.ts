@@ -14,8 +14,8 @@ import { QUERY_PARAM_KEYS } from "@/constants";
 @Injectable({ providedIn: "root" })
 export class ProductService {
   detailProductSubject = new BehaviorSubject<TProduct | null>(null);
-  listProductsSubject = new Subject<TProducts>();
-  listProductsByPaginationSubject = new Subject<TProducts>();
+  listProductsSubject = new BehaviorSubject<TProducts>([]);
+  listProductsByPaginationSubject = new BehaviorSubject<TProducts>([]);
   listProducts: TProducts = [];
   listProductsByPagination: TProducts = [];
   queryParams: TProductsQueryParams = {
@@ -26,42 +26,54 @@ export class ProductService {
 
   constructor(private routeService: RouteService) {
     // detect change on query params
-    this.routeService.getParamSearchTerm().subscribe(searchTerm =>
+    this.routeService.getParamSearchTerm().subscribe(paramValue =>
       this.setQueryParams({
         key: QUERY_PARAM_KEYS.SEARCH_TERM,
-        value: searchTerm,
+        value: paramValue,
       })
     );
 
-    this.routeService.getParamCategory().subscribe(category =>
+    this.routeService.getParamCategory().subscribe(paramValue =>
       this.setQueryParams({
         key: QUERY_PARAM_KEYS.CATEGORY,
-        value: category,
+        value: paramValue,
       })
     );
 
-    this.routeService.getParamStartPrice().subscribe(price =>
+    this.routeService.getParamStartPrice().subscribe(paramValue =>
       this.setQueryParams({
         key: QUERY_PARAM_KEYS.START_PRICE,
-        value: price,
+        value: Number(paramValue),
       })
     );
 
-    this.routeService.getParamEndPrice().subscribe(price =>
+    this.routeService.getParamEndPrice().subscribe(paramValue =>
       this.setQueryParams({
         key: QUERY_PARAM_KEYS.END_PRICE,
-        value: price,
+        value: Number(paramValue),
       })
     );
-  }
 
-  setProductDetail(product: TProduct) {
-    this.detailProduct = product;
-    this.detailProductSubject.next(this.detailProduct);
-  }
+    this.routeService.getParamSortPriceDirection().subscribe(paramValue =>
+      this.setQueryParams({
+        key: QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
+        value: Number(paramValue),
+      })
+    );
 
-  getProductDetail(): Observable<TProduct | null> {
-    return this.detailProductSubject.asObservable();
+    this.routeService.getParamPage().subscribe(paramValue =>
+      this.setQueryParams({
+        key: QUERY_PARAM_KEYS.PAGE,
+        value: Number(paramValue),
+      })
+    );
+
+    this.routeService.getParamOffset().subscribe(paramValue =>
+      this.setQueryParams({
+        key: QUERY_PARAM_KEYS.OFFSET,
+        value: Number(paramValue),
+      })
+    );
   }
 
   setQueryParams({ key, value }: TSetQueryParamsProps) {
@@ -106,8 +118,8 @@ export class ProductService {
     }
 
     // filter by sort price directions values
-    if (sortPriceDirection) {
-      tempProducts = tempProducts.sort((current, next) =>
+    if (sortPriceDirection !== 0) {
+      tempProducts.sort((current, next) =>
         sortPriceDirection === -1
           ? current.price - next.price
           : next.price - current.price
@@ -126,10 +138,8 @@ export class ProductService {
 
   // list products by pagination after filter
   setListProductsByPagination() {
-    const page = (this.queryParams.page as number) || 1;
-    const offset =
-      (this.queryParams.offset as number) ||
-      (PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value as number);
+    const page = this.queryParams.page as number;
+    const offset = this.queryParams.offset as number;
 
     let tempProducts = [...this.listProducts];
     this.listProductsByPagination = tempProducts.slice(
@@ -142,5 +152,15 @@ export class ProductService {
 
   getListProductsByPagination(): Observable<TProducts> {
     return this.listProductsByPaginationSubject.asObservable();
+  }
+
+  // product detail
+  setProductDetail(product: TProduct) {
+    this.detailProduct = product;
+    this.detailProductSubject.next(this.detailProduct);
+  }
+
+  getProductDetail(): Observable<TProduct | null> {
+    return this.detailProductSubject.asObservable();
   }
 }

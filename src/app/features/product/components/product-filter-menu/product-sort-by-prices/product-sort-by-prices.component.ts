@@ -1,7 +1,8 @@
 import { Component } from "@angular/core";
-import { ProductService } from "../../../services/product.service";
 import { MatRadioChange } from "@angular/material/radio";
 import { PRICES, QUERY_PARAM_KEYS } from "@/constants";
+import { RouteService } from "@/app/share/services/route.service";
+import { PATH } from "@/configs/routes";
 
 @Component({
   selector: "app-product-sort-by-prices",
@@ -9,16 +10,25 @@ import { PRICES, QUERY_PARAM_KEYS } from "@/constants";
   styleUrls: ["./product-sort-by-prices.component.css"],
 })
 export class ProductSortByPricesComponent {
-  sortPriceValue: number | null = null;
+  currentValue: number = 0;
   readonly PRICE_SORT_OPTIONS = PRICES.SORT_OPTIONS;
 
-  constructor(private productService: ProductService) {}
+  constructor(private routeService: RouteService) {
+    this.routeService
+      .getParamSortPriceDirection()
+      .subscribe(paramValue => (this.currentValue = Number(paramValue)));
+  }
 
   handleSortPriceValueChange(newValue: MatRadioChange) {
-    this.sortPriceValue = newValue.value as number;
-    this.productService.setQueryParams({
-      key: QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
-      value: this.sortPriceValue,
+    this.currentValue = newValue.value as number;
+    this.routeService.navigateWithParams({
+      path: PATH.LIST_PRODUCTS,
+      queryParams: [
+        {
+          key: QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
+          value: this.currentValue,
+        },
+      ],
     });
   }
 }
