@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { Router } from "@angular/router";
 import { PATH } from "@/configs/routes";
+import { RouteService } from "@/app/share/services/route.service";
 
 @Component({
   selector: "app-home-banner",
@@ -8,9 +8,9 @@ import { PATH } from "@/configs/routes";
   styleUrls: ["./home-banner.component.css"],
 })
 export class HomeBannerComponent {
-  constructor(private router: Router) {}
+  constructor(private routeService: RouteService) {}
 
   getListProductsPage() {
-    this.router.navigateByUrl(PATH.LIST_PRODUCTS);
+    this.routeService.navigateWithUrlOnly({ path: PATH.LIST_PRODUCTS });
   }
 }

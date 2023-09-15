@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { TProduct } from "@/types";
-import { Router } from "@angular/router";
 import { PATH } from "@/configs/routes";
+import { RouteService } from "@/app/share/services/route.service";
 @Component({
   selector: "app-product-cards",
   templateUrl: "./product-cards.component.html",
@@ -9,17 +9,15 @@ import { PATH } from "@/configs/routes";
 })
 export class ProductCardsComponent {
   @Input() product?: TProduct;
-  @Input() shouldShowAddToCart: boolean = true;
+  @Input() inDetailPage: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private routeService: RouteService) {}
 
   onGetDetailProduct() {
-    this.router
-      .navigateByUrl("/dummy", { skipLocationChange: true })
-      .then(() => {
-        this.router.navigate([PATH.LIST_PRODUCTS, this.product?.name]);
-        window.scrollTo(0, 0);
-      });
+    this.routeService.navigateWithUrlOnly({
+      path: [PATH.LIST_PRODUCTS, this.product?.name as string],
+      reload: this.inDetailPage,
+    });
   }
 
   onNotify() {

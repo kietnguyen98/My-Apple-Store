@@ -1,10 +1,10 @@
 import { TCartItem } from "@/types";
 import { Component, Input } from "@angular/core";
 import { CartService } from "../../service/cart.service";
-import { Router } from "@angular/router";
 import { PATH } from "@/configs/routes";
 import { MatDialog } from "@angular/material/dialog";
 import { CartAlertDialogComponent } from "../cart-alert-dialog/cart-alert-dialog.component";
+import { RouteService } from "@/app/share/services/route.service";
 
 @Component({
   selector: "app-cart-item-card",
@@ -16,7 +16,7 @@ export class CartItemCardComponent {
 
   constructor(
     private cartService: CartService,
-    private router: Router,
+    private routeService: RouteService,
     private dialog: MatDialog
   ) {}
 
@@ -39,12 +39,10 @@ export class CartItemCardComponent {
   }
 
   onGetDetailProduct() {
-    this.router
-      .navigateByUrl(PATH.DUMMY, { skipLocationChange: true })
-      .then(() => {
-        this.router.navigate([PATH.LIST_PRODUCTS, this.item?.product?.name]);
-        window.scrollTo(0, 0);
-      });
+    this.routeService.navigateWithUrlOnly({
+      path: [PATH.LIST_PRODUCTS, this.item?.product.name as string],
+      reload: true,
+    });
 
     // close sidenav when navigate to detail product page
     this.cartService.toggleSidenav();

@@ -6,9 +6,11 @@ import { Observable, BehaviorSubject } from "rxjs";
 import { PATH } from "@/configs/routes";
 import { routeHelper } from "@/utilities/helperFunctions";
 import { TSetQueryParamsProps } from "@/app/features/product/services/product.service";
+import { windowScrollHelper } from "@/utilities/helperFunctions";
 
 type TNavigateWithUrlOnly = {
-  path: string;
+  path: string | Array<string>;
+  reload?: boolean;
 };
 
 type TNavigateWithParamsProps = {
@@ -147,12 +149,34 @@ export class RouteService {
       this.updateQueryParams({ key: key, value: value })
     );
 
-    this.router.navigate([path], { queryParams: this.queryParams });
+    this.router
+      .navigate([path], { queryParams: this.queryParams })
+      .then(() => windowScrollHelper.scrollToTopImmediately());
   }
 
-  navigateWithUrlOnly({ path }: TNavigateWithUrlOnly) {
-    this.router.navigateByUrl(path);
+  navigateWithUrlOnly({ path, reload = false }: TNavigateWithUrlOnly) {
+    let url = "";
+    if (Array.isArray(path)) {
+      url = path.join("/");
+    } else {
+      url = path;
+    }
+
     this.resetAllQueryParams();
+
+    if (reload) {
+      this.router
+        .navigateByUrl(PATH.DUMMY, { skipLocationChange: true })
+        .then(() => {
+          this.router
+            .navigateByUrl(url)
+            .then(() => windowScrollHelper.scrollToTopImmediately());
+        });
+    } else {
+      this.router
+        .navigateByUrl(url)
+        .then(() => windowScrollHelper.scrollToTopImmediately());
+    }
   }
 
   // search term

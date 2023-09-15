@@ -12,7 +12,7 @@
         *ngFor="let product of listProducts; let i = index"
         [id]="'related_product_' + i"
         [product]="product"
-        [shouldShowAddToCart]="false"
+        [inDetailPage]="true"
         class="card-width-320px">
       </app-product-cards>
     </div>

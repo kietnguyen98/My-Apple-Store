@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 
 import { CartService } from "../../service/cart.service";
 import { TCartItems } from "@/types";
-import { Router } from "@angular/router";
 import { PATH } from "@/configs/routes";
+import { RouteService } from "@/app/share/services/route.service";
 @Component({
   selector: "app-cart-side-nav",
   templateUrl: "./cart-side-nav.component.html",
@@ -18,7 +18,7 @@ export class CartSideNavComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private router: Router
+    private routeService: RouteService
   ) {}
 
   ngOnInit(): void {
@@ -61,6 +61,6 @@ export class CartSideNavComponent implements OnInit {
 
   onGetProductPage() {
     this.cartService.toggleSidenav();
-    this.router.navigate([PATH.LIST_PRODUCTS]);
+    this.routeService.navigateWithUrlOnly({ path: PATH.LIST_PRODUCTS });
   }
 }

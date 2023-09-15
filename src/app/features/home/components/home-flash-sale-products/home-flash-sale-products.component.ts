@@ -3,6 +3,7 @@ import { TProducts } from "@/types";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { PATH } from "@/configs/routes";
+import { RouteService } from "@/app/share/services/route.service";
 @Component({
   selector: "app-home-flash-sale-products",
   templateUrl: "./home-flash-sale-products.component.html",
@@ -17,7 +18,7 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
   PRODUCT_CARD_WIDTH: number = 240;
   PRODUCT_CARDS_GAP: number = 16;
 
-  constructor(private router: Router) {}
+  constructor(private routeService: RouteService) {}
 
   slowDownSlideSpeed() {
     this.slideSpeed = 0.025;
@@ -27,8 +28,10 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
     this.slideSpeed = 0.1;
   }
 
-  navigateToProduct(productName: string) {
-    this.router.navigate([PATH.LIST_PRODUCTS, productName]);
+  navigateToDetailProduct(productName: string) {
+    this.routeService.navigateWithUrlOnly({
+      path: [PATH.LIST_PRODUCTS, productName],
+    });
   }
 
   ngOnInit(): void {
@@ -40,7 +43,7 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
       "product-card"
     ) as HTMLCollectionOf<HTMLElement>;
 
-    const getProductsSlide = (timeStamp: number) => {
+    const getProductsAutoSlide = (timeStamp: number) => {
       if (this.previousTimeStamp === 0) {
         // this branch run once in the very first time
         // when the timeStamp === 0
@@ -85,10 +88,10 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
         ].style.transform = `translateX(${this.elementsX[i]}px)`;
       }
 
-      this.requestId = requestAnimationFrame(getProductsSlide);
+      this.requestId = requestAnimationFrame(getProductsAutoSlide);
     };
 
-    this.requestId = requestAnimationFrame(getProductsSlide);
+    this.requestId = requestAnimationFrame(getProductsAutoSlide);
   }
 
   ngOnDestroy(): void {

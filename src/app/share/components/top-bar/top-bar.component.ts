@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, NavigationEnd } from "@angular/router";
+import { NavigationEnd } from "@angular/router";
 import { COMPONENT_DIMENSIONS } from "@/constants";
 import { PATH } from "@/configs/routes";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
+import { RouteService } from "../../services/route.service";
 @Component({
   providers: [HeaderSearchInputComponent],
   selector: "app-top-bar",
@@ -11,10 +12,11 @@ import { HeaderSearchInputComponent } from "./header-search-input/header-search-
 })
 export class TopBarComponent implements OnInit {
   currentRoute: string | undefined;
+  private APP_PRIMARY_COLOR: string = "#191919";
 
-  constructor(private router: Router) {
+  constructor(private routeService: RouteService) {
     // subscribes router event (as an observer) change to detect current route path
-    router.events.subscribe(route => {
+    this.routeService.router.events.subscribe(route => {
       if (route instanceof NavigationEnd) {
         const headerBar = document.getElementById("header-bar");
         const headerBarDummy = document.getElementById("header-bar-dummy");
@@ -28,7 +30,7 @@ export class TopBarComponent implements OnInit {
         } else {
           headerBar.classList.remove("background-transition");
           headerBarDummy.style.display = "block";
-          headerBar.style.backgroundColor = "#191919";
+          headerBar.style.backgroundColor = this.APP_PRIMARY_COLOR;
         }
       }
     });
@@ -46,7 +48,7 @@ export class TopBarComponent implements OnInit {
 
         if (this.currentRoute === PATH.HOME) {
           if (window.scrollY > 0) {
-            headerBar.style.backgroundColor = "#191919";
+            headerBar.style.backgroundColor = this.APP_PRIMARY_COLOR;
           } else {
             headerBar.style.backgroundColor = "transparent";
           }
@@ -58,6 +60,6 @@ export class TopBarComponent implements OnInit {
   }
 
   navigateToHome() {
-    this.router.navigate([PATH.HOME]);
+    this.routeService.navigateWithUrlOnly({ path: PATH.HOME });
   }
 }
