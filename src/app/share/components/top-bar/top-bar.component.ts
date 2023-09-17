@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { NavigationEnd } from "@angular/router";
-import { COMPONENT_DIMENSIONS } from "@/constants";
+import { AUTH_QUERY_PARAM_KEYS, COMPONENT_DIMENSIONS } from "@/constants";
 import { PATH } from "@/configs/routes";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
 import { RouteService } from "../../services/route.service";
+import { routeHelper } from "@/utilities/helperFunctions";
 @Component({
   providers: [HeaderSearchInputComponent],
   selector: "app-top-bar",
@@ -61,5 +62,19 @@ export class TopBarComponent implements OnInit {
 
   navigateToHome() {
     this.routeService.navigateWithUrlOnly({ path: PATH.HOME });
+  }
+
+  navigateToLogin() {
+    const redirectUrl = routeHelper.encodeUrl(this.routeService.router.url);
+    this.routeService.navigateWithParams({
+      path: PATH.LOGIN,
+      queryParams: [
+        {
+          key: AUTH_QUERY_PARAM_KEYS.REDIRECT_URL,
+          value: redirectUrl,
+        },
+      ],
+      replaceAll: true,
+    });
   }
 }

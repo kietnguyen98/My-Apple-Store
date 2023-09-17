@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
-import { QUERY_PARAM_KEYS } from "@/constants";
+import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 
 @Component({
   selector: "app-header-search-input",
@@ -31,7 +31,7 @@ export class HeaderSearchInputComponent implements OnInit {
     this.routeService.navigateWithParams({
       path: PATH.LIST_PRODUCTS,
       queryParams: [
-        { key: QUERY_PARAM_KEYS.SEARCH_TERM, value: this.searchTerm },
+        { key: PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM, value: this.searchTerm },
       ],
     });
   }

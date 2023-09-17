@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { categories } from "@/data/categories";
 import { TCategories } from "@/types";
-import { CATEGORIES_VALUE, QUERY_PARAM_KEYS } from "@/constants";
+import { CATEGORIES_VALUE, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
 @Component({
@@ -26,7 +26,10 @@ export class ProductFilterCategoriesComponent {
       this.routeService.navigateWithParams({
         path: PATH.LIST_PRODUCTS,
         queryParams: [
-          { key: QUERY_PARAM_KEYS.CATEGORY, value: this.currentCategory },
+          {
+            key: PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
+            value: this.currentCategory,
+          },
         ],
       });
     }

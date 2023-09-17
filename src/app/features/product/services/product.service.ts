@@ -1,5 +1,6 @@
 import {
   TProduct,
+  TProductQueryParamKeys,
   TProducts,
   TProductsQueryParams,
   TSetQueryParamsProps,
@@ -9,7 +10,7 @@ import { products } from "@/data/products";
 import { CATEGORIES_VALUE, PAGINATION } from "@/constants";
 import { Observable, Subject, BehaviorSubject } from "rxjs";
 import { RouteService } from "@/app/share/services/route.service";
-import { QUERY_PARAM_KEYS } from "@/constants";
+import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 
 @Injectable({ providedIn: "root" })
 export class ProductService {
@@ -28,56 +29,56 @@ export class ProductService {
     // detect change on query params
     this.routeService.getParamSearchTerm().subscribe(paramValue =>
       this.setQueryParams({
-        key: QUERY_PARAM_KEYS.SEARCH_TERM,
+        key: PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM,
         value: paramValue,
       })
     );
 
     this.routeService.getParamCategory().subscribe(paramValue =>
       this.setQueryParams({
-        key: QUERY_PARAM_KEYS.CATEGORY,
+        key: PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
         value: paramValue,
       })
     );
 
     this.routeService.getParamStartPrice().subscribe(paramValue =>
       this.setQueryParams({
-        key: QUERY_PARAM_KEYS.START_PRICE,
+        key: PRODUCT_QUERY_PARAM_KEYS.START_PRICE,
         value: Number(paramValue),
       })
     );
 
     this.routeService.getParamEndPrice().subscribe(paramValue =>
       this.setQueryParams({
-        key: QUERY_PARAM_KEYS.END_PRICE,
+        key: PRODUCT_QUERY_PARAM_KEYS.END_PRICE,
         value: Number(paramValue),
       })
     );
 
     this.routeService.getParamSortPriceDirection().subscribe(paramValue =>
       this.setQueryParams({
-        key: QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
+        key: PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
         value: Number(paramValue),
       })
     );
 
     this.routeService.getParamPage().subscribe(paramValue =>
       this.setQueryParams({
-        key: QUERY_PARAM_KEYS.PAGE,
+        key: PRODUCT_QUERY_PARAM_KEYS.PAGE,
         value: Number(paramValue),
       })
     );
 
     this.routeService.getParamOffset().subscribe(paramValue =>
       this.setQueryParams({
-        key: QUERY_PARAM_KEYS.OFFSET,
+        key: PRODUCT_QUERY_PARAM_KEYS.OFFSET,
         value: Number(paramValue),
       })
     );
   }
 
   setQueryParams({ key, value }: TSetQueryParamsProps) {
-    this.queryParams[key] = value;
+    this.queryParams[key as TProductQueryParamKeys] = value;
     this.setListProducts();
   }
 

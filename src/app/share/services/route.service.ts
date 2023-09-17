@@ -2,10 +2,11 @@ import { Injectable } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { filter } from "rxjs/operators";
 import {
+  AUTH_QUERY_PARAM_KEYS,
   CATEGORIES_VALUE,
   PAGINATION,
   PRICES,
-  QUERY_PARAM_KEYS,
+  PRODUCT_QUERY_PARAM_KEYS,
 } from "@/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { PATH } from "@/configs/routes";
@@ -21,19 +22,23 @@ type TNavigateWithUrlOnly = {
 type TNavigateWithParamsProps = {
   path: (typeof PATH)[keyof typeof PATH];
   queryParams: Array<TSetQueryParamsProps>;
+  replaceAll?: boolean;
 };
 @Injectable()
 export class RouteService {
   urlQueryParams: Params = {};
 
   queryParamsKeysForSubscribes: Array<TQueryParamKeyForSubscribes> = [
-    QUERY_PARAM_KEYS.SEARCH_TERM,
-    QUERY_PARAM_KEYS.CATEGORY,
-    QUERY_PARAM_KEYS.START_PRICE,
-    QUERY_PARAM_KEYS.END_PRICE,
-    QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
-    QUERY_PARAM_KEYS.PAGE,
-    QUERY_PARAM_KEYS.OFFSET,
+    // product
+    PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM,
+    PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
+    PRODUCT_QUERY_PARAM_KEYS.START_PRICE,
+    PRODUCT_QUERY_PARAM_KEYS.END_PRICE,
+    PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
+    PRODUCT_QUERY_PARAM_KEYS.PAGE,
+    PRODUCT_QUERY_PARAM_KEYS.OFFSET,
+    // auth
+    AUTH_QUERY_PARAM_KEYS.REDIRECT_URL,
   ];
 
   queryParamsSubscribesDefaultValue: Record<
@@ -47,6 +52,7 @@ export class RouteService {
     sortPriceDirection: "0",
     page: "1",
     offset: PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value.toString(),
+    redirectUrl: "",
   };
 
   queryParamSubjects: Record<
@@ -74,46 +80,49 @@ export class RouteService {
     offset: new BehaviorSubject<string>(
       this.queryParamsSubscribesDefaultValue.offset
     ),
+    redirectUrl: new BehaviorSubject<string>(
+      this.queryParamsSubscribesDefaultValue.redirectUrl
+    ),
   };
 
   constructor(
     public router: Router,
     public activatedRoute: ActivatedRoute
   ) {
-    this.activatedRoute.queryParams.subscribe(queryParams => {
-      // check if query params exist and not in product page then remove all
-      // remove all params state then redirect to current url
-      const isHaveQueryParams: boolean = Object.keys(queryParams).length > 0;
+    // this.activatedRoute.queryParams.subscribe(queryParams => {
+    //   // check if query params exist and not in product page then remove all
+    //   // remove all params state then redirect to current url
+    //   const isHaveQueryParams: boolean = Object.keys(queryParams).length > 0;
 
-      const isNotInProductPage: boolean =
-        routeHelper.getCleanSpecificRoutePath(
-          this.router.url,
-          isHaveQueryParams
-        ) !== PATH.LIST_PRODUCTS;
+    //   const isNotInProductPage: boolean =
+    //     routeHelper.getCleanSpecificRoutePath(
+    //       this.router.url,
+    //       isHaveQueryParams
+    //     ) !== PATH.LIST_PRODUCTS;
 
-      if (isNotInProductPage && isHaveQueryParams) {
-        const currentRoute = routeHelper.getCleanSpecificRoutePath(
-          this.router.url,
-          true
-        );
+    //   if (isNotInProductPage && isHaveQueryParams) {
+    //     const currentRoute = routeHelper.getCleanSpecificRoutePath(
+    //       this.router.url,
+    //       true
+    //     );
 
-        this.router
-          .navigateByUrl(PATH.DUMMY, { skipLocationChange: true })
-          .then(() => {
-            this.resetAllQueryParams();
-            this.router.navigate([currentRoute], {
-              relativeTo: this.activatedRoute,
-              queryParams: {},
-            });
-          });
-      }
+    //     this.router
+    //       .navigateByUrl(PATH.DUMMY, { skipLocationChange: true })
+    //       .then(() => {
+    //         this.resetAllQueryParams();
+    //         this.router.navigate([currentRoute], {
+    //           relativeTo: this.activatedRoute,
+    //           queryParams: {},
+    //         });
+    //       });
+    //   }
 
-      // check if in product page and without any query params
-      // then reset all params state and reset all filter
-      if (!isNotInProductPage && !isHaveQueryParams) {
-        this.resetAllQueryParams();
-      }
-    });
+    //   // check if in product page and without any query params
+    //   // then reset all params state and reset all filter
+    //   if (!isNotInProductPage && !isHaveQueryParams) {
+    //     this.resetAllQueryParams();
+    //   }
+    // });
 
     this.queryParamsKeysForSubscribes.forEach(queryParamKey => {
       this.activatedRoute.queryParams
@@ -134,35 +143,55 @@ export class RouteService {
   }
 
   // declare all query params observable
+  // products
   // search term
   getParamSearchTerm(): Observable<string> {
-    return this.queryParamSubjects[QUERY_PARAM_KEYS.SEARCH_TERM].asObservable();
+    return this.queryParamSubjects[
+      PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM
+    ].asObservable();
   }
   // category
   getParamCategory(): Observable<string> {
-    return this.queryParamSubjects[QUERY_PARAM_KEYS.CATEGORY].asObservable();
+    return this.queryParamSubjects[
+      PRODUCT_QUERY_PARAM_KEYS.CATEGORY
+    ].asObservable();
   }
   // min price
   getParamStartPrice(): Observable<string> {
-    return this.queryParamSubjects[QUERY_PARAM_KEYS.START_PRICE].asObservable();
+    return this.queryParamSubjects[
+      PRODUCT_QUERY_PARAM_KEYS.START_PRICE
+    ].asObservable();
   }
   // max price
   getParamEndPrice(): Observable<string> {
-    return this.queryParamSubjects[QUERY_PARAM_KEYS.END_PRICE].asObservable();
+    return this.queryParamSubjects[
+      PRODUCT_QUERY_PARAM_KEYS.END_PRICE
+    ].asObservable();
   }
   // sort price direction
   getParamSortPriceDirection(): Observable<string> {
     return this.queryParamSubjects[
-      QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION
+      PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION
     ].asObservable();
   }
   // page
   getParamPage(): Observable<string> {
-    return this.queryParamSubjects[QUERY_PARAM_KEYS.PAGE].asObservable();
+    return this.queryParamSubjects[
+      PRODUCT_QUERY_PARAM_KEYS.PAGE
+    ].asObservable();
   }
   // offset
   getParamOffset(): Observable<string> {
-    return this.queryParamSubjects[QUERY_PARAM_KEYS.OFFSET].asObservable();
+    return this.queryParamSubjects[
+      PRODUCT_QUERY_PARAM_KEYS.OFFSET
+    ].asObservable();
+  }
+  // auth
+  // redirect url
+  getRedirectUrl(): Observable<string> {
+    return this.queryParamSubjects[
+      AUTH_QUERY_PARAM_KEYS.REDIRECT_URL
+    ].asObservable();
   }
 
   updateUrlQueryParams({ key, value }: TSetQueryParamsProps) {
@@ -187,24 +216,35 @@ export class RouteService {
     });
   }
 
-  navigateWithParams({ path, queryParams }: TNavigateWithParamsProps) {
+  navigateWithParams({
+    path,
+    queryParams,
+    replaceAll = false,
+  }: TNavigateWithParamsProps) {
+    if (replaceAll) {
+      this.urlQueryParams = {};
+    }
+
     // check which param has change before navigate
     // if the changed param is not page and offset => reset page and offset
     let shouldResetPageAndOffset = true;
 
     queryParams.forEach(({ key, value }) => {
       this.updateUrlQueryParams({ key: key, value: value });
-      if (key === QUERY_PARAM_KEYS.PAGE || key === QUERY_PARAM_KEYS.OFFSET)
+      if (
+        key === PRODUCT_QUERY_PARAM_KEYS.PAGE ||
+        key === PRODUCT_QUERY_PARAM_KEYS.OFFSET
+      )
         shouldResetPageAndOffset = false;
     });
 
-    if (shouldResetPageAndOffset) {
+    if (shouldResetPageAndOffset && !replaceAll) {
       this.updateUrlQueryParams({
-        key: QUERY_PARAM_KEYS.PAGE,
+        key: PRODUCT_QUERY_PARAM_KEYS.PAGE,
         value: this.queryParamsSubscribesDefaultValue.page,
       });
       this.updateUrlQueryParams({
-        key: QUERY_PARAM_KEYS.OFFSET,
+        key: PRODUCT_QUERY_PARAM_KEYS.OFFSET,
         value: this.queryParamsSubscribesDefaultValue.offset,
       });
     }

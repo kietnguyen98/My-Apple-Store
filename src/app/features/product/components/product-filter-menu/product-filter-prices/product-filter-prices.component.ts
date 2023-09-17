@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { PRICES, QUERY_PARAM_KEYS } from "@/constants";
+import { PRICES, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
 
@@ -31,8 +31,8 @@ export class ProductFilterPricesComponent {
     this.routeService.navigateWithParams({
       path: PATH.LIST_PRODUCTS,
       queryParams: [
-        { key: QUERY_PARAM_KEYS.START_PRICE, value: newValue },
-        { key: QUERY_PARAM_KEYS.END_PRICE, value: this.endPrice },
+        { key: PRODUCT_QUERY_PARAM_KEYS.START_PRICE, value: newValue },
+        { key: PRODUCT_QUERY_PARAM_KEYS.END_PRICE, value: this.endPrice },
       ],
     });
   }
@@ -41,8 +41,8 @@ export class ProductFilterPricesComponent {
     this.routeService.navigateWithParams({
       path: PATH.LIST_PRODUCTS,
       queryParams: [
-        { key: QUERY_PARAM_KEYS.START_PRICE, value: this.startPrice },
-        { key: QUERY_PARAM_KEYS.END_PRICE, value: newValue },
+        { key: PRODUCT_QUERY_PARAM_KEYS.START_PRICE, value: this.startPrice },
+        { key: PRODUCT_QUERY_PARAM_KEYS.END_PRICE, value: newValue },
       ],
     });
   }

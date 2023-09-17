@@ -7,7 +7,9 @@
   <span class="spacer"></span>
   <div class="action-container">
     <app-header-search-input></app-header-search-input>
-    <button mat-flat-button color="accent">Login</button>
+    <button mat-flat-button color="accent" (click)="navigateToLogin()">
+      Login
+    </button>
     <button mat-button color="accent">Sign Up</button>
     <app-cart-toggle-button></app-cart-toggle-button>
   </div>

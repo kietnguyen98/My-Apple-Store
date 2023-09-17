@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { PATH } from "@/configs/routes";
 import { RouteService } from "@/app/share/services/route.service";
-import { CATEGORIES_VALUE, QUERY_PARAM_KEYS } from "@/constants";
+import { CATEGORIES_VALUE, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 
 type THomeIntroCategory = {
   imageUrl: string;
@@ -47,7 +47,9 @@ export class HomeCategoryShortcutComponent {
   ) {
     this.routeService.navigateWithParams({
       path: PATH.LIST_PRODUCTS,
-      queryParams: [{ key: QUERY_PARAM_KEYS.CATEGORY, value: category }],
+      queryParams: [
+        { key: PRODUCT_QUERY_PARAM_KEYS.CATEGORY, value: category },
+      ],
     });
   }
 }

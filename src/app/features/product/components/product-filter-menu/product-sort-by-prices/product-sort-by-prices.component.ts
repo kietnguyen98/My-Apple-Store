@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { MatRadioChange } from "@angular/material/radio";
-import { PRICES, QUERY_PARAM_KEYS } from "@/constants";
+import { PRICES, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
 
@@ -25,7 +25,7 @@ export class ProductSortByPricesComponent {
       path: PATH.LIST_PRODUCTS,
       queryParams: [
         {
-          key: QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
+          key: PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
           value: this.currentValue,
         },
       ],

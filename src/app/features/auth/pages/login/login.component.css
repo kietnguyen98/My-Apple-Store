@@ -1,0 +1,14 @@
+p{
+    margin: 0px;
+}
+
+.container{
+    width: 100%;
+    height: calc(100vh - var(--app-header-height));
+    background-color: var(--app-primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

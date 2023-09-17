@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { PAGINATION, QUERY_PARAM_KEYS } from "@/constants";
+import { PAGINATION, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 import { TNumElementsPerPageOptions, TProducts } from "@/types";
 import { ProductService } from "../../services/product.service";
 import { RouteService } from "@/app/share/services/route.service";
@@ -51,8 +51,8 @@ export class ProductListPaginationComponent implements OnInit {
       this.routeService.navigateWithParams({
         path: PATH.LIST_PRODUCTS,
         queryParams: [
-          { key: QUERY_PARAM_KEYS.PAGE, value: this.currentPage },
-          { key: QUERY_PARAM_KEYS.OFFSET, value: this.currentOffset },
+          { key: PRODUCT_QUERY_PARAM_KEYS.PAGE, value: this.currentPage },
+          { key: PRODUCT_QUERY_PARAM_KEYS.OFFSET, value: this.currentOffset },
         ],
       });
     }
@@ -83,8 +83,8 @@ export class ProductListPaginationComponent implements OnInit {
     this.routeService.navigateWithParams({
       path: PATH.LIST_PRODUCTS,
       queryParams: [
-        { key: QUERY_PARAM_KEYS.PAGE, value: this.currentPage },
-        { key: QUERY_PARAM_KEYS.OFFSET, value: this.currentOffset },
+        { key: PRODUCT_QUERY_PARAM_KEYS.PAGE, value: this.currentPage },
+        { key: PRODUCT_QUERY_PARAM_KEYS.OFFSET, value: this.currentOffset },
       ],
     });
   }
