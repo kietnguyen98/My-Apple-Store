@@ -27,7 +27,6 @@ export class ProductDetailsComponent {
   ) {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const productNameFromRoute = params.get(ROUTE_PARAMS.PRODUCT_NAME);
-
       this.product = products.find(
         product => product.name === productNameFromRoute
       );

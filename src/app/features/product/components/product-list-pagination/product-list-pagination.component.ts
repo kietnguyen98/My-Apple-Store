@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { PAGINATION, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 import { TNumElementsPerPageOptions, TProducts } from "@/types";
 import { ProductService } from "../../services/product.service";
@@ -9,7 +9,7 @@ import { PATH } from "@/configs/routes";
   templateUrl: "./product-list-pagination.component.html",
   styleUrls: ["./product-list-pagination.component.css"],
 })
-export class ProductListPaginationComponent implements OnInit {
+export class ProductListPaginationComponent {
   searchTerm: string = "";
   totalElements: number = 0;
   currentPage: number = 1;
@@ -36,13 +36,10 @@ export class ProductListPaginationComponent implements OnInit {
       .getParamPage()
       .subscribe(paramValue => (this.currentPage = Number(paramValue)));
 
-    this.routeService
-      .getParamOffset()
-      .subscribe(paramValue => (this.currentOffset = Number(paramValue)));
-  }
-
-  ngOnInit(): void {
-    this.changeOffset(PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value);
+    this.routeService.getParamOffset().subscribe(paramValue => {
+      this.currentOffset = Number(paramValue);
+      this.updatePageMax();
+    });
   }
 
   selectPage(newPage: number) {

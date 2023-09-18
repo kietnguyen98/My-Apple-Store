@@ -125,15 +125,19 @@ export const routeHelper = {
       .replaceAll("%28", "(")
       .replaceAll("%29", ")");
   },
+  decodeUrl: function (cleanUrl: string) {
+    return cleanUrl
+      .replaceAll(" ", "%20")
+      .replaceAll("(", "%28")
+      .replaceAll(")", "%29");
+  },
   getCleanSpecificRoutePath: function (
     currentUrl: string,
     isHaveQueryParams: boolean = false
   ) {
-    if (isHaveQueryParams) {
-      return this.encodeUrl(currentUrl).split("?")[0].replace("/", "");
-    } else {
-      return this.encodeUrl(currentUrl).replace("/", "");
-    }
+    return isHaveQueryParams
+      ? this.encodeUrl(currentUrl).split("?")[0].replace("/", "")
+      : this.encodeUrl(currentUrl).replace("/", "");
   },
   sortQueryParamsInOrder: function (currentQueryParams: Params) {
     let sortedQueryParams: Params = {};

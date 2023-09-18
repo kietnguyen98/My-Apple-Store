@@ -8,7 +8,7 @@ import {
 import { Injectable } from "@angular/core";
 import { products } from "@/data/products";
 import { CATEGORIES_VALUE, PAGINATION } from "@/constants";
-import { Observable, Subject, BehaviorSubject } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import { RouteService } from "@/app/share/services/route.service";
 import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 
@@ -19,10 +19,7 @@ export class ProductService {
   listProductsByPaginationSubject = new BehaviorSubject<TProducts>([]);
   listProducts: TProducts = [];
   listProductsByPagination: TProducts = [];
-  queryParams: TProductsQueryParams = {
-    page: 1,
-    offset: PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value,
-  };
+  queryParams: TProductsQueryParams = {};
   detailProduct: TProduct | null = null;
 
   constructor(private routeService: RouteService) {
@@ -85,11 +82,12 @@ export class ProductService {
   // list products filter
   setListProducts() {
     let tempProducts = [...products];
-    const searchTerm = this.queryParams.searchTerm;
-    const category = this.queryParams.category;
-    const startPrice = this.queryParams.startPrice;
-    const endPrice = this.queryParams.endPrice;
-    const sortPriceDirection = this.queryParams.sortPriceDirection;
+    const searchTerm = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM];
+    const category = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.CATEGORY];
+    const startPrice = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.START_PRICE];
+    const endPrice = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.END_PRICE];
+    const sortPriceDirection =
+      this.queryParams[PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION];
 
     // filter by search term
     if (searchTerm) {
@@ -139,8 +137,8 @@ export class ProductService {
 
   // list products by pagination after filter
   setListProductsByPagination() {
-    const page = this.queryParams.page as number;
-    const offset = this.queryParams.offset as number;
+    const page = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.PAGE] as number;
+    const offset = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.OFFSET] as number;
 
     let tempProducts = [...this.listProducts];
     this.listProductsByPagination = tempProducts.slice(
