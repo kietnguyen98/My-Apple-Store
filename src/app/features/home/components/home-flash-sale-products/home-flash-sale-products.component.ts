@@ -14,7 +14,7 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
   requestId: number | undefined;
   elementsX: Array<number> = [];
   previousTimeStamp: number = 0;
-  slideSpeed = 0.1;
+  slideSpeed = 0.075;
   PRODUCT_CARD_WIDTH: number = 240;
   PRODUCT_CARDS_GAP: number = 16;
 

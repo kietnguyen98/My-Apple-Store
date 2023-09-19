@@ -1,6 +1,6 @@
 import { TCartItem } from "@/types";
 import { Component, Input } from "@angular/core";
-import { CartService } from "../../service/cart.service";
+import { CartService } from "../../services/cart.service";
 import { PATH } from "@/configs/routes";
 import { MatDialog } from "@angular/material/dialog";
 import { CartAlertDialogComponent } from "../cart-alert-dialog/cart-alert-dialog.component";

@@ -11,6 +11,7 @@ import { ShareModule } from "./share/share.module";
 import { HomeModule } from "./features/home/home.module";
 import { ProductModule } from "./features/product/product.module";
 import { CartModule } from "./features/cart/cart.module";
+import { AuthModule } from "./features/auth/auth.module";
 
 // routing module
 import { AppRoutingModule } from "./app-routing.module";
@@ -28,6 +29,7 @@ import { RouteService } from "./share/services/route.service";
     HomeModule,
     ProductModule,
     CartModule,
+    AuthModule,
   ],
   providers: [RouteService],
   declarations: [AppComponent],

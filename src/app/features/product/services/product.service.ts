@@ -7,7 +7,7 @@ import {
 } from "@/types";
 import { Injectable } from "@angular/core";
 import { products } from "@/data/products";
-import { CATEGORIES_VALUE, PAGINATION } from "@/constants";
+import { CATEGORIES_VALUE } from "@/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { RouteService } from "@/app/share/services/route.service";
 import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";

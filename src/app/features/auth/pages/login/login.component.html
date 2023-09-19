@@ -1,4 +1,49 @@
 <div class="container">
-  <p>login works!</p>
-  <button (click)="redirect()">redirect</button>
+  <div class="content-container">
+    <div class="brand-container">
+      <div class="brand-identify">
+        <img src="/assets/favicon.png" alt="brand-logo" class="brand-logo" />
+        <p class="brand-name">My Apple Store</p>
+      </div>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="getLogin()">
+      <div class="form-container">
+        <div class="intro-container">
+          <p class="feature-label">Log in</p>
+        </div>
+        <div class="input-container">
+          <div class="input-field user-name-input">
+            <p class="label">user name</p>
+            <input
+              type="text"
+              placeholder="enter your user name"
+              class="input"
+              formControlName="userName" />
+          </div>
+          <div class="input-field password-input">
+            <p class="label">password</p>
+            <input
+              type="password"
+              placeholder="enter your password"
+              class="input"
+              formControlName="password" />
+          </div>
+        </div>
+        <div class="action-container">
+          <button
+            mat-raised-button
+            color="warn"
+            type="submit"
+            class="login-button"
+            [disabled]="isLoading">
+            <mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>
+            <p>Login</p>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="to-sign-up-container">
+      <p class="label">New member ? <a class="link">Sign up</a> here</p>
+    </div>
+  </div>
 </div>

@@ -12,6 +12,10 @@
   --home-banner-fix-height: 625px;
   /* section gap */
   --home-section-gap: 80px;
+  /* auth component */
+  --auth-input-width: 320px;
+  --auth-input-height: 40px;
+  --auth-button-height: 48px;
   
   /* container */
   --app-container-fix-width-md: 1200px;

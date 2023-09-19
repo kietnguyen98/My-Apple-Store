@@ -9,7 +9,7 @@ import { CartItemQuantitySelectComponent } from "./components/cart-item-quantity
 import { CartAlertDialogComponent } from "./components/cart-alert-dialog/cart-alert-dialog.component";
 
 // services
-import { CartService } from "./service/cart.service";
+import { CartService } from "./services/cart.service";
 
 // angular material modules
 import { MatIconModule } from "@angular/material/icon";
