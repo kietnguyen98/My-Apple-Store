@@ -4,6 +4,7 @@ import { TCategories } from "@/types";
 import { CATEGORIES_VALUE, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
+import { MatChipListboxChange } from "@angular/material/chips";
 @Component({
   selector: "app-product-filter-categories",
   templateUrl: "./product-filter-categories.component.html",
@@ -19,7 +20,8 @@ export class ProductFilterCategoriesComponent {
       .subscribe(paramValue => (this.currentCategory = paramValue as string));
   }
 
-  handleChangeCategory(newCategory: string) {
+  handleChangeCategory(event: MatChipListboxChange) {
+    const newCategory = event.value;
     if (newCategory !== this.currentCategory) {
       this.currentCategory = newCategory;
 

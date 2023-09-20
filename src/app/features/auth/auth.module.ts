@@ -19,6 +19,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
   imports: [
     CommonModule,
     FormsModule,
+    // ShareModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,

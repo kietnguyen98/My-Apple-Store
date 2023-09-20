@@ -14,33 +14,36 @@ const AUTH_QUERY_PARAM_KEYS = {
   REDIRECT_URL: "redirectUrl",
 };
 
-const ROUTE_PERMITTED_QUERY_PARAM_KEYS = [
+const ROUTE_PERMITTED_QUERY_PARAM: Array<{
+  pathRegex: RegExp;
+  keys: Record<string, string>;
+}> = [
   // home
-  { pathRegex: new RegExp(`^${PATH.HOME}$`), queryParamKeys: {} },
+  { pathRegex: new RegExp(`^${PATH.HOME}$`), keys: {} },
   // list products
   {
     pathRegex: new RegExp(`^${PATH.LIST_PRODUCTS}$`),
-    queryParamKeys: PRODUCT_QUERY_PARAM_KEYS,
+    keys: PRODUCT_QUERY_PARAM_KEYS,
   },
   // product detail
   {
     pathRegex: new RegExp(`^${PATH.LIST_PRODUCTS}/[a-zA-Z0-9\\s\)\(]+$`),
-    queryParamKeys: {},
+    keys: {},
   },
   // login
   {
     pathRegex: new RegExp(`^${PATH.LOGIN}$`),
-    queryParamKeys: AUTH_QUERY_PARAM_KEYS,
+    keys: AUTH_QUERY_PARAM_KEYS,
   },
   // sign up
   {
     pathRegex: new RegExp(`^${PATH.SIGN_UP}$`),
-    queryParamKeys: AUTH_QUERY_PARAM_KEYS,
+    keys: AUTH_QUERY_PARAM_KEYS,
   },
 ];
 
 export {
   PRODUCT_QUERY_PARAM_KEYS,
   AUTH_QUERY_PARAM_KEYS,
-  ROUTE_PERMITTED_QUERY_PARAM_KEYS,
+  ROUTE_PERMITTED_QUERY_PARAM,
 };

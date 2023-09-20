@@ -22,7 +22,6 @@ export class AuthService {
   userSubject = new BehaviorSubject<TUser | undefined>(undefined);
 
   async getLogin({ userName, password }: TLoginProps) {
-    console.log(userName, password);
     this.updateAuthState(API_FETCHING_STATE.LOADING);
     return await new Promise<void>(resolve => {
       setTimeout(() => {

@@ -1,32 +1,70 @@
 import { RouteService } from "@/app/share/services/route.service";
-import { Component } from "@angular/core";
+import { Component, AfterViewInit } from "@angular/core";
 import { AuthService } from "../../services/auth.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { TSnackBarProps } from "@/types";
+import {
+  TFormErrorMessages,
+  TFormValidationMessages,
+  TSnackBarProps,
+} from "@/types";
 import { NotificationSnackBarComponent } from "@/app/share/components/notification-snack-bar/notification-snack-bar.component";
 import { API_FETCHING_STATE } from "@/constants";
-import { FormBuilder, Validators } from "@angular/forms";
-
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { formHelper } from "@/utilities/helperFunctions";
+import { debounceTime, filter, map } from "rxjs";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"],
 })
-export class LoginComponent {
-  loginForm = this.formBuilder.group({
-    userName: "",
-    password: "",
-  });
+export class LoginComponent implements AfterViewInit {
+  loginForm: FormGroup;
+  errorMessages: TFormErrorMessages = {};
+  VALIDATION_MESSAGES: TFormValidationMessages = {
+    userName: {
+      required: "This field is required",
+      minlength:
+        "The user name length must be greater than or equal to 6 characters",
+      maxlength:
+        "The user name length must be less than or equal to 12 characters",
+    },
+    password: {
+      required: "This field is required",
+      minlength:
+        "The password length must be greater than or equal to 8 characters",
+      maxlength:
+        "The password length must be less than or equal to 15 characters",
+    },
+  };
 
   redirectUrl: string = "";
   isLoading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private routeService: RouteService,
     private authService: AuthService
   ) {
+    this.loginForm = this.formBuilder.group({
+      userName: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(12),
+        ]),
+      ],
+      password: [
+        "",
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(15),
+        ]),
+      ],
+    });
+
     this.routeService
       .getRedirectUrl()
       .subscribe(paramValue => (this.redirectUrl = paramValue as string));
@@ -37,28 +75,55 @@ export class LoginComponent {
           this.isLoading = true;
           break;
         case API_FETCHING_STATE.SUCCESS:
-          this.openSnackBar({ message: "login successful !" });
-          this.isLoading = false;
+          this.openSnackBar({ isSuccess: true, message: "login successful !" });
+          this.resetFormState();
           this.redirect();
-          this.authService.updateAuthState(API_FETCHING_STATE.IDLE);
           break;
         case API_FETCHING_STATE.ERROR:
-          this.isLoading = false;
           this.openSnackBar({
+            isSuccess: false,
             message: "login failed, check you inputs then retry !",
           });
-          this.authService.updateAuthState(API_FETCHING_STATE.IDLE);
+          this.resetFormState();
           break;
         default:
-          this.authService.updateAuthState(API_FETCHING_STATE.IDLE);
           break;
       }
     });
   }
 
-  openSnackBar({ message }: TSnackBarProps) {
-    this._snackBar.openFromComponent(NotificationSnackBarComponent, {
+  ngAfterViewInit(): void {
+    // Object.keys(this.loginForm.controls).forEach(controlKeys => {
+
+    // });
+
+    this.loginForm.valueChanges.pipe(debounceTime(300)).subscribe(value => {
+      this.errorMessages["userName"] = formHelper.getErrorMessages(
+        this.loginForm,
+        this.VALIDATION_MESSAGES,
+        "userName"
+      )["userName"];
+    });
+
+    this.loginForm.valueChanges.pipe(debounceTime(300)).subscribe(value => {
+      this.errorMessages["password"] = formHelper.getErrorMessages(
+        this.loginForm,
+        this.VALIDATION_MESSAGES,
+        "password"
+      )["password"];
+    });
+  }
+
+  resetFormState() {
+    this.isLoading = false;
+    this.errorMessages = {};
+    this.authService.updateAuthState(API_FETCHING_STATE.IDLE);
+  }
+
+  openSnackBar({ isSuccess, message }: TSnackBarProps) {
+    this.snackBar.openFromComponent(NotificationSnackBarComponent, {
       data: {
+        isSuccess: isSuccess,
         message: message,
       },
     });
@@ -71,9 +136,18 @@ export class LoginComponent {
   }
 
   getLogin() {
-    this.authService.getLogin({
-      userName: this.loginForm.value.userName as string,
-      password: this.loginForm.value.password as string,
-    });
+    if (this.loginForm) {
+      if (this.loginForm.valid) {
+        this.authService.getLogin({
+          userName: this.loginForm.value.userName as string,
+          password: this.loginForm.value.password as string,
+        });
+      } else {
+        this.errorMessages = formHelper.getErrorMessages(
+          this.loginForm,
+          this.VALIDATION_MESSAGES
+        );
+      }
+    }
   }
 }

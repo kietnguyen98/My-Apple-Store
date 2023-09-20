@@ -28,10 +28,10 @@ export class CartService {
   itemsSubject = new Subject<TCartItems>();
 
   // cart snackbar init
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(private snackBar: MatSnackBar) {}
 
   openSnackBar({ message }: TSnackBarProps) {
-    this._snackBar.openFromComponent(NotificationSnackBarComponent, {
+    this.snackBar.openFromComponent(NotificationSnackBarComponent, {
       data: {
         message: message,
       },
@@ -98,7 +98,10 @@ export class CartService {
     }
 
     this.itemsSubject.next(this.items);
-    this.openSnackBar({ message: "Add item to cart successful !" });
+    this.openSnackBar({
+      isSuccess: true,
+      message: "Add item to cart successful !",
+    });
   }
 
   changeItemQuantity({ itemId, value }: TChangeItemQuantityProps) {
@@ -112,6 +115,6 @@ export class CartService {
   removeItem(itemId: string) {
     this.items = this.items.filter(item => item.id !== itemId);
     this.itemsSubject.next(this.items);
-    this.openSnackBar({ message: "Remove item successful !" });
+    this.openSnackBar({ isSuccess: true, message: "Remove item successful !" });
   }
 }

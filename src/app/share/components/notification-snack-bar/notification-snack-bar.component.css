@@ -20,14 +20,21 @@
       height: 24px;
       border-radius: 50%;
   
-      .icon{
+      .icon {
         position: absolute;
         top: -4px;
         left: -4px;
         width: 32px;
         height: 32px;
         font-size: 32px;
+      }
+
+      .success-icon{
         color: var(--app-success-color);
+      }
+
+      .error-icon{
+        color: var(--app-danger-color);
       }
     }
   

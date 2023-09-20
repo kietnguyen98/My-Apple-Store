@@ -1,4 +1,6 @@
 import { AUTH_QUERY_PARAM_KEYS, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
+import { TFormErrorMessages, TFormValidationMessages } from "@/types";
+import { FormGroup } from "@angular/forms";
 import { Params } from "@angular/router";
 
 const QUERY_PARAMS_ORDERED_ARRAY = [
@@ -151,5 +153,45 @@ export const routeHelper = {
       .forEach(key => (sortedQueryParams[key] = currentQueryParams[key]));
 
     return sortedQueryParams;
+  },
+};
+
+export const formHelper = {
+  getErrorMessages(
+    formGroup: FormGroup,
+    validationMessages: TFormValidationMessages,
+    specificKey?: string
+  ): TFormErrorMessages {
+    const errorMessages: TFormErrorMessages = {};
+    // loop through all the formControls
+    for (const controlKey in formGroup.controls) {
+      if (specificKey && controlKey !== specificKey) continue;
+      console.log(controlKey);
+      // get the properties of each formControl
+      const controlProperty = formGroup.controls[controlKey];
+      // If it is a FormGroup, process its child controls.
+      if (controlProperty instanceof FormGroup) {
+        const childMessages = this.getErrorMessages(
+          controlProperty,
+          validationMessages
+        );
+        Object.assign(errorMessages, childMessages);
+      } else {
+        // Only validate if there are validation errorMessages for the control
+        if (validationMessages[controlKey]) {
+          errorMessages[controlKey] = "";
+          if (controlProperty.errors) {
+            // loop through the object of errors
+            Object.keys(controlProperty.errors).map(messageKey => {
+              if (validationMessages[controlKey][messageKey]) {
+                errorMessages[controlKey] =
+                  validationMessages[controlKey][messageKey];
+              }
+            });
+          }
+        }
+      }
+    }
+    return errorMessages;
   },
 };

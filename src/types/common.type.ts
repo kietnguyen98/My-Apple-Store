@@ -11,5 +11,12 @@ export type TSnackBarConfigOptions = {
 };
 
 export type TSnackBarProps = {
+  isSuccess: boolean;
   message: string;
 };
+
+export type TFormValidationMessages = {
+  [key: string]: { [key: string]: string };
+};
+
+export type TFormErrorMessages = { [key: string]: string };

@@ -1,7 +1,10 @@
 <div class="container">
   <div class="content">
     <div class="icon-background">
-      <mat-icon class="icon">check_circle</mat-icon>
+      <mat-icon class="icon success-icon" *ngIf="data.isSuccess"
+        >check_circle</mat-icon
+      >
+      <mat-icon class="icon error-icon" *ngIf="!data.isSuccess">error</mat-icon>
     </div>
     <span class="message">
       {{ data.message }}

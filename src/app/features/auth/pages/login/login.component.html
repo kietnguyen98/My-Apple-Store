@@ -6,27 +6,43 @@
         <p class="brand-name">My Apple Store</p>
       </div>
     </div>
-    <form [formGroup]="loginForm" (ngSubmit)="getLogin()">
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="getLogin()"
+      novalidate
+      autocomplete="false">
       <div class="form-container">
         <div class="intro-container">
           <p class="feature-label">Log in</p>
         </div>
         <div class="input-container">
-          <div class="input-field user-name-input">
+          <div class="input-field">
             <p class="label">user name</p>
             <input
               type="text"
               placeholder="enter your user name"
-              class="input"
+              [ngClass]="{
+                input: true,
+                'input-error': errorMessages['userName']
+              }"
               formControlName="userName" />
+            <p class="error-message" *ngIf="errorMessages['userName']">
+              {{ errorMessages["userName"] }}
+            </p>
           </div>
-          <div class="input-field password-input">
+          <div class="input-field">
             <p class="label">password</p>
             <input
               type="password"
               placeholder="enter your password"
-              class="input"
+              [ngClass]="{
+                input: true,
+                'input-error': errorMessages['password']
+              }"
               formControlName="password" />
+            <p class="error-message" *ngIf="errorMessages['password']">
+              {{ errorMessages["password"] }}
+            </p>
           </div>
         </div>
         <div class="action-container">

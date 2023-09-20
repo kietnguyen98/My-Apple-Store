@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { filter } from "rxjs/operators";
 import {
-  ROUTE_PERMITTED_QUERY_PARAM_KEYS,
+  ROUTE_PERMITTED_QUERY_PARAM,
   AUTH_QUERY_PARAM_KEYS,
   PRODUCT_QUERY_PARAM_KEYS,
   CATEGORIES_VALUE,
@@ -96,12 +96,13 @@ export class RouteService {
     public router: Router,
     public activatedRoute: ActivatedRoute
   ) {
-    // subscribe on every query param on url
+    window.addEventListener("load", event => {
+      console.log(`location: ${document.location}`);
+    });
+    // subscribe on every query param which exist on current url
     this.queryParamsKeysForSubscribes.forEach(queryParamKey => {
       this.activatedRoute.queryParams
-        // get exact query param
         .pipe(filter(params => params[queryParamKey]))
-        // subscribe that query param
         .subscribe(param => {
           const paramValue = param[queryParamKey];
           this.updateUrlQueryParams({
@@ -117,33 +118,27 @@ export class RouteService {
     // check permitted query params on current url
     this.activatedRoute.queryParams.subscribe(queryParams => {
       if (Object.keys(queryParams).length > 0) {
-        // url have query params
         const currentRouteWithoutQueryParams =
           routeHelper.getCleanSpecificRoutePath(this.router.url, true);
         const urlQueryParams: Params = {};
-        let shouldReload = false;
 
-        ROUTE_PERMITTED_QUERY_PARAM_KEYS.forEach(e => {
-          if (e.pathRegex.test(currentRouteWithoutQueryParams)) {
-            // match full route path
-            if (Object.keys(e.queryParamKeys).length === 0) {
-              // should not container any query params => reload
+        ROUTE_PERMITTED_QUERY_PARAM.forEach(permittedQueryParam => {
+          if (
+            permittedQueryParam.pathRegex.test(currentRouteWithoutQueryParams)
+          ) {
+            if (Object.keys(permittedQueryParam.keys).length === 0) {
               this.navigateWithUrlOnly({
                 path: currentRouteWithoutQueryParams,
               });
             } else {
-              // contain some permitted query params => should check for not accepted query params
+              let shouldReload = false;
               for (let key in queryParams) {
-                if (Object.values(e.queryParamKeys).indexOf(key) > -1) {
-                  // query param key is accepted
-                  // should add to new query params
+                if (Object.values(permittedQueryParam.keys).indexOf(key) > -1) {
                   urlQueryParams[key] = queryParams[key];
                 } else {
-                  // query param key is not accepted, update reload flag
                   shouldReload = true;
                 }
               }
-              // if reload flag = true then reload the page by redirect same url with accepted url params
               if (shouldReload) {
                 this.router.navigate([currentRouteWithoutQueryParams], {
                   queryParams: urlQueryParams,
@@ -152,6 +147,8 @@ export class RouteService {
             }
           }
         });
+      } else {
+        this.resetAllQueryParams();
       }
     });
   }
