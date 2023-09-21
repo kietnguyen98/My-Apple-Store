@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 export const defaultUser: TUser = {
   id: uuidv4(),
   userName: "conchimxanhx",
-  password: "1234",
+  password: "manhkiet1998",
   avatarUrl:
     "https://i.pinimg.com/564x/05/45/8c/05458cc5c8c2aebd232ff79fca3f429d.jpg",
   fullName: {

@@ -6,6 +6,8 @@ import { BreadcrumbsBarComponent } from "./components/breadcrumbs-bar/breadcrumb
 import { CarouselComponent } from "./components/carousel/carousel.component";
 import { ScrollTopButtonComponent } from "./components/scroll-top-button/scroll-top-button.component";
 import { NotificationSnackBarComponent } from "./components/notification-snack-bar/notification-snack-bar.component";
+import { CustomFormControlComponent } from "./components/custom-form-control/custom-form-control.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // modules
 import { TopBarModule } from "./components/top-bar/top-bar.module";
@@ -18,6 +20,7 @@ import {
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from "@angular/material/snack-bar";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 // configuration
 import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
@@ -30,25 +33,28 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
     MatTooltipModule,
     MatSnackBarModule,
     TopBarModule,
+    MatProgressSpinnerModule,
   ],
   declarations: [
     BreadcrumbsBarComponent,
     CarouselComponent,
     ScrollTopButtonComponent,
     NotificationSnackBarComponent,
-    // FormInputFieldComponent,
+    CustomFormControlComponent,
   ],
   exports: [
     BreadcrumbsBarComponent,
     CarouselComponent,
     ScrollTopButtonComponent,
     TopBarModule,
-    // FormInputFieldComponent,
+    CustomFormControlComponent,
   ],
 })
 export class ShareModule {}

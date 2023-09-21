@@ -1,0 +1,49 @@
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="onSubmit()"
+  novalidate
+  autocomplete="false"
+  class="form">
+  <div class="input-container">
+    <div class="input-field">
+      <p class="label">user name</p>
+      <input
+        type="text"
+        placeholder="enter your user name"
+        [ngClass]="{
+          input: true,
+          'input-error': errorMessages['userName']
+        }"
+        formControlName="userName" />
+      <p class="error-message" *ngIf="errorMessages['userName']">
+        {{ errorMessages["userName"] }}
+      </p>
+    </div>
+    <div class="input-field">
+      <p class="label">password</p>
+      <input
+        type="password"
+        autocomplete="current-password"
+        placeholder="enter your password"
+        [ngClass]="{
+          input: true,
+          'input-error': errorMessages['password']
+        }"
+        formControlName="password" />
+      <p class="error-message" *ngIf="errorMessages['password']">
+        {{ errorMessages["password"] }}
+      </p>
+    </div>
+  </div>
+  <div class="action-container">
+    <button
+      mat-raised-button
+      color="warn"
+      type="submit"
+      class="login-button"
+      [disabled]="isLoading">
+      <mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>
+      <p>Login</p>
+    </button>
+  </div>
+</form>

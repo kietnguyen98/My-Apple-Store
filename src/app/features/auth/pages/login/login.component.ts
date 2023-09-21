@@ -1,25 +1,18 @@
 import { RouteService } from "@/app/share/services/route.service";
-import { Component, AfterViewInit } from "@angular/core";
-import { AuthService } from "../../services/auth.service";
+import { Component } from "@angular/core";
+import { AuthService, TLoginProps } from "../../services/auth.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import {
-  TFormErrorMessages,
-  TFormValidationMessages,
-  TSnackBarProps,
-} from "@/types";
+import { TFormValidationMessages, TSnackBarProps } from "@/types";
 import { NotificationSnackBarComponent } from "@/app/share/components/notification-snack-bar/notification-snack-bar.component";
 import { API_FETCHING_STATE } from "@/constants";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { formHelper } from "@/utilities/helperFunctions";
-import { debounceTime, filter, map } from "rxjs";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.css"],
 })
-export class LoginComponent implements AfterViewInit {
+export class LoginComponent {
   loginForm: FormGroup;
-  errorMessages: TFormErrorMessages = {};
   VALIDATION_MESSAGES: TFormValidationMessages = {
     userName: {
       required: "This field is required",
@@ -92,31 +85,8 @@ export class LoginComponent implements AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
-    // Object.keys(this.loginForm.controls).forEach(controlKeys => {
-
-    // });
-
-    this.loginForm.valueChanges.pipe(debounceTime(300)).subscribe(value => {
-      this.errorMessages["userName"] = formHelper.getErrorMessages(
-        this.loginForm,
-        this.VALIDATION_MESSAGES,
-        "userName"
-      )["userName"];
-    });
-
-    this.loginForm.valueChanges.pipe(debounceTime(300)).subscribe(value => {
-      this.errorMessages["password"] = formHelper.getErrorMessages(
-        this.loginForm,
-        this.VALIDATION_MESSAGES,
-        "password"
-      )["password"];
-    });
-  }
-
   resetFormState() {
     this.isLoading = false;
-    this.errorMessages = {};
     this.authService.updateAuthState(API_FETCHING_STATE.IDLE);
   }
 
@@ -135,19 +105,7 @@ export class LoginComponent implements AfterViewInit {
     });
   }
 
-  getLogin() {
-    if (this.loginForm) {
-      if (this.loginForm.valid) {
-        this.authService.getLogin({
-          userName: this.loginForm.value.userName as string,
-          password: this.loginForm.value.password as string,
-        });
-      } else {
-        this.errorMessages = formHelper.getErrorMessages(
-          this.loginForm,
-          this.VALIDATION_MESSAGES
-        );
-      }
-    }
+  onSubmitForm(payload: { [key: string]: string }) {
+    this.authService.getLogin(payload as TLoginProps);
   }
 }

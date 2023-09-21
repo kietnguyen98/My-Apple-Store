@@ -7,6 +7,7 @@ import { LoginComponent } from "./pages/login/login.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 
 // modules
+import { ShareModule } from "@/app/share/share.module";
 
 // services
 
@@ -19,7 +20,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
   imports: [
     CommonModule,
     FormsModule,
-    // ShareModule,
+    ShareModule,
     ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,

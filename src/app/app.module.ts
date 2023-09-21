@@ -18,7 +18,6 @@ import { AppRoutingModule } from "./app-routing.module";
 
 // services
 import { RouteService } from "./share/services/route.service";
-
 @NgModule({
   imports: [
     BrowserModule,

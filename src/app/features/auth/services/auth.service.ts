@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 import { Observable, BehaviorSubject } from "rxjs";
 import { defaultUser } from "@/data/auth";
 
-type TLoginProps = {
+export type TLoginProps = {
   userName: string;
   password: string;
 };
