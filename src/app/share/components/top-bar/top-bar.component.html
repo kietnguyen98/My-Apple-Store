@@ -7,11 +7,50 @@
   <span class="spacer"></span>
   <div class="action-container">
     <app-header-search-input></app-header-search-input>
-    <button mat-flat-button color="accent" (click)="navigateToLogin()">
+    <button
+      *ngIf="!isAuth"
+      mat-flat-button
+      color="accent"
+      (click)="navigateToLogin()">
       Login
     </button>
-    <button mat-button color="accent">Sign Up</button>
-    <app-cart-toggle-button></app-cart-toggle-button>
+    <button *ngIf="!isAuth" mat-button color="accent">Sign Up</button>
+    <div
+      mat-ripple
+      [matMenuTriggerFor]="userMenu"
+      matTooltip="My account"
+      *ngIf="user"
+      class="user-info-container">
+      <div class="user-avatar">
+        <img [src]="user.avatarUrl" alt="user-avatar" class="avatar-img" />
+      </div>
+      <p class="user-name">{{ user.userName }}</p>
+    </div>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>account_box</mat-icon>
+        <span>Account info</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>list</mat-icon>
+        <span>Purchase orders</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>favorite</mat-icon>
+        <span>Love list</span>
+      </button>
+      <button mat-menu-item (click)="getLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sign out</span>
+      </button>
+    </mat-menu>
+    <button
+      mat-icon-button
+      aria-label="notifications"
+      matTooltip="Notifications">
+      <mat-icon>notifications</mat-icon>
+    </button>
+    <app-cart-toggle-button matTooltip="My cart"></app-cart-toggle-button>
   </div>
 </mat-toolbar>
 <!-- should render under space for align other app components -->

@@ -62,15 +62,15 @@ export class LoginComponent {
       .getRedirectUrl()
       .subscribe(paramValue => (this.redirectUrl = paramValue as string));
 
-    this.authService.getAuthState().subscribe(state => {
+    this.authService.getLoginState().subscribe(state => {
       switch (state) {
         case API_FETCHING_STATE.LOADING:
           this.isLoading = true;
           break;
         case API_FETCHING_STATE.SUCCESS:
           this.openSnackBar({ isSuccess: true, message: "login successful !" });
-          this.resetFormState();
           this.redirect();
+          this.resetFormState();
           break;
         case API_FETCHING_STATE.ERROR:
           this.openSnackBar({
@@ -87,7 +87,7 @@ export class LoginComponent {
 
   resetFormState() {
     this.isLoading = false;
-    this.authService.updateAuthState(API_FETCHING_STATE.IDLE);
+    this.authService.updateLoginState(API_FETCHING_STATE.IDLE);
   }
 
   openSnackBar({ isSuccess, message }: TSnackBarProps) {

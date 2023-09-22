@@ -1,8 +1,52 @@
+p{
+    margin: 0px;
+}
+
 .card-container {
     width: 100%;
     box-shadow: var(--app-border-box-shadow);
     transition: all 0.25s ease-in-out;
+
+    .image-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px;
+        
+        .image {
+            height: 240px;
+        }
+    }
+    
+    .content-container{
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        color: var(--app-primary-color);
+        
+        .name{
+            text-transform: capitalize;
+            text-align: center;
+            font-weight: var(--app-font-weight-regular);
+            font-size: var(--app-font-size-small);
+        }
+
+        .price {
+            text-align: center;
+            font-weight: var(--app-font-weight-regular);
+            font-size: var(--app-font-size-medium);
+        }
+    }
 }
+
+.card-container:hover {
+    box-shadow: var(--app-header-box-shadow);
+}
+
 
 :host-context(.card-width-360px) .card-container  {
     width: 360px;
@@ -12,65 +56,15 @@
    width: 320px;
 }
 
-.card-container:hover {
-    box-shadow: var(--app-header-box-shadow);
-}
-
-.image-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0px;
-}
-
-.content-container{
-    padding: 10px;
-}
-
-.content-container > p {
-    margin: 8px 0px;
-}
-
-.image {
-    height: 240px;
-}
-
-.name{
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: var(--app-font-weight-regular);
-    font-size: var(--app-font-size-medium);
-    color: var(--app-primary-color);
-}
-
-.price {
-    text-align: center;
-    font-weight: var(--app-font-weight-regular);
-    font-size: var(--app-font-size-medium);
-}
-
 mat-card-actions{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 0px 16px 16px 16px;
+    padding: 16px;
     gap: 10px;
-}
 
-.fluid-button {
-    width: 100%;
-}
-
-@media screen and (max-width: 360px) {
-    .product-image { 
-        height: 240px;
-    }
-}
-
-@media screen and (min-width: 361px) and (max-width: 420px) {
-    .product-image { 
-        height: 280px;
+    .fluid-button {
+        width: 100%;
     }
 }

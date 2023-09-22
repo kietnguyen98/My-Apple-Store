@@ -10,6 +10,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatRippleModule } from "@angular/material/core";
+import { MatMenuModule } from "@angular/material/menu";
 
 // local modules
 import { CartModule } from "@/app/features/cart/cart.module";
@@ -22,6 +24,8 @@ import { CartModule } from "@/app/features/cart/cart.module";
     MatToolbarModule,
     MatIconModule,
     MatTooltipModule,
+    MatRippleModule,
+    MatMenuModule,
     CartModule,
   ],
   declarations: [

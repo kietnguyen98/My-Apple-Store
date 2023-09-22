@@ -30,9 +30,10 @@ export class CartService {
   // cart snackbar init
   constructor(private snackBar: MatSnackBar) {}
 
-  openSnackBar({ message }: TSnackBarProps) {
+  openSnackBar({ isSuccess, message }: TSnackBarProps) {
     this.snackBar.openFromComponent(NotificationSnackBarComponent, {
       data: {
+        isSuccess: isSuccess,
         message: message,
       },
     });

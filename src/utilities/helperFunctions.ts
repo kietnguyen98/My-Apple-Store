@@ -196,3 +196,29 @@ export const formHelper = {
     return errorMessages;
   },
 };
+
+export const storageHelper = {
+  appPrefix: "MAS",
+  setIsAuth: function (value: boolean) {
+    localStorage.setItem(`${this.appPrefix}_isAuth`, value.toString());
+  },
+  getIsAuth: function () {
+    return localStorage.getItem(`${this.appPrefix}_isAuth`);
+  },
+  setUserAccount: function (userName: string, password: string) {
+    localStorage.setItem(
+      `${this.appPrefix}_account`,
+      JSON.stringify({
+        userName: userName,
+        password: password,
+      })
+    );
+  },
+  getUserAccount: function () {
+    return localStorage.getItem(`${this.appPrefix}_account`);
+  },
+  clearUser: function () {
+    localStorage.setItem(`${this.appPrefix}_isAuth`, "");
+    localStorage.setItem(`${this.appPrefix}_account`, "");
+  },
+};

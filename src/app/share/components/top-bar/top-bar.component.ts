@@ -5,6 +5,9 @@ import { PATH } from "@/configs/routes";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
 import { RouteService } from "../../services/route.service";
 import { routeHelper } from "@/utilities/helperFunctions";
+import { AuthService } from "@/app/features/auth/services/auth.service";
+import { TUser } from "@/types";
+
 @Component({
   providers: [HeaderSearchInputComponent],
   selector: "app-top-bar",
@@ -13,9 +16,14 @@ import { routeHelper } from "@/utilities/helperFunctions";
 })
 export class TopBarComponent implements OnInit {
   currentRoute: string | undefined;
+  isAuth: boolean = true;
+  user: TUser | undefined;
   private APP_PRIMARY_COLOR: string = "#191919";
 
-  constructor(private routeService: RouteService) {
+  constructor(
+    private routeService: RouteService,
+    private authService: AuthService
+  ) {
     // subscribes router event (as an observer) change to detect current route path
     this.routeService.router.events.subscribe(route => {
       if (route instanceof NavigationEnd) {
@@ -35,6 +43,9 @@ export class TopBarComponent implements OnInit {
         }
       }
     });
+
+    this.authService.getIsAuth().subscribe(value => (this.isAuth = value));
+    this.authService.getUser().subscribe(value => (this.user = value));
   }
 
   ngOnInit(): void {
@@ -76,5 +87,9 @@ export class TopBarComponent implements OnInit {
       ],
       replaceAll: true,
     });
+  }
+
+  getLogout() {
+    this.authService.getLogout();
   }
 }

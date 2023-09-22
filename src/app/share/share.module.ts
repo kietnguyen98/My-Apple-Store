@@ -39,8 +39,8 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
     MatButtonModule,
     MatTooltipModule,
     MatSnackBarModule,
-    TopBarModule,
     MatProgressSpinnerModule,
+    TopBarModule,
   ],
   declarations: [
     BreadcrumbsBarComponent,

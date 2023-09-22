@@ -38,7 +38,7 @@ export class CustomFormControlComponent implements AfterViewInit {
       );
 
       merge(...inputElementBlurs, this.formGroup.valueChanges)
-        .pipe(debounceTime(300))
+        .pipe(debounceTime(250))
         .subscribe(() => {
           this.errorMessages = formHelper.getErrorMessages(
             this.formGroup,
