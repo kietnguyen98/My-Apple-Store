@@ -27,13 +27,14 @@ p {
 
 .header-title{
     color: var(--app-primary-color);
-    font-weight: var(--app-font-weight-bold);
+    font-weight: var(--app-font-weight-regular);
     font-size: var(--app-font-size-small);
 }
 
 .total-items-text{
     color: var(--app-warn-color);
     font-size: var(--app-font-size-medium);
+    margin-left: 4px;
 }
 
 .body{

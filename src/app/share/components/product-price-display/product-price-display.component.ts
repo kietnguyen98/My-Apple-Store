@@ -8,6 +8,8 @@ import {
 import { TMemoryCapacity, TProduct } from "@/types";
 import { productHelper } from "@/utilities/helperFunctions";
 
+type TProductPriceDisplayTextSize = "small" | "medium" | "large";
+
 @Component({
   selector: "app-product-price-display",
   templateUrl: "./product-price-display.component.html",
@@ -17,6 +19,7 @@ export class ProductPriceDisplayComponent implements OnInit, OnChanges {
   @Input() product?: TProduct;
   @Input() currentMemoryCapacity: TMemoryCapacity | undefined;
   @Input() showLabel: boolean = false;
+  @Input() textSize: TProductPriceDisplayTextSize = "medium";
   originalPrice: number | undefined;
   salePrice: number | undefined;
 

@@ -1,7 +1,3 @@
-p{
-    margin: 0px;
-}
-
 .card-container {
     width: 100%;
     box-shadow: var(--app-border-box-shadow);
@@ -44,7 +40,7 @@ p{
 
 :host-context(.card-width-360px) .card-container  {
     width: 360px;
- }
+}
 
 :host-context(.card-width-320px) .card-container  {
    width: 320px;

@@ -1,24 +1,41 @@
+import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { TCartItem } from "@/types";
-import { Component, Input } from "@angular/core";
 import { CartService } from "../../services/cart.service";
 import { PATH } from "@/configs/routes";
 import { MatDialog } from "@angular/material/dialog";
 import { CartAlertDialogComponent } from "../cart-alert-dialog/cart-alert-dialog.component";
 import { RouteService } from "@/app/share/services/route.service";
+import { productHelper } from "@/utilities/helperFunctions";
 
 @Component({
   selector: "app-cart-item-card",
   templateUrl: "./cart-item-card.component.html",
   styleUrls: ["./cart-item-card.component.css"],
 })
-export class CartItemCardComponent {
+export class CartItemCardComponent implements OnChanges {
   @Input() item: TCartItem | undefined;
+  totalPrice: number = 0;
 
   constructor(
     private cartService: CartService,
     private routeService: RouteService,
     private dialog: MatDialog
   ) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes["item"].currentValue) {
+      const product = changes["item"].currentValue.product;
+      const selectedMemory = changes["item"].currentValue.selectedMemory;
+      const quantity = changes["item"].currentValue.quantity;
+      if (product.salePercentage) {
+        this.totalPrice =
+          productHelper.getSalePrice(product, selectedMemory) * quantity;
+      } else {
+        this.totalPrice =
+          productHelper.getOriginalPrice(product, selectedMemory) * quantity;
+      }
+    }
+  }
 
   removeItem() {
     this.cartService.removeItem(this.item?.id as string);

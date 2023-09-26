@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 // components
 import { TopBarComponent } from "./top-bar.component";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
+import { CartToggleButtonComponent } from "./cart-toggle-button/cart-toggle-button.component";
 
 // angular material modules
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -12,9 +13,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatRippleModule } from "@angular/material/core";
 import { MatMenuModule } from "@angular/material/menu";
-
-// local modules
-import { CartModule } from "@/app/features/cart/cart.module";
+import { MatBadgeModule } from "@angular/material/badge";
 
 @NgModule({
   providers: [],
@@ -26,13 +25,14 @@ import { CartModule } from "@/app/features/cart/cart.module";
     MatTooltipModule,
     MatRippleModule,
     MatMenuModule,
-    CartModule,
+    MatBadgeModule,
   ],
   declarations: [
     // root
     TopBarComponent,
     // children
     HeaderSearchInputComponent,
+    CartToggleButtonComponent,
   ],
   exports: [TopBarComponent],
 })

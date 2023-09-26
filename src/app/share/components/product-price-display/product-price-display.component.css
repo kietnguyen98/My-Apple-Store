@@ -9,6 +9,7 @@
     }
 
     .price-value{
+        color: var(--app-primary-color);
         font-size: var(--app-font-size-medium);
         font-weight: var(--app-font-weight-bold);
     }
@@ -20,14 +21,12 @@
         
         .original-price {
             color: var(--app-secondary-color);
-            font-size: var(--app-font-size-medium);
             font-weight: var(--app-font-weight-regular);
             text-decoration: line-through;
         }
 
         .sale-price {
             color: var(--app-primary-color);
-            font-size: var(--app-font-size-medium);
             font-weight: var(--app-font-weight-bold);
         }
 
@@ -37,10 +36,49 @@
             background-color: var(--app-warn-color);
            
             .sale-percentage-value{
-                font-size: var(--app-font-size-extra-small);
                 font-weight: var(--app-font-weight-regular);
                 color: white;
             }
+        }
+    }
+}
+
+.size-small {
+    .price-value {
+        font-size: var(--app-font-size-small);
+    }
+
+    .sale-price-container{
+        .original-price{
+            font-size: var(--app-font-size-small);
+        }
+    
+        .sale-price{
+            font-size: var(--app-font-size-small);
+        }
+    
+        .sale-percentage-value{
+            font-size: var(--app-font-size-extra-extra-small);
+        }
+    }
+}
+
+.size-medium {
+     .price-value {
+        font-size: var(--app-font-size-medium);
+    }
+
+    .sale-price-container{
+        .original-price{
+            font-size: var(--app-font-size-medium);
+        }
+    
+        .sale-price{
+            font-size: var(--app-font-size-medium);
+        }
+    
+        .sale-percentage-value{
+            font-size: var(--app-font-size-extra-small);
         }
     }
 }

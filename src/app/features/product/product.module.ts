@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RouterModule } from "@angular/router";
 
 // components
 import { ProductAlertsComponent } from "./components/product-alerts/product-alerts.component";
@@ -13,7 +12,6 @@ import { ProductSubImagesComponent } from "./components/product-details/product-
 import { ProductsRelatedComponent } from "./components/product-details/products-related/products-related.component";
 import { ProductDescriptionAndRateModule } from "./components/product-details/product-description-and-rate/product-description-and-rate.module";
 import { PageSectionNavigationComponent } from "./components/page-section-navigation/page-section-navigation.component";
-import { ProductPriceDisplayComponent } from "./components/product-price-display/product-price-display.component";
 
 // local modules
 import { ProductFilterMenuModule } from "./components/product-filter-menu/product-filter-menu.module";
@@ -40,17 +38,16 @@ import { MatRippleModule } from "@angular/material/core";
 @NgModule({
   imports: [
     CommonModule,
+    ShareModule,
     ProductFilterMenuModule,
+    ProductDescriptionAndRateModule,
     MatIconModule,
     MatChipsModule,
     MatTooltipModule,
     MatCardModule,
-    RouterModule,
     MatSidenavModule,
-    ShareModule,
     MatButtonModule,
     MatRippleModule,
-    ProductDescriptionAndRateModule,
   ],
   declarations: [
     // components
@@ -63,7 +60,6 @@ import { MatRippleModule } from "@angular/material/core";
     ProductSubImagesComponent,
     ProductsRelatedComponent,
     PageSectionNavigationComponent,
-    ProductPriceDisplayComponent,
     // pages
     ProductListComponent,
     ProductDetailsComponent,

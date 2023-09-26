@@ -7,7 +7,7 @@ import { CarouselComponent } from "./components/carousel/carousel.component";
 import { ScrollTopButtonComponent } from "./components/scroll-top-button/scroll-top-button.component";
 import { NotificationSnackBarComponent } from "./components/notification-snack-bar/notification-snack-bar.component";
 import { CustomFormControlComponent } from "./components/custom-form-control/custom-form-control.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { ProductPriceDisplayComponent } from "./components/product-price-display/product-price-display.component";
 
 // modules
 import { TopBarModule } from "./components/top-bar/top-bar.module";
@@ -21,6 +21,7 @@ import {
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from "@angular/material/snack-bar";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // configuration
 import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
@@ -48,6 +49,7 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
     ScrollTopButtonComponent,
     NotificationSnackBarComponent,
     CustomFormControlComponent,
+    ProductPriceDisplayComponent,
   ],
   exports: [
     BreadcrumbsBarComponent,
@@ -55,6 +57,7 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
     ScrollTopButtonComponent,
     TopBarModule,
     CustomFormControlComponent,
+    ProductPriceDisplayComponent,
   ],
 })
 export class ShareModule {}

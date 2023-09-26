@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { CartService } from "../../services/cart.service";
+import { CartService } from "../../../../features/cart/services/cart.service";
 import { TCartItems } from "@/types";
 
 @Component({

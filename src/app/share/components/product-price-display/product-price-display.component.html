@@ -1,4 +1,10 @@
-<div class="container" *ngIf="product">
+<div
+  [ngClass]="{
+    container: true,
+    'size-medium': textSize === 'medium',
+    'size-small': textSize === 'small'
+  }"
+  *ngIf="product">
   <p class="label" *ngIf="showLabel">From:</p>
   <p class="price-value" *ngIf="!salePrice">
     {{ originalPrice | currency }}
