@@ -1,0 +1,28 @@
+<div mat-dialog-content class="container">
+  <div class="form-container">
+    <p class="welcome-text">Welcome! Please login to continue</p>
+    <app-custom-form-control
+      [formGroup]="loginForm"
+      [validationMessages]="VALIDATION_MESSAGES"
+      [isLoading]="isLoading"
+      (submitForm)="onSubmitForm($event)"></app-custom-form-control>
+    <div class="to-sign-up-container">
+      <p class="label">New member ? <a class="link">Sign up</a> here</p>
+    </div>
+  </div>
+
+  <div class="brand-container">
+    <button
+      mat-mini-fab
+      color="primary"
+      class="close-button"
+      (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <img
+      class="brand-logo"
+      src="/assets/apple-logo-white.png"
+      alt="brand logo" />
+    <p class="brand-name">My Apple Store</p>
+  </div>
+</div>

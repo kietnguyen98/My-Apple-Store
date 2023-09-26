@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from "@angular/core";
 import { TColor, TColors, TProduct } from "@/types";
-import { ProductService } from "../../services/product.service";
+import { ProductService } from "../../../services/product.service";
 @Component({
   selector: "app-product-colors-select",
   templateUrl: "./product-colors-select.component.html",

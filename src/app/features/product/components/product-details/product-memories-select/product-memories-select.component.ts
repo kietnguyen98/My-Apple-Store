@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from "@angular/core";
 import { TMemoryCapacity, TMemoryCapacities, TProduct } from "@/types";
-import { ProductService } from "../../services/product.service";
+import { ProductService } from "../../../services/product.service";
 @Component({
   selector: "app-product-memories-select",
   templateUrl: "./product-memories-select.component.html",

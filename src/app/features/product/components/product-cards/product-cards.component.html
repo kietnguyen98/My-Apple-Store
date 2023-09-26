@@ -9,13 +9,9 @@
     </div>
     <div class="content-container">
       <p class="name">{{ product.name }}</p>
-      <p class="price" *ngIf="product.price">
-        From
-        {{
-          product.price + (product.memoryCapacities?.[0]?.plusPrice || 0)
-            | currency
-        }}
-      </p>
+      <app-product-price-display
+        [product]="product"
+        [showLabel]="true"></app-product-price-display>
     </div>
   </mat-card-content>
   <mat-card-actions>
@@ -30,8 +26,8 @@
       *ngIf="!inDetailPage"
       class="fluid-button"
       mat-flat-button
-      color="accent"
-      (click)="onNotify()">
+      color="danger"
+      (click)="handleAddToLoveList()">
       <mat-icon>favorite</mat-icon> Add to love list
     </button>
   </mat-card-actions>

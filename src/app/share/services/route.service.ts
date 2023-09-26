@@ -96,9 +96,6 @@ export class RouteService {
     public router: Router,
     public activatedRoute: ActivatedRoute
   ) {
-    window.addEventListener("load", event => {
-      console.log(`location: ${document.location}`);
-    });
     // subscribe on every query param which exist on current url
     this.queryParamsKeysForSubscribes.forEach(queryParamKey => {
       this.activatedRoute.queryParams

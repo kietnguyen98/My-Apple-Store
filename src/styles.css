@@ -31,6 +31,7 @@
   --app-background-color: #fafafa;
 
   /* font size values */
+  --app-font-size-extra-extra-small: 12px;
   --app-font-size-extra-small: 14px;
   --app-font-size-small: 16px;
   --app-font-size-medium: 18px;
@@ -71,6 +72,10 @@ body {
   height: 100%;
   margin: 0px;
   padding: 0px;
+}
+
+p {
+  margin: 0px;
 }
 
 a {

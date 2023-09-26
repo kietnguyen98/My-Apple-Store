@@ -34,12 +34,6 @@ p{
             font-weight: var(--app-font-weight-regular);
             font-size: var(--app-font-size-small);
         }
-
-        .price {
-            text-align: center;
-            font-weight: var(--app-font-weight-regular);
-            font-size: var(--app-font-size-medium);
-        }
     }
 }
 

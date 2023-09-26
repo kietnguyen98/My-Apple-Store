@@ -5,6 +5,7 @@ import { products } from "@/data/products";
 import { ROUTE_PARAMS } from "@/configs/routes";
 import { ProductService } from "../../services/product.service";
 import { CartService } from "@/app/features/cart/services/cart.service";
+import { productHelper } from "@/utilities/helperFunctions";
 @Component({
   selector: "app-product-details",
   templateUrl: "./product-details.component.html",
@@ -71,7 +72,19 @@ export class ProductDetailsComponent {
   }
 
   updateTotalProductPrice() {
-    this.totalPrice = this.currentProductPrice * this.currentQuantity;
+    if (this.product) {
+      if (this.product.salePercentage) {
+        this.totalPrice =
+          productHelper.getSalePrice(this.product, this.currentMemoryCapacity) *
+          this.currentQuantity;
+      } else {
+        this.totalPrice =
+          productHelper.getOriginalPrice(
+            this.product,
+            this.currentMemoryCapacity
+          ) * this.currentQuantity;
+      }
+    }
   }
 
   // change product images

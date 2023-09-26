@@ -6,6 +6,7 @@ type TProduct = {
   id: string;
   name: string;
   price: number;
+  salePercentage: number;
   category: TCategory;
   description: string;
   imageUrl: string;

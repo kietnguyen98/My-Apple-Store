@@ -18,6 +18,8 @@ import { AppRoutingModule } from "./app-routing.module";
 
 // services
 import { RouteService } from "./share/services/route.service";
+import { MAT_DIALOG_DEFAULT_OPTIONS } from "@angular/material/dialog";
+import { NoopScrollStrategy } from "@angular/cdk/overlay";
 @NgModule({
   imports: [
     BrowserModule,
@@ -30,7 +32,16 @@ import { RouteService } from "./share/services/route.service";
     CartModule,
     AuthModule,
   ],
-  providers: [RouteService],
+  providers: [
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: {
+        // revert angular material modal's block scroll strategy
+        scrollStrategy: new NoopScrollStrategy(),
+      },
+    },
+    RouteService,
+  ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
 })

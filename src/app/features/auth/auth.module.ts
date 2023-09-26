@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 // components
 import { LoginComponent } from "./pages/login/login.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
+import { LoginPopupComponent } from "./components/login-popup/login-popup.component";
 
 // modules
 import { ShareModule } from "@/app/share/share.module";
@@ -15,6 +16,7 @@ import { ShareModule } from "@/app/share/share.module";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   imports: [
@@ -25,9 +27,11 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
   ],
   declarations: [
     //components
+    LoginPopupComponent,
     //pages
     LoginComponent,
     SignUpComponent,

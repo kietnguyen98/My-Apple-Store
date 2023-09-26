@@ -1,0 +1,13 @@
+<div class="container" *ngIf="product">
+  <p class="label" *ngIf="showLabel">From:</p>
+  <p class="price-value" *ngIf="!salePrice">
+    {{ originalPrice | currency }}
+  </p>
+  <div class="sale-price-container" *ngIf="salePrice">
+    <p class="original-price">{{ originalPrice | currency }}</p>
+    <p class="sale-price">{{ salePrice | currency }}</p>
+    <div class="sale-percentage-badge">
+      <p class="sale-percentage-value">-{{ product.salePercentage }}%</p>
+    </div>
+  </div>
+</div>

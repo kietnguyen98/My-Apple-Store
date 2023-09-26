@@ -26,7 +26,11 @@
         <div class="action-container">
           <div class="product-price-container">
             <p class="product-price-label">price per product</p>
-            <p class="product-price">{{ currentProductPrice | currency }}</p>
+            <app-product-price-display
+              [product]="product"
+              [currentMemoryCapacity]="
+                currentMemoryCapacity
+              "></app-product-price-display>
           </div>
           <div
             class="memories-capactity-container"

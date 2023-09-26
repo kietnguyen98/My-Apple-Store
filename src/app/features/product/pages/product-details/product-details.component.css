@@ -81,7 +81,7 @@ p {
     margin-top: 16px;
     font-size: var(--app-font-size-small);
     color: var(--app-secondary-color);
-    font-weight: 400;
+    font-weight: var(--app-font-weight-regular);
 }
 
 .product-price-label{
@@ -89,7 +89,7 @@ p {
     text-transform: capitalize;
     font-weight: var(--app-font-weight-regular);
     color: var(--app-primary-color);
-    margin-top: 0px;
+    margin-bottom: 8px;    
 }
 
 .product-price { 
@@ -103,14 +103,14 @@ p {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
 }
 
 .final-action-container{
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 32px;
 }
 
 .total-price-container{

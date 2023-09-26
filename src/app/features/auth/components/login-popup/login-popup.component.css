@@ -1,0 +1,70 @@
+p{
+    margin: 0px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+
+    .form-container{
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .welcome-text{
+            font-size: var(--app-font-size-medium);
+            font-weight: var(--app-font-weight-regular);
+            color: var(--app-primary-color);
+        }
+
+        .to-sign-up-container{
+            padding: 0px 8px;
+
+            .label {
+                color: var(--app-primary-color);
+                font-size: var(--app-font-size-small) ;
+                font-weight: var(--app-font-weight-regular);
+
+                .link{
+                    cursor: pointer;
+                    color: var(--app-warn-color);    
+                }
+
+                .link:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .brand-container{
+        display: flex;
+        padding: 30px 60px;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        background-color: var(--app-primary-color);
+        color: white;
+
+        .close-button{
+            position: absolute;
+            z-index: 1;
+            top: 8px;
+            right: 8px;
+        }
+
+        .brand-logo {
+            height: 80px;
+            width: 80px;
+        }
+
+        .brand-name{
+            font-size: var(--app-font-size-medium);
+            font-weight: var(--app-font-weight-regular);
+        }
+    }
+}

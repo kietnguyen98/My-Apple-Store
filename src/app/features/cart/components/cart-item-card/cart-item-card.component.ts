@@ -27,7 +27,7 @@ export class CartItemCardComponent {
   openDialog() {
     this.dialog.open(CartAlertDialogComponent, {
       disableClose: true,
-      hasBackdrop: false,
+      hasBackdrop: true,
       width: "360px",
       data: {
         title: "Confirm remove item",

@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from "@angular/core";
-import { ProductService } from "../../services/product.service";
+import { ProductService } from "../../../services/product.service";
 @Component({
   selector: "app-product-quantity-select",
   templateUrl: "./product-quantity-select.component.html",

@@ -1,5 +1,10 @@
 import { AUTH_QUERY_PARAM_KEYS, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
-import { TFormErrorMessages, TFormValidationMessages } from "@/types";
+import {
+  TFormErrorMessages,
+  TFormValidationMessages,
+  TMemoryCapacity,
+  TProduct,
+} from "@/types";
 import { FormGroup } from "@angular/forms";
 import { Params } from "@angular/router";
 
@@ -220,5 +225,23 @@ export const storageHelper = {
   clearUser: function () {
     localStorage.setItem(`${this.appPrefix}_isAuth`, "");
     localStorage.setItem(`${this.appPrefix}_account`, "");
+  },
+};
+
+export const productHelper = {
+  getOriginalPrice: function (
+    product: TProduct,
+    currentMemoryCapacity: TMemoryCapacity | undefined
+  ) {
+    return product.price + (currentMemoryCapacity?.plusPrice || 0);
+  },
+  getSalePrice: function (
+    product: TProduct,
+    currentMemoryCapacity: TMemoryCapacity | undefined
+  ) {
+    return (
+      (product.price * (100 - product.salePercentage)) / 100 +
+      (currentMemoryCapacity?.plusPrice || 0)
+    );
   },
 };
