@@ -1,15 +1,16 @@
 import { Injectable } from "@angular/core";
 import { products } from "@/app/features/product/data/products.data";
-import { CATEGORIES_VALUE } from "@/constants";
-import { Observable, BehaviorSubject } from "rxjs";
+import { CATEGORIES_VALUE, PRODUCT_STATUS_VALUES } from "@/constants";
+import { Observable, BehaviorSubject, filter } from "rxjs";
 import { RouteService } from "@/app/share/services/route.service";
 import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 import { TProduct, TProducts } from "../types";
 import {
   TProductQueryParamKeys,
   TProductsQueryParams,
-  TSetQueryParamsProps,
+  TSetProductQueryParamsProps,
 } from "@/app/share/types";
+import { productHelper } from "@/utilities";
 
 @Injectable({ providedIn: "root" })
 export class ProductService {
@@ -23,70 +24,31 @@ export class ProductService {
 
   constructor(private routeService: RouteService) {
     // detect change on query params
-    this.routeService.getParamSearchTerm().subscribe(paramValue =>
-      this.setQueryParams({
-        key: PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM,
-        value: paramValue,
-      })
-    );
-
-    this.routeService.getParamCategory().subscribe(paramValue =>
-      this.setQueryParams({
-        key: PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
-        value: paramValue,
-      })
-    );
-
-    this.routeService.getParamStartPrice().subscribe(paramValue =>
-      this.setQueryParams({
-        key: PRODUCT_QUERY_PARAM_KEYS.START_PRICE,
-        value: Number(paramValue),
-      })
-    );
-
-    this.routeService.getParamEndPrice().subscribe(paramValue =>
-      this.setQueryParams({
-        key: PRODUCT_QUERY_PARAM_KEYS.END_PRICE,
-        value: Number(paramValue),
-      })
-    );
-
-    this.routeService.getParamSortPriceDirection().subscribe(paramValue =>
-      this.setQueryParams({
-        key: PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
-        value: Number(paramValue),
-      })
-    );
-
-    this.routeService.getParamPage().subscribe(paramValue =>
-      this.setQueryParams({
-        key: PRODUCT_QUERY_PARAM_KEYS.PAGE,
-        value: Number(paramValue),
-      })
-    );
-
-    this.routeService.getParamOffset().subscribe(paramValue =>
-      this.setQueryParams({
-        key: PRODUCT_QUERY_PARAM_KEYS.OFFSET,
-        value: Number(paramValue),
-      })
-    );
-  }
-
-  setQueryParams({ key, value }: TSetQueryParamsProps) {
-    this.queryParams[key as TProductQueryParamKeys] = value;
-    this.setListProducts();
+    this.routeService.getAllProductQueryParams().subscribe(queryParams => {
+      this.queryParams = queryParams as TProductsQueryParams;
+      this.setListProducts();
+    });
   }
 
   // list products filter
   setListProducts() {
     let tempProducts = [...products];
-    const searchTerm = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM];
-    const category = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.CATEGORY];
-    const startPrice = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.START_PRICE];
-    const endPrice = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.END_PRICE];
-    const sortPriceDirection =
-      this.queryParams[PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION];
+    const searchTerm = this.queryParams[
+      PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM
+    ] as string;
+    const status = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.STATUS] as string;
+    const category = this.queryParams[
+      PRODUCT_QUERY_PARAM_KEYS.CATEGORY
+    ] as string;
+    const startPrice = this.queryParams[
+      PRODUCT_QUERY_PARAM_KEYS.START_PRICE
+    ] as number;
+    const endPrice = this.queryParams[
+      PRODUCT_QUERY_PARAM_KEYS.END_PRICE
+    ] as number;
+    const sortPriceDirection = this.queryParams[
+      PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION
+    ] as number;
 
     // filter by search term
     if (searchTerm) {
@@ -95,6 +57,21 @@ export class ProductService {
           .toLowerCase()
           .includes((searchTerm as string).toLowerCase())
       );
+    }
+
+    // filter by status values
+    if (status) {
+      const filterValues = status.split(",");
+      // filter on sale
+      if (filterValues.indexOf(PRODUCT_STATUS_VALUES.ON_SALE) > -1) {
+        tempProducts = tempProducts.filter(
+          product => product.salePercentage > 0
+        );
+      }
+      // filter is hot
+      if (filterValues.indexOf(PRODUCT_STATUS_VALUES.IS_HOT) > -1) {
+        tempProducts = tempProducts.filter(product => product.isHot);
+      }
     }
 
     // filter by category values
@@ -108,20 +85,36 @@ export class ProductService {
 
     // filter by price range
     if (startPrice && endPrice) {
-      tempProducts = tempProducts.filter(
-        product =>
-          product.price >= (startPrice as number) &&
-          product.price <= (endPrice as number)
-      );
+      tempProducts = tempProducts.filter(product => {
+        const exactProductPrice = productHelper.getExactPrice(
+          product,
+          product.memoryCapacities?.[0]
+        );
+
+        return (
+          exactProductPrice >= (startPrice as number) &&
+          exactProductPrice <= (endPrice as number)
+        );
+      });
     }
 
     // filter by sort price directions values
     if (sortPriceDirection !== 0) {
-      tempProducts.sort((current, next) =>
-        sortPriceDirection === -1
-          ? current.price - next.price
-          : next.price - current.price
-      );
+      tempProducts.sort((currentProduct, nextProduct) => {
+        const exactCurrentProductPrice = productHelper.getExactPrice(
+          currentProduct,
+          currentProduct.memoryCapacities?.[0]
+        );
+
+        const exactNextProductPrice = productHelper.getExactPrice(
+          nextProduct,
+          nextProduct.memoryCapacities?.[0]
+        );
+
+        return sortPriceDirection === -1
+          ? exactCurrentProductPrice - exactNextProductPrice
+          : exactNextProductPrice - exactCurrentProductPrice;
+      });
     }
 
     this.listProducts = tempProducts;

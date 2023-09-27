@@ -3,4 +3,4 @@ export const API_FETCHING_STATE = {
   LOADING: "loading",
   ERROR: "error",
   SUCCESS: "success",
-};
+} as const;

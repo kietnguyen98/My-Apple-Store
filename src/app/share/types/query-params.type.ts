@@ -10,23 +10,16 @@ export type TProductsQueryParams = Partial<
   Record<TProductQueryParamKeys, string | number>
 >;
 
+export type TSetProductQueryParamsProps = {
+  key: TProductQueryParamKeys;
+  value: string | number;
+};
+
 export type TSetQueryParamsProps = {
   key: TProductQueryParamKeys | TAuthQueryParamKeys;
   value: string | number;
 };
 
-export type TProductQueryParamKeysForSubscribes =
-  | typeof PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM
-  | typeof PRODUCT_QUERY_PARAM_KEYS.CATEGORY
-  | typeof PRODUCT_QUERY_PARAM_KEYS.START_PRICE
-  | typeof PRODUCT_QUERY_PARAM_KEYS.END_PRICE
-  | typeof PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION
-  | typeof PRODUCT_QUERY_PARAM_KEYS.PAGE
-  | typeof PRODUCT_QUERY_PARAM_KEYS.OFFSET;
-
-export type TAuthQueryParamKeysForSubscribes =
-  typeof AUTH_QUERY_PARAM_KEYS.REDIRECT_URL;
-
 export type TQueryParamKeyForSubscribes =
-  | TProductQueryParamKeysForSubscribes
-  | TAuthQueryParamKeysForSubscribes;
+  | TProductQueryParamKeys
+  | TAuthQueryParamKeys;

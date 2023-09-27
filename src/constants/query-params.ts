@@ -3,16 +3,17 @@ import { PATH } from "@/configs/routes";
 export const PRODUCT_QUERY_PARAM_KEYS = {
   SEARCH_TERM: "searchTerm",
   CATEGORY: "category",
+  STATUS: "status",
   START_PRICE: "startPrice",
   END_PRICE: "endPrice",
   SORT_PRICE_DIRECTION: "sortPriceDirection",
   PAGE: "page",
   OFFSET: "offset",
-};
+} as const;
 
 export const AUTH_QUERY_PARAM_KEYS = {
   REDIRECT_URL: "redirectUrl",
-};
+} as const;
 
 export const ROUTE_PERMITTED_QUERY_PARAM: Array<{
   pathRegex: RegExp;

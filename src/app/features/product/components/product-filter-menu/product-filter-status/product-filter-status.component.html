@@ -1,0 +1,11 @@
+<div class="container">
+  <p class="label">Status</p>
+  <mat-checkbox
+    class="check-box"
+    *ngFor="let option of options"
+    color="primary"
+    [checked]="currentValues.indexOf(option.value) > -1"
+    (change)="handleChangeValues(option.value)"
+    >{{ option.name }}</mat-checkbox
+  >
+</div>

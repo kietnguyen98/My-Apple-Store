@@ -16,3 +16,14 @@ export function getSalePrice(
     (currentMemoryCapacity?.plusPrice || 0)
   );
 }
+
+export function getExactPrice(
+  product: TProduct,
+  currentMemoryCapacity: TMemoryCapacity | undefined
+) {
+  if (product.salePercentage > 0) {
+    return getSalePrice(product, currentMemoryCapacity);
+  } else {
+    return getOriginalPrice(product, currentMemoryCapacity);
+  }
+}

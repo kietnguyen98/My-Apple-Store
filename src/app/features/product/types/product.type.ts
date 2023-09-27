@@ -7,6 +7,7 @@ type TProduct = {
   name: string;
   price: number;
   salePercentage: number;
+  isHot: boolean;
   category: TCategory;
   description: string;
   imageUrl: string;

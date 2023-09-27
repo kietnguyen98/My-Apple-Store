@@ -22,18 +22,14 @@ export class ProductFilterCategoriesComponent {
 
   handleChangeCategory(event: MatChipListboxChange) {
     const newCategory = event.value;
-    if (newCategory !== this.currentCategory) {
-      this.currentCategory = newCategory;
-
-      this.routeService.navigateWithParams({
-        path: PATH.LIST_PRODUCTS,
-        queryParams: [
-          {
-            key: PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
-            value: this.currentCategory,
-          },
-        ],
-      });
-    }
+    this.routeService.navigateWithParams({
+      path: PATH.LIST_PRODUCTS,
+      queryParams: [
+        {
+          key: PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
+          value: newCategory,
+        },
+      ],
+    });
   }
 }

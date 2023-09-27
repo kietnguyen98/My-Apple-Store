@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    
+    .label{
+        font-size: var(--app-font-size-extra-small);
+        font-weight: var(--app-font-weight-bold);
+    }
+
+    .check-box .mdc-label{
+        font-size: var(--app-font-size-extra-small);
+        font-weight: var(--app-font-weight-regular);
+        color: var(--app-primary-color);
+        letter-spacing: 0px;
+    }
+}

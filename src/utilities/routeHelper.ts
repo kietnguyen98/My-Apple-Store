@@ -1,9 +1,11 @@
 import { Params } from "@angular/router";
 import { AUTH_QUERY_PARAM_KEYS, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
+import { TQueryParamKeyForSubscribes } from "@/app/share/types";
 
-const QUERY_PARAMS_ORDERED_ARRAY = [
+const QUERY_PARAMS_ORDERED_ARRAY: Array<TQueryParamKeyForSubscribes> = [
   // product
   PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM,
+  PRODUCT_QUERY_PARAM_KEYS.STATUS,
   PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
   PRODUCT_QUERY_PARAM_KEYS.START_PRICE,
   PRODUCT_QUERY_PARAM_KEYS.END_PRICE,
@@ -43,8 +45,8 @@ export function sortQueryParamsInOrder(currentQueryParams: Params) {
   Object.keys(currentQueryParams)
     .sort(
       (a, b) =>
-        QUERY_PARAMS_ORDERED_ARRAY.indexOf(a) -
-        QUERY_PARAMS_ORDERED_ARRAY.indexOf(b)
+        QUERY_PARAMS_ORDERED_ARRAY.indexOf(a as TQueryParamKeyForSubscribes) -
+        QUERY_PARAMS_ORDERED_ARRAY.indexOf(b as TQueryParamKeyForSubscribes)
     )
     .forEach(key => (sortedQueryParams[key] = currentQueryParams[key]));
 

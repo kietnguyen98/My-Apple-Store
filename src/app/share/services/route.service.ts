@@ -11,7 +11,11 @@ import {
 } from "@/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { PATH } from "@/configs/routes";
-import { TQueryParamKeyForSubscribes, TSetQueryParamsProps } from "../types";
+import {
+  TProductQueryParamKeys,
+  TQueryParamKeyForSubscribes,
+  TSetQueryParamsProps,
+} from "../types";
 import { routeHelper } from "@/utilities";
 import { scrollToTopImmediately } from "@/utilities/windowScrollHelper";
 
@@ -28,11 +32,13 @@ type TNavigateWithParamsProps = {
 @Injectable({ providedIn: "root" })
 export class RouteService {
   urlQueryParams: Params = {};
+  allProductQueryParamsSubject = new BehaviorSubject<Params>({});
 
   queryParamsKeysForSubscribes: Array<TQueryParamKeyForSubscribes> = [
     // product
     PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM,
     PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
+    PRODUCT_QUERY_PARAM_KEYS.STATUS,
     PRODUCT_QUERY_PARAM_KEYS.START_PRICE,
     PRODUCT_QUERY_PARAM_KEYS.END_PRICE,
     PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
@@ -48,6 +54,7 @@ export class RouteService {
   > = {
     searchTerm: "",
     category: CATEGORIES_VALUE.ALL,
+    status: "",
     startPrice: PRICES.DEFAULT_FILTER_START_PRICE.toString(),
     endPrice: PRICES.DEFAULT_FILTER_END_PRICE.toString(),
     sortPriceDirection: "0",
@@ -67,6 +74,9 @@ export class RouteService {
     ),
     category: new BehaviorSubject<string>(
       this.queryParamsSubscribesDefaultValue[PRODUCT_QUERY_PARAM_KEYS.CATEGORY]
+    ),
+    status: new BehaviorSubject<string>(
+      this.queryParamsSubscribesDefaultValue[PRODUCT_QUERY_PARAM_KEYS.STATUS]
     ),
     startPrice: new BehaviorSubject<string>(
       this.queryParamsSubscribesDefaultValue[
@@ -100,8 +110,8 @@ export class RouteService {
     this.queryParamsKeysForSubscribes.forEach(queryParamKey => {
       this.activatedRoute.queryParams
         .pipe(filter(params => params[queryParamKey]))
-        .subscribe(param => {
-          const paramValue = param[queryParamKey];
+        .subscribe(params => {
+          const paramValue = params[queryParamKey];
           this.updateUrlQueryParams({
             key: queryParamKey,
             value: paramValue,
@@ -110,6 +120,28 @@ export class RouteService {
             paramValue || this.queryParamsSubscribesDefaultValue[queryParamKey]
           );
         });
+    });
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      // get all query params with default value
+      const queryParams = { ...this.queryParamsSubscribesDefaultValue };
+      // remove query params which not belong to product query params
+      for (let key in queryParams) {
+        const productQueryParamKey = key as TProductQueryParamKeys;
+        if (
+          Object.values(PRODUCT_QUERY_PARAM_KEYS).indexOf(
+            productQueryParamKey
+          ) === -1
+        ) {
+          delete queryParams[productQueryParamKey];
+        }
+      }
+      // override query params value by values from url query params
+      for (let key in params) {
+        queryParams[key as TQueryParamKeyForSubscribes] = params[key];
+      }
+
+      this.allProductQueryParamsSubject.next(queryParams);
     });
 
     // check permitted query params on current url
@@ -152,10 +184,20 @@ export class RouteService {
 
   // declare all query params observable
   // for products
+  // all product query params
+  getAllProductQueryParams(): Observable<Params> {
+    return this.allProductQueryParamsSubject.asObservable();
+  }
   // search term
   getParamSearchTerm(): Observable<string> {
     return this.queryParamSubjects[
       PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM
+    ].asObservable();
+  }
+  // status
+  getParamStatus(): Observable<string> {
+    return this.queryParamSubjects[
+      PRODUCT_QUERY_PARAM_KEYS.STATUS
     ].asObservable();
   }
   // category
