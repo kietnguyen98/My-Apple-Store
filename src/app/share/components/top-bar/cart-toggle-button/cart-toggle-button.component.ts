@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { CartService } from "../../../../features/cart/services/cart.service";
-import { TCartItems } from "@/types";
+import { TCartItems } from "@/app/features/cart/types";
 
 @Component({
   selector: "app-cart-toggle-button",

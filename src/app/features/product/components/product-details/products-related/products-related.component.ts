@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { TProducts } from "@/types";
+import { TProducts } from "../../../types";
 @Component({
   selector: "app-products-related",
   templateUrl: "./products-related.component.html",

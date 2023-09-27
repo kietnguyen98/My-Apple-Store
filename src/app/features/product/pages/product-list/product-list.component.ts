@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { TProducts } from "@/types";
 import { COMPONENT_DIMENSIONS } from "@/constants";
 import { ProductService } from "../../services/product.service";
-import { windowScrollHelper } from "@/utilities/helperFunctions";
+import { windowScrollHelper } from "@/utilities";
+import { TProducts } from "../../types";
 @Component({
   selector: "app-product-list",
   templateUrl: "./product-list.component.html",

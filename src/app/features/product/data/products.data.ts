@@ -1,7 +1,7 @@
-import { IMAGE_URL, SUB_IMAGE_URLS } from "../constants";
+import { IMAGE_URL, SUB_IMAGE_URLS } from "../../../../constants";
 import { v4 as uuidv4 } from "uuid";
-import { categories } from "./categories";
-import { memoryCapacities } from "./memory";
+import { categories } from "./categories.data";
+import { memoryCapacities } from "./memoryCapacities.data";
 import {
   iPhone14Colors,
   iPhone13ProMaxColors,
@@ -11,8 +11,8 @@ import {
   iPhoneSEColors,
   iPhoneXColors,
   iPhone8Colors,
-} from "./colors";
-import { TProducts } from "@/types";
+} from "./colors.data";
+import { TProducts } from "@/app/features/product/types";
 
 export const products: TProducts = [
   // iPhone data
@@ -46,13 +46,7 @@ export const products: TProducts = [
       memoryCapacities[4],
     ],
     colors: iPhone14Colors,
-    subImageUrls: [
-      SUB_IMAGE_URLS.Iphone14ProMaxSubImage1Url,
-      SUB_IMAGE_URLS.Iphone14ProMaxSubImage2Url,
-      SUB_IMAGE_URLS.Iphone14ProMaxSubImage3Url,
-      SUB_IMAGE_URLS.Iphone14ProMaxSubImage4Url,
-      SUB_IMAGE_URLS.Iphone14ProMaxSubImage5Url,
-    ],
+    subImageUrls: SUB_IMAGE_URLS.Iphone14ProMax,
   },
   {
     id: uuidv4(),

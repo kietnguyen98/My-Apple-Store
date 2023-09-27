@@ -1,4 +1,4 @@
-import { TProduct } from "@/types";
+import { TProduct } from "@/app/features/product/types";
 import { Component, Input } from "@angular/core";
 
 @Component({

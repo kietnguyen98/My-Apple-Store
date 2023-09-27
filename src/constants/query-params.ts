@@ -1,6 +1,6 @@
 import { PATH } from "@/configs/routes";
 
-const PRODUCT_QUERY_PARAM_KEYS = {
+export const PRODUCT_QUERY_PARAM_KEYS = {
   SEARCH_TERM: "searchTerm",
   CATEGORY: "category",
   START_PRICE: "startPrice",
@@ -10,11 +10,11 @@ const PRODUCT_QUERY_PARAM_KEYS = {
   OFFSET: "offset",
 };
 
-const AUTH_QUERY_PARAM_KEYS = {
+export const AUTH_QUERY_PARAM_KEYS = {
   REDIRECT_URL: "redirectUrl",
 };
 
-const ROUTE_PERMITTED_QUERY_PARAM: Array<{
+export const ROUTE_PERMITTED_QUERY_PARAM: Array<{
   pathRegex: RegExp;
   keys: Record<string, string>;
 }> = [
@@ -41,9 +41,3 @@ const ROUTE_PERMITTED_QUERY_PARAM: Array<{
     keys: AUTH_QUERY_PARAM_KEYS,
   },
 ];
-
-export {
-  PRODUCT_QUERY_PARAM_KEYS,
-  AUTH_QUERY_PARAM_KEYS,
-  ROUTE_PERMITTED_QUERY_PARAM,
-};

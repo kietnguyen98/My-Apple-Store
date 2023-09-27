@@ -1,4 +1,4 @@
-import { TUser } from "@/types";
+import { TUser } from "@/app/features/auth/types";
 import { v4 as uuidv4 } from "uuid";
 
 export const defaultUser1: TUser = {
@@ -33,4 +33,4 @@ export const defaultUser2: TUser = {
   birthday: "20/04/1998",
 };
 
-export const usersData: Array<TUser> = [defaultUser1, defaultUser2];
+export const users: Array<TUser> = [defaultUser1, defaultUser2];

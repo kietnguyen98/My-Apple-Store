@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
 import { PAGINATION, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
-import { TNumElementsPerPageOptions, TProducts } from "@/types";
 import { ProductService } from "../../services/product.service";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
+import { TNumElementsPerPageOptions } from "@/app/share/types";
+import { TProducts } from "../../types";
 @Component({
   selector: "app-product-list-pagination",
   templateUrl: "./product-list-pagination.component.html",

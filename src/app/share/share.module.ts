@@ -3,7 +3,6 @@ import { CommonModule } from "@angular/common";
 
 // components
 import { BreadcrumbsBarComponent } from "./components/breadcrumbs-bar/breadcrumbs-bar.component";
-import { CarouselComponent } from "./components/carousel/carousel.component";
 import { ScrollTopButtonComponent } from "./components/scroll-top-button/scroll-top-button.component";
 import { NotificationSnackBarComponent } from "./components/notification-snack-bar/notification-snack-bar.component";
 import { CustomFormControlComponent } from "./components/custom-form-control/custom-form-control.component";
@@ -45,7 +44,6 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
   ],
   declarations: [
     BreadcrumbsBarComponent,
-    CarouselComponent,
     ScrollTopButtonComponent,
     NotificationSnackBarComponent,
     CustomFormControlComponent,
@@ -53,7 +51,6 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
   ],
   exports: [
     BreadcrumbsBarComponent,
-    CarouselComponent,
     ScrollTopButtonComponent,
     TopBarModule,
     CustomFormControlComponent,

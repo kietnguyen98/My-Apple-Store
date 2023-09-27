@@ -1,16 +1,15 @@
-import {
-  TProduct,
-  TProductQueryParamKeys,
-  TProducts,
-  TProductsQueryParams,
-  TSetQueryParamsProps,
-} from "@/types";
 import { Injectable } from "@angular/core";
-import { products } from "@/data/products";
+import { products } from "@/app/features/product/data/products.data";
 import { CATEGORIES_VALUE } from "@/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { RouteService } from "@/app/share/services/route.service";
 import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
+import { TProduct, TProducts } from "../types";
+import {
+  TProductQueryParamKeys,
+  TProductsQueryParams,
+  TSetQueryParamsProps,
+} from "@/app/share/types";
 
 @Injectable({ providedIn: "root" })
 export class ProductService {

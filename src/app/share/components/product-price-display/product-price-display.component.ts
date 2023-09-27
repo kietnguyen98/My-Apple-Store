@@ -5,8 +5,8 @@ import {
   OnChanges,
   SimpleChanges,
 } from "@angular/core";
-import { TMemoryCapacity, TProduct } from "@/types";
-import { productHelper } from "@/utilities/helperFunctions";
+import { TMemoryCapacity, TProduct } from "@/app/features/product/types";
+import { getOriginalPrice, getSalePrice } from "@/utilities/productHelper";
 
 type TProductPriceDisplayTextSize = "small" | "medium" | "large";
 
@@ -29,12 +29,12 @@ export class ProductPriceDisplayComponent implements OnInit, OnChanges {
 
   updatePrice() {
     if (this.product) {
-      this.originalPrice = productHelper.getOriginalPrice(
+      this.originalPrice = getOriginalPrice(
         this.product,
         this.currentMemoryCapacity || this.product.memoryCapacities?.[0]
       );
       if (this.product.salePercentage > 0) {
-        this.salePrice = productHelper.getSalePrice(
+        this.salePrice = getSalePrice(
           this.product,
           this.currentMemoryCapacity || this.product.memoryCapacities?.[0]
         );

@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 // components
-import { ProductAlertsComponent } from "./components/product-alerts/product-alerts.component";
 import { ProductCardsComponent } from "./components/product-cards/product-cards.component";
 import { ProductListPaginationComponent } from "./components/product-list-pagination/product-list-pagination.component";
 import { ProductMemoriesSelectComponent } from "./components/product-details/product-memories-select/product-memories-select.component";
@@ -51,7 +50,6 @@ import { MatRippleModule } from "@angular/material/core";
   ],
   declarations: [
     // components
-    ProductAlertsComponent,
     ProductCardsComponent,
     ProductListPaginationComponent,
     ProductMemoriesSelectComponent,

@@ -1,5 +1,5 @@
+import { TCategories } from "@/app/features/product/types";
 import { v4 as uuidv4 } from "uuid";
-import { TCategories } from "@/types";
 
 export const categories: TCategories = [
   {

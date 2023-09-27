@@ -1,9 +1,10 @@
 import { API_FETCHING_STATE } from "@/constants";
-import { TApisFetchingState, TUser } from "@/types";
 import { Injectable } from "@angular/core";
 import { Observable, BehaviorSubject } from "rxjs";
-import { usersData } from "@/data/auth";
-import { storageHelper } from "@/utilities/helperFunctions";
+import { users } from "@/app/features/auth/data/users.data";
+import { localStorageHelper } from "@/utilities";
+import { TApisFetchingState } from "@/app/share/types";
+import { TUser } from "../types";
 
 export type TLoginProps = {
   userName: string;
@@ -27,16 +28,16 @@ export class AuthService {
   userSubject = new BehaviorSubject<TUser | undefined>(undefined);
 
   constructor() {
-    const isAuth = storageHelper.getIsAuth() === "true";
-    const userAccount = storageHelper.getUserAccount() as string;
+    const isAuth = localStorageHelper.getIsAuth() === "true";
+    const userAccount = localStorageHelper.getUserAccount() as string;
 
     if (isAuth) {
       this.updateIsAuth(isAuth);
       const userAccountObject = JSON.parse(userAccount);
-      const user = usersData.find(
-        userData =>
-          userData.userName === userAccountObject.userName &&
-          userData.password === userAccountObject.password
+      const user = users.find(
+        user =>
+          user.userName === userAccountObject.userName &&
+          user.password === userAccountObject.password
       );
 
       if (user) this.updateUser(user);
@@ -47,9 +48,8 @@ export class AuthService {
     this.updateLoginState(API_FETCHING_STATE.LOADING);
     return await new Promise<void>(resolve => {
       setTimeout(() => {
-        const user = usersData.find(
-          userData =>
-            userData.userName === userName && userData.password === password
+        const user = users.find(
+          user => user.userName === userName && user.password === password
         );
         if (user) {
           this.updateLoginState(API_FETCHING_STATE.SUCCESS);
@@ -66,7 +66,7 @@ export class AuthService {
   async getLogout() {
     this.updateIsAuth(false);
     this.updateUser(undefined);
-    storageHelper.clearUser();
+    localStorageHelper.clearUser();
   }
 
   updateLoginState(newState: TApisFetchingState) {
@@ -82,14 +82,14 @@ export class AuthService {
   updateIsAuth(newValue: boolean) {
     this.isAuth = newValue;
     this.isAuthSubject.next(newValue);
-    storageHelper.setIsAuth(newValue);
+    localStorageHelper.setIsAuth(newValue);
   }
 
   updateUser(newValue: TUser | undefined) {
     this.user = newValue;
     this.userSubject.next(newValue);
     if (newValue) {
-      storageHelper.setUserAccount(newValue?.userName, newValue?.password);
+      localStorageHelper.setUserAccount(newValue?.userName, newValue?.password);
     }
   }
 

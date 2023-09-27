@@ -1,5 +1,5 @@
-import { TProduct } from "@/types";
 import { Component, Input } from "@angular/core";
+import { TProduct } from "../../../types";
 
 @Component({
   selector: "app-product-description-and-rate",

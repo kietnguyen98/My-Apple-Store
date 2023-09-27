@@ -1,9 +1,8 @@
-import { products } from "@/data/products";
-import { TProducts } from "@/types";
+import { products } from "@/app/features/product/data/products.data";
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Router } from "@angular/router";
 import { PATH } from "@/configs/routes";
 import { RouteService } from "@/app/share/services/route.service";
+import { TProducts } from "@/app/features/product/types";
 @Component({
   selector: "app-home-flash-sale-products",
   templateUrl: "./home-flash-sale-products.component.html",

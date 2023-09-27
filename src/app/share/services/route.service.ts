@@ -11,9 +11,9 @@ import {
 } from "@/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { PATH } from "@/configs/routes";
-import { routeHelper } from "@/utilities/helperFunctions";
-import { windowScrollHelper } from "@/utilities/helperFunctions";
-import { TSetQueryParamsProps, TQueryParamKeyForSubscribes } from "@/types";
+import { TQueryParamKeyForSubscribes, TSetQueryParamsProps } from "../types";
+import { routeHelper } from "@/utilities";
+import { scrollToTopImmediately } from "@/utilities/windowScrollHelper";
 
 type TNavigateWithUrlOnly = {
   path: string | Array<string>;
@@ -264,7 +264,7 @@ export class RouteService {
 
     this.router
       .navigate([path], { queryParams: this.urlQueryParams })
-      .then(() => windowScrollHelper.scrollToTopImmediately());
+      .then(() => scrollToTopImmediately());
   }
 
   navigateWithUrlOnly({ path, reload = false }: TNavigateWithUrlOnly) {
@@ -280,14 +280,10 @@ export class RouteService {
       this.router
         .navigateByUrl(PATH.DUMMY, { skipLocationChange: true })
         .then(() => {
-          this.router
-            .navigateByUrl(url)
-            .then(() => windowScrollHelper.scrollToTopImmediately());
+          this.router.navigateByUrl(url).then(() => scrollToTopImmediately());
         });
     } else {
-      this.router
-        .navigateByUrl(url)
-        .then(() => windowScrollHelper.scrollToTopImmediately());
+      this.router.navigateByUrl(url).then(() => scrollToTopImmediately());
     }
   }
 }

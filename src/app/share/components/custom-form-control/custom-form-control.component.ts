@@ -7,10 +7,10 @@ import {
   ElementRef,
   ViewChildren,
 } from "@angular/core";
-import { TFormErrorMessages, TFormValidationMessages } from "@/types";
 import { FormBuilder, FormControlName, FormGroup } from "@angular/forms";
 import { Observable, debounceTime, fromEvent, merge } from "rxjs";
-import { formHelper } from "@/utilities/helperFunctions";
+import { TFormErrorMessages, TFormValidationMessages } from "../../types";
+import { formControlHelper } from "@/utilities";
 
 @Component({
   selector: "app-custom-form-control",
@@ -40,7 +40,7 @@ export class CustomFormControlComponent implements AfterViewInit {
       merge(...inputElementBlurs, this.formGroup.valueChanges)
         .pipe(debounceTime(250))
         .subscribe(() => {
-          this.errorMessages = formHelper.getErrorMessages(
+          this.errorMessages = formControlHelper.getErrorMessages(
             this.formGroup,
             this.validationMessages
           );
@@ -68,7 +68,7 @@ export class CustomFormControlComponent implements AfterViewInit {
         }
         this.submitForm.emit(payload);
       } else {
-        this.errorMessages = formHelper.getErrorMessages(
+        this.errorMessages = formControlHelper.getErrorMessages(
           this.formGroup,
           this.validationMessages
         );

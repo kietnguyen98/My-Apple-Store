@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { TProduct } from "@/types";
 import { PATH } from "@/configs/routes";
 import { RouteService } from "@/app/share/services/route.service";
 import { AuthService } from "@/app/features/auth/services/auth.service";
 import { MatDialog } from "@angular/material/dialog";
 import { LoginPopupComponent } from "@/app/features/auth/components/login-popup/login-popup.component";
-import { productHelper } from "@/utilities/helperFunctions";
+import { productHelper } from "@/utilities";
+import { TProduct } from "../../types";
 @Component({
   selector: "app-product-cards",
   templateUrl: "./product-cards.component.html",

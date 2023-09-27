@@ -1,10 +1,10 @@
 import { Component } from "@angular/core";
-import { categories } from "@/data/categories";
-import { TCategories } from "@/types";
+import { categories } from "@/app/features/product/data/categories.data";
 import { CATEGORIES_VALUE, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
 import { MatChipListboxChange } from "@angular/material/chips";
+import { TCategories } from "../../../types";
 @Component({
   selector: "app-product-filter-categories",
   templateUrl: "./product-filter-categories.component.html",

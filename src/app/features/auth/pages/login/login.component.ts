@@ -2,10 +2,10 @@ import { RouteService } from "@/app/share/services/route.service";
 import { Component } from "@angular/core";
 import { AuthService, TLoginProps } from "../../services/auth.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { TFormValidationMessages, TSnackBarProps } from "@/types";
 import { NotificationSnackBarComponent } from "@/app/share/components/notification-snack-bar/notification-snack-bar.component";
 import { API_FETCHING_STATE } from "@/constants";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { TFormValidationMessages, TSnackBarProps } from "@/app/share/types";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",

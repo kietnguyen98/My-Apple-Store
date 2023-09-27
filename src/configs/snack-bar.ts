@@ -1,4 +1,4 @@
-import { TSnackBarConfigOptions } from "@/types";
+import { TSnackBarConfigOptions } from "@/app/share/types";
 
 export const SNACK_BAR_CONFIG_OPTION: TSnackBarConfigOptions = {
   horizontalPosition: "start",

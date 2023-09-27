@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { TBreadcrumbLink } from "@/types";
-import { routeHelper } from "@/utilities/helperFunctions";
+import { routeHelper } from "@/utilities";
 import { RouteService } from "../../services/route.service";
+import { TBreadcrumbLink } from "../../types";
 
 const BREADCRUMB_ICONS: Array<{ name: string; iconName: string }> = [
   { name: "products", iconName: "devices_other" },

@@ -4,9 +4,9 @@ import { AUTH_QUERY_PARAM_KEYS, COMPONENT_DIMENSIONS } from "@/constants";
 import { PATH } from "@/configs/routes";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
 import { RouteService } from "../../services/route.service";
-import { routeHelper } from "@/utilities/helperFunctions";
 import { AuthService } from "@/app/features/auth/services/auth.service";
-import { TUser } from "@/types";
+import { TUser } from "@/app/features/auth/types";
+import { encodeUrl } from "@/utilities/routeHelper";
 
 @Component({
   providers: [HeaderSearchInputComponent],
@@ -76,7 +76,7 @@ export class TopBarComponent implements OnInit {
   }
 
   navigateToLogin() {
-    const redirectUrl = routeHelper.encodeUrl(this.routeService.router.url);
+    const redirectUrl = encodeUrl(this.routeService.router.url);
     this.routeService.navigateWithParams({
       path: PATH.LOGIN,
       queryParams: [

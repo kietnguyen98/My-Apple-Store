@@ -1,11 +1,11 @@
 import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
-import { TCartItem } from "@/types";
 import { CartService } from "../../services/cart.service";
 import { PATH } from "@/configs/routes";
 import { MatDialog } from "@angular/material/dialog";
 import { CartAlertDialogComponent } from "../cart-alert-dialog/cart-alert-dialog.component";
 import { RouteService } from "@/app/share/services/route.service";
-import { productHelper } from "@/utilities/helperFunctions";
+import { productHelper } from "@/utilities";
+import { TCartItem } from "../../types";
 
 @Component({
   selector: "app-cart-item-card",

@@ -1,6 +1,4 @@
-import { TProduct } from "./product.type";
-import { TColor } from "./color.type";
-import { TMemoryCapacity } from "./memory.type";
+import { TProduct, TColor, TMemoryCapacity } from "../../product/types";
 
 export type TCartItem = {
   id: string;

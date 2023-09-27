@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { COMPONENT_DIMENSIONS } from "@/constants";
-import { windowScrollHelper } from "@/utilities/helperFunctions";
+import { windowScrollHelper } from "@/utilities";
 
 @Component({
   selector: "app-scroll-top-button",

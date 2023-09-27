@@ -1,5 +1,5 @@
+import { TMemoryCapacities } from "@/app/features/product/types";
 import { v4 as uuidv4 } from "uuid";
-import { TMemoryCapacities } from "@/types";
 
 export const memoryCapacities: TMemoryCapacities = [
   {

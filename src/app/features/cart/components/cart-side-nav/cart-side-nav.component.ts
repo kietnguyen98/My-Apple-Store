@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 
 import { CartService } from "../../services/cart.service";
-import { TCartItems } from "@/types";
 import { PATH } from "@/configs/routes";
 import { RouteService } from "@/app/share/services/route.service";
+import { TCartItems } from "../../types";
 @Component({
   selector: "app-cart-side-nav",
   templateUrl: "./cart-side-nav.component.html",

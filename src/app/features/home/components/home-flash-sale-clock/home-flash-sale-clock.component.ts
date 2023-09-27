@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnDestroy } from "@angular/core";
-import { countDownClockHelper } from "@/utilities/helperFunctions";
+import { countDownClockHelper } from "@/utilities";
 
 type TCountDownClockMode = "dark" | "light";
 type TCountDownClockSize = "medium" | "big";

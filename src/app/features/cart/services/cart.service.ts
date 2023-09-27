@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
-import { TCartItems, TColor, TMemoryCapacity, TProduct } from "@/types";
 import { Observable, Subject } from "rxjs";
 import { v4 as uuidv4 } from "uuid";
 import { NotificationSnackBarComponent } from "@/app/share/components/notification-snack-bar/notification-snack-bar.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { TSnackBarProps } from "@/types";
+import { TSnackBarProps } from "@/app/share/types";
+import { TCartItems } from "../types";
+import { TColor, TMemoryCapacity, TProduct } from "../../product/types";
 
 type TAddToCartProps = {
   product: TProduct;

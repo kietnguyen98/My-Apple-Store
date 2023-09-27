@@ -3,7 +3,7 @@ import {
   MatSnackBarRef,
   MAT_SNACK_BAR_DATA,
 } from "@angular/material/snack-bar";
-import { TSnackBarProps } from "@/types";
+import { TSnackBarProps } from "../../types";
 
 @Component({
   selector: "app-notification-snack-bar",

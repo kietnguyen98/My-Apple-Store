@@ -1,5 +1,5 @@
+import { TColors } from "@/app/features/product/types";
 import { v4 as uuidv4 } from "uuid";
-import { TColors } from "@/types";
 
 const iPhone14Colors: TColors = [
   {
