@@ -1,5 +1,12 @@
 <mat-card *ngIf="product" class="card-container">
-  <mat-card-content>
+  <div class="hot-badge-wrap" *ngIf="product.isHot">
+    <div class="hot-badge">
+      <p class="label">Hot</p>
+      <mat-icon class="hot-icon">whatshot</mat-icon>
+    </div>
+  </div>
+
+  <mat-card-content class="card-content-container">
     <div matRipple class="image-container">
       <img
         class="image"

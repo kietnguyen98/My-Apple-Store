@@ -2,33 +2,103 @@
     width: 100%;
     box-shadow: var(--app-border-box-shadow);
     transition: all 0.25s ease-in-out;
+    position: relative;
 
-    .image-container{
+    .hot-badge-wrap {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 16px;
-        
-        .image {
-            height: 240px;
+        height: 100%;
+        position: absolute;
+        top: -8px;
+        left: 8px;
+        overflow: hidden;
+
+        .hot-badge{
+            position: absolute;
+            width: 120px;
+            height: 28px;
+            z-index: 1;
+            top: 18px;
+            right: -30px;
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            box-shadow:0 0 0 3px var(--app-danger-color),  0px 21px 5px -18px rgba(0,0,0,0.6);
+            background: var(--app-danger-color);
+            text-align: center;
+            
+            .label {
+                font-size: var(--app-font-size-extra-small);
+                text-transform: uppercase;
+                color: white;
+            }
+            .hot-icon{
+                height: 24px;
+                width: 24px;
+                font-size: 24px;
+                color: white;
+            }
         }
     }
     
-    .content-container{
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        color: var(--app-primary-color);
+    .hot-badge-wrap:before, .hot-badge-wrap:after {
+        content: ""; 
+        position: absolute;
+    }
+      
+    .hot-badge-wrap:before {
+        width: 32px;
+        height: 8px;
+        right: 58px;
+        background: var(--app-danger-color);
+        filter: brightness(0.5);
+        border-radius: 8px 8px 0px 0px;
+    }
+      
+    .hot-badge-wrap:after {
+        width: 8px;
+        height: 32px;
+        right: 0px;
+        top: 58px;
+        background: var(--app-danger-color);
+        filter: brightness(0.5);
+        border-radius: 0px 8px 8px 0px;
+    }
+
+  
+    .card-content-container{
+        padding-top: 16px;
+
+        .image-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            
+            .image {
+                height: 240px;
+            }
+        }
         
-        .name{
-            text-transform: capitalize;
-            text-align: center;
-            font-weight: var(--app-font-weight-regular);
-            font-size: var(--app-font-size-small);
+        .content-container{
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            color: var(--app-primary-color);
+            
+            .name{
+                text-transform: capitalize;
+                text-align: center;
+                font-weight: var(--app-font-weight-regular);
+                font-size: var(--app-font-size-small);
+            }
         }
     }
 }
