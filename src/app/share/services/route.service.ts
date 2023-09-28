@@ -37,9 +37,11 @@ export class RouteService {
     this.activatedRoute.queryParams.subscribe(queryParams => {
       const cloneQueryParams = { ...queryParams };
       const isHaveQueryParams = Object.keys(cloneQueryParams).length > 0;
-      const currentPathWithoutQueryParams = isHaveQueryParams
-        ? routeHelper.getCleanSpecificRoutePath(this.router.url, true)
-        : routeHelper.getCleanSpecificRoutePath(this.router.url, false);
+      const currentPathWithoutQueryParams =
+        routeHelper.getCleanSpecificRoutePath(
+          this.router.url,
+          isHaveQueryParams
+        );
 
       for (let [keyOfRouteObject, routeObject] of Object.entries(
         QUERY_PARAMS_TO_SUBSCRIBES
@@ -66,8 +68,10 @@ export class RouteService {
             }
 
             if (shouldReload) {
-              this.router.navigate([currentPathWithoutQueryParams], {
+              this.navigateWithQueryParams({
+                path: currentPathWithoutQueryParams,
                 queryParams: validQueryParamsOnUrl,
+                replaceAll: true,
               });
             }
 
@@ -92,8 +96,10 @@ export class RouteService {
               }
             }
           }
+          return;
         }
       }
+      this.resetQueryParams();
     });
   }
 
