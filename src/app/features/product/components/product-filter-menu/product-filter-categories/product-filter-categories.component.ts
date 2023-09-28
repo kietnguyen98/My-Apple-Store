@@ -15,21 +15,17 @@ export class ProductFilterCategoriesComponent {
   currentCategory: string = CATEGORIES_VALUE.ALL;
 
   constructor(private routeService: RouteService) {
-    this.routeService
-      .getParamCategory()
-      .subscribe(paramValue => (this.currentCategory = paramValue as string));
+    this.routeService.getProductQueryParams().subscribe(paramValue => {
+      const categoryValue = paramValue[PRODUCT_QUERY_PARAM_KEYS.CATEGORY];
+      this.currentCategory = categoryValue;
+    });
   }
 
   handleChangeCategory(event: MatChipListboxChange) {
     const newCategory = event.value;
-    this.routeService.navigateWithParams({
+    this.routeService.navigateWithQueryParams({
       path: PATH.LIST_PRODUCTS,
-      queryParams: [
-        {
-          key: PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
-          value: newCategory,
-        },
-      ],
+      queryParams: { category: newCategory },
     });
   }
 }

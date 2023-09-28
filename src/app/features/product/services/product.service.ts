@@ -1,15 +1,11 @@
 import { Injectable } from "@angular/core";
 import { products } from "@/app/features/product/data/products.data";
 import { CATEGORIES_VALUE, PRODUCT_STATUS_VALUES } from "@/constants";
-import { Observable, BehaviorSubject, filter } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import { RouteService } from "@/app/share/services/route.service";
 import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
 import { TProduct, TProducts } from "../types";
-import {
-  TProductQueryParamKeys,
-  TProductsQueryParams,
-  TSetProductQueryParamsProps,
-} from "@/app/share/types";
+import { TProductsQueryParams } from "@/app/share/types";
 import { productHelper } from "@/utilities";
 
 @Injectable({ providedIn: "root" })
@@ -24,7 +20,7 @@ export class ProductService {
 
   constructor(private routeService: RouteService) {
     // detect change on query params
-    this.routeService.getAllProductQueryParams().subscribe(queryParams => {
+    this.routeService.getProductQueryParams().subscribe(queryParams => {
       this.queryParams = queryParams as TProductsQueryParams;
       this.setListProducts();
     });

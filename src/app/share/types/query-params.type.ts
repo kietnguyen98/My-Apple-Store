@@ -10,16 +10,6 @@ export type TProductsQueryParams = Partial<
   Record<TProductQueryParamKeys, string | number>
 >;
 
-export type TSetProductQueryParamsProps = {
-  key: TProductQueryParamKeys;
-  value: string | number;
-};
-
-export type TSetQueryParamsProps = {
-  key: TProductQueryParamKeys | TAuthQueryParamKeys;
-  value: string | number;
-};
-
-export type TQueryParamKeyForSubscribes =
-  | TProductQueryParamKeys
-  | TAuthQueryParamKeys;
+export type TUpdateQueryParamsProps = Partial<
+  Record<TAuthQueryParamKeys | TProductQueryParamKeys, string | number>
+>;

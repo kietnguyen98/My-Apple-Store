@@ -43,13 +43,11 @@ export class HomeCategoryShortcutComponent {
   ];
 
   getToProductsPage(
-    category: (typeof CATEGORIES_VALUE)[keyof typeof CATEGORIES_VALUE]
+    categoryValue: (typeof CATEGORIES_VALUE)[keyof typeof CATEGORIES_VALUE]
   ) {
-    this.routeService.navigateWithParams({
+    this.routeService.navigateWithQueryParams({
       path: PATH.LIST_PRODUCTS,
-      queryParams: [
-        { key: PRODUCT_QUERY_PARAM_KEYS.CATEGORY, value: category },
-      ],
+      queryParams: { category: categoryValue },
     });
   }
 }

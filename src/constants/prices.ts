@@ -1,6 +1,7 @@
 export const DEFAULT_FILTER_START_PRICE = 100 as const;
 export const DEFAULT_FILTER_END_PRICE = 2000 as const;
 
+export const DEFAULT_SORT_PRICE_DIRECTION_VALUE = 0 as const;
 export const SORT_FROM_LOWEST_TO_HIGHEST = {
   name: "From lowest to highest",
   value: -1,

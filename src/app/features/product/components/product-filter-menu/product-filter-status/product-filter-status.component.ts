@@ -14,9 +14,10 @@ export class ProductFilterStatusComponent {
   options = PRODUCT_STATUS_OPTIONS;
 
   constructor(private routeService: RouteService) {
-    this.routeService.getParamStatus().subscribe(paramValue => {
-      this.currentValues = paramValue
-        ? (paramValue.split(",") as Array<TProductStatusValues>)
+    this.routeService.getProductQueryParams().subscribe(paramValue => {
+      const statusValues = paramValue[PRODUCT_QUERY_PARAM_KEYS.STATUS];
+      this.currentValues = statusValues
+        ? (statusValues.split(",") as Array<TProductStatusValues>)
         : [];
     });
   }
@@ -30,14 +31,9 @@ export class ProductFilterStatusComponent {
       this.currentValues.push(changeValue);
     }
 
-    this.routeService.navigateWithParams({
+    this.routeService.navigateWithQueryParams({
       path: PATH.LIST_PRODUCTS,
-      queryParams: [
-        {
-          key: PRODUCT_QUERY_PARAM_KEYS.STATUS,
-          value: this.currentValues.join(","),
-        },
-      ],
+      queryParams: { status: this.currentValues.join(",") },
     });
   }
 }

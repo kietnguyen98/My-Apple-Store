@@ -1,4 +1,5 @@
 import { PATH } from "@/configs/routes";
+import { CATEGORIES_VALUE, PAGINATION, PRICES } from ".";
 
 export const PRODUCT_QUERY_PARAM_KEYS = {
   SEARCH_TERM: "searchTerm",
@@ -15,30 +16,74 @@ export const AUTH_QUERY_PARAM_KEYS = {
   REDIRECT_URL: "redirectUrl",
 } as const;
 
-export const ROUTE_PERMITTED_QUERY_PARAM: Array<{
-  pathRegex: RegExp;
-  keys: Record<string, string>;
-}> = [
-  // home
-  { pathRegex: new RegExp(`^${PATH.HOME}$`), keys: {} },
-  // list products
-  {
-    pathRegex: new RegExp(`^${PATH.LIST_PRODUCTS}$`),
-    keys: PRODUCT_QUERY_PARAM_KEYS,
+export const QUERY_PARAMS_TO_SUBSCRIBES = {
+  HOME: {
+    PATH: PATH.HOME,
+    PATH_REGEX: new RegExp(`^${PATH.HOME}$`),
+    PERMITTED_QUERY_PARAMS: [],
   },
-  // product detail
-  {
-    pathRegex: new RegExp(`^${PATH.LIST_PRODUCTS}/[a-zA-Z0-9\\s\)\(]+$`),
-    keys: {},
+  LIST_PRODUCT: {
+    PATH: PATH.LIST_PRODUCTS,
+    PATH_REGEX: new RegExp(`^${PATH.LIST_PRODUCTS}$`),
+    PERMITTED_QUERY_PARAMS: [
+      {
+        KEY: PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM,
+        DEFAULT_VALUE: "",
+      },
+      {
+        KEY: PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
+        DEFAULT_VALUE: CATEGORIES_VALUE.ALL,
+      },
+      {
+        KEY: PRODUCT_QUERY_PARAM_KEYS.STATUS,
+        DEFAULT_VALUE: "",
+      },
+      {
+        KEY: PRODUCT_QUERY_PARAM_KEYS.START_PRICE,
+        DEFAULT_VALUE: PRICES.DEFAULT_FILTER_START_PRICE.toString(),
+      },
+      {
+        KEY: PRODUCT_QUERY_PARAM_KEYS.END_PRICE,
+        DEFAULT_VALUE: PRICES.DEFAULT_FILTER_END_PRICE.toString(),
+      },
+      {
+        KEY: PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
+        DEFAULT_VALUE: PRICES.DEFAULT_SORT_PRICE_DIRECTION_VALUE.toString(),
+      },
+      {
+        KEY: PRODUCT_QUERY_PARAM_KEYS.PAGE,
+        DEFAULT_VALUE: "1",
+      },
+      {
+        KEY: PRODUCT_QUERY_PARAM_KEYS.OFFSET,
+        DEFAULT_VALUE:
+          PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value.toString(),
+      },
+    ],
   },
-  // login
-  {
-    pathRegex: new RegExp(`^${PATH.LOGIN}$`),
-    keys: AUTH_QUERY_PARAM_KEYS,
+  PRODUCT_DETAIL: {
+    PATH: PATH.PRODUCT_DETAIL,
+    PATH_REGEX: new RegExp(`^${PATH.LIST_PRODUCTS}/[a-zA-Z0-9\\s\)\(]+$`),
+    PERMITTED_QUERY_PARAMS: [],
   },
-  // sign up
-  {
-    pathRegex: new RegExp(`^${PATH.SIGN_UP}$`),
-    keys: AUTH_QUERY_PARAM_KEYS,
+  LOGIN: {
+    PATH: PATH.LOGIN,
+    PATH_REGEX: new RegExp(`^${PATH.LOGIN}$`),
+    PERMITTED_QUERY_PARAMS: [
+      {
+        KEY: AUTH_QUERY_PARAM_KEYS.REDIRECT_URL,
+        DEFAULT_VALUE: "",
+      },
+    ],
   },
-];
+  SIGN_UP: {
+    PATH: PATH.SIGN_UP,
+    PATH_REGEX: new RegExp(`^${PATH.SIGN_UP}$`),
+    PERMITTED_QUERY_PARAMS: [
+      {
+        KEY: AUTH_QUERY_PARAM_KEYS.REDIRECT_URL,
+        DEFAULT_VALUE: "",
+      },
+    ],
+  },
+} as const;

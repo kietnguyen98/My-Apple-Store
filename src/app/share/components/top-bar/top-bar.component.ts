@@ -77,14 +77,9 @@ export class TopBarComponent implements OnInit {
 
   navigateToLogin() {
     const redirectUrl = encodeUrl(this.routeService.router.url);
-    this.routeService.navigateWithParams({
+    this.routeService.navigateWithQueryParams({
       path: PATH.LOGIN,
-      queryParams: [
-        {
-          key: AUTH_QUERY_PARAM_KEYS.REDIRECT_URL,
-          value: redirectUrl,
-        },
-      ],
+      queryParams: { redirectUrl: redirectUrl },
       replaceAll: true,
     });
   }

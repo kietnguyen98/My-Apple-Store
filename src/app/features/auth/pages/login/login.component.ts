@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 import { AuthService, TLoginProps } from "../../services/auth.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { NotificationSnackBarComponent } from "@/app/share/components/notification-snack-bar/notification-snack-bar.component";
-import { API_FETCHING_STATE } from "@/constants";
+import { API_FETCHING_STATE, AUTH_QUERY_PARAM_KEYS } from "@/constants";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { TFormValidationMessages, TSnackBarProps } from "@/app/share/types";
 @Component({
@@ -58,9 +58,10 @@ export class LoginComponent {
       ],
     });
 
-    this.routeService
-      .getRedirectUrl()
-      .subscribe(paramValue => (this.redirectUrl = paramValue as string));
+    this.routeService.getLoginQueryParams().subscribe(paramValue => {
+      const redirectUrl = paramValue[AUTH_QUERY_PARAM_KEYS.REDIRECT_URL];
+      this.redirectUrl = redirectUrl;
+    });
 
     this.authService.getLoginState().subscribe(state => {
       switch (state) {

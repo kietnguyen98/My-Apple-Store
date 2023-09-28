@@ -29,42 +29,38 @@ export class ProductListPaginationComponent {
       this.updatePageMax();
     });
 
-    this.routeService
-      .getParamSearchTerm()
-      .subscribe(paramValue => (this.searchTerm = paramValue));
+    this.routeService.getProductQueryParams().subscribe(paramValue => {
+      const searchTermValue = paramValue[PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM];
+      this.searchTerm = searchTermValue;
 
-    this.routeService
-      .getParamPage()
-      .subscribe(paramValue => (this.currentPage = Number(paramValue)));
+      const pageValue = paramValue[PRODUCT_QUERY_PARAM_KEYS.PAGE];
+      this.currentPage = Number(pageValue);
 
-    this.routeService.getParamOffset().subscribe(paramValue => {
-      this.currentOffset = Number(paramValue);
+      const offsetValue = paramValue[PRODUCT_QUERY_PARAM_KEYS.OFFSET];
+      this.currentOffset = Number(offsetValue);
       this.updatePageMax();
     });
   }
 
-  selectPage(newPage: number) {
+  changePage(newPage: number) {
     if (newPage !== this.currentPage) {
       this.currentPage = newPage;
-      this.routeService.navigateWithParams({
+      this.routeService.navigateWithQueryParams({
         path: PATH.LIST_PRODUCTS,
-        queryParams: [
-          { key: PRODUCT_QUERY_PARAM_KEYS.PAGE, value: this.currentPage },
-          { key: PRODUCT_QUERY_PARAM_KEYS.OFFSET, value: this.currentOffset },
-        ],
+        queryParams: { page: this.currentPage, offset: this.currentOffset },
       });
     }
   }
 
   nextPage() {
     if (this.currentPage < this.pageMax) {
-      this.selectPage(this.currentPage + 1);
+      this.changePage(this.currentPage + 1);
     }
   }
 
   previousPage() {
     if (this.currentPage > this.pageMin) {
-      this.selectPage(this.currentPage - 1);
+      this.changePage(this.currentPage - 1);
     }
   }
 
@@ -77,19 +73,16 @@ export class ProductListPaginationComponent {
       typeof event === "number" ? event : event.target.value;
     this.currentOffset = newValue;
     this.updatePageMax();
-    this.selectPage(this.pageMin);
-    this.routeService.navigateWithParams({
+    this.changePage(this.pageMin);
+    this.routeService.navigateWithQueryParams({
       path: PATH.LIST_PRODUCTS,
-      queryParams: [
-        { key: PRODUCT_QUERY_PARAM_KEYS.PAGE, value: this.currentPage },
-        { key: PRODUCT_QUERY_PARAM_KEYS.OFFSET, value: this.currentOffset },
-      ],
+      queryParams: { page: this.currentPage, offset: this.currentOffset },
     });
   }
 
   updateOnProductsChange() {
     this.updatePageMax();
-    this.selectPage(this.pageMin);
+    this.changePage(this.pageMin);
   }
 
   resetAllFilter() {

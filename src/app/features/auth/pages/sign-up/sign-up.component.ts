@@ -1,4 +1,5 @@
 import { RouteService } from "@/app/share/services/route.service";
+import { AUTH_QUERY_PARAM_KEYS } from "@/constants";
 import { Component } from "@angular/core";
 
 @Component({
@@ -9,9 +10,10 @@ import { Component } from "@angular/core";
 export class SignUpComponent {
   redirectUrl: string = "";
   constructor(private routeService: RouteService) {
-    this.routeService
-      .getRedirectUrl()
-      .subscribe(paramValue => (this.redirectUrl = paramValue as string));
+    this.routeService.getLoginQueryParams().subscribe(paramValue => {
+      const redirectUrl = paramValue[AUTH_QUERY_PARAM_KEYS.REDIRECT_URL];
+      this.redirectUrl = redirectUrl;
+    });
   }
 
   redirect() {

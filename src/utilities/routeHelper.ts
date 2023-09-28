@@ -1,6 +1,8 @@
 import { Params } from "@angular/router";
 import { AUTH_QUERY_PARAM_KEYS, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
-import { TQueryParamKeyForSubscribes } from "@/app/share/types";
+import { TProductQueryParamKeys, TAuthQueryParamKeys } from "@/app/share/types";
+
+type TQueryParamKeyForSubscribes = TProductQueryParamKeys | TAuthQueryParamKeys;
 
 const QUERY_PARAMS_ORDERED_ARRAY: Array<TQueryParamKeyForSubscribes> = [
   // product

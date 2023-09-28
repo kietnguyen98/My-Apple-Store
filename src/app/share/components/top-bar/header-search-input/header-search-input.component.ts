@@ -12,9 +12,10 @@ export class HeaderSearchInputComponent implements OnInit {
   searchTerm: string = "";
 
   constructor(private routeService: RouteService) {
-    this.routeService.getParamSearchTerm().subscribe(paramValue => {
-      if (paramValue) {
-        this.searchTerm = paramValue as string;
+    this.routeService.getProductQueryParams().subscribe(paramValue => {
+      const searchTermValue = paramValue[PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM];
+      if (searchTermValue) {
+        this.searchTerm = searchTermValue as string;
         this.focusSearchBox();
       } else {
         this.searchTerm = "";
@@ -28,11 +29,9 @@ export class HeaderSearchInputComponent implements OnInit {
   }
 
   getSearchProducts() {
-    this.routeService.navigateWithParams({
+    this.routeService.navigateWithQueryParams({
       path: PATH.LIST_PRODUCTS,
-      queryParams: [
-        { key: PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM, value: this.searchTerm },
-      ],
+      queryParams: { searchTerm: this.searchTerm },
     });
   }
 

@@ -14,21 +14,17 @@ export class ProductSortByPricesComponent {
   readonly PRICE_SORT_OPTIONS = PRICES.SORT_OPTIONS;
 
   constructor(private routeService: RouteService) {
-    this.routeService
-      .getParamSortPriceDirection()
-      .subscribe(paramValue => (this.currentValue = Number(paramValue)));
+    this.routeService.getProductQueryParams().subscribe(paramValue => {
+      const sortPriceDirectionValue =
+        paramValue[PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION];
+      this.currentValue = Number(sortPriceDirectionValue);
+    });
   }
 
-  handleSortPriceValueChange(newValue: MatRadioChange) {
-    this.currentValue = newValue.value as number;
-    this.routeService.navigateWithParams({
+  handleSortPriceValueChange(change: MatRadioChange) {
+    this.routeService.navigateWithQueryParams({
       path: PATH.LIST_PRODUCTS,
-      queryParams: [
-        {
-          key: PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
-          value: this.currentValue,
-        },
-      ],
+      queryParams: { sortPriceDirection: change.value },
     });
   }
 }
