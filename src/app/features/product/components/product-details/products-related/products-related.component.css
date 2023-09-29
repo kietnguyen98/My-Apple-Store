@@ -1,46 +1,55 @@
-.label {
-    font-weight: var(--app-font-weight-regular);
-    font-size: var(--app-font-size-medium);
-    color: var(--app-secondary-color);
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.slider{
-    width: 100%;
-    position: relative;
-}
-
-.card-container{
-    margin: 0px 48px;
-    padding: 8px;
-    
+.container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 16px;
 
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    .label {
+        font-weight: var(--app-font-weight-regular);
+        font-size: var(--app-font-size-medium);
+        color: var(--app-secondary-color);
+        text-transform: uppercase;
+        text-align: center;
+    }
 
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    .slider {
+        width: 100%;
+        position: relative;
+    
+        .product-card-wrapper {
+            margin: 0px 48px;
+            padding: 8px;
+            
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+        
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        .product-card-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .action-button{
+            position: absolute;
+        }
+    
+        .previous-button {
+            top: calc(50% - 48px / 2);
+            left: 0px;
+        }
+    
+        .next-button {
+            top: calc(50% - 48px / 2);
+            right: -8px;
+        }
+    }
 }
 
-.card-container::-webkit-scrollbar {
-    display: none;
-}
-
-.action-button{
-    position: absolute;
-}
-
-.previous-button {
-    top: calc(50% - 48px / 2);
-    left: 0px;
-}
-
-.next-button {
-    top: calc(50% - 48px / 2);
-    right: -8px;
-}

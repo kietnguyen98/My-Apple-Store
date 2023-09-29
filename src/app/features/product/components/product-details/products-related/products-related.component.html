@@ -7,7 +7,7 @@
       (click)="handleSlidePrevious()">
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
-    <div class="card-container">
+    <div class="product-card-wrapper">
       <app-product-cards
         *ngFor="let product of listProducts; let i = index"
         [id]="'related_product_' + i"

@@ -1,0 +1,19 @@
+<div class="container" *ngIf="product">
+  <div class="main-image-container">
+    <div class="main-image-wrapper">
+      <img
+        [alt]="'image of ' + product.name"
+        [src]="currentImageUrl"
+        class="image" />
+    </div>
+  </div>
+  <div
+    class="sub-images-container"
+    *ngIf="product.imageUrl && product.subImageUrls">
+    <app-product-sub-images
+      [listImageUrl]="[product.imageUrl].concat(product.subImageUrls)"
+      (changeImageUrl)="
+        handleChangeCurrentImageUrl($event)
+      "></app-product-sub-images>
+  </div>
+</div>

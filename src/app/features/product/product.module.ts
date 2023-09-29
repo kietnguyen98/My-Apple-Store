@@ -7,10 +7,12 @@ import { ProductListPaginationComponent } from "./components/product-list-pagina
 import { ProductMemoriesSelectComponent } from "./components/product-details/product-memories-select/product-memories-select.component";
 import { ProductColorsSelectComponent } from "./components/product-details/product-colors-select/product-colors-select.component";
 import { ProductQuantitySelectComponent } from "./components/product-details/product-quantity-select/product-quantity-select.component";
-import { ProductSubImagesComponent } from "./components/product-details/product-sub-images/product-sub-images.component";
+import { ProductSubImagesComponent } from "./components/product-details/product-detail-images/product-sub-images/product-sub-images.component";
 import { ProductsRelatedComponent } from "./components/product-details/products-related/products-related.component";
 import { ProductDescriptionAndRateModule } from "./components/product-details/product-description-and-rate/product-description-and-rate.module";
-import { PageSectionNavigationComponent } from "./components/page-section-navigation/page-section-navigation.component";
+import { PageSectionNavigationComponent } from "./components/product-details/page-section-navigation/page-section-navigation.component";
+import { ProductDetailImagesComponent } from "./components/product-details/product-detail-images/product-detail-images.component";
+import { ProductHotBadgeComponent } from "./components/product-hot-badge/product-hot-badge.component";
 
 // local modules
 import { ProductFilterMenuModule } from "./components/product-filter-menu/product-filter-menu.module";
@@ -58,6 +60,8 @@ import { MatRippleModule } from "@angular/material/core";
     ProductSubImagesComponent,
     ProductsRelatedComponent,
     PageSectionNavigationComponent,
+    ProductDetailImagesComponent,
+    ProductHotBadgeComponent,
     // pages
     ProductListComponent,
     ProductDetailsComponent,

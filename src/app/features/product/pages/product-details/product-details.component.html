@@ -3,27 +3,16 @@
   <div class="layout-container">
     <app-page-section-navigation></app-page-section-navigation>
     <div class="main-content-container" id="main">
-      <div class="images-container">
-        <div class="main-image-container">
-          <div class="main-image-wrapper">
-            <img [alt]="'image of ' + product.name" [src]="currentImageUrl" />
-          </div>
-        </div>
-        <div
-          class="sub-images-container"
-          *ngIf="product.imageUrl && product.subImageUrls">
-          <app-product-sub-images
-            [listImageUrl]="[product.imageUrl].concat(product.subImageUrls)"
-            (changeImageUrl)="
-              handleChangeCurrentImageUrl($event)
-            "></app-product-sub-images>
-        </div>
-      </div>
+      <app-product-hot-badge
+        [shouldExposed]="product.isHot"></app-product-hot-badge>
+      <app-product-detail-images
+        class="images-container"
+        [product]="product"></app-product-detail-images>
       <div class="content-container">
-        <p class="product-category">{{ product.category.name }}</p>
-        <p class="product-name">{{ product.name }}</p>
-        <p class="product-description">{{ product.description }}</p>
-        <div class="action-container">
+        <div class="info-container">
+          <p class="product-category">{{ product.category.name }}</p>
+          <p class="product-name">{{ product.name }}</p>
+          <p class="product-description">{{ product.description }}</p>
           <div class="product-price-container">
             <p class="product-price-label">price per product</p>
             <app-product-price-display
@@ -32,28 +21,24 @@
                 currentMemoryCapacity
               "></app-product-price-display>
           </div>
-          <div
-            class="memories-capactity-container"
-            *ngIf="product.memoryCapacities">
-            <app-product-memories-select
-              (changeMemoryCapacity)="
-                handleChangeMemoryCapacity($event)
-              "></app-product-memories-select>
-          </div>
-          <div class="colors-container" *ngIf="product.colors">
-            <app-product-colors-select
-              (changeColor)="
-                handleChangeColor($event)
-              "></app-product-colors-select>
-          </div>
-          <div class="quantity-container">
-            <app-product-quantity-select
-              (changeQuantity)="
-                handleChangeQuantity($event)
-              "></app-product-quantity-select>
-          </div>
         </div>
-        <div class="final-action-container">
+        <div class="action-container">
+          <app-product-memories-select
+            *ngIf="product.memoryCapacities"
+            (changeMemoryCapacity)="
+              handleChangeMemoryCapacity($event)
+            "></app-product-memories-select>
+          <app-product-colors-select
+            *ngIf="product.colors"
+            (changeColor)="
+              handleChangeColor($event)
+            "></app-product-colors-select>
+          <app-product-quantity-select
+            (changeQuantity)="
+              handleChangeQuantity($event)
+            "></app-product-quantity-select>
+        </div>
+        <div class="payment-action-container">
           <div class="total-price-container">
             <p class="total-price-label">Price in total</p>
             <p class="total-price-value">{{ totalPrice | currency }}</p>

@@ -35,13 +35,11 @@ export class ProductDetailsComponent {
       this.currentMemoryCapacity = undefined;
       this.currentColor = undefined;
       this.productService.setProductDetail(this.product as TProduct);
-      this.refreshProductInfo(this.product as TProduct);
+      this.refreshProductInfo();
     });
   }
 
-  refreshProductInfo(product: TProduct) {
-    this.currentImageUrl = product.imageUrl;
-
+  refreshProductInfo() {
     this.listRelatedProducts = products.filter(
       product =>
         product.category.id === this.product?.category.id &&
@@ -88,11 +86,6 @@ export class ProductDetailsComponent {
   }
 
   // change product images
-  handleChangeCurrentImageUrl(newImageUrl: string) {
-    this.currentImageUrl = newImageUrl;
-  }
-
-  // cart services
   addToCart() {
     this.cartService.addToCart({
       product: this.product as TProduct,
