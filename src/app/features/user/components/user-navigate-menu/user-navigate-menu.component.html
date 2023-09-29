@@ -1,0 +1,9 @@
+<div class="container">
+  <mat-list>
+    <div mat-subheader>User info here</div>
+    <mat-list-item *ngFor="let element of userMenu" matRipple>
+      <mat-icon matListItemIcon>folder</mat-icon>
+      <div matListItemTitle>{{ element.name }}</div>
+    </mat-list-item>
+  </mat-list>
+</div>

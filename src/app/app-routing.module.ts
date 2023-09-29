@@ -6,6 +6,7 @@ import { ProductDetailsComponent } from "./features/product/pages/product-detail
 import { DummyComponent } from "./share/pages/dummy/dummy.component";
 import { LoginComponent } from "./features/auth/pages/login/login.component";
 import { SignUpComponent } from "./features/auth/pages/sign-up/sign-up.component";
+import { UserPageComponent } from "./features/user/pages/user-page/user-page.component";
 import { PATH } from "@/configs/routes";
 
 const routes: Routes = [
@@ -40,6 +41,12 @@ const routes: Routes = [
     title: "MAS - Sign up",
     pathMatch: "full",
     component: SignUpComponent,
+  },
+  {
+    path: PATH.USER,
+    title: "MAS - User",
+    pathMatch: "full",
+    component: UserPageComponent,
   },
   { path: "**", redirectTo: PATH.HOME, pathMatch: "full" },
 ];

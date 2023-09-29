@@ -1,0 +1,34 @@
+.container{
+    background-color: var(--app-background-color);
+    width: 100%;
+    min-height: calc(100vh - var(--app-header-height));
+
+    .user-content-container{
+        height: calc(100vh - var(--app-header-height) - var(--app-breadcrumbs-height));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0px;
+
+        .drawer-wrapper{
+            width: var(--app-container-fix-width-lg);
+            background-color: white;
+            padding: 15px 0px;
+            height: 100%;
+            box-shadow: var(--app-container-box-shadow);
+            border-radius: var(--app-border-radius-medium);
+            
+            .drawer-container{
+                height: 100%;
+
+                .drawer{
+                    padding: 0px 15px;
+                }
+
+                .drawer-content{
+                    background-color: white;
+                }
+            }
+        }
+    }
+}

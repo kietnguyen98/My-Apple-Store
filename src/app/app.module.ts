@@ -12,6 +12,7 @@ import { HomeModule } from "./features/home/home.module";
 import { ProductModule } from "./features/product/product.module";
 import { CartModule } from "./features/cart/cart.module";
 import { AuthModule } from "./features/auth/auth.module";
+import { UserModule } from "./features/user/user.module";
 
 // routing module
 import { AppRoutingModule } from "./app-routing.module";
@@ -31,6 +32,7 @@ import { NoopScrollStrategy } from "@angular/cdk/overlay";
     ProductModule,
     CartModule,
     AuthModule,
+    UserModule,
   ],
   providers: [
     {

@@ -9,4 +9,5 @@ export const PATH = {
   PRODUCT_DETAIL: `products/:${ROUTE_PARAMS.PRODUCT_NAME}`,
   LOGIN: "login",
   SIGN_UP: "sign-up",
+  USER: "user",
 };
