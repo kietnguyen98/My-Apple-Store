@@ -8,8 +8,12 @@
     </div>
     <div class="info-wrapper">
       <p class="main-title product-name">{{ item.product.name }}</p>
-      <p class="sub-title">Color: {{ item.selectedColor?.name }}</p>
-      <p class="sub-title">Memory: {{ item.selectedMemory?.name }}</p>
+      <p class="sub-title">
+        Color: {{ item.selectedColor?.name || "default" }}
+      </p>
+      <p class="sub-title">
+        Memory: {{ item.selectedMemory?.name || "default" }}
+      </p>
       <div class="sub-title price-container">
         Price:
         <app-product-price-display

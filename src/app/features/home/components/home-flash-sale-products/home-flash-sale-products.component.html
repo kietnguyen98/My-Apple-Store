@@ -6,7 +6,13 @@
     <p class="description">Get all you need with the cheapest price</p>
   </div>
   <div class="action-container">
-    <button mat-button color="warn" class="see-all-button">See All</button>
+    <button
+      mat-button
+      color="warn"
+      class="see-all-button"
+      (click)="navigateToFlashSaleProductsPage()">
+      See All
+    </button>
   </div>
   <div class="clock-container">
     <app-home-flash-sale-clock

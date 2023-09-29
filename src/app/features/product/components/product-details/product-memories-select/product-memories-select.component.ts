@@ -16,10 +16,8 @@ export class ProductMemoriesSelectComponent {
       .getProductDetail()
       .subscribe((data: TProduct | null) => {
         this.options = data?.memoryCapacities || [];
-        setTimeout(() => {
-          // wrap setTimeout function here to avoid NG0100 error
+        if (this.options.length > 0)
           this.handleChangeMemoryCapacity(this.options[0]);
-        }, 0);
       });
   }
 

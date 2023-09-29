@@ -16,10 +16,7 @@ export class ProductColorsSelectComponent {
       .getProductDetail()
       .subscribe((data: TProduct | null) => {
         this.options = data?.colors || [];
-        setTimeout(() => {
-          // wrap setTimeout function here to avoid NG0100 error
-          this.handleChangeColor(this.options[0]);
-        }, 0);
+        if (this.options.length > 0) this.handleChangeColor(this.options[0]);
       });
   }
 

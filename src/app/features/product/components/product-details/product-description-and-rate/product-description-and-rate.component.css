@@ -1,11 +1,24 @@
 .container{
-    width: 100%;
-    background-color: white;
-    border-radius: var(--app-border-radius-small);  
-    box-shadow: var(--app-container-box-shadow);
-    padding: 30px
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    .label{
+        font-weight: var(--app-font-weight-regular);
+        font-size: var(--app-font-size-medium);
+        color: var(--app-secondary-color);
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .content-container {
+        width: 100%;
+        background-color: white;
+        border-radius: var(--app-border-radius-small);  
+        box-shadow: var(--app-container-box-shadow);
+        padding: 30px;
+    }
 }
 
-.label{
-    font-size: var(--app-font-size-extra-large);
-}

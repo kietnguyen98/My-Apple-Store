@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { PATH } from "@/configs/routes";
 import { RouteService } from "@/app/share/services/route.service";
 import { TProducts } from "@/app/features/product/types";
+import { PRODUCT_STATUS_VALUES } from "@/constants";
 @Component({
   selector: "app-home-flash-sale-products",
   templateUrl: "./home-flash-sale-products.component.html",
@@ -97,5 +98,14 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
     if (this.requestId) {
       cancelAnimationFrame(this.requestId);
     }
+  }
+
+  navigateToFlashSaleProductsPage() {
+    this.routeService.navigateWithQueryParams({
+      path: PATH.LIST_PRODUCTS,
+      queryParams: {
+        status: PRODUCT_STATUS_VALUES.IS_HOT,
+      },
+    });
   }
 }

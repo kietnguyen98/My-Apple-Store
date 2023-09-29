@@ -32,14 +32,13 @@ export class ProductDetailsComponent {
         product => product.name === productNameFromRoute
       );
 
-      this.currentMemoryCapacity = undefined;
-      this.currentColor = undefined;
-      this.productService.setProductDetail(this.product as TProduct);
       this.refreshProductInfo();
     });
   }
 
   refreshProductInfo() {
+    this.productService.setProductDetail(this.product as TProduct);
+    this.updateTotalProductPrice();
     this.listRelatedProducts = products.filter(
       product =>
         product.category.id === this.product?.category.id &&

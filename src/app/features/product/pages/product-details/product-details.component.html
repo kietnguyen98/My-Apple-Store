@@ -10,9 +10,13 @@
         [product]="product"></app-product-detail-images>
       <div class="content-container">
         <div class="info-container">
-          <p class="product-category">{{ product.category.name }}</p>
-          <p class="product-name">{{ product.name }}</p>
-          <p class="product-description">{{ product.description }}</p>
+          <p class="product-category" *ngIf="product.category">
+            {{ product.category.name }}
+          </p>
+          <p class="product-name" *ngIf="product.name">{{ product.name }}</p>
+          <p class="product-description" *ngIf="product.description">
+            {{ product.description }}
+          </p>
           <div class="product-price-container">
             <p class="product-price-label">price per product</p>
             <app-product-price-display
