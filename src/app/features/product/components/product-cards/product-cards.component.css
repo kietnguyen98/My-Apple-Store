@@ -26,13 +26,12 @@
             overflow: hidden;
             -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
-            box-shadow:0 0 0 3px var(--app-danger-color),  0px 21px 5px -18px rgba(0,0,0,0.6);
+            box-shadow: 0 0 0 3px var(--app-danger-color),  0px 21px 5px -18px rgba(0,0,0,0.6);
             background: var(--app-danger-color);
             text-align: center;
             
             .label {
                 font-size: var(--app-font-size-extra-small);
-                text-transform: uppercase;
                 color: white;
             }
             .hot-icon{

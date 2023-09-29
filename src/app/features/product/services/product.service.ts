@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { products } from "@/app/features/product/data/products.data";
-import { CATEGORIES_VALUE, PRODUCT_STATUS_VALUES } from "@/constants";
+import { CATEGORIES_VALUE, PRICES, PRODUCT_STATUS_VALUES } from "@/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { RouteService } from "@/app/share/services/route.service";
 import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
@@ -29,22 +29,21 @@ export class ProductService {
   // list products filter
   setListProducts() {
     let tempProducts = [...products];
-    const searchTerm = this.queryParams[
-      PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM
-    ] as string;
-    const status = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.STATUS] as string;
-    const category = this.queryParams[
-      PRODUCT_QUERY_PARAM_KEYS.CATEGORY
-    ] as string;
-    const startPrice = this.queryParams[
-      PRODUCT_QUERY_PARAM_KEYS.START_PRICE
-    ] as number;
-    const endPrice = this.queryParams[
-      PRODUCT_QUERY_PARAM_KEYS.END_PRICE
-    ] as number;
-    const sortPriceDirection = this.queryParams[
-      PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION
-    ] as number;
+    const searchTerm =
+      this.queryParams[PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM]?.toString();
+    const status =
+      this.queryParams[PRODUCT_QUERY_PARAM_KEYS.STATUS]?.toString();
+    const category =
+      this.queryParams[PRODUCT_QUERY_PARAM_KEYS.CATEGORY]?.toString();
+    const startPrice = Number(
+      this.queryParams[PRODUCT_QUERY_PARAM_KEYS.START_PRICE]
+    );
+    const endPrice = Number(
+      this.queryParams[PRODUCT_QUERY_PARAM_KEYS.END_PRICE]
+    );
+    const sortPriceDirection = Number(
+      this.queryParams[PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION]
+    );
 
     // filter by search term
     if (searchTerm) {
@@ -107,7 +106,7 @@ export class ProductService {
           nextProduct.memoryCapacities?.[0]
         );
 
-        return sortPriceDirection === -1
+        return sortPriceDirection === PRICES.SORT_FROM_LOWEST_TO_HIGHEST.value
           ? exactCurrentProductPrice - exactNextProductPrice
           : exactNextProductPrice - exactCurrentProductPrice;
       });
@@ -125,8 +124,8 @@ export class ProductService {
 
   // list products by pagination after filter
   setListProductsByPagination() {
-    const page = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.PAGE] as number;
-    const offset = this.queryParams[PRODUCT_QUERY_PARAM_KEYS.OFFSET] as number;
+    const page = Number(this.queryParams[PRODUCT_QUERY_PARAM_KEYS.PAGE]);
+    const offset = Number(this.queryParams[PRODUCT_QUERY_PARAM_KEYS.OFFSET]);
 
     let tempProducts = [...this.listProducts];
     this.listProductsByPagination = tempProducts.slice(
