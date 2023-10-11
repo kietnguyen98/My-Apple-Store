@@ -61,6 +61,6 @@ export class CartSideNavComponent implements OnInit {
 
   onGetProductPage() {
     this.cartService.toggleSidenav();
-    this.routeService.navigateWithUrlOnly({ path: PATH.LIST_PRODUCTS });
+    this.routeService.navigateWithUrlOnly({ path: PATH.PRODUCTS });
   }
 }

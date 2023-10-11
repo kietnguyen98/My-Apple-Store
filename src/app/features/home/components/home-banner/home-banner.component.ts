@@ -11,6 +11,6 @@ export class HomeBannerComponent {
   constructor(private routeService: RouteService) {}
 
   getListProductsPage() {
-    this.routeService.navigateWithUrlOnly({ path: PATH.LIST_PRODUCTS });
+    this.routeService.navigateWithUrlOnly({ path: PATH.PRODUCTS });
   }
 }

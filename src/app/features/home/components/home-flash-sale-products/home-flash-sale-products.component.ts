@@ -30,7 +30,7 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
 
   navigateToDetailProduct(productName: string) {
     this.routeService.navigateWithUrlOnly({
-      path: [PATH.LIST_PRODUCTS, productName],
+      path: [PATH.PRODUCTS, productName],
     });
   }
 
@@ -102,7 +102,7 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
 
   navigateToFlashSaleProductsPage() {
     this.routeService.navigateWithQueryParams({
-      path: PATH.LIST_PRODUCTS,
+      path: PATH.PRODUCTS,
       queryParams: {
         status: PRODUCT_STATUS_VALUES.IS_HOT,
       },

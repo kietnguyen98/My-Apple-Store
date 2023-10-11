@@ -1,9 +1,20 @@
 <div class="container">
-  <mat-list>
-    <div mat-subheader>User info here</div>
-    <mat-list-item *ngFor="let element of userMenu" matRipple>
-      <mat-icon matListItemIcon>folder</mat-icon>
-      <div matListItemTitle>{{ element.name }}</div>
+  <mat-nav-list class="menu-container">
+    <div mat-subheader *ngIf="user" class="user-info-container">
+      <img [src]="user.avatarUrl" alt="user avatar" class="avatar" />
+      <p class="user-name">{{ user.userName }}</p>
+    </div>
+    <mat-list-item
+      [activated]="option.navigateUrl === currentPath"
+      class="menu-item"
+      *ngFor="let option of userNavigateOptions"
+      (click)="navigateToUserPage(option.navigateUrl)"
+      [lines]="1">
+      <mat-icon matListItemIcon>{{ option.iconName }}</mat-icon>
+      <div matListItemTitle>{{ option.name }}</div>
+      <span matListItemLine *ngIf="option.description">{{
+        option.description
+      }}</span>
     </mat-list-item>
-  </mat-list>
+  </mat-nav-list>
 </div>

@@ -1,12 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { NavigationEnd } from "@angular/router";
-import { AUTH_QUERY_PARAM_KEYS, COMPONENT_DIMENSIONS } from "@/constants";
+import { COMPONENT_DIMENSIONS } from "@/constants";
 import { PATH } from "@/configs/routes";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
 import { RouteService } from "../../services/route.service";
-import { AuthService } from "@/app/features/auth/services/auth.service";
-import { TUser } from "@/app/features/auth/types";
-import { encodeUrl } from "@/utilities/routeHelper";
 
 @Component({
   providers: [HeaderSearchInputComponent],
@@ -16,14 +13,10 @@ import { encodeUrl } from "@/utilities/routeHelper";
 })
 export class TopBarComponent implements OnInit {
   currentRoute: string | undefined;
-  isAuth: boolean = true;
-  user: TUser | undefined;
+
   private APP_PRIMARY_COLOR: string = "#191919";
 
-  constructor(
-    private routeService: RouteService,
-    private authService: AuthService
-  ) {
+  constructor(private routeService: RouteService) {
     // subscribes router event (as an observer) change to detect current route path
     this.routeService.router.events.subscribe(route => {
       if (route instanceof NavigationEnd) {
@@ -43,9 +36,6 @@ export class TopBarComponent implements OnInit {
         }
       }
     });
-
-    this.authService.getIsAuth().subscribe(value => (this.isAuth = value));
-    this.authService.getUser().subscribe(value => (this.user = value));
   }
 
   ngOnInit(): void {
@@ -73,18 +63,5 @@ export class TopBarComponent implements OnInit {
 
   navigateToHome() {
     this.routeService.navigateWithUrlOnly({ path: PATH.HOME });
-  }
-
-  navigateToLogin() {
-    const redirectUrl = encodeUrl(this.routeService.router.url);
-    this.routeService.navigateWithQueryParams({
-      path: PATH.LOGIN,
-      queryParams: { redirectUrl: redirectUrl },
-      replaceAll: true,
-    });
-  }
-
-  getLogout() {
-    this.authService.getLogout();
   }
 }

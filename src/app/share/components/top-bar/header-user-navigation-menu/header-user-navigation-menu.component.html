@@ -1,0 +1,32 @@
+<button
+  *ngIf="!isAuth"
+  mat-flat-button
+  color="accent"
+  (click)="navigateToLogin()">
+  Login
+</button>
+<button *ngIf="!isAuth" mat-button color="accent">Sign Up</button>
+<div
+  mat-ripple
+  [matMenuTriggerFor]="userMenu"
+  matTooltip="My account"
+  *ngIf="user"
+  class="user-info-container">
+  <div class="user-avatar">
+    <img [src]="user.avatarUrl" alt="user-avatar" class="avatar-img" />
+  </div>
+  <p class="user-name">{{ user.userName }}</p>
+</div>
+<mat-menu #userMenu="matMenu">
+  <button
+    mat-menu-item
+    *ngFor="let option of userNavigateOptions"
+    (click)="navigateToUserPage(option.navigateUrl)">
+    <mat-icon>{{ option.iconName }}</mat-icon>
+    <span>{{ option.name }}</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Sign out</span>
+  </button></mat-menu
+>

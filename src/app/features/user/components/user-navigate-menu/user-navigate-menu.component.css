@@ -1,0 +1,40 @@
+.container {
+    width: 300px;
+
+    .menu-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding: 20px 0px;
+
+        .user-info-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+    
+            .avatar{
+                height: 160px;
+                width: 160px;
+                border-radius: 50%;
+            }
+            
+            .user-name{
+                font-size: var(--app-font-size-medium);
+                font-weight: var(--app-font-weight-bold);
+                color: var(--app-color-primary);
+            }
+        }
+    
+        .menu-item{
+            cursor: pointer;
+        }
+    
+        .menu-item:hover{
+            span{
+                font-weight: var(--app-font-weight-bold);
+            }
+        }
+    }
+}

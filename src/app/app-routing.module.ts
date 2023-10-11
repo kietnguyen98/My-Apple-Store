@@ -7,6 +7,9 @@ import { DummyComponent } from "./share/pages/dummy/dummy.component";
 import { LoginComponent } from "./features/auth/pages/login/login.component";
 import { SignUpComponent } from "./features/auth/pages/sign-up/sign-up.component";
 import { UserPageComponent } from "./features/user/pages/user-page/user-page.component";
+import { UserProfilePageComponent } from "./features/user/pages/user-page/user-profile-page/user-profile-page.component";
+import { UserPurchasesPageComponent } from "./features/user/pages/user-page/user-purchases-page/user-purchases-page.component";
+import { UserLoveListPageComponent } from "./features/user/pages/user-page/user-love-list-page/user-love-list-page.component";
 import { PATH } from "@/configs/routes";
 
 const routes: Routes = [
@@ -19,7 +22,7 @@ const routes: Routes = [
   },
   { path: PATH.DUMMY, pathMatch: "full", component: DummyComponent },
   {
-    path: PATH.LIST_PRODUCTS,
+    path: PATH.PRODUCTS,
     title: "MAS - Store",
     pathMatch: "full",
     component: ProductListComponent,
@@ -44,9 +47,27 @@ const routes: Routes = [
   },
   {
     path: PATH.USER,
-    title: "MAS - User",
-    pathMatch: "full",
     component: UserPageComponent,
+    children: [
+      {
+        title: "MAS - User information",
+        pathMatch: "full",
+        path: PATH.PROFILE,
+        component: UserProfilePageComponent,
+      },
+      {
+        title: "MAS - User Purchases",
+        pathMatch: "full",
+        path: PATH.PURCHASES,
+        component: UserPurchasesPageComponent,
+      },
+      {
+        title: "MAS - User love list",
+        pathMatch: "full",
+        path: PATH.LOVE_LIST,
+        component: UserLoveListPageComponent,
+      },
+    ],
   },
   { path: "**", redirectTo: PATH.HOME, pathMatch: "full" },
 ];

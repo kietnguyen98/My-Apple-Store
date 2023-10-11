@@ -46,7 +46,7 @@ export class HomeCategoryShortcutComponent {
     categoryValue: (typeof CATEGORIES_VALUE)[keyof typeof CATEGORIES_VALUE]
   ) {
     this.routeService.navigateWithQueryParams({
-      path: PATH.LIST_PRODUCTS,
+      path: PATH.PRODUCTS,
       queryParams: { category: categoryValue },
     });
   }

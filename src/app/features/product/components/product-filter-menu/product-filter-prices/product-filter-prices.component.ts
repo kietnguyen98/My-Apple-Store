@@ -30,14 +30,14 @@ export class ProductFilterPricesComponent {
 
   handleStartPriceChange(newValue: number) {
     this.routeService.navigateWithQueryParams({
-      path: PATH.LIST_PRODUCTS,
+      path: PATH.PRODUCTS,
       queryParams: { startPrice: newValue, endPrice: this.endPrice },
     });
   }
 
   handleEndPriceChange(newValue: number) {
     this.routeService.navigateWithQueryParams({
-      path: PATH.LIST_PRODUCTS,
+      path: PATH.PRODUCTS,
       queryParams: { startPrice: this.startPrice, endPrice: newValue },
     });
   }

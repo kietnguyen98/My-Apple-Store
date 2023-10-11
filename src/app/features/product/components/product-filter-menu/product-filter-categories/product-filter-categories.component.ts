@@ -24,7 +24,7 @@ export class ProductFilterCategoriesComponent {
   handleChangeCategory(event: MatChipListboxChange) {
     const newCategory = event.value;
     this.routeService.navigateWithQueryParams({
-      path: PATH.LIST_PRODUCTS,
+      path: PATH.PRODUCTS,
       queryParams: { category: newCategory },
     });
   }

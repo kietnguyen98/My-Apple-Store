@@ -20,3 +20,10 @@ export type TFormValidationMessages = {
 };
 
 export type TFormErrorMessages = { [key: string]: string };
+
+export type TUserMenuNavigation = Array<{
+  name: string;
+  description?: string;
+  navigateUrl: string;
+  iconName: string;
+}>;

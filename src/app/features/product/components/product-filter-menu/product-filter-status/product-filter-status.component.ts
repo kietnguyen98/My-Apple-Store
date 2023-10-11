@@ -32,7 +32,7 @@ export class ProductFilterStatusComponent {
     }
 
     this.routeService.navigateWithQueryParams({
-      path: PATH.LIST_PRODUCTS,
+      path: PATH.PRODUCTS,
       queryParams: { status: this.currentValues.join(",") },
     });
   }

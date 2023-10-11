@@ -23,7 +23,7 @@ export class ProductSortByPricesComponent {
 
   handleSortPriceValueChange(change: MatRadioChange) {
     this.routeService.navigateWithQueryParams({
-      path: PATH.LIST_PRODUCTS,
+      path: PATH.PRODUCTS,
       queryParams: { sortPriceDirection: change.value },
     });
   }

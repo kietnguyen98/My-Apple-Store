@@ -57,7 +57,7 @@ export class CartItemCardComponent implements OnChanges {
 
   onGetDetailProduct() {
     this.routeService.navigateWithUrlOnly({
-      path: [PATH.LIST_PRODUCTS, this.item?.product.name as string],
+      path: [PATH.PRODUCTS, this.item?.product.name as string],
       reload: true,
     });
 

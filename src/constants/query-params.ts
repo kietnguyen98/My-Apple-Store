@@ -23,8 +23,8 @@ export const QUERY_PARAMS_TO_SUBSCRIBES = {
     PERMITTED_QUERY_PARAMS: [],
   },
   LIST_PRODUCT: {
-    PATH: PATH.LIST_PRODUCTS,
-    PATH_REGEX: new RegExp(`^${PATH.LIST_PRODUCTS}$`),
+    PATH: PATH.PRODUCTS,
+    PATH_REGEX: new RegExp(`^${PATH.PRODUCTS}$`),
     PERMITTED_QUERY_PARAMS: [
       {
         KEY: PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM,
@@ -63,7 +63,7 @@ export const QUERY_PARAMS_TO_SUBSCRIBES = {
   },
   PRODUCT_DETAIL: {
     PATH: PATH.PRODUCT_DETAIL,
-    PATH_REGEX: new RegExp(`^${PATH.LIST_PRODUCTS}/[a-zA-Z0-9\\s\)\(]+$`),
+    PATH_REGEX: new RegExp(`^${PATH.PRODUCTS}/[a-zA-Z0-9\\s\)\(]+$`),
     PERMITTED_QUERY_PARAMS: [],
   },
   LOGIN: {
@@ -85,5 +85,10 @@ export const QUERY_PARAMS_TO_SUBSCRIBES = {
         DEFAULT_VALUE: "",
       },
     ],
+  },
+  USER_INFORMATION: {
+    PATH: `${PATH.USER}/${PATH.PROFILE}`,
+    PATH_REGEX: new RegExp(`^${PATH.USER}/${PATH.PROFILE}$`),
+    PERMITTED_QUERY_PARAMS: [],
   },
 } as const;

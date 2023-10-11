@@ -40,7 +40,7 @@ export class ProductCardsComponent implements OnInit {
 
   onGetDetailProduct() {
     this.routeService.navigateWithUrlOnly({
-      path: [PATH.LIST_PRODUCTS, this.product?.name as string],
+      path: [PATH.PRODUCTS, this.product?.name as string],
       reload: this.inDetailPage,
     });
   }

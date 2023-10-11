@@ -5,9 +5,12 @@ export const ROUTE_PARAMS = {
 export const PATH = {
   HOME: "home",
   DUMMY: "dummy",
-  LIST_PRODUCTS: "products",
+  PRODUCTS: "products",
   PRODUCT_DETAIL: `products/:${ROUTE_PARAMS.PRODUCT_NAME}`,
   LOGIN: "login",
   SIGN_UP: "sign-up",
   USER: "user",
+  PROFILE: "profile",
+  PURCHASES: "purchases",
+  LOVE_LIST: "love list",
 };

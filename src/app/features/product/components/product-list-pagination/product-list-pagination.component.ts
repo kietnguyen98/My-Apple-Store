@@ -46,7 +46,7 @@ export class ProductListPaginationComponent {
     if (newPage !== this.currentPage) {
       this.currentPage = newPage;
       this.routeService.navigateWithQueryParams({
-        path: PATH.LIST_PRODUCTS,
+        path: PATH.PRODUCTS,
         queryParams: { page: this.currentPage, offset: this.currentOffset },
       });
     }
@@ -75,7 +75,7 @@ export class ProductListPaginationComponent {
     this.updatePageMax();
     this.changePage(this.pageMin);
     this.routeService.navigateWithQueryParams({
-      path: PATH.LIST_PRODUCTS,
+      path: PATH.PRODUCTS,
       queryParams: { page: this.currentPage, offset: this.currentOffset },
     });
   }
@@ -86,6 +86,6 @@ export class ProductListPaginationComponent {
   }
 
   resetAllFilter() {
-    this.routeService.navigateWithUrlOnly({ path: PATH.LIST_PRODUCTS });
+    this.routeService.navigateWithUrlOnly({ path: PATH.PRODUCTS });
   }
 }

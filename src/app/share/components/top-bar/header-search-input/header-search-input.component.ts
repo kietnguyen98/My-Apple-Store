@@ -30,7 +30,7 @@ export class HeaderSearchInputComponent implements OnInit {
 
   getSearchProducts() {
     this.routeService.navigateWithQueryParams({
-      path: PATH.LIST_PRODUCTS,
+      path: PATH.PRODUCTS,
       queryParams: { searchTerm: this.searchTerm },
     });
   }

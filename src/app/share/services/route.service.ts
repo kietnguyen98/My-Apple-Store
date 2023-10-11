@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Router, ActivatedRoute, Params } from "@angular/router";
+import { Router, ActivatedRoute, Params, NavigationEnd } from "@angular/router";
 import {
   PRODUCT_QUERY_PARAM_KEYS,
   PAGINATION,
@@ -23,6 +23,7 @@ type TNavigateWithParamsProps = {
 };
 @Injectable({ providedIn: "root" })
 export class RouteService {
+  currentPathSubject = new BehaviorSubject<string>("");
   urlQueryParams: Params = {};
   queryParamsSubject = {
     LIST_PRODUCT: new BehaviorSubject<Params>({}),
@@ -34,6 +35,14 @@ export class RouteService {
     public router: Router,
     public activatedRoute: ActivatedRoute
   ) {
+    // subscribes for route change and get current path
+    this.router.events.subscribe(events => {
+      if (events instanceof NavigationEnd) {
+        this.currentPathSubject.next(this.router.url);
+      }
+    });
+
+    // subscribe for query params change
     this.activatedRoute.queryParams.subscribe(queryParams => {
       const cloneQueryParams = { ...queryParams };
       const isHaveQueryParams = Object.keys(cloneQueryParams).length > 0;
@@ -103,7 +112,12 @@ export class RouteService {
     });
   }
 
-  // declare all query params observable
+  // current path observable
+  getCurrentPath(): Observable<string> {
+    return this.currentPathSubject.asObservable();
+  }
+
+  // all query params observable
   // for products
   getProductQueryParams(): Observable<Params> {
     return this.queryParamsSubject.LIST_PRODUCT.asObservable();
