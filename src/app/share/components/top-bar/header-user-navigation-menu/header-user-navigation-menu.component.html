@@ -12,10 +12,8 @@
   matTooltip="My account"
   *ngIf="user"
   class="user-info-container">
-  <div class="user-avatar">
-    <img [src]="user.avatarUrl" alt="user-avatar" class="avatar-img" />
-  </div>
-  <p class="user-name">{{ user.userName }}</p>
+  <app-user-avatar [avatarUrl]="user.avatarUrl" [size]="32"></app-user-avatar>
+  <p class="user-name">{{ user.username }}</p>
 </div>
 <mat-menu #userMenu="matMenu">
   <button

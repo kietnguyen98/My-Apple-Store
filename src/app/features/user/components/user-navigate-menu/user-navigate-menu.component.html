@@ -1,8 +1,10 @@
 <div class="container">
   <mat-nav-list class="menu-container">
     <div mat-subheader *ngIf="user" class="user-info-container">
-      <img [src]="user.avatarUrl" alt="user avatar" class="avatar" />
-      <p class="user-name">{{ user.userName }}</p>
+      <app-user-avatar
+        [avatarUrl]="user.avatarUrl"
+        [size]="120"></app-user-avatar>
+      <p class="user-name">{{ user.username }}</p>
     </div>
     <mat-list-item
       [activated]="option.navigateUrl === currentPath"

@@ -8,3 +8,4 @@ export * from "./query-params";
 export { API_FETCHING_STATE } from "./apis";
 export { PRODUCT_STATUS_VALUES, PRODUCT_STATUS_OPTIONS } from "./status";
 export * from "./user-navigate";
+export * from "./genders";

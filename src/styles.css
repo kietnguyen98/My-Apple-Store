@@ -28,6 +28,7 @@
   --app-warn-color: #f15125;
   --app-success-color: #28a745;
   --app-danger-color: #dc3545;
+  --app-yellow-color: #ffc107;
   --app-background-color: #fafafa;
 
   /* font size values */
@@ -92,6 +93,11 @@ a {
 .mat-danger {
   color: white !important;
   background-color: var(--app-danger-color) !important;
+}
+
+.mat-yellow {
+  color: var(--app-primary-color) !important;
+  background-color: var(--app-yellow-color) !important;
 }
 
 /* global component styles */

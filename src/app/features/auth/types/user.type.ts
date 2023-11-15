@@ -1,6 +1,10 @@
+import { GENDER_VALUES } from "@/app/share/constants";
+
+export type TGender = (typeof GENDER_VALUES)[keyof typeof GENDER_VALUES];
+
 export type TUser = {
   id: string;
-  userName: string;
+  username: string;
   password: string;
   avatarUrl: string;
   fullName: {
@@ -9,5 +13,6 @@ export type TUser = {
   };
   phone: string;
   address: string;
+  gender: TGender;
   birthday: string;
 };

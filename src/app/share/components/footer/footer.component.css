@@ -1,0 +1,177 @@
+.container {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    background-color: white;
+    border-top: 1px solid var(--app-accent-color);
+    width: 100%;
+
+    .short-link-container{
+        width: 100%;
+        padding: 16px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .brand-name{
+            color: var(--app-primary-color);
+            font-size: var(--app-font-size-extra-large);
+            font-weight: var(--app-font-weight-bold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+    }
+
+    .promo-container{
+        width: 100%;
+        padding: 32px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--app-primary-color);
+
+        .title{
+            color: var(--app-yellow-color);
+            font-weight: var(--app-font-weight-light);
+            font-size: var(--app-font-size-large);
+            letter-spacing: -0.5px;
+
+            .link{
+                color: var(--app-yellow-color);
+                font-weight: var(--app-font-weight-regular);
+            }
+        }
+    }
+
+    .info-and-short-links-wrapper {
+        width: 100%;
+        background-color: var(--app-primary-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .info-and-short-links-container {
+            padding: 32px 0px;
+            width: var(--app-container-fix-width-lg);
+            display: flex;
+            gap: 32px;
+    
+            .short-links-container {
+                flex: 2;
+            }
+
+            .info-container{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 32px;
+    
+                .contact-description-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+    
+                    .description{
+                        color: var(--app-accent-color);
+                        font-size: var(--app-font-size-small);
+                        font-weight: var(--app-font-weight-medium);
+                    }
+                }
+    
+                .contact-network-container{
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+    
+                    .fab{
+                        font-size: var(--app-font-size-extra-large);
+                        color: var(--app-accent-color);
+                    }
+                }
+        
+                .subscribe-container{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+    
+                    .label{
+                        font-size: var(--app-font-size-medium);
+                        color: var(--app-yellow-color);
+                    }
+    
+                    .contact-input-container {
+                        display: flex;
+                        align-items: center;
+                        gap: 16px;
+                        
+                        .contact-email-input{
+                            border-radius: var(--app-border-radius-large);
+                            border: 1px solid var(--app-secondary-color);
+                            height: 40px;
+                            width: 100%;
+                            padding: 8px 16px;
+                            font-size: var(--app-font-size-medium);
+                        }
+    
+                        .email-submit-button {
+                            height: 40px;
+                        }
+                    }
+    
+                    .contact-email-input:focus{
+                        outline: unset;
+                    }
+                }
+            }
+        }
+    }
+   
+    .copy-right-wrapper{
+        width: 100%;
+        background-color: var(--app-primary-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .copyright-container{
+            padding: 32px 0px;
+            width: var(--app-container-fix-width-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+    
+            .copyright{
+                color: var(--app-accent-color);
+            }
+    
+            .service-privacy-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 32px;
+    
+                .term-of-service{
+                    color: var(--app-secondary-color);
+                    font-weight: var(--app-font-weight-bold);
+                    letter-spacing: -0.5px;
+                    cursor: pointer;
+                }
+    
+                .term-of-service:hover{
+                    color: var(--app-accent-color);
+                }
+    
+                .privacy-policy{
+                    color: var(--app-secondary-color);
+                    font-weight: var(--app-font-weight-bold);
+                    letter-spacing: -0.5px;
+                    cursor: pointer;
+                }
+    
+                .privacy-policy:hover{
+                    color: var(--app-accent-color);
+                }
+            }
+        }
+    }
+}

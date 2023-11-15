@@ -1,0 +1,91 @@
+<form [formGroup]="formGroup" novalidate autocomplete="false" class="form">
+  <div class="row-container" *ngIf="!isEdit">
+    <div class="full-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">Username</p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="username"
+            formControlName="username"
+            type="text" />
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-container" *ngIf="!isEdit">
+    <div class="full-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">Current password</p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="password"
+            formControlName="password"
+            type="password" />
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-container" *ngIf="isEdit">
+    <div class="full-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">New password <span class="required">*</span></p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="newPassword"
+            formControlName="newPassword"
+            type="password" />
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-container" *ngIf="isEdit">
+    <div class="full-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">
+            Confirm new password <span class="required">*</span>
+          </p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="confirmNewPassword"
+            formControlName="confirmNewPassword"
+            type="password" />
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="action-container">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="toggleIsEdit()"
+      *ngIf="!isEdit">
+      <mat-icon>lock</mat-icon>Change password
+    </button>
+    <button mat-flat-button color="success" *ngIf="isEdit">
+      <mat-icon>save_alt</mat-icon>Save
+    </button>
+    <button
+      mat-flat-button
+      color="accent"
+      *ngIf="isEdit"
+      (click)="toggleIsEdit()">
+      Cancel
+    </button>
+  </div>
+</form>

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { COMPONENT_DIMENSIONS } from "@/constants";
+import { COMPONENT_DIMENSIONS } from "@/app/share/constants";
 import { ProductService } from "../../services/product.service";
 import { windowScrollHelper } from "@/utilities";
 import { TProducts } from "../../types";

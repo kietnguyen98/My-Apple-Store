@@ -1,7 +1,10 @@
 import { Component } from "@angular/core";
 import { PATH } from "@/configs/routes";
 import { RouteService } from "@/app/share/services/route.service";
-import { CATEGORIES_VALUE, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
+import {
+  CATEGORIES_VALUE,
+  PRODUCT_QUERY_PARAM_KEYS,
+} from "@/app/share/constants";
 
 type THomeIntroCategory = {
   imageUrl: string;

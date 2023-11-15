@@ -1,0 +1,89 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .row-container {
+        width: 100%;
+        display: flex;
+        gap: 32px;
+
+        .half-col-container{
+            width: 50%;
+        }
+    
+        .full-col-container{
+            width: 100%;
+        }
+
+        .input-container{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            
+            .input-field {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                
+                .label {
+                    font-size: var(--app-font-size-extra-small);
+                    font-weight: var(--app-font-weight-bold);
+                    color: var(--app-secondary-color);
+    
+                    .required {
+                        color: var(--app-danger-color);
+                        font-size: var(--app-font-size-medium);
+                    }
+                }
+                
+                .input {
+                    height: var(--auth-input-height);
+                    width: 100%;
+                    padding: 0px 8px;
+                    outline: none;
+                    border: 1px solid var(--app-accent-color);
+                    border-radius: var(--app-border-radius-small);
+                    transition: background-color 0.25s linear;
+                    font-size: var(--app-font-size-small);
+                }
+        
+                .input-error{
+                    border: 1px solid var(--app-danger-color);
+                }
+        
+                .input:focus-visible{
+                    background-color: var(--app-accent-color);
+                }
+        
+                .error-message {
+                    font-size: var(--app-font-size-extra-small);
+                    font-weight: var(--app-font-weight-regular);
+                    color: var(--app-danger-color);
+                }
+    
+                .radio-group{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 16px;
+                }
+            }
+    
+            .avatar-container{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+
+    .action-container{
+        margin-top: 16px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 16px;
+    }
+}

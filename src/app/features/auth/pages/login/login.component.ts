@@ -3,7 +3,10 @@ import { Component } from "@angular/core";
 import { AuthService, TLoginProps } from "../../services/auth.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { NotificationSnackBarComponent } from "@/app/share/components/notification-snack-bar/notification-snack-bar.component";
-import { API_FETCHING_STATE, AUTH_QUERY_PARAM_KEYS } from "@/constants";
+import {
+  API_FETCHING_STATE,
+  AUTH_QUERY_PARAM_KEYS,
+} from "@/app/share/constants";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { TFormValidationMessages, TSnackBarProps } from "@/app/share/types";
 @Component({
@@ -14,7 +17,7 @@ import { TFormValidationMessages, TSnackBarProps } from "@/app/share/types";
 export class LoginComponent {
   loginForm: FormGroup;
   VALIDATION_MESSAGES: TFormValidationMessages = {
-    userName: {
+    username: {
       required: "This field is required",
       minlength:
         "The user name length must be greater than or equal to 6 characters",
@@ -40,7 +43,7 @@ export class LoginComponent {
     private authService: AuthService
   ) {
     this.loginForm = this.formBuilder.group({
-      userName: [
+      username: [
         "",
         Validators.compose([
           Validators.required,

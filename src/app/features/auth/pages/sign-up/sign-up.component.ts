@@ -1,5 +1,5 @@
 import { RouteService } from "@/app/share/services/route.service";
-import { AUTH_QUERY_PARAM_KEYS } from "@/constants";
+import { AUTH_QUERY_PARAM_KEYS } from "@/app/share/constants";
 import { Component } from "@angular/core";
 
 @Component({

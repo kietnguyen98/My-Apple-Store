@@ -6,6 +6,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { TSnackBarProps } from "@/app/share/types";
 import { TCartItems } from "../types";
 import { TColor, TMemoryCapacity, TProduct } from "../../product/types";
+import { RouteService } from "@/app/share/services/route.service";
 
 type TAddToCartProps = {
   product: TProduct;
@@ -29,7 +30,14 @@ export class CartService {
   itemsSubject = new Subject<TCartItems>();
 
   // cart snackbar init
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(
+    private snackBar: MatSnackBar,
+    private routeService: RouteService
+  ) {
+    this.routeService.getCurrentPath().subscribe(() => {
+      this.closeSidenav();
+    });
+  }
 
   openSnackBar({ isSuccess, message }: TSnackBarProps) {
     this.snackBar.openFromComponent(NotificationSnackBarComponent, {
@@ -48,6 +56,11 @@ export class CartService {
 
   toggleSidenav() {
     this.isSidenavOpened = !this.isSidenavOpened;
+    this.isSidenavOpenedSubject.next(this.isSidenavOpened);
+  }
+
+  closeSidenav() {
+    this.isSidenavOpened = false;
     this.isSidenavOpenedSubject.next(this.isSidenavOpened);
   }
 

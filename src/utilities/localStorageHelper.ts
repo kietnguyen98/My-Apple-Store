@@ -8,11 +8,11 @@ export function getIsAuth() {
   return localStorage.getItem(`${appPrefix}_isAuth`);
 }
 
-export function setUserAccount(userName: string, password: string) {
+export function setUserAccount(username: string, password: string) {
   localStorage.setItem(
     `${appPrefix}_account`,
     JSON.stringify({
-      userName: userName,
+      username: username,
       password: password,
     })
   );

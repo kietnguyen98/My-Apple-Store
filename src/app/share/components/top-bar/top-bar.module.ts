@@ -6,6 +6,7 @@ import { TopBarComponent } from "./top-bar.component";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
 import { CartToggleButtonComponent } from "./cart-toggle-button/cart-toggle-button.component";
 import { HeaderUserNavigationMenuComponent } from "./header-user-navigation-menu/header-user-navigation-menu.component";
+import { UserAvatarComponent } from "../user-avatar/user-avatar.component";
 
 // angular material modules
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -32,10 +33,11 @@ import { MatBadgeModule } from "@angular/material/badge";
     // root
     TopBarComponent,
     // children
+    UserAvatarComponent,
     HeaderUserNavigationMenuComponent,
     HeaderSearchInputComponent,
     CartToggleButtonComponent,
   ],
-  exports: [TopBarComponent],
+  exports: [TopBarComponent, UserAvatarComponent],
 })
 export class TopBarModule {}

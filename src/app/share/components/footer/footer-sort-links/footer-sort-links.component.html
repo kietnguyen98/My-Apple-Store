@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="column">
+    <p class="title">Products</p>
+    <div class="short-links-container">
+      <a class="short-link">IPhone</a>
+      <a class="short-link">IPad</a>
+      <a class="short-link">IWatch</a>
+    </div>
+  </div>
+  <div class="column">
+    <p class="title">Help</p>
+    <div class="short-links-container">
+      <a class="short-link">Contact Us</a>
+      <a class="short-link">FAQ</a>
+      <a class="short-link">Accessibility</a>
+    </div>
+  </div>
+  <div class="column">
+    <p class="title">About</p>
+    <div class="short-links-container">
+      <a class="short-link">Our Story</a>
+      <a class="short-link">Term And Condition</a>
+      <a class="short-link">Return And Exchange</a>
+      <a class="short-link">Shipping And Delivery</a>
+    </div>
+  </div>
+  <div class="column">
+    <p class="title">Payments</p>
+    <div class="short-links-container">
+      <p class="payment-name" *ngFor="let payment of payments">
+        {{ payment.name }}
+        <img
+          class="payment-icon"
+          [src]="payment.imageUrl"
+          [alt]="payment.name + ' payment method image'" />
+      </p>
+    </div>
+  </div>
+</div>

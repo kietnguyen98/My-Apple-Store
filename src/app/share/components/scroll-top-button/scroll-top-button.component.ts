@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { COMPONENT_DIMENSIONS } from "@/constants";
+import { COMPONENT_DIMENSIONS } from "@/app/share/constants";
 import { windowScrollHelper } from "@/utilities";
 
 @Component({

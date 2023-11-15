@@ -1,5 +1,8 @@
 import { Component } from "@angular/core";
-import { PRODUCT_QUERY_PARAM_KEYS, PRODUCT_STATUS_OPTIONS } from "@/constants";
+import {
+  PRODUCT_QUERY_PARAM_KEYS,
+  PRODUCT_STATUS_OPTIONS,
+} from "@/app/share/constants";
 import { TProductStatusValues } from "../../../types";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";

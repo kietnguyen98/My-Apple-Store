@@ -10,6 +10,7 @@ import { ProductPriceDisplayComponent } from "./components/product-price-display
 
 // modules
 import { TopBarModule } from "./components/top-bar/top-bar.module";
+import { FooterModule } from "./components/footer/footer.module";
 
 // angular material modules
 import { MatIconModule } from "@angular/material/icon";
@@ -41,6 +42,7 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
     MatSnackBarModule,
     MatProgressSpinnerModule,
     TopBarModule,
+    FooterModule,
   ],
   declarations: [
     BreadcrumbsBarComponent,
@@ -53,6 +55,7 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
     BreadcrumbsBarComponent,
     ScrollTopButtonComponent,
     TopBarModule,
+    FooterModule,
     CustomFormControlComponent,
     ProductPriceDisplayComponent,
   ],

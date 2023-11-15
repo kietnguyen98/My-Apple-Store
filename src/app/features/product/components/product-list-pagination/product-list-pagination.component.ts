@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { PAGINATION, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
+import { PAGINATION, PRODUCT_QUERY_PARAM_KEYS } from "@/app/share/constants";
 import { ProductService } from "../../services/product.service";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";

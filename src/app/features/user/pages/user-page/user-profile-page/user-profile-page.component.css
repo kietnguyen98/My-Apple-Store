@@ -23,10 +23,12 @@
 
     .content-container{
         background-color: white;
-        padding: 20px;
+        border-radius: var(--app-border-radius-small);
+        box-shadow: var(--app-border-box-shadow);
+        padding: 15px;
 
         .tab-container{
-            padding: 20px;
+            padding: 30px 15px 15px 15px; 
         }
     }
 }

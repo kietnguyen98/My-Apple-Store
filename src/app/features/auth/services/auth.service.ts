@@ -1,4 +1,4 @@
-import { API_FETCHING_STATE } from "@/constants";
+import { API_FETCHING_STATE } from "@/app/share/constants";
 import { Injectable } from "@angular/core";
 import { Observable, BehaviorSubject } from "rxjs";
 import { users } from "@/app/features/auth/data/users.data";
@@ -7,7 +7,7 @@ import { TApisFetchingState } from "@/app/share/types";
 import { TUser } from "../types";
 
 export type TLoginProps = {
-  userName: string;
+  username: string;
   password: string;
 };
 
@@ -36,7 +36,7 @@ export class AuthService {
       const userAccountObject = JSON.parse(userAccount);
       const user = users.find(
         user =>
-          user.userName === userAccountObject.userName &&
+          user.username === userAccountObject.username &&
           user.password === userAccountObject.password
       );
 
@@ -44,12 +44,12 @@ export class AuthService {
     }
   }
 
-  async getLogin({ userName, password }: TLoginProps) {
+  async getLogin({ username, password }: TLoginProps) {
     this.updateLoginState(API_FETCHING_STATE.LOADING);
     return await new Promise<void>(resolve => {
       setTimeout(() => {
         const user = users.find(
-          user => user.userName === userName && user.password === password
+          user => user.username === username && user.password === password
         );
         if (user) {
           this.updateLoginState(API_FETCHING_STATE.SUCCESS);
@@ -89,7 +89,7 @@ export class AuthService {
     this.user = newValue;
     this.userSubject.next(newValue);
     if (newValue) {
-      localStorageHelper.setUserAccount(newValue?.userName, newValue?.password);
+      localStorageHelper.setUserAccount(newValue?.username, newValue?.password);
     }
   }
 

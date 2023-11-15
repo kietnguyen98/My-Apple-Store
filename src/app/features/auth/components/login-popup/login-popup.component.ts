@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { AuthService, TLoginProps } from "../../services/auth.service";
-import { API_FETCHING_STATE } from "@/constants";
+import { API_FETCHING_STATE } from "@/app/share/constants";
 import { NotificationSnackBarComponent } from "@/app/share/components/notification-snack-bar/notification-snack-bar.component";
 import { MatDialogRef } from "@angular/material/dialog";
 import { TFormValidationMessages, TSnackBarProps } from "@/app/share/types";
@@ -15,7 +15,7 @@ import { TFormValidationMessages, TSnackBarProps } from "@/app/share/types";
 export class LoginPopupComponent {
   loginForm: FormGroup;
   VALIDATION_MESSAGES: TFormValidationMessages = {
-    userName: {
+    username: {
       required: "This field is required",
       minlength:
         "The user name length must be greater than or equal to 6 characters",
@@ -40,7 +40,7 @@ export class LoginPopupComponent {
     private dialogRef: MatDialogRef<LoginPopupComponent>
   ) {
     this.loginForm = this.formBuilder.group({
-      userName: [
+      username: [
         "",
         Validators.compose([
           Validators.required,

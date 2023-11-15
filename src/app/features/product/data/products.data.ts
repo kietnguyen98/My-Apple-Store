@@ -1,4 +1,4 @@
-import { IMAGE_URL, SUB_IMAGE_URLS } from "../../../../constants";
+import { IMAGE_URL, SUB_IMAGE_URLS } from "../../../share/constants";
 import { v4 as uuidv4 } from "uuid";
 import { categories } from "./categories.data";
 import { memoryCapacities } from "./memoryCapacities.data";

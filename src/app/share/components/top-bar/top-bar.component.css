@@ -1,8 +1,4 @@
-p{margin: 0px}
 .container {
-    --user-avatar-width: 32px;
-    --user-avatar-height: 32px;
-
     height: var(--app-header-height);
     width: 100%;
 

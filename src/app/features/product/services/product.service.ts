@@ -1,9 +1,13 @@
 import { Injectable } from "@angular/core";
 import { products } from "@/app/features/product/data/products.data";
-import { CATEGORIES_VALUE, PRICES, PRODUCT_STATUS_VALUES } from "@/constants";
+import {
+  CATEGORIES_VALUE,
+  PRICES,
+  PRODUCT_STATUS_VALUES,
+} from "@/app/share/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { RouteService } from "@/app/share/services/route.service";
-import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
+import { PRODUCT_QUERY_PARAM_KEYS } from "@/app/share/constants";
 import { TProduct, TProducts } from "../types";
 import { TProductsQueryParams } from "@/app/share/types";
 import { productHelper } from "@/utilities";

@@ -1,0 +1,165 @@
+<form [formGroup]="formGroup" novalidate autocomplete="false" class="form">
+  <div class="row-container" *ngIf="user">
+    <div class="full-col-container">
+      <div class="input-container">
+        <div class="avatar-container">
+          <app-user-avatar
+            [avatarUrl]="user.avatarUrl"
+            [size]="200"></app-user-avatar>
+        </div>
+        <div class="input-field">
+          <p class="label">
+            Avatar image's url <span class="required" *ngIf="isEdit">*</span>
+          </p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="avatarUrl"
+            formControlName="avatarUrl"
+            placeholder="enter your avatar image's url"
+            type="text" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-container">
+    <div class="half-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">
+            First name <span class="required" *ngIf="isEdit">*</span>
+          </p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="firstName"
+            formControlName="firstName"
+            type="text"
+            placeholder="enter your first name" />
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+    <div class="half-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">
+            Last name <span class="required" *ngIf="isEdit">*</span>
+          </p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="lastName"
+            formControlName="lastName"
+            type="text"
+            placeholder="enter your last name" />
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-container">
+    <div class="full-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">
+            Gender <span class="required" *ngIf="isEdit">*</span>
+          </p>
+          <mat-radio-group
+            aria-label="Select an option"
+            color="primary"
+            name="gender"
+            class="radio-group"
+            formControlName="gender">
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+            <mat-radio-button value="other">Other</mat-radio-button>
+          </mat-radio-group>
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-container">
+    <div class="full-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">
+            Birthday <span class="required" *ngIf="isEdit">*</span>
+          </p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="birthday"
+            type="date"
+            formControlName="birthday"
+            placeholder="enter your birth day" />
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-container">
+    <div class="full-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">
+            Phone number <span class="required" *ngIf="isEdit">*</span>
+          </p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="phone"
+            formControlName="phone"
+            type="phone"
+            placeholder="enter your phone number" />
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-container">
+    <div class="full-col-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">
+            Home address <span class="required" *ngIf="isEdit">*</span>
+          </p>
+          <input
+            [ngClass]="{
+              input: true
+            }"
+            name="address"
+            formControlName="address"
+            type="text"
+            placeholder="enter your home address" />
+          <p class="error-message"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="action-container">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="toggleIsEdit()"
+      *ngIf="!isEdit">
+      <mat-icon>edit</mat-icon>Edit
+    </button>
+    <button mat-flat-button color="success" *ngIf="isEdit">
+      <mat-icon>save_alt</mat-icon>Save
+    </button>
+    <button
+      mat-flat-button
+      color="accent"
+      *ngIf="isEdit"
+      (click)="toggleIsEdit()">
+      Cancel
+    </button>
+  </div>
+</form>

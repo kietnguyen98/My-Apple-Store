@@ -1,4 +1,7 @@
-import { PRODUCT_QUERY_PARAM_KEYS, AUTH_QUERY_PARAM_KEYS } from "@/constants";
+import {
+  PRODUCT_QUERY_PARAM_KEYS,
+  AUTH_QUERY_PARAM_KEYS,
+} from "@/app/share/constants";
 
 export type TAuthQueryParamKeys =
   (typeof AUTH_QUERY_PARAM_KEYS)[keyof typeof AUTH_QUERY_PARAM_KEYS];

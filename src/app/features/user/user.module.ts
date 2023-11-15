@@ -5,13 +5,12 @@ import { RouterModule } from "@angular/router";
 // components
 import { UserNavigateMenuComponent } from "./components/user-navigate-menu/user-navigate-menu.component";
 import { UserPageComponent } from "./pages/user-page/user-page.component";
-import { UserProfilePageComponent } from "./pages/user-page/user-profile-page/user-profile-page.component";
 import { UserPurchasesPageComponent } from "./pages/user-page/user-purchases-page/user-purchases-page.component";
 import { UserLoveListPageComponent } from "./pages/user-page/user-love-list-page/user-love-list-page.component";
-import { MatTabsModule } from "@angular/material/tabs";
 
 // local modules
 import { ShareModule } from "@/app/share/share.module";
+import { UserProfilePageModule } from "./pages/user-page/user-profile-page/user-profile-page.module";
 
 // angular material modules
 import { MatSidenavModule } from "@angular/material/sidenav";
@@ -24,18 +23,17 @@ import { MatRippleModule } from "@angular/material/core";
     CommonModule,
     RouterModule,
     ShareModule,
+    UserProfilePageModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatRippleModule,
-    MatTabsModule,
   ],
   declarations: [
     // components
     UserNavigateMenuComponent,
     // pages
     UserPageComponent,
-    UserProfilePageComponent,
     UserPurchasesPageComponent,
     UserLoveListPageComponent,
   ],
@@ -43,7 +41,6 @@ import { MatRippleModule } from "@angular/material/core";
   exports: [
     //pages
     UserPageComponent,
-    UserProfilePageComponent,
     UserPurchasesPageComponent,
     UserLoveListPageComponent,
   ],

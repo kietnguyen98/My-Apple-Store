@@ -4,8 +4,7 @@
     .menu-container {
         display: flex;
         flex-direction: column;
-        gap: 32px;
-        padding: 20px 0px;
+        gap: 16px;
 
         .user-info-container {
             display: flex;
@@ -14,12 +13,6 @@
             align-items: center;
             gap: 8px;
     
-            .avatar{
-                height: 160px;
-                width: 160px;
-                border-radius: 50%;
-            }
-            
             .user-name{
                 font-size: var(--app-font-size-medium);
                 font-weight: var(--app-font-weight-bold);

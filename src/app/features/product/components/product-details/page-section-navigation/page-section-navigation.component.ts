@@ -1,4 +1,4 @@
-import { APP_HEADER_HEIGHT } from "@/constants/dimensions";
+import { APP_HEADER_HEIGHT } from "@/app/share/constants/dimensions";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 
 type TPageSection = {

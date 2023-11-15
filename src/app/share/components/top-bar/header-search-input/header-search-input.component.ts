@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
-import { PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
+import { PRODUCT_QUERY_PARAM_KEYS } from "@/app/share/constants";
 
 @Component({
   selector: "app-header-search-input",

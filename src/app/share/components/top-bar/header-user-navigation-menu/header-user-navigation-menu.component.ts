@@ -4,7 +4,7 @@ import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
 import { encodeUrl } from "@/utilities/routeHelper";
 import { Component } from "@angular/core";
-import { USER_NAVIGATE_OPTIONS } from "@/constants";
+import { USER_NAVIGATE_OPTIONS } from "@/app/share/constants";
 
 @Component({
   selector: "app-header-user-navigation-menu",

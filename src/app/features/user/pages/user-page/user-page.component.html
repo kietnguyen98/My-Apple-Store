@@ -1,11 +1,13 @@
 <div class="container">
   <app-breadcrumbs-bar></app-breadcrumbs-bar>
-  <mat-drawer-container class="drawer-container">
-    <mat-drawer class="drawer" mode="side" opened>
-      <app-user-navigate-menu></app-user-navigate-menu>
-    </mat-drawer>
-    <mat-drawer-content class="drawer-content"
-      ><router-outlet></router-outlet
-    ></mat-drawer-content>
-  </mat-drawer-container>
+  <div class="drawer-wrapper">
+    <mat-drawer-container class="drawer-container">
+      <mat-drawer class="drawer" mode="side" opened>
+        <app-user-navigate-menu></app-user-navigate-menu>
+      </mat-drawer>
+      <mat-drawer-content class="drawer-content"
+        ><router-outlet></router-outlet
+      ></mat-drawer-content>
+    </mat-drawer-container>
+  </div>
 </div>

@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
 import { categories } from "@/app/features/product/data/categories.data";
-import { CATEGORIES_VALUE, PRODUCT_QUERY_PARAM_KEYS } from "@/constants";
+import {
+  CATEGORIES_VALUE,
+  PRODUCT_QUERY_PARAM_KEYS,
+} from "@/app/share/constants";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
 import { MatChipListboxChange } from "@angular/material/chips";

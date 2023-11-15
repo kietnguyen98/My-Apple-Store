@@ -44,3 +44,10 @@ export const IwatchSeries8ImageUrl =
 export const IwatchSeries8AluminumImageUrl =
   "/assets/images/iwatch/iwatch_series_7_aluminum.jpg";
 export const IwatchUltraImageUrl = "/assets/images/iwatch/iwatch_ultra.jpg";
+
+// payments
+export const CodPaymentImageUrl = "/assets/images/payments/cod.png";
+export const masterCardPaymentImageUrl = "/assets/images/payments/master.png";
+export const visaCardImageUrl = "/assets/images/payments/visa.png";
+export const momoWalletPaymentImageUrl = "/assets/images/payments/momo.png";
+export const vnpayPaymentImageUrl = "/assets/images/payments/vnpay.png";

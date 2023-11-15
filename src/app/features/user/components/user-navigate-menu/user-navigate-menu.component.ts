@@ -1,6 +1,6 @@
 import { RouteService } from "@/app/share/services/route.service";
 import { Component } from "@angular/core";
-import { USER_NAVIGATE_OPTIONS } from "@/constants";
+import { USER_NAVIGATE_OPTIONS } from "@/app/share/constants";
 import { routeHelper } from "@/utilities";
 import { AuthService } from "@/app/features/auth/services/auth.service";
 import { TUser } from "@/app/features/auth/types";

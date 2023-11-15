@@ -2,16 +2,30 @@
     background-color: var(--app-background-color);
     width: 100%;
 
-    .drawer-container{
-        height: calc(100vh - var(--app-header-height) - var(--app-breadcrumbs-height));
-        
-        .drawer{
-            background-color: white;
-            padding: 0px 15px;
-        }
-        
-        .drawer-content{
-            padding: 30px;
+    .drawer-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .drawer-container {
+            width: var(--app-container-fix-width-lg);
+            min-height: max-content;
+            padding: 30px 0px;
+
+            .drawer{
+                background-color: var(--app-background-color);
+                border: none;
+                
+                .mat-drawer-inner-container {
+                    padding: 15px;
+                }
+            }
+            
+            .drawer-content{
+                padding: 15px;
+                min-height: 400px;
+            }
         }
     }
 }

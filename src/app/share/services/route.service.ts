@@ -4,7 +4,7 @@ import {
   PRODUCT_QUERY_PARAM_KEYS,
   PAGINATION,
   QUERY_PARAMS_TO_SUBSCRIBES,
-} from "@/constants";
+} from "@/app/share/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { PATH } from "@/configs/routes";
 import { TUpdateQueryParamsProps } from "../types";
