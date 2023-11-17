@@ -12,7 +12,7 @@
         gap: 16px;
 
         .title{
-            font-size: var(--app-font-size-medium);
+            font-size: var(--app-font-size-small);
             font-weight: var(--app-font-weight-bold);
             color: var(--app-accent-color);
             text-transform: uppercase;

@@ -6,12 +6,14 @@
     border-top: 1px solid var(--app-accent-color);
     width: 100%;
 
-    .short-link-container{
+    .brand-name-container{
         width: 100%;
         padding: 16px 0px;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 8px;
 
         .brand-name{
             color: var(--app-primary-color);
@@ -19,6 +21,19 @@
             font-weight: var(--app-font-weight-bold);
             text-transform: uppercase;
             letter-spacing: 4px;
+        }
+
+        .title {
+            color: var(--app-primary-color);
+            font-size: var(--app-font-size-large);
+            overflow: hidden; /* Ensures the content is not revealed until the animation */
+            border-right: 2px solid orange; /* The typwriter cursor */
+            white-space: nowrap; /* Keeps the content on a single line */
+            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+            letter-spacing: 2px; /* Adjust as needed */
+            animation: 
+              typing 10s steps(40, end) infinite,
+              blink-caret 1.25s step-end infinite;
         }
     }
 
@@ -64,7 +79,7 @@
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                gap: 32px;
+                gap: 40px;
     
                 .contact-description-container {
                     display: flex;
@@ -75,13 +90,18 @@
                         color: var(--app-accent-color);
                         font-size: var(--app-font-size-small);
                         font-weight: var(--app-font-weight-medium);
+
+                        .icon{
+                            padding-top: 4px;
+                            margin-right: 4px;
+                        }
                     }
                 }
     
                 .contact-network-container{
                     display: flex;
                     align-items: center;
-                    gap: 16px;
+                    gap: 24px;
     
                     .fab{
                         font-size: var(--app-font-size-extra-large);
@@ -174,4 +194,19 @@
             }
         }
     }
+}
+
+
+  
+/* The typing effect */
+@keyframes typing {
+  0% { width: 0 }
+  25% { width: 100% }
+  100% { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--app-yellow-color); }
 }
