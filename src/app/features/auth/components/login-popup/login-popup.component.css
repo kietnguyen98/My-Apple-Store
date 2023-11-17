@@ -14,22 +14,22 @@ p{
         gap: 16px;
 
         .welcome-text{
-            font-size: var(--app-font-size-medium);
-            font-weight: var(--app-font-weight-regular);
-            color: var(--app-primary-color);
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-regular);
+            color: var(--color-primary);
         }
 
         .to-sign-up-container{
             padding: 0px 8px;
 
             .label {
-                color: var(--app-primary-color);
-                font-size: var(--app-font-size-small) ;
-                font-weight: var(--app-font-weight-regular);
+                color: var(--color-primary);
+                font-size: var(--font-size-s) ;
+                font-weight: var(--font-weight-regular);
 
                 .link{
                     cursor: pointer;
-                    color: var(--app-warn-color);    
+                    color: var(--color-warn);    
                 }
 
                 .link:hover{
@@ -47,7 +47,7 @@ p{
         justify-content: center;
         align-items: center;
         gap: 16px;
-        background-color: var(--app-primary-color);
+        background-color: var(--color-primary);
         color: white;
 
         .close-button{
@@ -63,8 +63,8 @@ p{
         }
 
         .brand-name{
-            font-size: var(--app-font-size-medium);
-            font-weight: var(--app-font-weight-regular);
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-regular);
         }
     }
 }

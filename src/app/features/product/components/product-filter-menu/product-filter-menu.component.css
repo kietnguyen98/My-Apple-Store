@@ -10,8 +10,8 @@
         gap: 8px;
 
         .title {
-            font-size: var(--app-font-size-small);
-            font-weight: var(--app-font-weight-bold);
+            font-size: var(--font-size-s);
+            font-weight: var(--font-weight-bold);
             margin: 0px;
         }
     }
@@ -22,8 +22,8 @@
         gap: 8px;
 
         .title {
-            font-size: var(--app-font-size-small);
-            font-weight: var(--app-font-weight-bold);
+            font-size: var(--font-size-s);
+            font-weight: var(--font-weight-bold);
             margin: 0px;
         }
     }

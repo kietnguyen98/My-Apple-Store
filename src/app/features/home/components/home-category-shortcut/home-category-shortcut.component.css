@@ -4,9 +4,9 @@ p {
 
 .container{
     --action-container-max-height: 120px;
-    background-color: var(--app-primary-color);
-    padding-top: var(--home-section-gap);
-    padding-bottom: var(--home-section-gap);
+    background-color: var(--color-primary);
+    padding-top: var(--section-gap);
+    padding-bottom: var(--section-gap);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,28 +20,28 @@ p {
 
         .title {
             color: white;
-            font-size: var(--app-font-size-extra-extra-large);
-            font-weight: var(--app-font-weight-regular);
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-regular);
             text-align: center;
         }
 
         .description{
             color: white;
-            font-size: var(--app-font-size-medium);
-            font-weight: var(--app-font-weight-regular);
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-regular);
             text-align: center;
         }
     }
 
     .action-container{
         .see-all-button {
-            font-weight: var(--app-font-weight-regular);
-            font-size: var(--app-font-size-small);
+            font-weight: var(--font-weight-regular);
+            font-size: var(--font-size-s);
         }
     }
 
     .categories-container{
-        width: var(--app-container-fix-width-lg);
+        width: var(--container-fix-width);
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -50,12 +50,12 @@ p {
         .category-card{
             flex: 1;
             transition: all ease-in-out 0.3s;
-            border-radius: var(--app-border-radius-medium);
+            border-radius: var(--border-radius-m);
             padding: 24px;
 
             .slide-up-wrapper{
                 padding-bottom: 16px;
-                background-color: var(--app-primary-color);
+                background-color: var(--color-primary);
                 transform: translateY(calc(var(--action-container-max-height) / 2));
                 transition: all 0.3s ease-in-out;
                 z-index: 2;
@@ -84,8 +84,8 @@ p {
                     .name {
                         margin: 0px;
                         color: white;
-                        font-size: var(--app-font-size-medium);
-                        font-weight: var(--app-font-weight-regular);
+                        font-size: var(--font-size-m);
+                        font-weight: var(--font-weight-regular);
                         text-align: center;
                     }
                 }
@@ -105,8 +105,8 @@ p {
     
                     .description-text{
                         color: white;
-                        font-size: var(--app-font-size-small);
-                        font-weight: var(--app-font-weight-regular);
+                        font-size: var(--font-size-s);
+                        font-weight: var(--font-weight-regular);
                         text-align: center;
                         display: -webkit-box;
                         -webkit-line-clamp: 3;
@@ -115,8 +115,8 @@ p {
                     }
     
                     .see-more-button{
-                        font-weight: var(--app-font-weight-regular);
-                        font-size: var(--app-font-size-small);
+                        font-weight: var(--font-weight-regular);
+                        font-size: var(--font-size-s);
                     }
                 }
             }

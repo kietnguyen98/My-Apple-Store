@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    background-color: var(--app-primary-color);
+    background-color: var(--color-primary);
     display: flex;
     justify-content: space-between;
     gap: 16px;
@@ -12,9 +12,9 @@
         gap: 16px;
 
         .title{
-            font-size: var(--app-font-size-small);
-            font-weight: var(--app-font-weight-bold);
-            color: var(--app-accent-color);
+            font-size: var(--font-size-s);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-accent);
             text-transform: uppercase;
         }
 
@@ -25,15 +25,15 @@
 
             .short-link {
                 cursor: pointer;
-                color: var(--app-secondary-color);
+                color: var(--color-secondary);
             }
 
             .short-link:hover{
-                color: var(--app-accent-color);
+                color: var(--color-accent);
             }
 
             .payment-name { 
-                color: var(--app-secondary-color);
+                color: var(--color-secondary);
 
                 .payment-icon {
                     margin-left: 4px;

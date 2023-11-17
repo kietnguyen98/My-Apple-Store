@@ -4,7 +4,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    box-shadow: var(--app-border-box-shadow);
+    box-shadow: var(--box-shadow-border);
 }
 
 .decrease-button, .increase-button{
@@ -12,15 +12,15 @@
     border: none;
     width: 28px;
     height: 28px;
-    background-color: var(--app-accent-color);
+    background-color: var(--color-accent);
 }
 
 .decrease-button {
-    border-right: 1px solid var(--app-accent-color);
+    border-right: 1px solid var(--color-accent);
 }
 
 .increase-button {
-    border-left: 1px solid var(--app-accent-color);
+    border-left: 1px solid var(--color-accent);
 }
 
 .quantity-value{
@@ -29,12 +29,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: var(--app-font-weight-regular);
-    font-size: var(--app-font-size-small);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-s);
 }
 
 .icon{
-    height: var(--app-font-size-small);
-    width: var(--app-font-size-small);
-    font-size: var(--app-font-size-small);
+    height: var(--font-size-s);
+    width: var(--font-size-s);
+    font-size: var(--font-size-s);
 }

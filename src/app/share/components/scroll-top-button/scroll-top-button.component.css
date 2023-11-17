@@ -4,16 +4,16 @@ button {
     right: 30px;
     z-index: 999;
     background-color: white;
-    box-shadow: var(--app-header-box-shadow);
+    box-shadow: var(--box-shadow-header);
     display: none;
     -webkit-animation: slide-top-and-fade 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-top-and-fade 0.75s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 mat-icon{
-    width: var(--app-font-size-extra-large);
-    height: var(--app-font-size-extra-large);
-    font-size: var(--app-font-size-extra-large);
+    width: var(--font-size-xl);
+    height: var(--font-size-xl);
+    font-size: var(--font-size-xl);
 }
 
 /* ----------------------------------------------

@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { UserProfileInformationComponent } from "./user-profile-information/user-profile-information.component";
 import { UserProfileAccountComponent } from "./user-profile-account/user-profile-account.component";
 import { UserProfilePageComponent } from "./user-profile-page.component";
+import { UserPageTitleBadgeComponent } from "../../../components/user-page-title-badge/user-page-title-badge.component";
 
 // modules
 import { ShareModule } from "@/app/share/share.module";
@@ -29,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   ],
   declarations: [
     // components
+    UserPageTitleBadgeComponent,
     UserProfileAccountComponent,
     UserProfileInformationComponent,
     // pages

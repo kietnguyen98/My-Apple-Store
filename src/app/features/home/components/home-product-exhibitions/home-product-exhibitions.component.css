@@ -3,9 +3,9 @@ p {
 }
 
 .container {
-    background-color: var(--app-primary-color);
-    padding-top: var(--home-section-gap);
-    padding-bottom: var(--home-section-gap);
+    background-color: var(--color-primary);
+    padding-top: var(--section-gap);
+    padding-bottom: var(--section-gap);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,23 +18,23 @@ p {
         gap: 4px;
         
         .title {
-            font-size: var(--app-font-size-extra-extra-large);
-            font-weight: var(--app-font-weight-regular);
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-regular);
             text-align: center;
             color: white;
         }
     
         .description{
             color: white;
-            font-size: var(--app-font-size-medium);
-            font-weight: var(--app-font-weight-regular);
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-regular);
             text-align: center;
         }
     }
  
 
     .product-container{
-        width: var(--app-container-fix-width-lg);
+        width: var(--container-fix-width);
         padding: 0px 100px 100px 100px;
         display: flex;
         flex-direction: column;
@@ -50,25 +50,25 @@ p {
             gap: 4px;
 
             .category{
-                color: var(--app-secondary-color);
-                font-weight: var(--app-font-weight-regular);
-                font-size: var(--app-font-size-small);
+                color: var(--color-secondary);
+                font-weight: var(--font-weight-regular);
+                font-size: var(--font-size-s);
                 text-transform: uppercase;
                 text-align: center;
             }
 
             .product-name{
                 color: white;
-                font-weight: var(--app-font-weight-regular);
-                font-size: var(--app-font-size-large);
+                font-weight: var(--font-weight-regular);
+                font-size: var(--font-size-l);
                 text-transform: capitalize;
                 text-align: center;
             }
 
             .description {
                 color: white;
-                font-weight: var(--app-font-weight-light);
-                font-size: var(--app-font-size-extra-large);
+                font-weight: var(--font-weight-light);
+                font-size: var(--font-size-xl);
             }
         }
 
@@ -79,8 +79,8 @@ p {
             gap: 16px;
 
             .learn-more-button, .buy-button {
-                font-weight: var(--app-font-weight-regular);
-                font-size: var(--app-font-size-small);
+                font-weight: var(--font-weight-regular);
+                font-size: var(--font-size-s);
             }
         }
 

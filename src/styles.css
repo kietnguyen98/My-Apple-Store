@@ -2,62 +2,61 @@
 :root{
   /* dimension values */
   /* components */
-  --app-header-height: 60px;
-  --app-breadcrumbs-height: 40px;
-  --app-product-filter-side-nav-width: 240px;
-  --app-cart-side-nav-width: 320px;
-  --app-cart-side-nav-height: calc(100vh - var(--app-header-height));
-  --app-cart-side-nav-header-height: 40px;
-  --app-cart-side-nav-footer-height: 100px;
-  --home-banner-fix-height: 625px;
+  --header-height: 60px;
+  --breadcrumbs-height: 40px;
+  --product-filter-side-nav-width: 240px;
+  --cart-side-nav-width: 320px;
+  --cart-side-nav-height: calc(100vh - var(--header-height));
+  --cart-side-nav-header-height: 40px;
+  --cart-side-nav-footer-height: 100px;
+  --banner-fix-height: 625px;
   /* section gap */
-  --home-section-gap: 80px;
+  --section-gap: 80px;
   /* auth component */
   --auth-input-width: 320px;
   --auth-input-height: 40px;
   --auth-button-height: 48px;
   
   /* container */
-  --app-container-fix-width-md: 1200px;
-  --app-container-fix-width-lg: 1200px;
+  --container-fix-width: 1200px;
 
   /* color values */
-  --app-primary-color: #191919;
-  --app-secondary-color: #6b6b6b;
-  --app-accent-color: #e6e8e6;
-  --app-warn-color: #f15125;
-  --app-success-color: #28a745;
-  --app-danger-color: #dc3545;
-  --app-yellow-color: #ffc107;
-  --app-background-color: #fafafa;
+  --color-primary: #191919;
+  --color-secondary: #6b6b6b;
+  --color-accent: #e6e8e6;
+  --color-warn: #f15125;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-yellow: #ffc107;
+  --color-background: #fafafa;
 
   /* font size values */
-  --app-font-size-extra-extra-small: 12px;
-  --app-font-size-extra-small: 14px;
-  --app-font-size-small: 16px;
-  --app-font-size-medium: 18px;
-  --app-font-size-large: 24px;
-  --app-font-size-extra-large: 32px;
-  --app-font-size-extra-extra-large: 48px;
-  --home-font-size-medium: 56px;
-  --home-font-size-large: 64px;
+  --font-size-2xs: 12px;
+  --font-size-xs: 14px;
+  --font-size-s: 16px;
+  --font-size-m: 18px;
+  --font-size-l: 24px;
+  --font-size-xl: 32px;
+  --font-size-2xl: 48px;
+  --font-size-3xl: 56px;
   
   /* font weight values */
-  --app-font-weight-light: 300;
-  --app-font-weight-regular: 400;
-  --app-font-weight-bold: 700;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
   
   /* border radius values */
-  --app-border-radius-extra-small: 4px;
-  --app-border-radius-small: 8px;
-  --app-border-radius-medium: 12px;
-  --app-border-radius-large: 16px;
+  --border-radius-xs: 4px;
+  --border-radius-s: 8px;
+  --border-radius-m: 12px;
+  --border-radius-l: 16px;
+  --border-radius-xl: 20px;
 
   /* box shadow values */
-  --app-border-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  --app-container-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  --app-badge-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  --app-header-box-shadow:  rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  --box-shadow-border: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  --box-shadow-container: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  --box-shadow-badge: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  --box-shadow-header:  rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 * {
@@ -87,24 +86,24 @@ a {
 
 .mat-success {
   color: white !important;
-  background-color: var(--app-success-color) !important;
+  background-color: var(--color-success) !important;
 }
 
 .mat-danger {
   color: white !important;
-  background-color: var(--app-danger-color) !important;
+  background-color: var(--color-danger) !important;
 }
 
 .mat-yellow {
-  color: var(--app-primary-color) !important;
-  background-color: var(--app-yellow-color) !important;
+  color: var(--color-primary) !important;
+  background-color: var(--color-yellow) !important;
 }
 
 /* global component styles */
 .mat-mdc-snack-bar-container {
   &.snack-bar-container {
-    --mdc-snackbar-container-color: var(--app-primary-color);
-    --mat-mdc-snack-bar-button-color: var(--app-primary-color) ;
-    --mdc-snackbar-supporting-text-color: var(--app-primary-color);
+    --mdc-snackbar-container-color: var(--color-primary);
+    --mat-mdc-snack-bar-button-color: var(--color-primary) ;
+    --mdc-snackbar-supporting-text-color: var(--color-primary);
   }
 }

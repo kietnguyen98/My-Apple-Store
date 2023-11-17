@@ -6,9 +6,9 @@
     gap: 16px;
 
     .label {
-        font-weight: var(--app-font-weight-regular);
-        font-size: var(--app-font-size-medium);
-        color: var(--app-secondary-color);
+        font-weight: var(--font-weight-regular);
+        font-size: var(--font-size-m);
+        color: var(--color-secondary);
         text-transform: uppercase;
         text-align: center;
     }

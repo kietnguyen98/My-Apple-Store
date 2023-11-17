@@ -30,23 +30,23 @@
       }
 
       .success-icon{
-        color: var(--app-success-color);
+        color: var(--color-success);
       }
 
       .error-icon{
-        color: var(--app-danger-color);
+        color: var(--color-danger);
       }
     }
   
     .message {  
       color: white; 
-      font-size: var(--app-font-size-small);
-      font-weight: var(--app-font-weight-regular);
+      font-size: var(--font-size-s);
+      font-weight: var(--font-weight-regular);
     }
   }
   
   .close-button {
-    color: var(--app-accent-color);
+    color: var(--color-accent);
     width: 24px;
     height: 24px;
   

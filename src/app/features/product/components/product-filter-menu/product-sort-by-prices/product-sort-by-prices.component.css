@@ -7,8 +7,8 @@ p {
     gap: 4px;
 
     .label{
-        font-size: var(--app-font-size-extra-small);
-        font-weight: var(--app-font-weight-bold);
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-bold);
     }
 
     .radio-group { 

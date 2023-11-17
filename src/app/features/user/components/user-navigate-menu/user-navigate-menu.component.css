@@ -14,9 +14,9 @@
             gap: 8px;
     
             .user-name{
-                font-size: var(--app-font-size-medium);
-                font-weight: var(--app-font-weight-bold);
-                color: var(--app-color-primary);
+                font-size: var(--font-size-m);
+                font-weight: var(--font-weight-bold);
+                color: var(--color-primary);
             }
         }
     
@@ -26,7 +26,7 @@
     
         .menu-item:hover{
             span{
-                font-weight: var(--app-font-weight-bold);
+                font-weight: var(--font-weight-bold);
             }
         }
     }

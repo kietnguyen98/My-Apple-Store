@@ -4,14 +4,14 @@
     gap: 4px;
     
     .label{
-        font-size: var(--app-font-size-extra-small);
-        font-weight: var(--app-font-weight-bold);
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-bold);
     }
 
     .check-box .mdc-label{
-        font-size: var(--app-font-size-extra-small);
-        font-weight: var(--app-font-weight-regular);
-        color: var(--app-primary-color);
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-regular);
+        color: var(--color-primary);
         letter-spacing: 0px;
     }
 }

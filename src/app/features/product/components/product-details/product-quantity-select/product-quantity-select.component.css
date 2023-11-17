@@ -1,8 +1,8 @@
 .label {
-    font-size: var(--app-font-size-small);
+    font-size: var(--font-size-s);
     text-transform: capitalize;
-    font-weight: var(--app-font-weight-regular);
-    color: var(--app-primary-color);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-primary);
     margin-top: 0px;
     margin-bottom: 8px;
 }
@@ -13,8 +13,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    box-shadow: var(--app-badge-box-shadow);
-    border-radius: var(--app-border-radius-large);
+    box-shadow: var(--box-shadow-badge);
+    border-radius: var(--border-radius-l);
 }
 
 .decrease-button, .increase-button{
@@ -26,15 +26,15 @@
 }
 
 .decrease-button {
-    border-right: 1px solid var(--app-accent-color);
-    border-top-left-radius: var(--app-border-radius-large);
-    border-bottom-left-radius: var(--app-border-radius-large);
+    border-right: 1px solid var(--color-accent);
+    border-top-left-radius: var(--border-radius-l);
+    border-bottom-left-radius: var(--border-radius-l);
 }
 
 .increase-button {
-    border-left: 1px solid var(--app-accent-color);
-    border-top-right-radius: var(--app-border-radius-large);
-    border-bottom-right-radius: var(--app-border-radius-large);
+    border-left: 1px solid var(--color-accent);
+    border-top-right-radius: var(--border-radius-l);
+    border-bottom-right-radius: var(--border-radius-l);
 }
 
 .quantity-value{
@@ -43,6 +43,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: var(--app-font-weight-regular);
-    font-size: var(--app-font-size-medium);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-m);
 }

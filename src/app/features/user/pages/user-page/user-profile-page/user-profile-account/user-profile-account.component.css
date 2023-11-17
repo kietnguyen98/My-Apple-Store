@@ -28,13 +28,13 @@
                 gap: 4px;
                 
                 .label {
-                    font-size: var(--app-font-size-extra-small);
-                    font-weight: var(--app-font-weight-bold);
-                    color: var(--app-secondary-color);
+                    font-size: var(--font-size-xs);
+                    font-weight: var(--font-weight-bold);
+                    color: var(--color-secondary);
     
                     .required {
-                        color: var(--app-danger-color);
-                        font-size: var(--app-font-size-medium);
+                        color: var(--color-danger);
+                        font-size: var(--font-size-m);
                     }
                 }
                 
@@ -43,24 +43,24 @@
                     width: 100%;
                     padding: 0px 8px;
                     outline: none;
-                    border: 1px solid var(--app-accent-color);
-                    border-radius: var(--app-border-radius-small);
+                    border: 1px solid var(--color-accent);
+                    border-radius: var(--border-radius-s);
                     transition: background-color 0.25s linear;
-                    font-size: var(--app-font-size-small);
+                    font-size: var(--font-size-s);
                 }
         
                 .input-error{
-                    border: 1px solid var(--app-danger-color);
+                    border: 1px solid var(--color-danger);
                 }
         
                 .input:focus-visible{
-                    background-color: var(--app-accent-color);
+                    background-color: var(--color-accent);
                 }
         
                 .error-message {
-                    font-size: var(--app-font-size-extra-small);
-                    font-weight: var(--app-font-weight-regular);
-                    color: var(--app-danger-color);
+                    font-size: var(--font-size-xs);
+                    font-weight: var(--font-weight-regular);
+                    color: var(--color-danger);
                 }
     
                 .radio-group{

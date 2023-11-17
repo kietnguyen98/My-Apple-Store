@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    box-shadow: var(--app-border-box-shadow);
+    box-shadow: var(--box-shadow-border);
     padding: 12px 16px;
 
     .info-container{
@@ -20,7 +20,7 @@
             .image{
                 width: fit-content;
                 height: 60px;
-                border-radius: var(--app-border-radius-extra-small);
+                border-radius: var(--border-radius-xs);
             }
         }
     }
@@ -37,15 +37,15 @@
         }
     
         .main-title{
-            color: var(--app-primary-color);
-            font-size: var(--app-font-size-small);
-            font-weight: var(--app-font-weight-regular);
+            color: var(--color-primary);
+            font-size: var(--font-size-s);
+            font-weight: var(--font-weight-regular);
         }
     
         .sub-title{
-            color: var(--app-secondary-color);
-            font-size: var(--app-font-size-extra-small);
-            font-weight: var(--app-font-weight-regular);
+            color: var(--color-secondary);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-regular);
         }
     
         .price-container{
@@ -64,9 +64,9 @@
         gap: 8px;
     
         .price-value{
-            color: var(--app-primary-color);
-            font-size: var(--app-font-size-small);
-            font-weight: var(--app-font-weight-regular);
+            color: var(--color-primary);
+            font-size: var(--font-size-s);
+            font-weight: var(--font-weight-regular);
             flex: 1;
         }
         

@@ -1,8 +1,8 @@
 .label {
-    font-size: var(--app-font-size-small);
+    font-size: var(--font-size-s);
     text-transform: capitalize;
-    font-weight: var(--app-font-weight-regular);
-    color: var(--app-primary-color);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-primary);
     margin-top: 0px;
     margin-bottom: 8px;
 }

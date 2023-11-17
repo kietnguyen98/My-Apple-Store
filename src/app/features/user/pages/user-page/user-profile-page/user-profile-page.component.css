@@ -3,32 +3,14 @@
     flex-direction: column;
     gap: 32px;
 
-    .intro-container{
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-
-        .title{
-            font-size: var(--app-font-size-medium);
-            font-weight: var(--app-font-weight-bold);
-            color: var(--app-primary-color);
-        }
-
-        .description {
-            font-size: var(--app-font-size-small);
-            font-weight: var(--app-font-weight-regular);
-            color: var(--app-secondary-color);
-        }
-    }
-
     .content-container{
         background-color: white;
-        border-radius: var(--app-border-radius-small);
-        box-shadow: var(--app-border-box-shadow);
-        padding: 15px;
+        border-radius: var(--border-radius-s);
+        box-shadow: var(--box-shadow-border);
+        padding: 16px;
 
         .tab-container{
-            padding: 30px 15px 15px 15px; 
+            padding: 32px 16px 16px 16px; 
         }
     }
 }

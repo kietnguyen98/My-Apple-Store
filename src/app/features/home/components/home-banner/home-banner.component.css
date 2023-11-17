@@ -3,15 +3,15 @@ p{
 }
 
 .container{
-    height: var(--home-banner-fix-height);
-    background-color: var(--app-primary-color);
+    height: var(--banner-fix-height);
+    background-color: var(--color-primary);
     display: flex;
     justify-content: center;
     align-items: center;    
 
     .main-banner{
-        height: var(--home-banner-fix-height);
-        width: var(--app-container-fix-width-lg);
+        height: var(--banner-fix-height);
+        width: var(--container-fix-width);
         padding: 120px 0px;
         display: flex;
         flex-direction: row;  
@@ -55,8 +55,8 @@ p{
             align-items: flex-end;
 
             .title {
-                font-weight: var(--app-font-weight-bold);
-                font-size: var(--home-font-size-medium);
+                font-weight: var(--font-weight-bold);
+                font-size: var(--font-size-3xl);
                 text-transform: uppercase;
                 color: white;
                 letter-spacing: -1px;
@@ -65,15 +65,15 @@ p{
             }
 
             .description {
-                font-weight: var(--app-font-weight-regular);
-                font-size: var(--app-font-size-medium);
+                font-weight: var(--font-weight-regular);
+                font-size: var(--font-size-xl);
                 color: white;
                 animation-name: fade-in;
                 animation-duration: 2s;
             }
 
             .high-light-text{
-                color: var(--app-warn-color);
+                color: var(--color-warn);
                 text-transform: uppercase;
             }
 
@@ -81,8 +81,8 @@ p{
                 margin-top: 32px;
 
                 .flash-sale-title {
-                    font-size: var(--app-font-size-large);
-                    font-weight: var(--app-font-weight-regular);
+                    font-size: var(--font-size-l);
+                    font-weight: var(--font-weight-regular);
                     color: white;
                     margin-bottom: 8px;
                     display: flex;
@@ -91,7 +91,7 @@ p{
                     align-items: center;
                     
                     .flash-icon {
-                        color: var(--app-warn-color);
+                        color: var(--color-warn);
                     }
                 }
 
@@ -102,8 +102,8 @@ p{
             }
 
             .shop-now-button{
-                font-size: var(--app-font-size-small);
-                font-weight: var(--app-font-weight-regular);
+                font-size: var(--font-size-s);
+                font-weight: var(--font-weight-regular);
                 text-transform: uppercase;
                 letter-spacing: -1px;
                 margin-top: 32px;
@@ -169,11 +169,11 @@ p{
 
 @keyframes text-neon {
     from {
-      text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #fff, 0 0 16px var(--app-warn-color),
-        0 0 20px var(--app-warn-color), 0 0 24px var(--app-warn-color), 0 0 28px var(--app-warn-color), 0 0 32px var(--app-warn-color);
+      text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #fff, 0 0 16px var(--color-warn),
+        0 0 20px var(--color-warn), 0 0 24px var(--color-warn), 0 0 28px var(--color-warn), 0 0 32px var(--color-warn);
     }
     to {
-      text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px var(--app-warn-color),
-        0 0 10px var(--app-warn-color), 0 0 12px var(--app-warn-color), 0 0 14px var(--app-warn-color), 0 0 16px var(--app-warn-color);
+      text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 8px var(--color-warn),
+        0 0 10px var(--color-warn), 0 0 12px var(--color-warn), 0 0 14px var(--color-warn), 0 0 16px var(--color-warn);
     }
   }

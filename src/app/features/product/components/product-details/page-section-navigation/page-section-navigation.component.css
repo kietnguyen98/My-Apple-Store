@@ -3,8 +3,8 @@ p {
 } 
 
 .container{
-    width: var(--app-container-fix-width-lg);
-    height: var(--app-breadcrumbs-height);
+    width: var(--container-fix-width);
+    height: var(--breadcrumbs-height);
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -12,46 +12,46 @@ p {
 
     gap: 32px;
     padding: 0px 16px;
-    box-shadow: var(--app-border-box-shadow);
-    border-radius: var(--app-border-radius-small);
+    box-shadow: var(--box-shadow-border);
+    border-radius: var(--border-radius-s);
     margin-bottom: 20px;
 }
 
 .sticky {
     position: fixed;
     margin: 0px;
-    left: calc((100vw - var(--app-container-fix-width-lg)) / 2);
-    transform: translate(calc(0px - ((100vw - var(--app-container-fix-width-lg)) / 2)), 0);
-    top: var(--app-header-height);
+    left: calc((100vw - var(--container-fix-width)) / 2);
+    transform: translate(calc(0px - ((100vw - var(--container-fix-width)) / 2)), 0);
+    top: var(--header-height);
     width: 100vw;
     z-index: 9;
     border-radius: 0px;
 }
 
 .label {
-    font-weight: var(--app-font-weight-bold);
+    font-weight: var(--font-weight-bold);
 }
 
 .section{
     cursor: pointer;
     width: fit-content;
-    height: var(--app-breadcrumbs-height);
+    height: var(--breadcrumbs-height);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .section:hover{
-    color: var(--app-warn-color);
+    color: var(--color-warn);
 }
 
 .selected {
-    color: var(--app-warn-color);
-    border-bottom: 2px solid var(--app-warn-color);
+    color: var(--color-warn);
+    border-bottom: 2px solid var(--color-warn);
 }
 
 .unselected{
-    color: var(--app-secondary-color);
+    color: var(--color-secondary);
     border-bottom: none;
 }
 
@@ -60,5 +60,5 @@ p {
 }
 
 .sticky + .dummy{
-    height: calc(var(--app-breadcrumbs-height) + 20px);
+    height: calc(var(--breadcrumbs-height) + 20px);
 }

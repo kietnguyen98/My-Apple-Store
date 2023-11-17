@@ -1,16 +1,16 @@
 .container{
     .side-nav {
-        width: var(--app-product-filter-side-nav-width);
-        height:  calc(100vh - var(--app-header-height));
+        width: var(--product-filter-side-nav-width);
+        height:  calc(100vh - var(--header-height));
     }
     
     .side-nav-sticky {
         position: fixed;
-        top: var(--app-header-height);
+        top: var(--header-height);
     }
     
     .drawer-content{
-        min-height: calc(100vh - var(--app-header-height) - var(--app-breadcrumbs-height));
+        min-height: calc(100vh - var(--header-height) - var(--breadcrumbs-height));
         width: auto;
         padding: 24px 24px 80px 24px;
     

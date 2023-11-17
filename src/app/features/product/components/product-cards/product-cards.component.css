@@ -1,6 +1,6 @@
 .card-container {
     width: 100%;
-    box-shadow: var(--app-border-box-shadow);
+    box-shadow: var(--box-shadow-border);
     transition: all 0.25s ease-in-out;
     position: relative;
 
@@ -26,20 +26,20 @@
             justify-content: center;
             align-items: center;
             gap: 8px;
-            color: var(--app-primary-color);
+            color: var(--color-primary);
             
             .name{
                 text-transform: capitalize;
                 text-align: center;
-                font-weight: var(--app-font-weight-regular);
-                font-size: var(--app-font-size-small);
+                font-weight: var(--font-weight-regular);
+                font-size: var(--font-size-s);
             }
         }
     }
 }
 
 .card-container:hover {
-    box-shadow: var(--app-header-box-shadow);
+    box-shadow: var(--box-shadow-header);
 }
 
 

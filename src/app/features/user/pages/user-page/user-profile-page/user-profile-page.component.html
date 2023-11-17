@@ -1,18 +1,18 @@
 <div class="container">
-  <div class="intro-container">
-    <p class="title">My Profile</p>
-    <p class="description">update profile info, change your password</p>
-  </div>
+  <app-user-page-title-badge
+    title="My Profile"
+    subTitle="update profile info, change your password"
+    iconName="account_box" />
   <div class="content-container">
     <mat-tab-group dynamicHeight>
       <mat-tab label="My information">
         <div class="tab-container">
-          <app-user-profile-information></app-user-profile-information>
+          <app-user-profile-information />
         </div>
       </mat-tab>
       <mat-tab label="My account">
         <div class="tab-container">
-          <app-user-profile-account></app-user-profile-account>
+          <app-user-profile-account />
         </div>
       </mat-tab>
     </mat-tab-group>

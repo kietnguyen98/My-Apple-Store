@@ -1,5 +1,5 @@
 .container{
-    background-color: var(--app-background-color);
+    background-color: var(--color-background);
     width: 100%;
 
     .drawer-wrapper {
@@ -9,21 +9,21 @@
         align-items: center;
     
         .drawer-container {
-            width: var(--app-container-fix-width-lg);
+            width: var(--container-fix-width);
             min-height: max-content;
-            padding: 30px 0px;
+            padding: 40px 0px;
 
             .drawer{
-                background-color: var(--app-background-color);
+                background-color: var(--color-background);
                 border: none;
                 
                 .mat-drawer-inner-container {
-                    padding: 15px;
+                    padding: 16px;
                 }
             }
             
             .drawer-content{
-                padding: 15px;
+                padding: 16px;
                 min-height: 400px;
             }
         }

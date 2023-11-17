@@ -1,5 +1,5 @@
 .container {
-    height: var(--app-header-height);
+    height: var(--header-height);
     width: 100%;
 
     .home-container{
@@ -10,13 +10,13 @@
         gap: 4px;
     
         .apple-icon{
-            width: var(--app-font-size-large);
-            height: var(--app-font-size-large);
-            font-size: var(--app-font-size-large);
+            width: var(--font-size-l);
+            height: var(--font-size-l);
+            font-size: var(--font-size-l);
         }
     
         .home-title {
-            font-size: var(--app-font-size-medium);
+            font-size: var(--font-size-m);
         }
     }
 
@@ -38,7 +38,7 @@
 }
 
 .top-bar-box-shadow {
-    box-shadow: var(--app-header-box-shadow);
+    box-shadow: var(--box-shadow-header);
 }
 
 .sticky-header {
@@ -50,5 +50,5 @@
 
 .top-bar-under-space{
     width: 100%;
-    height: var(--app-header-height);
+    height: var(--header-height);
 }

@@ -12,15 +12,15 @@
         gap: 16px;
 
         .label{
-            font-size: var(--app-font-size-medium);
-            font-weight: var(--app-font-weight-regular);
-            color: var(--app-primary-color);
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-regular);
+            color: var(--color-primary);
         }
 
         .description{
-            font-size: var(--app-font-size-small);
-            font-weight: var(--app-font-weight-regular);
-            color: var(--app-secondary-color);
+            font-size: var(--font-size-s);
+            font-weight: var(--font-weight-regular);
+            color: var(--color-secondary);
         }
     }
 
@@ -32,9 +32,9 @@
         gap: 16px;
 
         .label {
-            font-size: var(--app-font-size-medium);
-            font-weight: var(--app-font-weight-regular);
-            color: var(--app-primary-color);
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-regular);
+            color: var(--color-primary);
         }
 
         .images-wrapper{
