@@ -38,6 +38,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   ],
   providers: [],
   exports: [
+    // components
+    UserPageTitleBadgeComponent,
     // pages
     UserProfilePageComponent,
   ],

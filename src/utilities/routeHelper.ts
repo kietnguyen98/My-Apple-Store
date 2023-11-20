@@ -8,6 +8,9 @@ import { TProductQueryParamKeys, TAuthQueryParamKeys } from "@/app/share/types";
 type TQueryParamKeyForSubscribes = TProductQueryParamKeys | TAuthQueryParamKeys;
 
 const QUERY_PARAMS_ORDERED_ARRAY: Array<TQueryParamKeyForSubscribes> = [
+  // commons
+  PRODUCT_QUERY_PARAM_KEYS.PAGE,
+  PRODUCT_QUERY_PARAM_KEYS.OFFSET,
   // product
   PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM,
   PRODUCT_QUERY_PARAM_KEYS.STATUS,
@@ -15,8 +18,6 @@ const QUERY_PARAMS_ORDERED_ARRAY: Array<TQueryParamKeyForSubscribes> = [
   PRODUCT_QUERY_PARAM_KEYS.START_PRICE,
   PRODUCT_QUERY_PARAM_KEYS.END_PRICE,
   PRODUCT_QUERY_PARAM_KEYS.SORT_PRICE_DIRECTION,
-  PRODUCT_QUERY_PARAM_KEYS.PAGE,
-  PRODUCT_QUERY_PARAM_KEYS.OFFSET,
   // auth
   AUTH_QUERY_PARAM_KEYS.REDIRECT_URL,
 ];

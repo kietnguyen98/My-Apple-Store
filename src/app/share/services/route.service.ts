@@ -3,30 +3,21 @@ import { Router, ActivatedRoute, Params, NavigationEnd } from "@angular/router";
 import {
   PRODUCT_QUERY_PARAM_KEYS,
   PAGINATION,
-  QUERY_PARAMS_TO_SUBSCRIBES,
+  QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH,
 } from "@/app/share/constants";
 import { Observable, BehaviorSubject } from "rxjs";
 import { PATH } from "@/configs/routes";
 import { TUpdateQueryParamsProps } from "../types";
 import { routeHelper } from "@/utilities";
 import { scrollToTopImmediately } from "@/utilities/windowScrollHelper";
-
-type TNavigateWithUrlOnlyProps = {
-  path: string | Array<string>;
-  reload?: boolean;
-};
-
-type TNavigateWithParamsProps = {
-  path: (typeof PATH)[keyof typeof PATH];
-  queryParams: TUpdateQueryParamsProps;
-  replaceAll?: boolean;
-};
+import { TNavigateWithParamsProps, TNavigateWithUrlOnlyProps } from "../types";
+import { queryParamsMiddleware } from "../middlewares";
 @Injectable({ providedIn: "root" })
 export class RouteService {
   currentPathSubject = new BehaviorSubject<string>("");
   urlQueryParams: Params = {};
   queryParamsSubject = {
-    LIST_PRODUCT: new BehaviorSubject<Params>({}),
+    PRODUCTS: new BehaviorSubject<Params>({}),
     LOGIN: new BehaviorSubject<Params>({}),
     SIGN_UP: new BehaviorSubject<Params>({}),
   };
@@ -44,8 +35,7 @@ export class RouteService {
 
     // subscribe for query params change
     this.activatedRoute.queryParams.subscribe(queryParams => {
-      const cloneQueryParams = { ...queryParams };
-      const isHaveQueryParams = Object.keys(cloneQueryParams).length > 0;
+      const isHaveQueryParams = Object.keys(queryParams).length > 0;
       const currentPathWithoutQueryParams =
         routeHelper.getCleanSpecificRoutePath(
           this.router.url,
@@ -53,59 +43,24 @@ export class RouteService {
         );
 
       for (let [keyOfRouteObject, routeObject] of Object.entries(
-        QUERY_PARAMS_TO_SUBSCRIBES
+        QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH
       )) {
         if (routeObject.PATH_REGEX.test(currentPathWithoutQueryParams)) {
-          if (routeObject.PERMITTED_QUERY_PARAMS.length === 0) {
-            this.navigateWithUrlOnly({ path: currentPathWithoutQueryParams });
-          } else {
-            let shouldReload = false;
-            let validQueryParamsOnUrl: Params = {};
-            for (let key in cloneQueryParams) {
-              let isKeyPermitted = false;
-              routeObject.PERMITTED_QUERY_PARAMS.forEach(queryParam => {
-                if (key === queryParam.KEY) {
-                  isKeyPermitted = true;
-                }
-              });
-              if (!isKeyPermitted) {
-                delete cloneQueryParams[key];
-                shouldReload = true;
-              } else {
-                validQueryParamsOnUrl[key] = cloneQueryParams[key];
-              }
-            }
-
-            if (shouldReload) {
-              this.navigateWithQueryParams({
-                path: currentPathWithoutQueryParams,
-                queryParams: validQueryParamsOnUrl,
-                replaceAll: true,
-              });
-            }
-
-            // all query params from url are valid
-            // create queryParamsForSubscribe object with default value
-            let queryParamsForSubscribe: Params = {};
-            routeObject.PERMITTED_QUERY_PARAMS.forEach(queryParam => {
-              queryParamsForSubscribe[queryParam.KEY] =
-                queryParam.DEFAULT_VALUE;
+          if (isHaveQueryParams) {
+            const { queryParamsForSubscribe } = queryParamsMiddleware({
+              currentPathWithoutQueryParams: currentPathWithoutQueryParams,
+              currentQueryParams: queryParams,
+              permittedQueryParams: routeObject.PERMITTED_QUERY_PARAMS,
+              navigateWithUrlOnly: this.navigateWithUrlOnly,
+              navigateWithQueryParams: this.navigateWithQueryParams,
             });
 
-            // update queryParamsForSubscribe object with valid values on url
-            for (let key in validQueryParamsOnUrl) {
-              queryParamsForSubscribe[key] = validQueryParamsOnUrl[key];
-            }
+            this.queryParamsSubject[
+              keyOfRouteObject as keyof typeof this.queryParamsSubject
+            ].next(queryParamsForSubscribe);
 
-            for (let key in this.queryParamsSubject) {
-              if (keyOfRouteObject === key) {
-                this.queryParamsSubject[
-                  key as keyof typeof this.queryParamsSubject
-                ].next(queryParamsForSubscribe);
-              }
-            }
+            return;
           }
-          return;
         }
       }
       this.resetQueryParams();
@@ -120,7 +75,7 @@ export class RouteService {
   // all query params observable
   // for products
   getProductQueryParams(): Observable<Params> {
-    return this.queryParamsSubject.LIST_PRODUCT.asObservable();
+    return this.queryParamsSubject.PRODUCTS.asObservable();
   }
   // for login
   getLoginQueryParams(): Observable<Params> {
@@ -149,9 +104,9 @@ export class RouteService {
     this.urlQueryParams = {};
     for (let key in this.queryParamsSubject) {
       let defaultQueryParams: Params = {};
-      QUERY_PARAMS_TO_SUBSCRIBES[
-        key as keyof typeof QUERY_PARAMS_TO_SUBSCRIBES
-      ].PERMITTED_QUERY_PARAMS.forEach(queryParam => {
+      QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH[
+        key as keyof typeof QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH
+      ]?.PERMITTED_QUERY_PARAMS.forEach(queryParam => {
         defaultQueryParams[queryParam.KEY] = queryParam.DEFAULT_VALUE;
       });
 
@@ -186,8 +141,6 @@ export class RouteService {
     if (shouldResetPageAndOffset && !replaceAll) {
       this.updateUrlQueryParams({
         page: 1,
-      });
-      this.updateUrlQueryParams({
         offset: PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value.toString(),
       });
     }

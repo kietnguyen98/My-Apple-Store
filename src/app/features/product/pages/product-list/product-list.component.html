@@ -5,8 +5,15 @@
       <app-product-filter-menu />
     </mat-drawer>
     <mat-drawer-content class="drawer-content">
-      <app-product-list-pagination class="product-list-pagination-container">
-        <div class="product-list">
+      <app-product-list-pagination
+        [searchTerm]="searchTerm"
+        [totalElements]="totalElements"
+        [currentPage]="currentPage"
+        [currentOffset]="currentOffset"
+        (changePageAndOffsetEmitter)="handleChangePageAndOffset($event)"
+        (resetAllFilterEmitter)="handleResetAllFilter()"
+        class="product-list-pagination-container">
+        <div *ngIf="productsToShow.length > 0" class="product-list">
           <app-product-cards
             *ngFor="let product of productsToShow"
             [product]="product" />

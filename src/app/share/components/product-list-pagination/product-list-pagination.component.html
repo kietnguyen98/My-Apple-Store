@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="paginator-header" *ngIf="totalElements > 0">
+    <div class="total-elements-container">
+      Number of elements:
+      <span class="total-elements">
+        {{ totalElements }}
+      </span>
+      <span *ngIf="searchTerm"
+        >(match search keyword: "<span class="search-term">{{
+          searchTerm
+        }}</span
+        >")</span
+      >
+    </div>
+    <div class="page-size-container">
+      Paginate by:
+      <select class="page-size-selector" (change)="changeOffset($event)">
+        <option
+          *ngFor="let option of NUM_ELEMENTS_PER_PAGE_OPTIONS"
+          [value]="option.value"
+          [selected]="option.value === currentOffset">
+          {{ option.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="no-products-container" *ngIf="totalElements === 0">
+    <p class="title">No products match this search !</p>
+    <p class="guide-text">
+      Please, check your search keyword or update the filter
+    </p>
+    <p class="guide-text">or</p>
+    <button
+      mat-raised-button
+      color="warn"
+      class="reset-button"
+      (click)="resetAllFilter()">
+      Reset All Filter
+    </button>
+  </div>
+
+  <div class="paginator-body">
+    <!-- insert product list component here -->
+    <ng-content> </ng-content>
+  </div>
+
+  <div class="paginator-footer" *ngIf="totalElements > 0">
+    <div class="page-select-container">
+      <button
+        mat-mini-fab
+        [ngClass]="{ 'jump-page-button': currentPage !== pageMin }"
+        matTooltip="To First page"
+        (click)="firstPage()"
+        [disabled]="currentPage === pageMin">
+        <mat-icon>first_page</mat-icon>
+      </button>
+      <button
+        mat-mini-fab
+        [ngClass]="{ 'jump-page-button': currentPage !== pageMin }"
+        matTooltip="To Previous page"
+        (click)="previousPage()"
+        [disabled]="currentPage === pageMin">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <div class="page-select-buttons-container">
+        <button
+          mat-mini-fab
+          *ngFor="let item of [].constructor(this.pageMax); let i = index"
+          matRipple
+          matRippleColor="accent"
+          [matTooltip]="'To page ' + (i + 1).toString()"
+          type="button"
+          [class]="
+            'page-select-button ' +
+            (i + 1 === currentPage ? 'button-selected' : 'button-unselected')
+          "
+          (click)="selectPage(i + 1)">
+          {{ i + 1 }}
+        </button>
+      </div>
+
+      <button
+        mat-mini-fab
+        [ngClass]="{ 'jump-page-button': currentPage !== pageMax }"
+        matTooltip="To Next page"
+        (click)="nextPage()"
+        [disabled]="currentPage === pageMax">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+      <button
+        mat-mini-fab
+        matTooltip="To Last page"
+        [ngClass]="{ 'jump-page-button': currentPage !== pageMax }"
+        (click)="lastPage()"
+        [disabled]="currentPage === pageMax">
+        <mat-icon>last_page</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
