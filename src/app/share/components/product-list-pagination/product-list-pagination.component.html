@@ -16,7 +16,7 @@
       Paginate by:
       <select class="page-size-selector" (change)="changeOffset($event)">
         <option
-          *ngFor="let option of NUM_ELEMENTS_PER_PAGE_OPTIONS"
+          *ngFor="let option of OFFSET_OPTIONS"
           [value]="option.value"
           [selected]="option.value === currentOffset">
           {{ option.name }}
@@ -48,53 +48,37 @@
   <div class="paginator-footer" *ngIf="totalElements > 0">
     <div class="page-select-container">
       <button
-        mat-mini-fab
-        [ngClass]="{ 'jump-page-button': currentPage !== pageMin }"
-        matTooltip="To First page"
-        (click)="firstPage()"
-        [disabled]="currentPage === pageMin">
-        <mat-icon>first_page</mat-icon>
-      </button>
-      <button
-        mat-mini-fab
-        [ngClass]="{ 'jump-page-button': currentPage !== pageMin }"
+        class="jump-page-button"
+        mat-raised-button
+        color="primary"
         matTooltip="To Previous page"
         (click)="previousPage()"
         [disabled]="currentPage === pageMin">
-        <mat-icon>chevron_left</mat-icon>
+        Previous
       </button>
       <div class="page-select-buttons-container">
         <button
-          mat-mini-fab
+          mat-stroked-button
           *ngFor="let item of [].constructor(this.pageMax); let i = index"
-          matRipple
-          matRippleColor="accent"
           [matTooltip]="'To page ' + (i + 1).toString()"
-          type="button"
-          [class]="
-            'page-select-button ' +
-            (i + 1 === currentPage ? 'button-selected' : 'button-unselected')
-          "
+          color="primary"
+          [ngClass]="{
+            'page-select-button': true,
+            'button-selected': i + 1 === currentPage,
+            'button-unselected': i + 1 !== currentPage
+          }"
           (click)="selectPage(i + 1)">
           {{ i + 1 }}
         </button>
       </div>
-
       <button
-        mat-mini-fab
-        [ngClass]="{ 'jump-page-button': currentPage !== pageMax }"
+        class="jump-page-button"
+        mat-raised-button
+        color="primary"
         matTooltip="To Next page"
         (click)="nextPage()"
         [disabled]="currentPage === pageMax">
-        <mat-icon>chevron_right</mat-icon>
-      </button>
-      <button
-        mat-mini-fab
-        matTooltip="To Last page"
-        [ngClass]="{ 'jump-page-button': currentPage !== pageMax }"
-        (click)="lastPage()"
-        [disabled]="currentPage === pageMax">
-        <mat-icon>last_page</mat-icon>
+        Next
       </button>
     </div>
   </div>

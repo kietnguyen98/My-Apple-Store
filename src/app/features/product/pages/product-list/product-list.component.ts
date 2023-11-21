@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   searchTerm: string = "";
   totalElements: number = 0;
   currentPage: number = 1;
-  currentOffset: number = PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value;
+  currentOffset: number = PAGINATION.DEFAULT_OFFSET_OPTION.value;
   productsToShow: TProducts = [];
   getStickyDrawer: (() => void) | undefined;
 

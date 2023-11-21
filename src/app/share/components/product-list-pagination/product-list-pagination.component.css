@@ -40,7 +40,7 @@
             gap: 8px;
     
             .page-size-selector {
-                width: 150px;
+                width: 160px;
                 height: 30px;
                 padding: 2px 8px; 
                 background-color: white;
@@ -113,13 +113,12 @@
         gap: 8px;
 
         .page-select-button {
-            cursor: pointer;
-            padding: auto;
-            border: unset;
-            background-color: transparent;
+            padding: 0px;
+            min-width: 40px;
+            width: 40px;
+            height: 40px;
             color: var(--color-secondary);
             font-size: var(--font-size-m);
-            border-radius: 50%;
         }
 
         .button-selected {
@@ -138,12 +137,16 @@
     }
 
     .jump-page-button { 
-        background-color: white;
-        color: var(--color-primary);
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        text-transform: uppercase;
 
-    .jump-page-button:hover {
-        background-color: var(--color-primary);
-        color: var(--color-accent);
+        .mat-icon {
+            width: var(--font-size-xl);
+            height: var(--font-size-xl);
+            font-size: var(--font-size-xl);
+        }
     }
 }

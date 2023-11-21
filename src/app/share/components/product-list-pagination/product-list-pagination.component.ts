@@ -6,7 +6,7 @@ import {
   OnChanges,
 } from "@angular/core";
 import { PAGINATION } from "@/app/share/constants";
-import { TNumElementsPerPageOptions } from "@/app/share/types";
+import { TOffsetOptions } from "@/app/share/types";
 
 export type TChangePageAndOffsetProps = {
   page: number;
@@ -22,8 +22,7 @@ export class ProductListPaginationComponent implements OnChanges {
   @Input() searchTerm: string = "";
   @Input() totalElements: number = 0;
   @Input() currentPage: number = 0;
-  @Input() currentOffset: number =
-    PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value;
+  @Input() currentOffset: number = PAGINATION.DEFAULT_OFFSET_OPTION.value;
 
   @Output() changePageAndOffsetEmitter =
     new EventEmitter<TChangePageAndOffsetProps>();
@@ -32,8 +31,7 @@ export class ProductListPaginationComponent implements OnChanges {
   pageMin: number = 1;
   pageMax: number = 1;
 
-  NUM_ELEMENTS_PER_PAGE_OPTIONS: TNumElementsPerPageOptions =
-    PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS;
+  OFFSET_OPTIONS: TOffsetOptions = PAGINATION.OFFSET_OPTIONS;
 
   ngOnChanges(changes: any) {
     if (changes.totalElements?.currentValue) {
@@ -79,18 +77,6 @@ export class ProductListPaginationComponent implements OnChanges {
   previousPage() {
     if (this.currentPage > this.pageMin) {
       this.changePage(this.currentPage - 1);
-    }
-  }
-
-  firstPage() {
-    if (this.currentPage !== 1) {
-      this.changePage(1);
-    }
-  }
-
-  lastPage() {
-    if (this.currentPage < this.pageMax) {
-      this.changePage(this.pageMax);
     }
   }
 

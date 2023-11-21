@@ -40,6 +40,7 @@
 
 .card-container:hover {
     box-shadow: var(--box-shadow-header);
+    transform: translateY(-8px);
 }
 
 

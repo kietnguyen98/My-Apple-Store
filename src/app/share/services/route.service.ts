@@ -141,7 +141,7 @@ export class RouteService {
     if (shouldResetPageAndOffset && !replaceAll) {
       this.updateUrlQueryParams({
         page: 1,
-        offset: PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value.toString(),
+        offset: PAGINATION.DEFAULT_OFFSET_OPTION.value.toString(),
       });
     }
 

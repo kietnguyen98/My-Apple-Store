@@ -1,8 +1,8 @@
-type TNumElementsPerPageOption = {
+type TOffsetOption = {
   name: string;
   value: number;
 };
 
-type TNumElementsPerPageOptions = Array<TNumElementsPerPageOption>;
+type TOffsetOptions = Array<TOffsetOption>;
 
-export { TNumElementsPerPageOption, TNumElementsPerPageOptions };
+export { TOffsetOption, TOffsetOptions };

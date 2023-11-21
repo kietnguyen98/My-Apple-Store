@@ -58,8 +58,7 @@ export const QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH: TQueryParamsToSubscribesOnPath 
         },
         {
           KEY: PRODUCT_QUERY_PARAM_KEYS.OFFSET,
-          DEFAULT_VALUE:
-            PAGINATION.NUM_ELEMENTS_PER_PAGE_OPTIONS[2].value.toString(),
+          DEFAULT_VALUE: PAGINATION.DEFAULT_OFFSET_OPTION.value.toString(),
         },
       ],
     },
