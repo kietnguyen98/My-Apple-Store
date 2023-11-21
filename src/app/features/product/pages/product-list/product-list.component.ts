@@ -5,7 +5,6 @@ import {
   PRODUCT_QUERY_PARAM_KEYS,
 } from "@/app/share/constants";
 import { ProductService } from "../../services/product.service";
-import { windowScrollHelper } from "@/utilities";
 import { TProducts } from "../../types";
 import { RouteService } from "@/app/share/services/route.service";
 import { PATH } from "@/configs/routes";
@@ -32,7 +31,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
       .getListProductsByPagination()
       .subscribe((data: TProducts) => {
         this.productsToShow = data;
-        windowScrollHelper.scrollToTopImmediately();
       });
 
     this.productService.getListProducts().subscribe((data: TProducts) => {

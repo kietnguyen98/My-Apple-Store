@@ -1,6 +1,7 @@
 import {
   PRODUCT_QUERY_PARAM_KEYS,
   AUTH_QUERY_PARAM_KEYS,
+  LOVED_PRODUCT_QUERY_PARAM_KEYS,
 } from "@/app/share/constants";
 import { PATH } from "@/configs/routes";
 
@@ -10,8 +11,15 @@ export type TAuthQueryParamKeys =
 export type TProductQueryParamKeys =
   (typeof PRODUCT_QUERY_PARAM_KEYS)[keyof typeof PRODUCT_QUERY_PARAM_KEYS];
 
+export type TLovedProductQueryParamKeys =
+  (typeof LOVED_PRODUCT_QUERY_PARAM_KEYS)[keyof typeof LOVED_PRODUCT_QUERY_PARAM_KEYS];
+
 export type TProductsQueryParams = Partial<
   Record<TProductQueryParamKeys, string | number>
+>;
+
+export type TLovedProductQueryParams = Partial<
+  Record<TLovedProductQueryParamKeys, string | number>
 >;
 
 export type TUpdateQueryParamsProps = Partial<

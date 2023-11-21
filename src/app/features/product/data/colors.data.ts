@@ -1,6 +1,33 @@
 import { TColors } from "@/app/features/product/types";
 import { v4 as uuidv4 } from "uuid";
 
+const iPhone7Colors: TColors = [
+  {
+    id: uuidv4(),
+    name: "black",
+    value: "black",
+    code: "#1F2020",
+  },
+  {
+    id: uuidv4(),
+    name: "silver",
+    value: "silver",
+    code: "#E4E4E2",
+  },
+  {
+    id: uuidv4(),
+    name: "gold",
+    value: "gold",
+    code: "#DFCCB7",
+  },
+  {
+    id: uuidv4(),
+    name: "rose gold",
+    value: "rose gold",
+    code: "#E6C7C2",
+  },
+];
+
 const iPhone14Colors: TColors = [
   {
     id: uuidv4(),
@@ -165,6 +192,7 @@ const iPhone8Colors: TColors = [
 ];
 
 export {
+  iPhone7Colors,
   iPhone14Colors,
   iPhone13ProMaxColors,
   iPhone12ProMaxColors,

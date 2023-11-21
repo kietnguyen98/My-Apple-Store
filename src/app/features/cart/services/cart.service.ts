@@ -49,7 +49,6 @@ export class CartService {
   }
 
   // cart sidenav
-
   getSidenavState(): Observable<boolean> {
     return this.isSidenavOpenedSubject.asObservable();
   }
@@ -65,7 +64,6 @@ export class CartService {
   }
 
   // cart items
-
   getItems(): Observable<TCartItems> {
     return this.itemsSubject.asObservable();
   }

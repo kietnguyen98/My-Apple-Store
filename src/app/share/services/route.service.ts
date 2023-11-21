@@ -18,6 +18,7 @@ export class RouteService {
   urlQueryParams: Params = {};
   queryParamsSubject = {
     PRODUCTS: new BehaviorSubject<Params>({}),
+    LOVED_PRODUCTS: new BehaviorSubject<Params>({}),
     LOGIN: new BehaviorSubject<Params>({}),
     SIGN_UP: new BehaviorSubject<Params>({}),
   };
@@ -84,6 +85,10 @@ export class RouteService {
   // for sign up
   getSignUpQueryParams(): Observable<Params> {
     return this.queryParamsSubject.SIGN_UP.asObservable();
+  }
+  // for loved products
+  getLovedProductsQueryParams(): Observable<Params> {
+    return this.queryParamsSubject.LOVED_PRODUCTS.asObservable();
   }
 
   updateUrlQueryParams(queryParams: TUpdateQueryParamsProps) {

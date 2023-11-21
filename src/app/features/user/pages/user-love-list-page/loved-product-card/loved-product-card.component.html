@@ -1,0 +1,45 @@
+<div *ngIf="product" class="container">
+  <div class="image-container">
+    <img
+      class="image"
+      [src]="product.imageUrl"
+      [alt]="'image of product' + product.name" />
+  </div>
+  <div class="action-and-info-container">
+    <div class="info-container">
+      <p class="name">{{ product.name }}</p>
+      <app-product-price-display
+        [product]="product"
+        [showLabel]="true"
+        textSize="small" />
+      <div *ngIf="product.colors" class="colors-container">
+        <p class="title">Colors:</p>
+        <div
+          *ngFor="let color of product.colors"
+          [matTooltip]="color.name"
+          [ngStyle]="{ 'background-color': color.code }"
+          class="color-badge"></div>
+      </div>
+      <div *ngIf="product.memoryCapacities" class="memory-capacities-container">
+        <p class="title">Memory Capacities:</p>
+        <div
+          *ngFor="let memoryCapacity of product.memoryCapacities"
+          class="memory-capacity-badge">
+          {{ memoryCapacity.name }}
+        </div>
+      </div>
+    </div>
+    <div class="actions-container">
+      <button
+        class="action-button"
+        mat-raised-button
+        color="primary"
+        (click)="onGetDetailProduct()">
+        See detail
+      </button>
+      <button class="action-button" mat-raised-button color="danger">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

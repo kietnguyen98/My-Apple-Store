@@ -12,5 +12,5 @@ export const PATH = {
   USER: "user",
   PROFILE: "profile",
   PURCHASES: "purchases",
-  LOVE_LIST: "love list",
+  LOVED_PRODUCTS: "loved-products",
 };

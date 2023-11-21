@@ -17,6 +17,12 @@ export const AUTH_QUERY_PARAM_KEYS = {
   REDIRECT_URL: "redirectUrl",
 } as const;
 
+export const LOVED_PRODUCT_QUERY_PARAM_KEYS = {
+  PAGE: "page",
+  OFFSET: "offset",
+  CATEGORY: "category",
+};
+
 export const QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH: TQueryParamsToSubscribesOnPath =
   {
     HOME: {
@@ -102,10 +108,20 @@ export const QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH: TQueryParamsToSubscribesOnPath 
       PATH_REGEX: new RegExp(`^${PATH.USER}/${PATH.PURCHASES}$`),
       PERMITTED_QUERY_PARAMS: [],
     },
-    LOVE_LIST: {
-      PATH: `${PATH.USER}/${PATH.LOVE_LIST}`,
-      PATH_REGEX: new RegExp(`^${PATH.USER}/${PATH.LOVE_LIST}$`),
-      PERMITTED_QUERY_PARAMS: [],
+    LOVED_PRODUCTS: {
+      PATH: `${PATH.USER}/${PATH.LOVED_PRODUCTS}`,
+      PATH_REGEX: new RegExp(`^${PATH.USER}/${PATH.LOVED_PRODUCTS}$`),
+      PERMITTED_QUERY_PARAMS: [
+        { KEY: LOVED_PRODUCT_QUERY_PARAM_KEYS.PAGE, DEFAULT_VALUE: "1" },
+        {
+          KEY: LOVED_PRODUCT_QUERY_PARAM_KEYS.OFFSET,
+          DEFAULT_VALUE: PAGINATION.DEFAULT_OFFSET_OPTION.value.toString(),
+        },
+        {
+          KEY: LOVED_PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
+          DEFAULT_VALUE: CATEGORIES_VALUE.ALL,
+        },
+      ],
     },
     DUMMY: {
       PATH: PATH.DUMMY,

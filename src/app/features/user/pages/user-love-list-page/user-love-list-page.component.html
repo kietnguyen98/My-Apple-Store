@@ -1,0 +1,22 @@
+<div class="container">
+  <app-user-page-title-badge
+    title="My love list"
+    subTitle="Manage your loved products and see what's news"
+    iconName="favorite" />
+  <div class="content-container">
+    <app-product-list-pagination
+      [totalElements]="totalElements"
+      [currentPage]="currentPage"
+      [currentOffset]="currentOffset"
+      (changePageAndOffsetEmitter)="handleChangePageAndOffset($event)"
+      (resetAllFilterEmitter)="handleResetAllFilter()">
+      <div
+        *ngIf="lovedProductsToShow.length > 0"
+        class="product-cards-container">
+        <app-loved-product-card
+          *ngFor="let lovedProduct of lovedProductsToShow"
+          [product]="lovedProduct.product" />
+      </div>
+    </app-product-list-pagination>
+  </div>
+</div>

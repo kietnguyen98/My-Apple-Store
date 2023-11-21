@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { categories } from "./categories.data";
 import { memoryCapacities } from "./memoryCapacities.data";
 import {
+  iPhone7Colors,
   iPhone14Colors,
   iPhone13ProMaxColors,
   iPhone12ProMaxColors,
@@ -31,6 +32,7 @@ export const products: TProducts = [
       memoryCapacities[1],
       memoryCapacities[2],
     ],
+    colors: iPhone7Colors,
   },
   {
     id: uuidv4(),

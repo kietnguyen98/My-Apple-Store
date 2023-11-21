@@ -7,9 +7,9 @@ import { DummyComponent } from "./share/pages/dummy/dummy.component";
 import { LoginComponent } from "./features/auth/pages/login/login.component";
 import { SignUpComponent } from "./features/auth/pages/sign-up/sign-up.component";
 import { UserPageComponent } from "./features/user/pages/user-page/user-page.component";
-import { UserProfilePageComponent } from "./features/user/pages/user-page/user-profile-page/user-profile-page.component";
-import { UserPurchasesPageComponent } from "./features/user/pages/user-page/user-purchases-page/user-purchases-page.component";
-import { UserLoveListPageComponent } from "./features/user/pages/user-page/user-love-list-page/user-love-list-page.component";
+import { UserProfilePageComponent } from "./features/user/pages/user-profile-page/user-profile-page.component";
+import { UserPurchasesPageComponent } from "./features/user/pages/user-purchases-page/user-purchases-page.component";
+import { UserLoveListPageComponent } from "./features/user/pages/user-love-list-page/user-love-list-page.component";
 import { PATH } from "@/configs/routes";
 
 const routes: Routes = [
@@ -64,7 +64,7 @@ const routes: Routes = [
       {
         title: "MAS - User love list",
         pathMatch: "full",
-        path: PATH.LOVE_LIST,
+        path: PATH.LOVED_PRODUCTS,
         component: UserLoveListPageComponent,
       },
     ],
