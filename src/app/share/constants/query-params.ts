@@ -1,5 +1,5 @@
 import { PATH } from "@/configs/routes";
-import { CATEGORIES_VALUE, PAGINATION, PRICES } from ".";
+import { CATEGORY_VALUES, PAGINATION, PRICES } from ".";
 import { TQueryParamsToSubscribesOnPath } from "../types";
 
 export const PRODUCT_QUERY_PARAM_KEYS = {
@@ -40,7 +40,7 @@ export const QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH: TQueryParamsToSubscribesOnPath 
         },
         {
           KEY: PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
-          DEFAULT_VALUE: CATEGORIES_VALUE.ALL,
+          DEFAULT_VALUE: CATEGORY_VALUES.ALL,
         },
         {
           KEY: PRODUCT_QUERY_PARAM_KEYS.STATUS,
@@ -119,7 +119,7 @@ export const QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH: TQueryParamsToSubscribesOnPath 
         },
         {
           KEY: LOVED_PRODUCT_QUERY_PARAM_KEYS.CATEGORY,
-          DEFAULT_VALUE: CATEGORIES_VALUE.ALL,
+          DEFAULT_VALUE: CATEGORY_VALUES.ALL,
         },
       ],
     },

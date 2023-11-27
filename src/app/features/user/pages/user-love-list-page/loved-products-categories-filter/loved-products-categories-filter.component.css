@@ -1,0 +1,14 @@
+.container {
+    padding: 8px 16px;
+    background-color: white;
+    box-shadow: var(--box-shadow-border);
+    border-radius: var(--border-radius-s);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    .title{
+        font-size: var(--font-size-s);
+        color: var(--color-secondary);
+    }
+}

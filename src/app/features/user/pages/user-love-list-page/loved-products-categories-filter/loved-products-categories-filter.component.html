@@ -1,13 +1,13 @@
 <div class="container">
-  <p class="label">Categories</p>
+  <p class="title">Categories:</p>
   <mat-chip-listbox
     [value]="currentCategory"
-    (change)="handleChangeCategory($event)"
+    (change)="changeCategory($event)"
     aria-label="category filter">
     <mat-chip-option
       *ngFor="let option of CATEGORY_OPTIONS"
       [value]="option.value"
-      [selectable]="currentCategory !== option.name"
+      [selectable]="currentCategory !== option.value"
       color="primary"
       >{{ option.name }}</mat-chip-option
     >

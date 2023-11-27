@@ -5,7 +5,7 @@
       [src]="product.imageUrl"
       [alt]="'image of product' + product.name" />
   </div>
-  <div class="action-and-info-container">
+  <div class="info-container">
     <div class="info-container">
       <p class="name">{{ product.name }}</p>
       <app-product-price-display
@@ -29,17 +29,17 @@
         </div>
       </div>
     </div>
-    <div class="actions-container">
-      <button
-        class="action-button"
-        mat-raised-button
-        color="primary"
-        (click)="onGetDetailProduct()">
-        See detail
-      </button>
-      <button class="action-button" mat-raised-button color="danger">
-        Remove
-      </button>
-    </div>
+  </div>
+  <div class="actions-container">
+    <button
+      class="action-button"
+      mat-raised-button
+      color="primary"
+      (click)="onGetDetailProduct()">
+      See detail
+    </button>
+    <button class="action-button" mat-raised-button color="danger">
+      Remove
+    </button>
   </div>
 </div>

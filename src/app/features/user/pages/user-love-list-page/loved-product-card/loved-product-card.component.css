@@ -14,21 +14,20 @@
         align-items: center;
 
         .image{
-            height: 160px;
+            height: 120px;
         }
     }
 
-    .action-and-info-container{
-        flex: 3;
+    .info-container{
+        flex: 4;
         display: flex;
         flex-direction: column;
         gap: 16px;
-        justify-content: space-between;
 
         .info-container{
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 8px;
 
             .name{
                 font-size: var(--font-size-m);
@@ -42,8 +41,8 @@
     
                 .color-badge{
                     cursor: pointer;
-                    height: 16px;
-                    width: 24px;
+                    height: 24px;
+                    width: 32px;
                     border-radius: var(--border-radius-s);
                 }
             }
@@ -63,20 +62,23 @@
                 }
             }
         }
+    }
 
-        .actions-container{
-            display: flex;
-            align-items: center;
-            /* justify-content: flex-end; */
-            gap: 16px;
+    .actions-container{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 16px;
 
-            .action-button {
-                padding: 0px 16px;
-                font-size: var(--font-size-xs);
+        .action-button {
+            width: 100%;
+            padding: 0px 16px;
+            font-size: var(--font-size-xs);
 
-                .mat-mdc-button-touch-target{
-                    height: 32px;
-                }
+            .mat-mdc-button-touch-target{
+                height: 32px;
             }
         }
     }

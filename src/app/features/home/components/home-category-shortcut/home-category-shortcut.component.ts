@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { PATH } from "@/configs/routes";
 import { RouteService } from "@/app/share/services/route.service";
 import {
-  CATEGORIES_VALUE,
+  CATEGORY_VALUES,
   PRODUCT_QUERY_PARAM_KEYS,
 } from "@/app/share/constants";
 
@@ -10,7 +10,7 @@ type THomeIntroCategory = {
   imageUrl: string;
   name: string;
   description: string;
-  value: (typeof CATEGORIES_VALUE)[keyof typeof CATEGORIES_VALUE];
+  value: (typeof CATEGORY_VALUES)[keyof typeof CATEGORY_VALUES];
 };
 
 @Component({
@@ -27,26 +27,26 @@ export class HomeCategoryShortcutComponent {
       name: "IPhone",
       description:
         "Get the best phone for you and your lover, those products are perfect made with high quality. With this item, you will be a pro vip person",
-      value: CATEGORIES_VALUE.IPHONE,
+      value: CATEGORY_VALUES.IPHONE,
     },
     {
       imageUrl: "/assets/images/categories/ipad.png",
       name: "IPad",
       description:
         "Get the best tablet for you and your lover, those products are perfect made with high quality. With this item, you will be a pro vip person",
-      value: CATEGORIES_VALUE.IPAD,
+      value: CATEGORY_VALUES.IPAD,
     },
     {
       imageUrl: "/assets/images/categories/iwatch.png",
       name: "IWatch",
       description:
         "Get the best watch for you and your lover, those products are perfect made with high quality. With this item, you will be a pro vip person",
-      value: CATEGORIES_VALUE.IWATCH,
+      value: CATEGORY_VALUES.IWATCH,
     },
   ];
 
   getToProductsPage(
-    categoryValue: (typeof CATEGORIES_VALUE)[keyof typeof CATEGORIES_VALUE]
+    categoryValue: (typeof CATEGORY_VALUES)[keyof typeof CATEGORY_VALUES]
   ) {
     this.routeService.navigateWithQueryParams({
       path: PATH.PRODUCTS,

@@ -6,7 +6,7 @@ import { AuthService } from "../../auth/services/auth.service";
 import { RouteService } from "@/app/share/services/route.service";
 import { TLovedProductQueryParams } from "@/app/share/types";
 import {
-  CATEGORIES_VALUE,
+  CATEGORY_VALUES,
   LOVED_PRODUCT_QUERY_PARAM_KEYS,
 } from "@/app/share/constants";
 
@@ -31,11 +31,11 @@ export class LovedProductsService {
   ) {
     this.authService.getUser().subscribe(user => {
       if (user) {
-        const newLovedProducts = lovedProductsMockData.filter(
+        const userLovedProducts = lovedProductsMockData.filter(
           lovedProduct => lovedProduct.user.id === user.id
         );
 
-        this.lovedProducts = newLovedProducts;
+        this.lovedProducts = userLovedProducts;
       }
     });
 
@@ -56,25 +56,23 @@ export class LovedProductsService {
 
     if (category) {
       tempLovedProducts = tempLovedProducts.filter(lovedProduct =>
-        category !== CATEGORIES_VALUE.ALL
+        category !== CATEGORY_VALUES.ALL
           ? lovedProduct.product.category.name === category
           : lovedProduct.product.category.name
       );
     }
 
-    this.lovedProducts = tempLovedProducts;
-    this.lovedProductsSubject.next(this.lovedProducts);
-    this.setLovedProductsByPagination();
+    this.lovedProductsSubject.next(tempLovedProducts);
+    this.setLovedProductsByPagination(tempLovedProducts);
   }
 
-  setLovedProductsByPagination() {
+  setLovedProductsByPagination(filteredLovedProducts: TLovedProducts) {
     const page = Number(this.queryParams[LOVED_PRODUCT_QUERY_PARAM_KEYS.PAGE]);
     const offset = Number(
       this.queryParams[LOVED_PRODUCT_QUERY_PARAM_KEYS.OFFSET]
     );
 
-    let tempLovedProducts = [...this.lovedProducts];
-    this.lovedProductsByPagination = tempLovedProducts.slice(
+    this.lovedProductsByPagination = filteredLovedProducts.slice(
       (page - 1) * offset,
       page * offset
     );

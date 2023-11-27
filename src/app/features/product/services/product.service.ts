@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { products } from "@/app/features/product/data/products.data";
 import {
-  CATEGORIES_VALUE,
+  CATEGORY_VALUES,
   PRICES,
   PRODUCT_STATUS_VALUES,
 } from "@/app/share/constants";
@@ -76,7 +76,7 @@ export class ProductService {
     // filter by category values
     if (category) {
       tempProducts = tempProducts.filter(product =>
-        category !== CATEGORIES_VALUE.ALL
+        category !== CATEGORY_VALUES.ALL
           ? product.category.name === category
           : product.category.name
       );
