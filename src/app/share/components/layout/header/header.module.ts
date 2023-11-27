@@ -2,11 +2,11 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 // components
-import { TopBarComponent } from "./top-bar.component";
+import { HeaderComponent } from "./header.component";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
 import { CartToggleButtonComponent } from "./cart-toggle-button/cart-toggle-button.component";
 import { HeaderUserNavigationMenuComponent } from "./header-user-navigation-menu/header-user-navigation-menu.component";
-import { UserAvatarComponent } from "../user-avatar/user-avatar.component";
+import { UserAvatarComponent } from "../../user-avatar/user-avatar.component";
 
 // angular material modules
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -31,13 +31,13 @@ import { MatBadgeModule } from "@angular/material/badge";
   ],
   declarations: [
     // root
-    TopBarComponent,
+    HeaderComponent,
     // children
     UserAvatarComponent,
     HeaderUserNavigationMenuComponent,
     HeaderSearchInputComponent,
     CartToggleButtonComponent,
   ],
-  exports: [TopBarComponent, UserAvatarComponent],
+  exports: [HeaderComponent, UserAvatarComponent],
 })
 export class TopBarModule {}

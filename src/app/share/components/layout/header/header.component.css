@@ -37,7 +37,7 @@
     transition: all 0.25s ease-in-out;
 }
 
-.top-bar-box-shadow {
+.header-box-shadow {
     box-shadow: var(--box-shadow-header);
 }
 
@@ -48,7 +48,7 @@
     z-index: 999;
 }
 
-.top-bar-under-space{
+.header-under-space{
     width: 100%;
     height: var(--header-height);
 }

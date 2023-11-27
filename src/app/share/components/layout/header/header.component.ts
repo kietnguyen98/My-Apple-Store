@@ -2,16 +2,16 @@ import { Component, OnInit } from "@angular/core";
 import { NavigationEnd } from "@angular/router";
 import { COMPONENT_DIMENSIONS } from "@/app/share/constants";
 import { PATH } from "@/configs/routes";
+import { RouteService } from "@/app/share/services/route.service";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
-import { RouteService } from "../../services/route.service";
 
 @Component({
   providers: [HeaderSearchInputComponent],
-  selector: "app-top-bar",
-  templateUrl: "./top-bar.component.html",
-  styleUrls: ["./top-bar.component.css"],
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"],
 })
-export class TopBarComponent implements OnInit {
+export class HeaderComponent implements OnInit {
   currentRoute: string | undefined;
 
   private APP_PRIMARY_COLOR: string = "#191919";
@@ -43,9 +43,9 @@ export class TopBarComponent implements OnInit {
     const changeHeaderState = () => {
       if (headerBar) {
         if (window.scrollY >= COMPONENT_DIMENSIONS.APP_BREADCRUMBS_HEIGHT) {
-          headerBar.classList.add("top-bar-box-shadow");
+          headerBar.classList.add("header-box-shadow");
         } else {
-          headerBar.classList.remove("top-bar-box-shadow");
+          headerBar.classList.remove("header-box-shadow");
         }
 
         if (this.currentRoute === PATH.HOME) {

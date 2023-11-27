@@ -3,15 +3,15 @@ import { CommonModule } from "@angular/common";
 
 // components
 import { BreadcrumbsBarComponent } from "./components/breadcrumbs-bar/breadcrumbs-bar.component";
-import { ScrollTopButtonComponent } from "./components/scroll-top-button/scroll-top-button.component";
+import { ScrollTopButtonComponent } from "./components/layout/scroll-top-button/scroll-top-button.component";
 import { NotificationSnackBarComponent } from "./components/notification-snack-bar/notification-snack-bar.component";
 import { CustomFormControlComponent } from "./components/custom-form-control/custom-form-control.component";
 import { ProductPriceDisplayComponent } from "./components/product-price-display/product-price-display.component";
 import { ProductListPaginationComponent } from "./components/product-list-pagination/product-list-pagination.component";
 
 // modules
-import { TopBarModule } from "./components/top-bar/top-bar.module";
-import { FooterModule } from "./components/footer/footer.module";
+import { TopBarModule } from "./components/layout/header/header.module";
+import { FooterModule } from "./components/layout/footer/footer.module";
 
 // angular material modules
 import { MatIconModule } from "@angular/material/icon";
