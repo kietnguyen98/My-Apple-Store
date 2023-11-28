@@ -1,17 +1,18 @@
 import { TCategories } from "@/app/features/product/types";
 import { v4 as uuidv4 } from "uuid";
+import { CATEGORY_VALUES } from "@/app/share/constants";
 
-export const categories: TCategories = [
+export const categoriesMockData: TCategories = [
   {
     id: uuidv4(),
-    name: "iPhone",
+    name: CATEGORY_VALUES.IPHONE,
   },
   {
     id: uuidv4(),
-    name: "iPad",
+    name: CATEGORY_VALUES.IPAD,
   },
   {
     id: uuidv4(),
-    name: "iWatch",
+    name: CATEGORY_VALUES.IWATCH,
   },
 ];

@@ -1,7 +1,7 @@
 import { TColors } from "@/app/features/product/types";
 import { v4 as uuidv4 } from "uuid";
 
-const iPhone7Colors: TColors = [
+const iPhone7ColorsMockData: TColors = [
   {
     id: uuidv4(),
     name: "black",
@@ -28,7 +28,7 @@ const iPhone7Colors: TColors = [
   },
 ];
 
-const iPhone14Colors: TColors = [
+const iPhone14ColorsMockData: TColors = [
   {
     id: uuidv4(),
     name: "black",
@@ -50,7 +50,7 @@ const iPhone14Colors: TColors = [
   },
 ];
 
-const iPhone13ProMaxColors: TColors = [
+const iPhone13ProMaxColorsMockData: TColors = [
   {
     id: uuidv4(),
     name: "blue",
@@ -78,7 +78,7 @@ const iPhone13ProMaxColors: TColors = [
   },
 ];
 
-const iPhone12ProMaxColors: TColors = [
+const iPhone12ProMaxColorsMockData: TColors = [
   {
     id: uuidv4(),
     name: "graphite",
@@ -100,7 +100,7 @@ const iPhone12ProMaxColors: TColors = [
   },
 ];
 
-const iPhone11ProColors: TColors = [
+const iPhone11ProColorsMockData: TColors = [
   {
     id: uuidv4(),
     name: "green",
@@ -122,7 +122,7 @@ const iPhone11ProColors: TColors = [
   },
 ];
 
-const iPhoneXSColors: TColors = [
+const iPhoneXSColorsMockData: TColors = [
   {
     id: uuidv4(),
     name: "black",
@@ -138,7 +138,7 @@ const iPhoneXSColors: TColors = [
   { id: uuidv4(), name: "gold", value: "gold", code: "#F5DDC5" },
 ];
 
-const iPhoneSEColors: TColors = [
+const iPhoneSEColorsMockData: TColors = [
   {
     id: uuidv4(),
     name: "silver",
@@ -155,7 +155,7 @@ const iPhoneSEColors: TColors = [
   { id: uuidv4(), name: "rose", value: "rose", code: "#e8c1bc" },
 ];
 
-const iPhoneXColors: TColors = [
+const iPhoneXColorsMockData: TColors = [
   {
     id: uuidv4(),
     name: "silver",
@@ -170,7 +170,7 @@ const iPhoneXColors: TColors = [
   },
 ];
 
-const iPhone8Colors: TColors = [
+const iPhone8ColorsMockData: TColors = [
   {
     id: uuidv4(),
     name: "silver",
@@ -192,13 +192,13 @@ const iPhone8Colors: TColors = [
 ];
 
 export {
-  iPhone7Colors,
-  iPhone14Colors,
-  iPhone13ProMaxColors,
-  iPhone12ProMaxColors,
-  iPhone11ProColors,
-  iPhoneXSColors,
-  iPhoneSEColors,
-  iPhoneXColors,
-  iPhone8Colors,
+  iPhone7ColorsMockData,
+  iPhone14ColorsMockData,
+  iPhone13ProMaxColorsMockData,
+  iPhone12ProMaxColorsMockData,
+  iPhone11ProColorsMockData,
+  iPhoneXSColorsMockData,
+  iPhoneSEColorsMockData,
+  iPhoneXColorsMockData,
+  iPhone8ColorsMockData,
 };

@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { products } from "@/app/features/product/data/products.data";
+import { productsMockData } from "@/app/features/product/data/products.data";
 import {
   CATEGORY_VALUES,
   PRICES,
@@ -32,7 +32,7 @@ export class ProductService {
 
   // list products filter
   setListProducts() {
-    let tempProducts = [...products];
+    let tempProducts = [...productsMockData];
     const searchTerm =
       this.queryParams[PRODUCT_QUERY_PARAM_KEYS.SEARCH_TERM]?.toString();
     const status =

@@ -1,4 +1,4 @@
-import { products } from "@/app/features/product/data/products.data";
+import { productsMockData } from "@/app/features/product/data/products.data";
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { PATH } from "@/configs/routes";
 import { RouteService } from "@/app/share/services/route.service";
@@ -10,7 +10,7 @@ import { PRODUCT_STATUS_VALUES } from "@/app/share/constants";
   styleUrls: ["./home-flash-sale-products.component.css"],
 })
 export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
-  products: TProducts = products.slice(0, 10);
+  products: TProducts = productsMockData.slice(0, 10);
   requestId: number | undefined;
   elementsX: Array<number> = [];
   previousTimeStamp: number = 0;

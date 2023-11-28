@@ -46,6 +46,7 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
     FooterModule,
   ],
   declarations: [
+    // components
     BreadcrumbsBarComponent,
     ScrollTopButtonComponent,
     NotificationSnackBarComponent,

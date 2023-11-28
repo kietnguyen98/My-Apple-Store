@@ -1,0 +1,71 @@
+<div class="container">
+  <!-- for products with category -->
+  <div *ngFor="let category of categories" class="dropdown-container">
+    <div
+      [ngClass]="{
+        'category-card': true,
+        'not-hovered': hoverCategory !== category.name,
+        hovered: hoverCategory === category.name
+      }"
+      (mouseenter)="changeHoverCategory(category.name)"
+      (mouseleave)="changeHoverCategory('')">
+      <p class="title">{{ category.name }}</p>
+    </div>
+    <div
+      (mouseenter)="changeHoverCategory(category.name)"
+      (mouseleave)="changeHoverCategory('')"
+      [ngClass]="{
+        'dropdown-menu': true,
+        hidden: hoverCategory !== category.name,
+        visible: hoverCategory === category.name
+      }">
+      <div class="menu-container">
+        <p
+          matRipple
+          class="product-link"
+          *ngFor="
+            let product of products | productByCategoryPipe: category.name
+          "
+          (click)="navigateToProductDetail(product.name)">
+          {{ product.name }}
+          <mat-icon class="arrow-icon">arrow_forward</mat-icon>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- for others -->
+  <div class="link-container">
+    <p class="title">About us</p>
+  </div>
+  <div class="dropdown-container">
+    <div
+      [ngClass]="{
+        'category-card': true,
+        'not-hovered': hoverCategory !== 'support',
+        hovered: hoverCategory === 'support'
+      }"
+      (mouseenter)="changeHoverCategory('support')"
+      (mouseleave)="changeHoverCategory('')">
+      <p class="title">Support</p>
+    </div>
+    <div
+      (mouseenter)="changeHoverCategory('support')"
+      (mouseleave)="changeHoverCategory('')"
+      [ngClass]="{
+        'dropdown-menu': true,
+        hidden: hoverCategory !== 'support',
+        visible: hoverCategory === 'support'
+      }">
+      <div class="menu-container">
+        <p
+          matRipple
+          class="product-link"
+          *ngFor="let link of supportLinks"
+          (click)="navigateToPage(link.to)">
+          {{ link.name }}
+          <mat-icon class="arrow-icon">arrow_forward</mat-icon>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

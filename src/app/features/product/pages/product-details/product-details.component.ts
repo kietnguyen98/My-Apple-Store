@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, ParamMap } from "@angular/router";
-import { products } from "@/app/features/product/data/products.data";
+import { productsMockData } from "@/app/features/product/data/products.data";
 import { ROUTE_PARAMS } from "@/configs/routes";
 import { ProductService } from "../../services/product.service";
 import { CartService } from "@/app/features/cart/services/cart.service";
@@ -28,7 +28,7 @@ export class ProductDetailsComponent {
   ) {
     this.route.paramMap.subscribe((params: ParamMap) => {
       const productNameFromRoute = params.get(ROUTE_PARAMS.PRODUCT_NAME);
-      this.product = products.find(
+      this.product = productsMockData.find(
         product => product.name === productNameFromRoute
       );
 
@@ -39,7 +39,7 @@ export class ProductDetailsComponent {
   refreshProductInfo() {
     this.productService.setProductDetail(this.product as TProduct);
     this.updateTotalProductPrice();
-    this.listRelatedProducts = products.filter(
+    this.listRelatedProducts = productsMockData.filter(
       product =>
         product.category.id === this.product?.category.id &&
         product !== this.product

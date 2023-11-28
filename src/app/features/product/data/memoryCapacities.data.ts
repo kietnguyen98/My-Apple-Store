@@ -1,7 +1,7 @@
 import { TMemoryCapacities } from "@/app/features/product/types";
 import { v4 as uuidv4 } from "uuid";
 
-export const memoryCapacities: TMemoryCapacities = [
+export const memoryCapacitiesMockData: TMemoryCapacities = [
   {
     id: uuidv4(),
     name: "64 GB",

@@ -7,6 +7,10 @@ import { HeaderSearchInputComponent } from "./header-search-input/header-search-
 import { CartToggleButtonComponent } from "./cart-toggle-button/cart-toggle-button.component";
 import { HeaderUserNavigationMenuComponent } from "./header-user-navigation-menu/header-user-navigation-menu.component";
 import { UserAvatarComponent } from "../../user-avatar/user-avatar.component";
+import { HeaderNavigationBarComponent } from "./header-navigation-bar/header-navigation-bar.component";
+
+// pipes
+import { ProductByCategoryPipe } from "@/app/share/pipes/product-by-category.pipe";
 
 // angular material modules
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -33,10 +37,14 @@ import { MatBadgeModule } from "@angular/material/badge";
     // root
     HeaderComponent,
     // children
+    // components
     UserAvatarComponent,
     HeaderUserNavigationMenuComponent,
     HeaderSearchInputComponent,
     CartToggleButtonComponent,
+    HeaderNavigationBarComponent,
+    // pipes
+    ProductByCategoryPipe,
   ],
   exports: [HeaderComponent, UserAvatarComponent],
 })
