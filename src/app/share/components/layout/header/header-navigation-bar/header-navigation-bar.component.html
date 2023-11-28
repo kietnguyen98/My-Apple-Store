@@ -10,6 +10,14 @@
       (mouseenter)="changeHoverCategory(category.name)"
       (mouseleave)="changeHoverCategory('')">
       <p class="title">{{ category.name }}</p>
+      <mat-icon
+        [ngClass]="{
+          'expand-icon': true,
+          'not-expanded': hoverCategory !== category.name,
+          expanded: hoverCategory === category.name
+        }"
+        >arrow_drop_down</mat-icon
+      >
     </div>
     <div
       (mouseenter)="changeHoverCategory(category.name)"
@@ -34,7 +42,7 @@
     </div>
   </div>
   <!-- for others -->
-  <div class="link-container">
+  <div class="link-container" matRipple (click)="navigateToPage('/')">
     <p class="title">About us</p>
   </div>
   <div class="dropdown-container">
@@ -47,6 +55,14 @@
       (mouseenter)="changeHoverCategory('support')"
       (mouseleave)="changeHoverCategory('')">
       <p class="title">Support</p>
+      <mat-icon
+        [ngClass]="{
+          'expand-icon': true,
+          'not-expanded': hoverCategory !== 'support',
+          expanded: hoverCategory === 'support'
+        }"
+        >arrow_drop_down</mat-icon
+      >
     </div>
     <div
       (mouseenter)="changeHoverCategory('support')"
