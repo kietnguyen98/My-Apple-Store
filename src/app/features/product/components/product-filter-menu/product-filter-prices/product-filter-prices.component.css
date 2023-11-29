@@ -1,10 +1,10 @@
 p {
-    margin: 0px;
+    margin: 0rem;
 }
 .container{
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 0.25rem;
     
     .label{
         font-size: var(--font-size-xs);
@@ -17,6 +17,6 @@ p {
     }
 
     .value-slider{
-        width: 180px;
+        width: 11.25rem;
     }
 }

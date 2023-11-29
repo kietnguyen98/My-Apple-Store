@@ -11,19 +11,19 @@
         .drawer-container {
             width: var(--container-fix-width);
             min-height: max-content;
-            padding: 40px 0px;
+            padding: 2.5rem 0rem;
 
             .drawer{
                 background-color: var(--color-background);
                 border: none;
                 
                 .mat-drawer-inner-container {
-                    padding: 16px;
+                    padding: 1rem;
                 }
             }
             
             .drawer-content{
-                padding: 16px;
+                padding: 1rem;
                 min-height: 50vh;
             }
         }

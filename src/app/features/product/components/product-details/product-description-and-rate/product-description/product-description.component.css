@@ -1,15 +1,15 @@
 .tab-container {
-    padding: 20px;
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 2rem;
 
     .description-container{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: 16px;
+        gap: 1rem;
 
         .label{
             font-size: var(--font-size-m);
@@ -29,7 +29,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        gap: 16px;
+        gap: 1rem;
 
         .label {
             font-size: var(--font-size-m);
@@ -42,7 +42,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 24px;
+            gap: 1.5rem;
 
             .image{
                 width: fit-content;

@@ -4,7 +4,7 @@ import { HomeComponent } from "./features/home/pages/home/home.component";
 import { ProductListComponent } from "./features/product/pages/product-list/product-list.component";
 import { ProductDetailsComponent } from "./features/product/pages/product-details/product-details.component";
 import { DummyComponent } from "./share/pages/dummy/dummy.component";
-import { LoginComponent } from "./features/auth/pages/login/login.component";
+import { LoginComponent } from "./features/auth/pages/login-page/login-page.component";
 import { SignUpComponent } from "./features/auth/pages/sign-up/sign-up.component";
 import { UserPageComponent } from "./features/user/pages/user-page/user-page.component";
 import { UserProfilePageComponent } from "./features/user/pages/user-profile-page/user-profile-page.component";

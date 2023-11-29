@@ -1,5 +1,5 @@
 p {
-    margin: 0px;
+    margin: 0rem;
 } 
 
 .container{
@@ -9,23 +9,21 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    gap: 32px;
-    padding: 0px 16px;
+    gap: 2rem;
+    padding: 0rem 1rem;
     box-shadow: var(--box-shadow-border);
     border-radius: var(--border-radius-s);
-    margin-bottom: 20px;
 }
 
 .sticky {
     position: fixed;
-    margin: 0px;
+    margin: 0rem;
     left: calc((100vw - var(--container-fix-width)) / 2);
-    transform: translate(calc(0px - ((100vw - var(--container-fix-width)) / 2)), 0);
+    transform: translate(calc(0rem - ((100vw - var(--container-fix-width)) / 2)), 0);
     top: var(--header-height);
     width: 100vw;
     z-index: 9;
-    border-radius: 0px;
+    border-radius: 0rem;
 }
 
 .label {
@@ -47,7 +45,7 @@ p {
 
 .selected {
     color: var(--color-warn);
-    border-bottom: 2px solid var(--color-warn);
+    border-bottom: 0.125rem solid var(--color-warn);
 }
 
 .unselected{
@@ -56,9 +54,9 @@ p {
 }
 
 .dummy{
-    height: 0px;
+    height: 0rem;
 }
 
 .sticky + .dummy{
-    height: calc(var(--breadcrumbs-height) + 20px);
+    height: calc(var(--breadcrumbs-height) + 1.25rem);
 }

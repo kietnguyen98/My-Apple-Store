@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
 
     .label{
         font-weight: var(--font-weight-regular);
@@ -18,7 +18,7 @@
         background-color: white;
         border-radius: var(--border-radius-s);  
         box-shadow: var(--box-shadow-container);
-        padding: 30px;
+        padding: 2rem;
     }
 }
 

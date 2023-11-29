@@ -1,7 +1,7 @@
 .container{
     display: flex;
     align-items: flex-end;
-    gap: 8px;
+    gap: 0.5rem;
 
     .label {
         font-weight: var(--font-weight-regular);
@@ -17,7 +17,7 @@
     .sale-price-container{
         display: flex;
         align-items: flex-end;
-        gap: 4px;
+        gap: 0.25rem;
         
         .original-price {
             color: var(--color-secondary);
@@ -31,7 +31,7 @@
         }
 
         .sale-percentage-badge{
-            padding: 2px 4px;
+            padding: 0.125rem 0.25rem;
             border-radius: var(--border-radius-s);
             background-color: var(--color-warn);
            

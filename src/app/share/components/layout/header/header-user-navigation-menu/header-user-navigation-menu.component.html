@@ -14,7 +14,7 @@
   class="user-info-container">
   <app-user-avatar [avatarUrl]="user.avatarUrl" [size]="32"></app-user-avatar>
 </div>
-<mat-menu #userMenu="matMenu">
+<mat-menu #userMenu="matMenu" xPosition="before">
   <button
     mat-menu-item
     *ngFor="let option of userNavigateOptions"

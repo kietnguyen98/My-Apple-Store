@@ -10,9 +10,9 @@ import {
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { TFormValidationMessages, TSnackBarProps } from "@/app/share/types";
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"],
+  selector: "app-login-page",
+  templateUrl: "./login-page.component.html",
+  styleUrls: ["./login-page.component.css"],
 })
 export class LoginComponent {
   loginForm: FormGroup;

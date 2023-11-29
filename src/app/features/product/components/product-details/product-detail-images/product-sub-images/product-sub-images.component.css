@@ -10,20 +10,20 @@
     
     /* Hide scrollbar for IE, Edge and Firefox */
     .slides {
-        width: 360px;
+        width: 22.5rem;
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
-        padding: 8px;
+        padding: 0.5rem;
         display: flex;
         flex-direction: row;
-        gap: 8px;
+        gap: 0.5rem;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
 
         .slide {
-            width: 64px;
-            height: 64px;
+            width: 4rem;
+            height: 4rem;
             flex-shrink: 0;
             scroll-snap-align: start;
         
@@ -32,9 +32,9 @@
                 border-radius: var(--border-radius-s);
                 box-shadow: var(--box-shadow-badge);
                 transition: all 0.25s ease-in-out;
-                width: 64px;
-                height: 64px;
-                padding: 2px;
+                width: 4rem;
+                height: 4rem;
+                padding: 0.125rem;
             }
 
             .image-container > img {
@@ -54,7 +54,7 @@
 
             .selected {
                 background-color:  var(--color-secondary);
-                transform: translateY(-8px);
+                transform: translateY(-0.5rem);
             }
         }
     }
@@ -65,13 +65,13 @@
     }
     
     .prev-button{
-        top: calc(50% - 48px / 2);
-        left: calc(-48px);
+        top: calc(50% - 3rem / 2);
+        left: calc(-3rem);
     }
     
     .next-button{
-        top: calc(50% - 48px / 2);
-        right: calc(-48px);
+        top: calc(50% - 3rem / 2);
+        right: calc(-3rem);
     }
 }
 

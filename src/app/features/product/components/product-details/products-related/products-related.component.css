@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
 
     .label {
         font-weight: var(--font-weight-regular);
@@ -18,12 +18,12 @@
         position: relative;
     
         .product-card-wrapper {
-            margin: 0px 48px;
-            padding: 8px;
+            margin: 0rem 3rem;
+            padding: 0.5rem;
             
             display: flex;
             flex-direction: row;
-            gap: 16px;
+            gap: 1rem;
         
             overflow-x: auto;
             scroll-snap-type: x mandatory;
@@ -42,13 +42,13 @@
         }
     
         .previous-button {
-            top: calc(50% - 48px / 2);
-            left: 0px;
+            top: calc(50% - 3rem / 2);
+            left: 0rem;
         }
     
         .next-button {
-            top: calc(50% - 48px / 2);
-            right: -8px;
+            top: calc(50% - 3rem / 2);
+            right: -0.5rem;
         }
     }
 }

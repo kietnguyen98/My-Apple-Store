@@ -45,7 +45,7 @@ export class CartItemCardComponent implements OnChanges {
     this.dialog.open(CartAlertDialogComponent, {
       disableClose: true,
       hasBackdrop: true,
-      width: "360px",
+      width: "22.5rem",
       data: {
         title: "Confirm remove item",
         content:

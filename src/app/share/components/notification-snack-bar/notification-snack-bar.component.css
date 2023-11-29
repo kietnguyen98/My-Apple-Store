@@ -11,22 +11,22 @@
   .content {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
   
     .icon-background {
       background-color: white;
       position: relative;
-      width: 24px;
-      height: 24px;
+      width: 1.5rem;
+      height: 1.5rem;
       border-radius: 50%;
   
       .icon {
         position: absolute;
-        top: -4px;
-        left: -4px;
-        width: 32px;
-        height: 32px;
-        font-size: 32px;
+        top: -0.25rem;
+        left: -0.25rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 2rem;
       }
 
       .success-icon{
@@ -47,19 +47,19 @@
   
   .close-button {
     color: var(--color-accent);
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
   
     .mat-icon{
-      width: 16px;
-      height: 16px;
-      font-size: 16px;
-      line-height: 16px;
+      width: 1rem;
+      height: 1rem;
+      font-size: 1rem;
+      line-height: 1rem;
     }
   
     .mat-mdc-button-touch-target{
-      width: 24px;
-      height: 24px;
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 }

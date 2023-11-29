@@ -2,10 +2,10 @@
     background-color: white;
     box-shadow: var(--box-shadow-border);
     border-radius: var(--border-radius-s);
-    padding: 8px;
+    padding: 0.5rem;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
 
     .icon-container{
         .icon {

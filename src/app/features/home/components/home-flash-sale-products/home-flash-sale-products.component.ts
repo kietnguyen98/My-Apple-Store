@@ -83,9 +83,9 @@ export class HomeFlashSaleProductsComponent implements OnInit, OnDestroy {
       });
 
       for (let i = 0; i < this.elementsX.length; i++) {
-        listCardElements[
-          i
-        ].style.transform = `translateX(${this.elementsX[i]}px)`;
+        listCardElements[i].style.transform = `translateX(${
+          this.elementsX[i] / 16
+        }rem)`;
       }
 
       this.requestId = requestAnimationFrame(getProductsAutoSlide);

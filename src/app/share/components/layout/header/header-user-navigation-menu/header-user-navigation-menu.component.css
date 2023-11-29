@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    padding: 8px;
+    padding: 0.5rem;
     border-radius: var(--border-radius-s);
-    gap: 8px;
+    gap: 0.5rem;
 }

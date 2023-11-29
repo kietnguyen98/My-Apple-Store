@@ -1,5 +1,5 @@
 p {
-    margin: 0px;
+    margin: 0rem;
 }
 
 .container{
@@ -8,14 +8,17 @@ p {
 
     .layout-container {
         max-width: var(--container-fix-width);
-        margin: 50px auto;
+        margin: 4rem auto;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
 
         .main-content-container {
             background-color: white;
             border-radius: var(--border-radius-s);
             box-shadow: var(--box-shadow-container);
-            padding: 30px;
+            padding: 2rem;
             display: flex;
             flex-direction: row;
             position: relative;
@@ -28,13 +31,13 @@ p {
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                gap: 16px;
-                padding: 0px 20px;
+                gap: 1rem;
+                padding: 0rem 1.25rem;
 
                 .info-container {
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
+                    gap: 1rem;
 
                     .product-category {
                         font-size: var(--font-size-xs);
@@ -62,11 +65,11 @@ p {
                             text-transform: capitalize;
                             font-weight: var(--font-weight-regular);
                             color: var(--color-primary);
-                            margin-bottom: 8px;    
+                            margin-bottom: 0.5rem;    
                         }
                         
                         .product-price { 
-                            margin-top: 8px;
+                            margin-top: 0.5rem;
                             font-size: var(--font-size-m);
                             color: var(--color-primary);
                             font-weight: var(--font-weight-bold);
@@ -77,13 +80,13 @@ p {
                 .action-container{
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
+                    gap: 1rem;
                 }
                 
                 .payment-action-container{
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
+                    gap: 1rem;
                 
                     .total-price-container{
                         width: fit-content;
@@ -93,11 +96,11 @@ p {
                             text-transform: capitalize;
                             font-weight: var(--font-weight-regular);
                             color: var(--color-primary);
-                            margin-top: 0px;
+                            margin-top: 0rem;
                         }
                         
                         .total-price-value{
-                            margin-top: 8px;
+                            margin-top: 0.5rem;
                             font-size: var(--font-size-l);
                             color: var(--color-primary);
                             font-weight: var(--font-weight-bold);
@@ -108,14 +111,14 @@ p {
                         width: 100%;
                         display: flex;
                         flex-direction: row;
-                        gap: 20px;   
+                        gap: 1.25rem;   
                     
                         .action-button {
                             flex: 1;
                             width: 100%;
                             font-size: var(--font-size-m);
                             font-weight: 400;
-                            height: 48px;
+                            height: 3rem;
                         }
                     }
                     
@@ -124,12 +127,10 @@ p {
         }
 
         .related-products-container {
-            margin-top: 50px;
             width: 100%;
         }
         
         .description-and-rating-container{
-            margin-top: 50px;
             width: 100%;
         }
     }

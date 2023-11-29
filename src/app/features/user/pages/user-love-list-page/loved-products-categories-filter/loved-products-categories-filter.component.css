@@ -1,11 +1,11 @@
 .container {
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     background-color: white;
     box-shadow: var(--box-shadow-border);
     border-radius: var(--border-radius-s);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     
     .title{
         font-size: var(--font-size-s);

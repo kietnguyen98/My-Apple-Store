@@ -1,7 +1,7 @@
 button {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 2rem;
+    right: 2rem;
     z-index: 999;
     background-color: white;
     box-shadow: var(--box-shadow-header);
@@ -31,26 +31,26 @@ mat-icon{
 
  @-webkit-keyframes slide-top-and-fade {
     0% {
-      -webkit-transform: translateY(30px);
+      -webkit-transform: translateY(1.875rem);
                 opacity: 0;
-              transform: translateY(30px);
+              transform: translateY(1.875rem);
     }
     100% {
-      -webkit-transform: translateY(0px);
+      -webkit-transform: translateY(0rem);
                 opacity: 1;
-              transform: translateY(0px);
+              transform: translateY(0rem);
     }
   }
   @keyframes slide-top-and-fade {
     0% {
-      -webkit-transform: translateY(30px);
+      -webkit-transform: translateY(1.875rem);
                 opacity: 0;
-              transform: translateY(30px);
+              transform: translateY(1.875rem);
     }
     100% {
-      -webkit-transform: translateY(0px);
+      -webkit-transform: translateY(0rem);
                 opacity: 1;
-              transform: translateY(0px);
+              transform: translateY(0rem);
     }
   }
   

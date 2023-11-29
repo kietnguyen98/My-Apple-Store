@@ -12,7 +12,7 @@
     .drawer-content{
         min-height: calc(100vh - var(--header-height) - var(--breadcrumbs-height));
         width: auto;
-        padding: 24px 24px 80px 24px;
+        padding: 1.5rem 1.5rem 5rem 1.5rem;
     
         .product-list-pagination-container{
             height: 100%;
@@ -20,8 +20,8 @@
             
             .product-list {
                 display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-                gap: 16px;
+                grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+                gap: 1rem;
             }
             
         }

@@ -3,34 +3,34 @@
     bottom: 0;
     z-index: 1;
     background-color: white;
-    border-top: 1px solid var(--color-accent);
+    border-top: 0.0625rem solid var(--color-accent);
     width: 100%;
 
     .brand-name-container{
         width: 100%;
-        padding: 16px 0px;
+        padding: 1rem 0rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+        gap: 0.5rem;
 
         .brand-name{
             color: var(--color-primary);
             font-size: var(--font-size-xl);
             font-weight: var(--font-weight-bold);
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 0.25rem;
         }
 
         .title {
             color: var(--color-primary);
             font-size: var(--font-size-l);
             overflow: hidden; /* Ensures the content is not revealed until the animation */
-            border-right: 2px solid orange; /* The typwriter cursor */
+            border-right: 0.125rem solid orange; /* The typwriter cursor */
             white-space: nowrap; /* Keeps the content on a single line */
             margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-            letter-spacing: 2px; /* Adjust as needed */
+            letter-spacing: 0.125rem; /* Adjust as needed */
             animation: 
               typing 10s steps(40, end) infinite,
               blink-caret 1.25s step-end infinite;
@@ -39,7 +39,7 @@
 
     .promo-container{
         width: 100%;
-        padding: 32px 0px;
+        padding: 2rem 0rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -49,7 +49,7 @@
             color: var(--color-yellow);
             font-weight: var(--font-weight-light);
             font-size: var(--font-size-l);
-            letter-spacing: -0.5px;
+            letter-spacing: -0.03125rem;
 
             .link{
                 color: var(--color-yellow);
@@ -66,10 +66,10 @@
         align-items: center;
 
         .info-and-short-links-container {
-            padding: 32px 0px;
+            padding: 2rem 0rem;
             width: var(--container-fix-width);
             display: flex;
-            gap: 32px;
+            gap: 2rem;
     
             .short-links-container {
                 flex: 2;
@@ -79,12 +79,12 @@
                 flex: 1;
                 display: flex;
                 flex-direction: column;
-                gap: 40px;
+                gap: 2.5rem;
     
                 .contact-description-container {
                     display: flex;
                     flex-direction: column;
-                    gap: 8px;
+                    gap: 0.5rem;
     
                     .description{
                         color: var(--color-accent);
@@ -92,8 +92,8 @@
                         font-weight: var(--font-weight-medium);
 
                         .icon{
-                            padding-top: 4px;
-                            margin-right: 4px;
+                            padding-top: 0.25rem;
+                            margin-right: 0.25rem;
                         }
                     }
                 }
@@ -101,7 +101,7 @@
                 .contact-network-container{
                     display: flex;
                     align-items: center;
-                    gap: 24px;
+                    gap: 1.5rem;
     
                     .fab{
                         font-size: var(--font-size-xl);
@@ -112,7 +112,7 @@
                 .subscribe-container{
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
+                    gap: 1rem;
     
                     .label{
                         font-size: var(--font-size-m);
@@ -122,19 +122,19 @@
                     .contact-input-container {
                         display: flex;
                         align-items: center;
-                        gap: 16px;
+                        gap: 1rem;
                         
                         .contact-email-input{
                             border-radius: var(--border-radius-l);
-                            border: 1px solid var(--color-secondary);
-                            height: 40px;
+                            border: 0.0625rem solid var(--color-secondary);
+                            height: 2.5rem;
                             width: 100%;
-                            padding: 8px 16px;
+                            padding: 0.5rem 1rem;
                             font-size: var(--font-size-m);
                         }
     
                         .email-submit-button {
-                            height: 40px;
+                            height: 2.5rem;
                         }
                     }
     
@@ -154,7 +154,7 @@
         align-items: center;
 
         .copyright-container{
-            padding: 32px 0px;
+            padding: 2rem 0rem;
             width: var(--container-fix-width);
             display: flex;
             align-items: center;
@@ -168,12 +168,12 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 32px;
+                gap: 2rem;
     
                 .term-of-service{
                     color: var(--color-secondary);
                     font-weight: var(--font-weight-bold);
-                    letter-spacing: -0.5px;
+                    letter-spacing: -0.03125rem;
                     cursor: pointer;
                 }
     
@@ -184,7 +184,7 @@
                 .privacy-policy{
                     color: var(--color-secondary);
                     font-weight: var(--font-weight-bold);
-                    letter-spacing: -0.5px;
+                    letter-spacing: -0.03125rem;
                     cursor: pointer;
                 }
     

@@ -1,7 +1,7 @@
 .container {
     height: var(--breadcrumbs-height);
     background-color: white;
-    padding: 0px 20px 0px 20px;
+    padding: 0rem 1.25rem 0rem 1.25rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -18,8 +18,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    padding: 2px 8px;
+    gap: 0.25rem;
+    padding: 0.125rem 0.5rem;
     background-color: var(--color-accent);
     border-radius: var(--border-radius-s);
 }

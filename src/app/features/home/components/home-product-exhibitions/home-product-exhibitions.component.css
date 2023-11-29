@@ -1,5 +1,5 @@
 p {
-    margin: 0px;
+    margin: 0rem;
 }
 
 .container {
@@ -10,12 +10,12 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 64px;
+    gap: 4rem;
     
     .intro-container{
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 0.25rem;
         
         .title {
             font-size: var(--font-size-2xl);
@@ -35,19 +35,19 @@ p {
 
     .product-container{
         width: var(--container-fix-width);
-        padding: 0px 100px 100px 100px;
+        padding: 0rem 6.25rem 6.25rem 6.25rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 32px;
+        gap: 2rem;
     
         .content-container{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 4px;
+            gap: 0.25rem;
 
             .category{
                 color: var(--color-secondary);
@@ -76,7 +76,7 @@ p {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 16px;
+            gap: 1rem;
 
             .learn-more-button, .buy-button {
                 font-weight: var(--font-weight-regular);

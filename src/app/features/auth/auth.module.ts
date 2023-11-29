@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // components
-import { LoginComponent } from "./pages/login/login.component";
+import { LoginComponent } from "./pages/login-page/login-page.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { LoginPopupComponent } from "./components/login-popup/login-popup.component";
 

@@ -1,12 +1,12 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 1rem;
 
     .row-container {
         width: 100%;
         display: flex;
-        gap: 32px;
+        gap: 2rem;
 
         .half-col-container{
             width: 50%;
@@ -19,13 +19,13 @@
         .input-container{
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 1rem;
             
             .input-field {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                gap: 4px;
+                gap: 0.25rem;
                 
                 .label {
                     font-size: var(--font-size-xs);
@@ -41,16 +41,16 @@
                 .input {
                     height: var(--auth-input-height);
                     width: 100%;
-                    padding: 0px 8px;
+                    padding: 0rem 0.5rem;
                     outline: none;
-                    border: 1px solid var(--color-accent);
+                    border: 0.0625rem solid var(--color-accent);
                     border-radius: var(--border-radius-s);
                     transition: background-color 0.25s linear;
                     font-size: var(--font-size-s);
                 }
         
                 .input-error{
-                    border: 1px solid var(--color-danger);
+                    border: 0.0625rem solid var(--color-danger);
                 }
         
                 .input:focus-visible{
@@ -66,7 +66,7 @@
                 .radio-group{
                     display: flex;
                     flex-direction: row;
-                    gap: 16px;
+                    gap: 1rem;
                 }
             }
     
@@ -81,9 +81,9 @@
 
 
     .action-container{
-        margin-top: 16px;
+        margin-top: 1rem;
         display: flex;
         justify-content: flex-end;
-        gap: 16px;
+        gap: 1rem;
     }
 }

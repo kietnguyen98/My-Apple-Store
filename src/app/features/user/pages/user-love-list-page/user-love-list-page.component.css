@@ -1,17 +1,17 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 2rem;
 
     .content-container {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 1rem;
 
         .product-cards-container {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 1rem;
         }
     }
 }
