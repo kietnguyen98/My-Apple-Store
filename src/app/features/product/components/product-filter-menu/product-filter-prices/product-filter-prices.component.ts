@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { PRICES, PRODUCT_QUERY_PARAM_KEYS } from "@/app/share/constants";
 import { RouteService } from "@/app/share/services/route.service";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 
 @Component({
   selector: "app-product-filter-prices",

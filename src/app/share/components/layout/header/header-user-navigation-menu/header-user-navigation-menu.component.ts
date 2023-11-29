@@ -1,7 +1,7 @@
 import { AuthService } from "@/app/features/auth/services/auth.service";
 import { TUser } from "@/app/features/auth/types";
 import { RouteService } from "@/app/share/services/route.service";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { encodeUrl } from "@/utilities/routeHelper";
 import { Component } from "@angular/core";
 import { USER_NAVIGATE_OPTIONS } from "@/app/share/constants";

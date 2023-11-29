@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { CartService } from "../../services/cart.service";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { MatDialog } from "@angular/material/dialog";
 import { CartAlertDialogComponent } from "../cart-alert-dialog/cart-alert-dialog.component";
 import { RouteService } from "@/app/share/services/route.service";

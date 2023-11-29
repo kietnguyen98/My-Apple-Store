@@ -1,6 +1,6 @@
 import { TProduct } from "@/app/features/product/types";
 import { RouteService } from "@/app/share/services/route.service";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { Component, Input } from "@angular/core";
 
 @Component({

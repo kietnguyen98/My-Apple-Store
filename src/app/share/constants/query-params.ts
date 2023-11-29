@@ -1,4 +1,4 @@
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { CATEGORY_VALUES, PAGINATION, PRICES } from ".";
 import { TQueryParamsToSubscribesOnPath } from "../types";
 

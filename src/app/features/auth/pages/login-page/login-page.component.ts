@@ -14,7 +14,7 @@ import { TFormValidationMessages, TSnackBarProps } from "@/app/share/types";
   templateUrl: "./login-page.component.html",
   styleUrls: ["./login-page.component.css"],
 })
-export class LoginComponent {
+export class LoginPageComponent {
   loginForm: FormGroup;
   VALIDATION_MESSAGES: TFormValidationMessages = {
     username: {

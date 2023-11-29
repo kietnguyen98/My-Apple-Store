@@ -25,7 +25,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // configuration
-import { SNACK_BAR_CONFIG_OPTION } from "@/configs/snack-bar";
+import { SNACK_BAR_CONFIG_OPTION } from "@/app/share/configs";
 @NgModule({
   providers: [
     {

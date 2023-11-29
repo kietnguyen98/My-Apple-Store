@@ -6,7 +6,7 @@ import {
   QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH,
 } from "@/app/share/constants";
 import { Observable, BehaviorSubject } from "rxjs";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { TUpdateQueryParamsProps } from "../types";
 import { routeHelper } from "@/utilities";
 import { scrollToTopImmediately } from "@/utilities/windowScrollHelper";

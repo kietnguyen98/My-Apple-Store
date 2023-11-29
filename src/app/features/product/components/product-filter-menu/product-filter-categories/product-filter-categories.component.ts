@@ -5,7 +5,7 @@ import {
   PRODUCT_QUERY_PARAM_KEYS,
 } from "@/app/share/constants";
 import { RouteService } from "@/app/share/services/route.service";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { MatChipListboxChange } from "@angular/material/chips";
 @Component({
   selector: "app-product-filter-categories",

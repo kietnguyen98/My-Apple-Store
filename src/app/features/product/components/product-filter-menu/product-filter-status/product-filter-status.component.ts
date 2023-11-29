@@ -5,7 +5,7 @@ import {
 } from "@/app/share/constants";
 import { TProductStatusValues } from "../../../types";
 import { RouteService } from "@/app/share/services/route.service";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 
 @Component({
   selector: "app-product-filter-status",

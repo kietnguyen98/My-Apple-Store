@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import { CartService } from "../../services/cart.service";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { RouteService } from "@/app/share/services/route.service";
 import { TCartItems } from "../../types";
 @Component({

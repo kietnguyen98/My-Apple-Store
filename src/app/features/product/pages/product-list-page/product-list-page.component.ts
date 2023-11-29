@@ -7,14 +7,14 @@ import {
 import { ProductService } from "../../services/product.service";
 import { TProducts } from "../../types";
 import { RouteService } from "@/app/share/services/route.service";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { TChangePageAndOffsetProps } from "@/app/share/components/product-list-pagination/product-list-pagination.component";
 @Component({
-  selector: "app-product-list",
-  templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.css"],
+  selector: "app-product-list-page",
+  templateUrl: "./product-list-page.component.html",
+  styleUrls: ["./product-list-page.component.css"],
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListPageComponent implements OnInit, OnDestroy {
   // current list of products
   searchTerm: string = "";
   totalElements: number = 0;

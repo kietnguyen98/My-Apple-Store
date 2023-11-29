@@ -6,7 +6,7 @@ import {
   PAGINATION,
 } from "@/app/share/constants";
 import { TChangePageAndOffsetProps } from "@/app/share/components/product-list-pagination/product-list-pagination.component";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { RouteService } from "@/app/share/services/route.service";
 
 @Component({

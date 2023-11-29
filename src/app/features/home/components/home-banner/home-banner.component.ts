@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { RouteService } from "@/app/share/services/route.service";
 
 @Component({

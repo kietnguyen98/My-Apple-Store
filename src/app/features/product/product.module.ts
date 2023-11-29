@@ -20,8 +20,8 @@ import { ProductFilterMenuModule } from "./components/product-filter-menu/produc
 import { ShareModule } from "@/app/share/share.module";
 
 // pages
-import { ProductListComponent } from "./pages/product-list/product-list.component";
-import { ProductDetailsComponent } from "./pages/product-details/product-details.component";
+import { ProductListPageComponent } from "./pages/product-list-page/product-list-page.component";
+import { ProductDetailPageComponent } from "./pages/product-detail-page/product-detail-page.component";
 
 // services
 import { ProductService } from "./services/product.service";
@@ -61,14 +61,14 @@ import { MatRippleModule } from "@angular/material/core";
     ProductDetailImagesComponent,
     ProductHotBadgeComponent,
     // pages
-    ProductListComponent,
-    ProductDetailsComponent,
+    ProductListPageComponent,
+    ProductDetailPageComponent,
   ],
   providers: [ProductService],
   exports: [
     // pages
-    ProductListComponent,
-    ProductDetailsComponent,
+    ProductListPageComponent,
+    ProductDetailPageComponent,
   ],
 })
 export class ProductModule {}

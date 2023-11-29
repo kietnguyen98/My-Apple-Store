@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NavigationEnd } from "@angular/router";
 import { COMPONENT_DIMENSIONS } from "@/app/share/constants";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { RouteService } from "@/app/share/services/route.service";
 import { HeaderSearchInputComponent } from "./header-search-input/header-search-input.component";
 

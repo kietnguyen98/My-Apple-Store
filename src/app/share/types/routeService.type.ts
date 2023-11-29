@@ -1,4 +1,4 @@
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { TUpdateQueryParamsProps } from "./queryParams.type";
 
 export type TNavigateWithUrlOnlyProps = {

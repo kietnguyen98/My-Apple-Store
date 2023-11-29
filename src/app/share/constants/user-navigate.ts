@@ -1,5 +1,5 @@
 import { TUserMenuNavigation } from "@/app/share/types";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 
 export const USER_NAVIGATE_OPTIONS: TUserMenuNavigation = [
   {

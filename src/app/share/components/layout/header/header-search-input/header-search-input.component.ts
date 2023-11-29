@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { RouteService } from "@/app/share/services/route.service";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { PRODUCT_QUERY_PARAM_KEYS } from "@/app/share/constants";
 
 @Component({

@@ -9,7 +9,7 @@ import {
 } from "@/app/features/product/types";
 import { RouteService } from "@/app/share/services/route.service";
 import { TBreadcrumbLink, TLink } from "@/app/share/types";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { Component } from "@angular/core";
 
 type TDropdownBadgeTitle = TCategoryValue | "support" | "";

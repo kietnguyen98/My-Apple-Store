@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { RouteService } from "@/app/share/services/route.service";
 import { AuthService } from "@/app/features/auth/services/auth.service";
 import { MatDialog } from "@angular/material/dialog";

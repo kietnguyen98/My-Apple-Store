@@ -1,6 +1,6 @@
 import { productsMockData } from "@/app/features/product/data/products.data";
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 import { RouteService } from "@/app/share/services/route.service";
 import { TProducts } from "@/app/features/product/types";
 import { PRODUCT_STATUS_VALUES } from "@/app/share/constants";

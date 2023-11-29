@@ -9,7 +9,7 @@ import { HomeCategoryShortcutComponent } from "./components/home-category-shortc
 import { HomeFlashSaleProductsComponent } from "./components/home-flash-sale-products/home-flash-sale-products.component";
 
 // pages
-import { HomeComponent } from "./pages/home/home.component";
+import { HomePageComponent } from "./pages/home-page/home-page.component";
 
 // angular material modules
 import { MatButtonModule } from "@angular/material/button";
@@ -25,11 +25,11 @@ import { MatIconModule } from "@angular/material/icon";
     HomeProductExhibitionsComponent,
     HomeFlashSaleProductsComponent,
     // pages
-    HomeComponent,
+    HomePageComponent,
   ],
   exports: [
     // pages
-    HomeComponent,
+    HomePageComponent,
   ],
 })
 export class HomeModule {}

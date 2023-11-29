@@ -3,7 +3,7 @@ import {
   AUTH_QUERY_PARAM_KEYS,
   LOVED_PRODUCT_QUERY_PARAM_KEYS,
 } from "@/app/share/constants";
-import { PATH } from "@/configs/routes";
+import { PATH } from "@/app/share/configs";
 
 export type TAuthQueryParamKeys =
   (typeof AUTH_QUERY_PARAM_KEYS)[keyof typeof AUTH_QUERY_PARAM_KEYS];

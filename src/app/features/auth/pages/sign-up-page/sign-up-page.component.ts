@@ -3,11 +3,11 @@ import { AUTH_QUERY_PARAM_KEYS } from "@/app/share/constants";
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "app-sign-up",
-  templateUrl: "./sign-up.component.html",
-  styleUrls: ["./sign-up.component.css"],
+  selector: "app-sign-up-page",
+  templateUrl: "./sign-up-page.component.html",
+  styleUrls: ["./sign-up-page.component.css"],
 })
-export class SignUpComponent {
+export class SignUpPageComponent {
   redirectUrl: string = "";
   constructor(private routeService: RouteService) {
     this.routeService.getLoginQueryParams().subscribe(paramValue => {

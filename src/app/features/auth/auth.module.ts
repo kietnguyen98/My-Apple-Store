@@ -3,8 +3,8 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 // components
-import { LoginComponent } from "./pages/login-page/login-page.component";
-import { SignUpComponent } from "./pages/sign-up/sign-up.component";
+import { LoginPageComponent } from "./pages/login-page/login-page.component";
+import { SignUpPageComponent } from "./pages/sign-up-page/sign-up-page.component";
 import { LoginPopupComponent } from "./components/login-popup/login-popup.component";
 
 // modules
@@ -33,13 +33,13 @@ import { MatDialogModule } from "@angular/material/dialog";
     //components
     LoginPopupComponent,
     //pages
-    LoginComponent,
-    SignUpComponent,
+    LoginPageComponent,
+    SignUpPageComponent,
   ],
   exports: [
     //pages
-    LoginComponent,
-    SignUpComponent,
+    LoginPageComponent,
+    SignUpPageComponent,
   ],
 })
 export class AuthModule {}
