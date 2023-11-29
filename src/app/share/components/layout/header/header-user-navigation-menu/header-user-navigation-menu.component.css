@@ -6,9 +6,4 @@
     padding: 8px;
     border-radius: var(--border-radius-s);
     gap: 8px;
-
-    .user-name{
-        font-size: var(--font-size-s);
-        font-weight: var(--font-weight-regular);
-    }
 }

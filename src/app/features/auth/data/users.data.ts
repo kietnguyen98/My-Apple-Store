@@ -7,7 +7,7 @@ export const defaultUser1: TUser = {
   username: "songokussj3",
   password: "manhkiet1998",
   avatarUrl:
-    "https://i.pinimg.com/564x/05/45/8c/05458cc5c8c2aebd232ff79fca3f429d.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRib1DxLrnne6zC0hUTCfb_dY0GyEXKmd75Og&usqp=CAU",
   fullName: {
     firstName: "Kiet",
     lastName: "Nguyen Han Manh",

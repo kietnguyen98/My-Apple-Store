@@ -41,6 +41,7 @@ export class HeaderNavigationBarComponent {
       path: [PATH.PRODUCTS, productName],
       reload: true,
     });
+    this.hoverCategory = "";
   }
 
   navigateToPage(url: string) {
@@ -48,5 +49,6 @@ export class HeaderNavigationBarComponent {
       path: url,
       reload: true,
     });
+    this.hoverCategory = "";
   }
 }
