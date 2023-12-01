@@ -4,7 +4,15 @@
     flex-direction: column;
     gap: 0.5rem;
     box-shadow: var(--box-shadow-border);
+    border-radius: var(--border-radius-xs);
     padding: 0.75rem 1rem;
+    position: relative;
+
+    .checkbox {
+        position: absolute;
+        top: 0.375rem;
+        right: 0.375rem;
+    }
 
     .info-container{
         flex: 1;
@@ -16,6 +24,7 @@
             flex: 1;
             display: flex;
             justify-content: center;
+            align-items: center;
         
             .image{
                 width: fit-content;
@@ -23,35 +32,34 @@
                 border-radius: var(--border-radius-xs);
             }
         }
-    }
-    
-    
-    .info-wrapper{
-        flex: 3;
-    
-        .main-title, .sub-title{
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-    
-        .main-title{
-            color: var(--color-primary);
-            font-size: var(--font-size-s);
-            font-weight: var(--font-weight-regular);
-        }
-    
-        .sub-title{
-            color: var(--color-secondary);
-            font-size: var(--font-size-xs);
-            font-weight: var(--font-weight-regular);
-        }
-    
-        .price-container{
-            display: flex;
-            align-items: flex-end;
-            gap: 0.25rem;
+
+        .info-wrapper{
+            flex: 3;
+        
+            .main-title, .sub-title{
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        
+            .main-title{
+                color: var(--color-primary);
+                font-size: var(--font-size-s);
+                font-weight: var(--font-weight-regular);
+            }
+        
+            .sub-title{
+                color: var(--color-secondary);
+                font-size: var(--font-size-xs);
+                font-weight: var(--font-weight-regular);
+            }
+        
+            .price-container{
+                display: flex;
+                align-items: flex-end;
+                gap: 0.25rem;
+            }
         }
     }
     
@@ -64,10 +72,15 @@
         gap: 0.5rem;
     
         .price-value{
-            color: var(--color-primary);
+            color: var(--color-secondary);
             font-size: var(--font-size-s);
             font-weight: var(--font-weight-regular);
             flex: 1;
+
+            .value {
+                color: var(--color-primary);
+                font-weight: var(--font-weight-bold);
+            }
         }
         
         .action-wrapper{

@@ -10,6 +10,7 @@ import { AppComponent } from "./app.component";
 import { ShareModule } from "./share/share.module";
 import { HomeModule } from "./features/home/home.module";
 import { ProductModule } from "./features/product/product.module";
+import { PaymentModule } from "./features/payment/payment.module";
 import { CartModule } from "./features/cart/cart.module";
 import { AuthModule } from "./features/auth/auth.module";
 import { UserModule } from "./features/user/user.module";
@@ -30,6 +31,7 @@ import { NoopScrollStrategy } from "@angular/cdk/overlay";
     ShareModule,
     HomeModule,
     ProductModule,
+    PaymentModule,
     CartModule,
     AuthModule,
     UserModule,

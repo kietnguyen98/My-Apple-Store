@@ -1,4 +1,9 @@
 <div class="container" *ngIf="item">
+  <mat-checkbox
+    class="checkbox"
+    color="primary"
+    [checked]="item.checked"
+    (change)="checkItem($event)" />
   <div class="info-container">
     <div class="image-wrapper">
       <img
@@ -28,7 +33,7 @@
   <div class="action-container">
     <p class="price-value">
       Price in total:
-      {{ totalPrice | currency }}
+      <span class="value"> {{ totalPrice | currency }}</span>
     </p>
     <div class="action-wrapper">
       <app-cart-item-quantity-select

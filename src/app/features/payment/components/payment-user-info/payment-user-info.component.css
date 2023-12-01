@@ -1,0 +1,6 @@
+.container{
+    padding: 1rem;
+    background-color: white;
+    border-radius: var(--border-radius-m);
+    box-shadow: var(--box-shadow-container);
+}

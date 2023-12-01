@@ -19,6 +19,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatRippleModule } from "@angular/material/core";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatSidenavModule,
     MatRippleModule,
     MatDialogModule,
+    MatCheckboxModule,
   ],
   declarations: [
     //components

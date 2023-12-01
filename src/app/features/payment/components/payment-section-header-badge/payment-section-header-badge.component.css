@@ -1,0 +1,21 @@
+.container {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-accent);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-radius: var(--border-radius-s);
+
+    .icon {
+        color: var(--color-primary);
+        width: var(--font-size-l);
+        height: var(--font-size-l);
+        font-size: var(--font-size-l);
+    }
+
+    .title {
+        color: var(--color-primary);
+        font-size: var(--font-size-m);
+        font-weight: var(--font-weight-regular);
+    }
+}

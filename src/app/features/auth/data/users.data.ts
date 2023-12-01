@@ -36,4 +36,4 @@ export const defaultUser2: TUser = {
   birthday: "20/04/1998",
 };
 
-export const users: Array<TUser> = [defaultUser1, defaultUser2];
+export const mockUsersData: Array<TUser> = [defaultUser1, defaultUser2];

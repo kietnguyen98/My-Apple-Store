@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, Subject } from "rxjs";
+import { Observable, Subject, BehaviorSubject } from "rxjs";
 import { v4 as uuidv4 } from "uuid";
 import { NotificationSnackBarComponent } from "@/app/share/components/notification-snack-bar/notification-snack-bar.component";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -7,6 +7,10 @@ import { TSnackBarProps } from "@/app/share/types";
 import { TCartItems } from "../types";
 import { TColor, TMemoryCapacity, TProduct } from "../../product/types";
 import { RouteService } from "@/app/share/services/route.service";
+import { AuthService } from "../../auth/services/auth.service";
+import { mockCartsData } from "../data";
+import { PATH } from "@/app/share/configs";
+import { PaymentService } from "../../payment/services/payment.service";
 
 type TAddToCartProps = {
   product: TProduct;
@@ -27,15 +31,25 @@ export class CartService {
   isSidenavOpened: boolean = false;
   isSidenavOpenedSubject = new Subject<boolean>();
   items: TCartItems = [];
-  itemsSubject = new Subject<TCartItems>();
+  itemsSubject = new BehaviorSubject<TCartItems>([]);
 
   // cart snackbar init
   constructor(
     private snackBar: MatSnackBar,
-    private routeService: RouteService
+    private routeService: RouteService,
+    private authService: AuthService,
+    private paymentService: PaymentService
   ) {
     this.routeService.getCurrentPath().subscribe(() => {
       this.closeSidenav();
+    });
+
+    this.authService.getUser().subscribe(user => {
+      this.items = mockCartsData.find(cartData => cartData.user.id === user?.id)
+        ?.cart as TCartItems;
+      this.itemsSubject.next(this.items);
+
+      this.getPayment();
     });
   }
 
@@ -107,6 +121,7 @@ export class CartService {
         selectedColor: selectedColor ? selectedColor : undefined,
         selectedMemory: selectedMemory ? selectedMemory : undefined,
         quantity: quantity,
+        checked: true,
       });
     }
 
@@ -129,5 +144,39 @@ export class CartService {
     this.items = this.items.filter(item => item.id !== itemId);
     this.itemsSubject.next(this.items);
     this.openSnackBar({ isSuccess: true, message: "Remove item successful !" });
+  }
+
+  checkItem(itemId: string) {
+    this.items = this.items.map(item =>
+      item.id !== itemId ? item : { ...item, checked: true }
+    );
+    this.itemsSubject.next(this.items);
+  }
+
+  unCheckItem(itemId: string) {
+    this.items = this.items.map(item =>
+      item.id !== itemId ? item : { ...item, checked: false }
+    );
+    this.itemsSubject.next(this.items);
+  }
+
+  checkAllItems() {
+    this.items = this.items.map(item => ({ ...item, checked: true }));
+    this.itemsSubject.next(this.items);
+  }
+
+  unCheckAllItems() {
+    this.items = this.items.map(item => ({ ...item, checked: false }));
+    this.itemsSubject.next(this.items);
+  }
+
+  getPayment() {
+    this.paymentService.updatePurchasedItems(
+      this.items.filter(item => item.checked)
+    );
+    this.routeService.navigateWithUrlOnly({
+      path: PATH.PAYMENT,
+      reload: true,
+    });
   }
 }

@@ -6,6 +6,7 @@ export type TCartItem = {
   quantity: number;
   selectedColor?: TColor;
   selectedMemory?: TMemoryCapacity;
+  checked: boolean;
 };
 
 export type TCartItems = Array<TCartItem>;

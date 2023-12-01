@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomePageComponent } from "./features/home/pages/home-page/home-page.component";
 import { ProductListPageComponent } from "./features/product/pages/product-list-page/product-list-page.component";
 import { ProductDetailPageComponent } from "./features/product/pages/product-detail-page/product-detail-page.component";
+import { PaymentPageComponent } from "./features/payment/pages/payment-page/payment-page.component";
 import { DummyPageComponent } from "./share/pages/dummy-page/dummy-page.component";
 import { LoginPageComponent } from "./features/auth/pages/login-page/login-page.component";
 import { SignUpPageComponent } from "./features/auth/pages/sign-up-page/sign-up-page.component";
@@ -26,6 +27,12 @@ const routes: Routes = [
     title: "MAS - Store",
     pathMatch: "full",
     component: ProductListPageComponent,
+  },
+  {
+    path: PATH.PAYMENT,
+    title: "MAS - Payment",
+    pathMatch: "full",
+    component: PaymentPageComponent,
   },
   {
     path: PATH.PRODUCT_DETAIL,

@@ -1,0 +1,27 @@
+<div class="container" *ngIf="item">
+  <div class="image-container">
+    <img
+      class="image"
+      [src]="item.product.imageUrl"
+      [alt]="'product image ' + item.product.name" />
+  </div>
+  <div class="info-container">
+    <p class="name">{{ item.product.name }}</p>
+    <p class="title">
+      Color:
+      <span class="value">{{ item.selectedColor?.name || "Default" }}</span>
+    </p>
+    <p class="title">
+      Memory capacity:
+      <span class="value">{{ item.selectedMemory?.name || "Default" }}</span>
+    </p>
+    <p class="title">
+      Price:
+      <span class="value">{{ item.product.price | currency }}</span>
+    </p>
+    <p class="title">
+      Quantity:
+      <span class="value">{{ item.quantity }}</span>
+    </p>
+  </div>
+</div>

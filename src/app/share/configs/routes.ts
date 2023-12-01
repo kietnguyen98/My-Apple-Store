@@ -13,4 +13,5 @@ export const PATH = {
   PROFILE: "profile",
   PURCHASES: "purchases",
   LOVED_PRODUCTS: "loved-products",
+  PAYMENT: "payment",
 };

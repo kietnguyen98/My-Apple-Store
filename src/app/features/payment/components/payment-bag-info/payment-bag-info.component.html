@@ -1,0 +1,11 @@
+<div class="container">
+  <p class="title">In your bag</p>
+  <div class="items-container">
+    <div class="total-items">
+      Total items: <span class="value">{{ items.length }}</span>
+    </div>
+    <app-payment-bag-item-card
+      *ngFor="let item of items"
+      [item]="item"></app-payment-bag-item-card>
+  </div>
+</div>

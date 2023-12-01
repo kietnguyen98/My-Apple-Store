@@ -123,6 +123,11 @@ export const QUERY_PARAMS_TO_SUBSCRIBES_ON_PATH: TQueryParamsToSubscribesOnPath 
         },
       ],
     },
+    PAYMENT: {
+      PATH: PATH.PAYMENT,
+      PATH_REGEX: new RegExp(`^${PATH.PAYMENT}$`),
+      PERMITTED_QUERY_PARAMS: [],
+    },
     DUMMY: {
       PATH: PATH.DUMMY,
       PATH_REGEX: new RegExp(`^${PATH.DUMMY}$`),

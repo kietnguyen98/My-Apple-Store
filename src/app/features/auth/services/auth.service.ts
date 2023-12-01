@@ -1,7 +1,7 @@
 import { API_FETCHING_STATE } from "@/app/share/constants";
 import { Injectable } from "@angular/core";
 import { Observable, BehaviorSubject } from "rxjs";
-import { users } from "@/app/features/auth/data/users.data";
+import { mockUsersData } from "@/app/features/auth/data/users.data";
 import { localStorageHelper } from "@/utilities";
 import { TApisFetchingState } from "@/app/share/types";
 import { TUser } from "../types";
@@ -34,7 +34,7 @@ export class AuthService {
     if (isAuth) {
       this.updateIsAuth(isAuth);
       const userAccountObject = JSON.parse(userAccount);
-      const user = users.find(
+      const user = mockUsersData.find(
         user =>
           user.username === userAccountObject.username &&
           user.password === userAccountObject.password
@@ -48,7 +48,7 @@ export class AuthService {
     this.updateLoginState(API_FETCHING_STATE.LOADING);
     return await new Promise<void>(resolve => {
       setTimeout(() => {
-        const user = users.find(
+        const user = mockUsersData.find(
           user => user.username === username && user.password === password
         );
         if (user) {

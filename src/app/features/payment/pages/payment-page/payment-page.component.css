@@ -1,0 +1,28 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color-background);
+    
+    .layout-container{
+        margin: 4rem auto;
+        width: var(--container-fix-width);
+        display: flex;
+        gap: 1rem;
+
+        .payment-info-wrapper{
+            flex: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .bag-and-total-info-wrapper {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+}

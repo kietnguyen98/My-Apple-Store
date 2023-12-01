@@ -6,6 +6,7 @@ import { CartAlertDialogComponent } from "../cart-alert-dialog/cart-alert-dialog
 import { RouteService } from "@/app/share/services/route.service";
 import { productHelper } from "@/utilities";
 import { TCartItem } from "../../types";
+import { MatCheckboxChange } from "@angular/material/checkbox";
 
 @Component({
   selector: "app-cart-item-card",
@@ -63,5 +64,13 @@ export class CartItemCardComponent implements OnChanges {
 
     // close sidenav when navigate to detail product page
     this.cartService.toggleSidenav();
+  }
+
+  checkItem(event: MatCheckboxChange) {
+    if (event.checked) {
+      this.cartService.checkItem(this.item?.id as string);
+    } else {
+      this.cartService.unCheckItem(this.item?.id as string);
+    }
   }
 }

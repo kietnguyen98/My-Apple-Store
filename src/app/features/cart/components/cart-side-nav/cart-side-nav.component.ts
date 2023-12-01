@@ -4,12 +4,15 @@ import { CartService } from "../../services/cart.service";
 import { PATH } from "@/app/share/configs";
 import { RouteService } from "@/app/share/services/route.service";
 import { TCartItems } from "../../types";
+import { MatCheckboxChange } from "@angular/material/checkbox";
 @Component({
   selector: "app-cart-side-nav",
   templateUrl: "./cart-side-nav.component.html",
   styleUrls: ["./cart-side-nav.component.css"],
 })
 export class CartSideNavComponent implements OnInit {
+  isCheckedAll: boolean = false;
+  checkedItemNumb: number = 0;
   items: TCartItems = [];
   isOpened: boolean = false;
   currentScrollYPosition: number = 0;
@@ -19,11 +22,7 @@ export class CartSideNavComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private routeService: RouteService
-  ) {}
-
-  ngOnInit(): void {
-    const sidenav = document.getElementById("cart-sidenav") as HTMLElement;
-
+  ) {
     this.cartService.getItems().subscribe(cartItems => {
       this.items = cartItems;
 
@@ -32,14 +31,27 @@ export class CartSideNavComponent implements OnInit {
         0
       );
 
+      this.checkedItemNumb = this.items.reduce(
+        (prev, item) => prev + (item.checked ? item.quantity : 0),
+        0
+      );
+
       this.totalPrices = this.items.reduce(
         (prev, item) =>
           prev +
-          item.quantity *
-            (item.product.price + (item.selectedMemory?.plusPrice || 0)),
+          (item.checked
+            ? item.quantity *
+              (item.product.price + (item.selectedMemory?.plusPrice || 0))
+            : 0),
         0
       );
+
+      this.isCheckedAll = this.items.every(item => item.checked);
     });
+  }
+
+  ngOnInit(): void {
+    const sidenav = document.getElementById("cart-sidenav") as HTMLElement;
 
     this.cartService.getSidenavState().subscribe(state => {
       this.isOpened = state;
@@ -61,5 +73,17 @@ export class CartSideNavComponent implements OnInit {
 
   onGetProductPage() {
     this.routeService.navigateWithUrlOnly({ path: PATH.PRODUCTS });
+  }
+
+  checkAllItems(event: MatCheckboxChange) {
+    if (event.checked) {
+      this.cartService.checkAllItems();
+    } else {
+      this.cartService.unCheckAllItems();
+    }
+  }
+
+  toPayment() {
+    this.cartService.getPayment();
   }
 }

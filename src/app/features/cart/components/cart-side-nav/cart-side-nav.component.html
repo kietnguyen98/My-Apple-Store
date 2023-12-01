@@ -12,6 +12,14 @@
           Total items:
           <span class="total-items-text">{{ totalItems }}</span>
         </p>
+        <div class="check-all-items-container">
+          <span class="title">Get all items</span>
+          <mat-checkbox
+            [ngClass]="{ checkbox: true, 'is-not-checked': !isCheckedAll }"
+            color="primary"
+            [checked]="isCheckedAll"
+            (change)="checkAllItems($event)" />
+        </div>
       </div>
       <div class="body">
         <app-cart-item-card
@@ -19,11 +27,27 @@
           [item]="item"></app-cart-item-card>
       </div>
       <div class="footer">
-        <p class="total-price-label">
-          Price in total:
-          <span class="total-price-value">{{ totalPrices | currency }}</span>
+        <div class="have-select-item">
+          <p class="label" *ngIf="checkedItemNumb > 0">
+            Items selected:
+            <span class="value">{{ checkedItemNumb }}</span>
+          </p>
+          <p class="label" *ngIf="checkedItemNumb > 0">
+            Price in total:
+            <span class="value">{{ totalPrices | currency }}</span>
+          </p>
+        </div>
+        <p class="not-select-any-item" *ngIf="checkedItemNumb === 0">
+          You have not selected any item yet !
         </p>
-        <button mat-raised-button color="warn">To Payment</button>
+        <button
+          class="to-payment-button"
+          mat-raised-button
+          color="primary"
+          [disabled]="checkedItemNumb === 0"
+          (click)="toPayment()">
+          To Payment
+        </button>
       </div>
     </div>
     <div *ngIf="totalItems === 0" class="empty-cart">

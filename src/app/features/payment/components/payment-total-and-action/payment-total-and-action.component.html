@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="price-container">
+    <div class="total-price-container">
+      <div class="title">Total price</div>
+      <p class="value">{{ totalPrice | currency }}</p>
+    </div>
+    <div class="discount-price-container">
+      <div class="title">Discount price</div>
+      <p class="value">{{ totalPrice | currency }}</p>
+    </div>
+    <div class="final-price-container">
+      <div class="title">Final price</div>
+      <p class="value">{{ totalPrice | currency }}</p>
+    </div>
+  </div>
+
+  <div class="action-container">
+    <button class="checkout-button" mat-fab extended color="primary">
+      <mat-icon>done_all</mat-icon>
+      Confirm & Pay
+    </button>
+  </div>
+</div>

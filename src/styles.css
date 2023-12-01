@@ -7,8 +7,8 @@
   --product-filter-side-nav-width: 15rem;
   --cart-side-nav-width: 20rem;
   --cart-side-nav-height: calc(100vh - var(--header-height));
-  --cart-side-nav-header-height: 2.5rem;
-  --cart-side-nav-footer-height: 6.25rem;
+  --cart-side-nav-header-height: 3rem;
+  --cart-side-nav-footer-height: 7rem;
   --banner-fix-height: 40rem;
   /* section gap */
   --section-gap: 5rem;
@@ -23,7 +23,7 @@
   /* color values */
   --color-primary: #191919;
   --color-secondary: #6b6b6b;
-  --color-accent: #e6e8e6;
+  --color-accent: #f2f3f2;
   --color-warn: #f15125;
   --color-success: #28a745;
   --color-danger: #dc3545;
