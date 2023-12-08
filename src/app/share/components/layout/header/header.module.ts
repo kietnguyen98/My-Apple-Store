@@ -10,7 +10,7 @@ import { UserAvatarComponent } from "../../user-avatar/user-avatar.component";
 import { HeaderNavigationBarComponent } from "./header-navigation-bar/header-navigation-bar.component";
 
 // pipes
-import { ProductByCategoryPipe } from "@/app/share/pipes/product-by-category.pipe";
+import { ProductsByCategoryPipe } from "@/app/share/pipes/product-by-category.pipe";
 
 // angular material modules
 import { MatToolbarModule } from "@angular/material/toolbar";
@@ -44,7 +44,7 @@ import { MatBadgeModule } from "@angular/material/badge";
     CartToggleButtonComponent,
     HeaderNavigationBarComponent,
     // pipes
-    ProductByCategoryPipe,
+    ProductsByCategoryPipe,
   ],
   exports: [HeaderComponent, UserAvatarComponent],
 })

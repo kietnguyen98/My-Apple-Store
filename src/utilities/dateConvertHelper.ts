@@ -7,3 +7,11 @@ export function toHtmlInputValue(dateStr: string) {
 
   return [year, month, day].join("-");
 }
+
+export function fromDateToDDMMYYYY(date: Date) {
+  let year = date.getFullYear().toString().padStart(2, "0");
+  let month = (date.getMonth() + 1).toString().padStart(2, "0");
+  let day = date.getDate();
+
+  return [day, month, year].join("/");
+}

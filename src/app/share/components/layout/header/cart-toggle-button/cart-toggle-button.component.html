@@ -1,4 +1,8 @@
-<button mat-icon-button aria-label="cart" (click)="toggleSidenav()">
+<button
+  *ngIf="cartItems"
+  mat-icon-button
+  aria-label="cart"
+  (click)="toggleSidenav()">
   <mat-icon
     [matBadge]="cartItems.length"
     [matBadgeHidden]="cartItems.length === 0"

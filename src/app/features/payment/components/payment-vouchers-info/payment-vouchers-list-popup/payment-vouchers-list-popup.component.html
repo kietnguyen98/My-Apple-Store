@@ -1,0 +1,34 @@
+<p mat-dialog-title>Vouchers List</p>
+<mat-dialog-content class="list-container">
+  <div
+    class="voucher-by-category-section"
+    *ngFor="let category of voucherCategories">
+    <label
+      >Voucher type {{ category.name }} (by {{ category.discountType }})</label
+    >
+    <mat-radio-group class="list-container" (change)="selectVoucher($event)">
+      <mat-radio-button
+        [disableRipple]="true"
+        labelPosition="before"
+        color="primary"
+        *ngFor="let voucher of vouchers | vouchersByCategory: category"
+        [value]="voucher.id"
+        [checked]="currentSelectedVouchers.indexOf(voucher) > -1"
+        ><app-voucher-card [data]="voucher"
+      /></mat-radio-button>
+    </mat-radio-group>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-raised-button mat-dialog-close color="accent">
+    Cancel
+  </button>
+  <button
+    mat-button
+    mat-raised-button
+    [mat-dialog-close]="true"
+    color="primary"
+    (click)="applyVouchers()">
+    Apply
+  </button>
+</mat-dialog-actions>

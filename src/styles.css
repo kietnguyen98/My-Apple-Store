@@ -28,6 +28,7 @@
   --color-success: #28a745;
   --color-danger: #dc3545;
   --color-yellow: #ffc107;
+  --color-yellow-background: #ffdf80;
   --color-background: #fafafa;
 
   /* font size values */
@@ -105,5 +106,105 @@ a {
     --mdc-snackbar-container-color: var(--color-primary);
     --mat-mdc-snack-bar-button-color: var(--color-primary) ;
     --mdc-snackbar-supporting-text-color: var(--color-primary);
+  }
+}
+
+.input-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .input-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    
+    .label {
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-secondary);
+        text-transform: capitalize;
+  
+        .required {
+            color: var(--color-danger);
+            font-size: var(--font-size-m);
+        }
+    }
+    
+    .input {
+        height: var(--auth-input-height);
+        width: 100%;
+        padding: 0rem 0.5rem;
+        outline: none;
+        border: 0.0625rem solid var(--color-accent);
+        border-radius: var(--border-radius-s);
+        transition: background-color 0.25s linear;
+        font-size: var(--font-size-s);
+        
+        /* Remove focus outline */
+        &:focus {
+          outline: none;
+          background-color: var(--color-accent);
+        }
+    }
+  
+    .input-error{
+        border: 0.0625rem solid var(--color-danger);
+    }
+  
+    .error-message {
+        font-size: var(--font-size-xs);
+        font-weight: var(--font-weight-regular);
+        color: var(--color-danger);
+    }
+  
+    .radio-group{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .select-wrapper {
+      pointer-events: none;
+      height: fit-content;
+      position: relative;
+      border-radius: var(--border-radius-s);
+
+      .select {
+        pointer-events: auto;
+        appearance: none;
+        cursor: pointer;
+        border: 0.0625rem solid var(--color-accent);
+        padding: 0rem 0.5rem;
+        height: var(--auth-input-height);
+        width: 100%;
+        outline: none;
+        border-radius: var(--border-radius-s);
+        transition: background-color 0.25s linear;
+        font-size: var(--font-size-s);
+  
+        /* Remove focus outline */
+        &:focus {
+          outline: none;
+          background-color: var(--color-accent);
+        }
+      }
+
+      .drop-down-icon{
+        position: absolute;
+        right: 1rem;
+        top: calc(50% - 24px / 2);
+        font-size: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.25s linear;
+      }
+
+      &:has(.select:focus) > .drop-down-icon{
+        transform: rotate(-180deg);
+      }
+    }
   }
 }

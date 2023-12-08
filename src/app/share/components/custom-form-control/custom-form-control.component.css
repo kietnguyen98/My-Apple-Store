@@ -6,47 +6,11 @@
     gap: 2rem;
 
     .input-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        
         .input-field {
             width: var(--auth-input-width);
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
             
             .label {
-                font-size: var(--font-size-2xs);
-                font-weight: var(--font-weight-bold);
-                text-transform: uppercase;
-            }
-            
-            .input {
-                height: var(--auth-input-height);
-                width: 100%;
-                padding: 0rem 0.5rem;
-                outline: none;
-                border: 0.0625rem solid var(--color-accent);
-                border-radius: var(--border-radius-s);
-                transition: background-color 0.25s linear;
-                font-size: var(--font-size-s);
-            }
-
-            .input-error{
-                border: 0.0625rem solid var(--color-danger);
-            }
-
-            .input:focus-visible{
-                background-color: var(--color-accent);
-            }
-
-            .error-message {
-                font-size: var(--font-size-xs);
-                font-weight: var(--font-weight-regular);
-                color: var(--color-danger);
+                text-transform: capitalize;
             }
         }
     }

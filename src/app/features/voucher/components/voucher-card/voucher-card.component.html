@@ -1,0 +1,32 @@
+<div class="card-container" *ngIf="data">
+  <div class="value-container">
+    <div class="value-top"></div>
+    <div class="value-mid">
+      <p class="value">
+        {{
+          data.category.discountType === "value"
+            ? data.discountValue + "$"
+            : data.discountValue + "%"
+        }}
+      </p>
+    </div>
+    <div class="value-bottom"></div>
+  </div>
+  <div class="description-container">
+    <div class="title-container">
+      <mat-icon *ngIf="data.category.voucherType === VOUCHER_TYPES.SHIPPING">
+        local_shipping</mat-icon
+      >
+      <mat-icon *ngIf="data.category.voucherType === VOUCHER_TYPES.ITEMS">
+        shopping_basket</mat-icon
+      >
+      <p class="title">{{ data.title }}</p>
+    </div>
+    <p class="code">Code: {{ data.code }}</p>
+    <p class="description">{{ data.description }}</p>
+    <p class="valid-date">
+      Valid date: {{ data.applyFromDate | ddmmyyyyFormatDatePipe }} -
+      {{ data.applyToDate | ddmmyyyyFormatDatePipe }}
+    </p>
+  </div>
+</div>

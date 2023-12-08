@@ -31,9 +31,7 @@
         <p
           matRipple
           class="product-link"
-          *ngFor="
-            let product of products | productByCategoryPipe: category.name
-          "
+          *ngFor="let product of products | productsByCategory: category.name"
           (click)="navigateToProductDetail(product.name)">
           {{ product.name }}
           <mat-icon class="arrow-icon">arrow_forward</mat-icon>

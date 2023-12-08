@@ -2,4 +2,48 @@
   <app-payment-section-header-badge
     title="Receiver's Information"
     iconName="person" />
+  <div class="form-container">
+    <div class="input-container">
+      <div class="input-field">
+        <p class="label">Full name <span class="required">*</span></p>
+        <input
+          [ngClass]="{
+            input: true
+          }"
+          name="fullName"
+          formControlName="fullName"
+          type="text"
+          placeholder="enter receiver's full name" />
+        <p class="error-message"></p>
+      </div>
+    </div>
+    <div class="input-container">
+      <div class="input-field">
+        <p class="label">Address <span class="required">*</span></p>
+        <input
+          [ngClass]="{
+            input: true
+          }"
+          name="address"
+          formControlName="address"
+          type="text"
+          placeholder="enter receiver's address" />
+        <p class="error-message"></p>
+      </div>
+    </div>
+    <div class="input-container">
+      <div class="input-field">
+        <p class="label">Phone number <span class="required">*</span></p>
+        <input
+          [ngClass]="{
+            input: true
+          }"
+          name="phoneNumber"
+          formControlName="phoneNumber"
+          type="tel"
+          placeholder="enter receiver's phone number" />
+        <p class="error-message"></p>
+      </div>
+    </div>
+  </div>
 </div>

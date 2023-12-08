@@ -2,4 +2,45 @@
   <app-payment-section-header-badge
     title="Shipping Information"
     iconName="local_shipping" />
+  <div class="form-container">
+    <div class="input-container">
+      <div class="input-field">
+        <p class="label">Shipping method <span class="required">*</span></p>
+        <div class="select-wrapper">
+          <select
+            [ngClass]="{
+              select: true
+            }"
+            name="shippingMethod"
+            formControlName="shippingMethod"
+            (change)="changeShippingMethod($event)">
+            <option *ngFor="let option of options" [value]="option.value">
+              <p>{{ option.title }} ({{ option.description }})</p>
+            </option>
+          </select>
+          <mat-icon class="drop-down-icon">arrow_drop_down</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shipping-method-info">
+    <p class="title">
+      Delivery method:
+      <span class="value">{{ currentShippingMethod.title }}</span>
+    </p>
+    <p class="title">
+      Duration Estimation:
+      <span class="value"
+        >{{ currentShippingMethod.durationEstimation }} (you will be receive
+        your products on
+        <span class="highlight-value">{{ minDeliveryDate }}</span> to
+        <span class="highlight-value">{{ maxDeliveryDate }}</span
+        >)</span
+      >
+    </p>
+    <p class="title">
+      Cost:
+      <span class="value">{{ currentShippingMethod.cost | currency }}</span>
+    </p>
+  </div>
 </div>

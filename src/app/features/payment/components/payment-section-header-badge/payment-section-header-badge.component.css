@@ -1,6 +1,6 @@
 .container {
     padding: 0.5rem 1rem;
-    background-color: var(--color-accent);
+    /* background-color: var(--color-accent); */
     display: flex;
     gap: 1rem;
     align-items: center;
