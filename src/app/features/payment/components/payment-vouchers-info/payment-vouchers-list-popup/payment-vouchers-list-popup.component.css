@@ -1,6 +1,10 @@
-.list-container { 
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 1.5rem;
-    gap: 2rem;
+.voucher-by-category-section{
+    padding: 1rem;
+
+    .list-container { 
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 2rem;
+    }
 }

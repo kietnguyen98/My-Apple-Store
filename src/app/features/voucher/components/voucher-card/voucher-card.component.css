@@ -65,7 +65,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.25rem;
 
             .title {
                 font-size: var(--font-size-m);
@@ -104,7 +104,7 @@
   z-index: -1;
 }
 
-.card-container::before {
+.card-container.available::before {
   top: 0;
   background-image: radial-gradient(
     circle at calc(20% - 0.5rem) 0,
@@ -113,7 +113,7 @@
   );
 }
 
-.card-container::after {
+.card-container.available::after {
   bottom: 0;
   background-image: radial-gradient(
     circle at calc(20% - 0.5rem) 100%,
@@ -122,6 +122,73 @@
   );
 }
 
-.card-container:hover{
+.card-container.available:hover{
     filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))
+}
+
+.card-container.not-available {
+    cursor: auto;
+
+    .value-container{
+        .value-top {
+            background-image: radial-gradient(
+                circle at calc(100%) 0,
+                transparent 0.5rem,
+                var(--color-accent) 0.5rem
+            ); 
+        }
+
+        .value-bottom {
+            background-image: radial-gradient(
+                circle at calc(100%) 100%,
+                transparent 0.5rem,
+                var(--color-accent) 0.5rem
+            ); 
+        }
+
+        .value-mid{
+            background-color: var(--color-accent);
+
+            .value{
+                color: var(--color-secondary)
+            }
+        }
+    }
+
+    .description-container {
+        .title-container{
+            .title{
+                color: var(--color-secondary);
+            }
+        }
+
+        .valid-date {
+            color: var(--color-secondary);
+        }
+    }
+}
+
+.card-container.not-available::before {
+    top: 0;
+    background-image: radial-gradient(
+      circle at calc(20% - 0.5rem) 0,
+      transparent 0.5rem,
+      var(--color-accent) 0.5rem
+    );
+}
+
+.card-container.not-available::after {
+    bottom: 0;
+    background-image: radial-gradient(
+      circle at calc(20% - 0.5rem) 100%,
+      transparent 0.5rem,
+      var(--color-accent) 0.5rem
+    );
+}
+
+.suggestion-title{
+    width: 22.5rem;
+    margin-top: 0.25rem;
+    color: var(--color-warn);
+    font-size: var(--font-size-s);
 }

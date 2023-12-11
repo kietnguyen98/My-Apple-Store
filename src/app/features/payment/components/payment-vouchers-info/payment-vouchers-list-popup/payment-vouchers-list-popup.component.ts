@@ -18,13 +18,13 @@ export class PaymentVouchersListPopupComponent {
   currentSelectedVouchers: TVouchers = [];
 
   constructor(private voucherService: VoucherService) {
-    this.voucherService.getVouchers().subscribe(data => (this.vouchers = data));
     this.voucherService
       .getVoucherCategories()
       .subscribe(data => (this.voucherCategories = data));
-    this.voucherService
-      .getAppliedVouchers()
-      .subscribe(data => (this.currentSelectedVouchers = data));
+    this.voucherService.getVouchers().subscribe(data => (this.vouchers = data));
+    this.voucherService.getAppliedVouchers().subscribe(data => {
+      this.currentSelectedVouchers = data;
+    });
   }
 
   selectVoucher(change: MatRadioChange) {
@@ -43,7 +43,10 @@ export class PaymentVouchersListPopupComponent {
             : voucher
       );
     } else {
-      this.currentSelectedVouchers.push(newSelectedVoucher);
+      this.currentSelectedVouchers = [
+        ...this.currentSelectedVouchers,
+        newSelectedVoucher,
+      ];
     }
   }
 

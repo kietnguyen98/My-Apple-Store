@@ -33,15 +33,44 @@ export const vouchersMockData: TVouchers = [
   {
     id: uuidv4(),
     category: voucherCategoriesMockData[0],
-    title: "Free Ship $2 OFF",
-    code: "FS2$OFF",
+    title: "Free Ship 20$ OFF",
+    code: "FS20$OFF",
     description:
-      "Discount 2$ off shipping price when min purchased price is 800$ or more",
-    discountValue: 2,
-    maximumPriceDiscount: 2,
-    minPriceRequirement: 800,
+      "Discount 20$ off on shipping price when min purchased price is 1000$ or more",
+    discountValue: 20,
+    maximumPriceDiscount: 20,
+    minPriceRequirement: 1000,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
+    available: false,
+  },
+  {
+    id: uuidv4(),
+    category: voucherCategoriesMockData[0],
+    title: "Free Ship 30$ OFF",
+    code: "FS30$OFF",
+    description:
+      "Discount 30$ off on shipping price when min purchased price is 1500$ or more",
+    discountValue: 30,
+    maximumPriceDiscount: 30,
+    minPriceRequirement: 1500,
+    applyFromDate: new Date("2023-12-01"),
+    applyToDate: new Date("2023-12-30"),
+    available: false,
+  },
+  {
+    id: uuidv4(),
+    category: voucherCategoriesMockData[0],
+    title: "Free Ship 40$ OFF",
+    code: "FS40$OFF",
+    description:
+      "Discount 40$ off on shipping price when min purchased price is 2000$ or more",
+    discountValue: 40,
+    maximumPriceDiscount: 40,
+    minPriceRequirement: 2000,
+    applyFromDate: new Date("2023-12-01"),
+    applyToDate: new Date("2023-12-30"),
+    available: false,
   },
   {
     id: uuidv4(),
@@ -55,6 +84,7 @@ export const vouchersMockData: TVouchers = [
     minPriceRequirement: 1200,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
+    available: false,
   },
   {
     id: uuidv4(),
@@ -68,6 +98,7 @@ export const vouchersMockData: TVouchers = [
     minPriceRequirement: 1800,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
+    available: false,
   },
   {
     id: uuidv4(),
@@ -81,6 +112,7 @@ export const vouchersMockData: TVouchers = [
     minPriceRequirement: 2400,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
+    available: false,
   },
   {
     id: uuidv4(),
@@ -94,6 +126,7 @@ export const vouchersMockData: TVouchers = [
     minPriceRequirement: 2200,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
+    available: false,
   },
   {
     id: uuidv4(),
@@ -107,6 +140,7 @@ export const vouchersMockData: TVouchers = [
     minPriceRequirement: 3200,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
+    available: false,
   },
   {
     id: uuidv4(),
@@ -120,5 +154,6 @@ export const vouchersMockData: TVouchers = [
     minPriceRequirement: 4200,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
+    available: false,
   },
 ];

@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Observable, BehaviorSubject } from "rxjs";
-import { TVoucher, TVoucherCategories, TVouchers } from "../types";
+import { TVoucherCategories, TVouchers } from "../types";
 import { voucherCategoriesMockData, vouchersMockData } from "../data";
+import { PaymentService } from "../../payment/services/payment.service";
+import { cartHelper } from "@/utilities";
 
 @Injectable({
   providedIn: "root",
@@ -15,8 +17,22 @@ export class VoucherService {
   voucherCategoriesSubject = new BehaviorSubject<TVoucherCategories>(
     this.voucherCategories
   );
+  totalProductPrice: number = 0;
 
-  constructor() {}
+  constructor(private paymentService: PaymentService) {
+    this.paymentService.getPurchasedItems().subscribe(data => {
+      this.totalProductPrice = cartHelper.getTotalExactPrice(data);
+
+      this.vouchers = this.vouchers.map(voucher =>
+        this.totalProductPrice >= voucher.minPriceRequirement
+          ? { ...voucher, available: true }
+          : voucher
+      );
+      this.vouchersSubject.next(this.vouchers);
+
+      this.applyDefaultVoucher();
+    });
+  }
 
   updateVouchers(newData: TVouchers) {
     this.vouchers = newData;
@@ -43,5 +59,22 @@ export class VoucherService {
 
   getAppliedVouchers(): Observable<TVouchers> {
     return this.appliedVouchersSubject.asObservable();
+  }
+
+  applyDefaultVoucher() {
+    let defaultAppliedVoucher: TVouchers = [];
+    this.voucherCategories.forEach(category => {
+      const applicableVouchers = this.vouchers
+        .filter(voucher => voucher.category.id === category.id)
+        .filter(
+          voucher => this.totalProductPrice >= voucher.minPriceRequirement
+        )
+        .sort((prev, cur) => cur.discountValue - prev.discountValue);
+
+      defaultAppliedVoucher = [...defaultAppliedVoucher, applicableVouchers[0]];
+    });
+
+    this.appliedVouchers = defaultAppliedVoucher;
+    this.appliedVouchersSubject.next(this.appliedVouchers);
   }
 }

@@ -2,10 +2,33 @@
   <app-payment-section-header-badge
     title="Voucher applied Information"
     iconName="card_membership" />
-
   <div class="content-container">
-    <button mat-button mat-raised-button color="primary" (click)="openDialog()">
-      Open list vouchers
-    </button>
+    <div
+      class="not-applied-any-voucher-container"
+      *ngIf="appliedVouchers.length === 0">
+      <p class="title">You haven't apply any voucher yet !</p>
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        (click)="openDialog()">
+        <mat-icon>list</mat-icon> See list vouchers
+      </button>
+    </div>
+    <div class="applied-vouchers-container" *ngIf="appliedVouchers.length > 0">
+      <div class="header-container">
+        <p class="header-title">Applied vouchers:</p>
+        <button
+          mat-button
+          mat-raised-button
+          color="primary"
+          (click)="openDialog()">
+          <mat-icon>list</mat-icon> See list vouchers
+        </button>
+      </div>
+      <app-payment-voucher-applied-card
+        *ngFor="let voucher of appliedVouchers"
+        [voucher]="voucher" />
+    </div>
   </div>
 </div>

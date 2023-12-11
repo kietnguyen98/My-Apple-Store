@@ -1,4 +1,10 @@
-<div class="card-container" *ngIf="data">
+<div
+  [ngClass]="{
+    'card-container': true,
+    available: data.available,
+    'not-available': !data.available
+  }"
+  *ngIf="data">
   <div class="value-container">
     <div class="value-top"></div>
     <div class="value-mid">
@@ -30,3 +36,10 @@
     </p>
   </div>
 </div>
+<p class="suggestion-title" *ngIf="!data?.available">
+  This voucher is not available right now, you need to spent
+  <strong>{{
+    (data?.minPriceRequirement || 0) - totalPurchasedPrice | currency
+  }}</strong>
+  more to archive this !
+</p>

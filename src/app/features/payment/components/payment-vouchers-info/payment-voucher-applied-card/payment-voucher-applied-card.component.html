@@ -1,0 +1,16 @@
+<div class="container" *ngIf="voucher">
+  <div class="applied-container"><p class="title">Applied</p></div>
+  <div class="info-container">
+    <p class="title">
+      <mat-icon *ngIf="voucher.category.voucherType === VOUCHER_TYPES.SHIPPING">
+        local_shipping</mat-icon
+      >
+      <mat-icon *ngIf="voucher.category.voucherType === VOUCHER_TYPES.ITEMS">
+        shopping_basket</mat-icon
+      >
+      {{ voucher.title }}
+    </p>
+    <p class="code">{{ voucher.code }}</p>
+    <p class="description">{{ voucher.description }}</p>
+  </div>
+</div>

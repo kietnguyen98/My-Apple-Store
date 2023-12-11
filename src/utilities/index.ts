@@ -5,3 +5,4 @@ export * as productHelper from "./productHelper";
 export * as routeHelper from "./routeHelper";
 export * as windowScrollHelper from "./windowScrollHelper";
 export * as dateConvertHelper from "./dateConvertHelper";
+export * as cartHelper from "./cartHelper";

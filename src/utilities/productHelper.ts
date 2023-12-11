@@ -1,4 +1,8 @@
-import { TMemoryCapacity, TProduct } from "@/app/features/product/types";
+import {
+  TMemoryCapacity,
+  TProduct,
+  TProducts,
+} from "@/app/features/product/types";
 
 export function getOriginalPrice(
   product: TProduct,

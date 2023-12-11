@@ -14,6 +14,7 @@
         *ngFor="let voucher of vouchers | vouchersByCategory: category"
         [value]="voucher.id"
         [checked]="currentSelectedVouchers.indexOf(voucher) > -1"
+        [disabled]="!voucher.available"
         ><app-voucher-card [data]="voucher"
       /></mat-radio-button>
     </mat-radio-group>

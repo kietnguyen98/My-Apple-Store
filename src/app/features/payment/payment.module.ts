@@ -9,6 +9,7 @@ import { PaymentUserInfoComponent } from "./components/payment-user-info/payment
 import { PaymentShippingInfoComponent } from "./components/payment-shipping-info/payment-shipping-info.component";
 import { PaymentVouchersInfoComponent } from "./components/payment-vouchers-info/payment-vouchers-info.component";
 import { PaymentVouchersListPopupComponent } from "./components/payment-vouchers-info/payment-vouchers-list-popup/payment-vouchers-list-popup.component";
+import { PaymentVoucherAppliedCardComponent } from "./components/payment-vouchers-info/payment-voucher-applied-card/payment-voucher-applied-card.component";
 import { PaymentMethodInfoComponent } from "./components/payment-method-info/payment-method-info.component";
 import { PaymentTotalAndActionComponent } from "./components/payment-total-and-action/payment-total-and-action.component";
 import { PaymentSectionHeaderBadgeComponent } from "./components/payment-section-header-badge/payment-section-header-badge.component";
@@ -46,6 +47,7 @@ import { MatRadioModule } from "@angular/material/radio";
     PaymentShippingInfoComponent,
     PaymentVouchersInfoComponent,
     PaymentVouchersListPopupComponent,
+    PaymentVoucherAppliedCardComponent,
     PaymentMethodInfoComponent,
     PaymentTotalAndActionComponent,
     PaymentSectionHeaderBadgeComponent,

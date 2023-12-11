@@ -5,6 +5,7 @@ import { PATH } from "@/app/share/configs";
 import { RouteService } from "@/app/share/services/route.service";
 import { TCartItems } from "../../types";
 import { MatCheckboxChange } from "@angular/material/checkbox";
+import { cartHelper } from "@/utilities";
 @Component({
   selector: "app-cart-side-nav",
   templateUrl: "./cart-side-nav.component.html",
@@ -36,15 +37,7 @@ export class CartSideNavComponent implements OnInit {
         0
       );
 
-      this.totalPrices = this.items.reduce(
-        (prev, item) =>
-          prev +
-          (item.checked
-            ? item.quantity *
-              (item.product.price + (item.selectedMemory?.plusPrice || 0))
-            : 0),
-        0
-      );
+      this.totalPrices = cartHelper.getTotalExactPrice(this.items);
 
       this.isCheckedAll = this.items.every(item => item.checked);
     });

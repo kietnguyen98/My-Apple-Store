@@ -25,6 +25,7 @@ export type TVoucher = {
   minPriceRequirement: number;
   applyFromDate: Date;
   applyToDate: Date;
+  available: boolean;
 };
 
 export type TVouchers = Array<TVoucher>;

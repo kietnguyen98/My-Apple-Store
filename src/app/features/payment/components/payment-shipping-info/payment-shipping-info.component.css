@@ -12,20 +12,29 @@
 
     }
 
-    .shipping-method-info {
-        padding: 0.5rem 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
+    .shipping-method-info-container{
+        padding: 1rem;
 
-        .title{
-            font-size: var(--font-size-s);
-            color: var(--color-secondary);
+        .shipping-method-info {
+            border-radius: var(--border-radius-m);
+            background-color: var(--color-accent);
+            padding: 0.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+    
+            .title{
+                font-size: var(--font-size-s);
+                color: var(--color-secondary);
+                display: flex;
+                justify-content: space-between;
+    
+                .value {
+                    color: var(--color-primary);            
+                }
 
-            .value {
-                color: var(--color-primary);
-            
                 .highlight-value{
+                    color: var(--color-primary);            
                     font-weight: var(--font-weight-bold);
                 }
             }

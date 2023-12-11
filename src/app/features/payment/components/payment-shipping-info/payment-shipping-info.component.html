@@ -23,24 +23,28 @@
       </div>
     </div>
   </div>
-  <div class="shipping-method-info">
-    <p class="title">
-      Delivery method:
-      <span class="value">{{ currentShippingMethod.title }}</span>
-    </p>
-    <p class="title">
-      Duration Estimation:
-      <span class="value"
-        >{{ currentShippingMethod.durationEstimation }} (you will be receive
-        your products on
-        <span class="highlight-value">{{ minDeliveryDate }}</span> to
-        <span class="highlight-value">{{ maxDeliveryDate }}</span
-        >)</span
-      >
-    </p>
-    <p class="title">
-      Cost:
-      <span class="value">{{ currentShippingMethod.cost | currency }}</span>
-    </p>
+  <div class="shipping-method-info-container">
+    <div class="shipping-method-info">
+      <p class="title">
+        Delivery method:
+        <span class="value">{{ currentShippingMethod.title }}</span>
+      </p>
+      <p class="title">
+        Duration Estimation:
+        <span class="value"
+          >{{ currentShippingMethod.durationEstimation }} (your purchased will
+          arrive on
+          <span class="highlight-value">{{ minDeliveryDate }}</span> to
+          <span class="highlight-value">{{ maxDeliveryDate }}</span
+          >)</span
+        >
+      </p>
+      <p class="title">
+        Cost:
+        <span class="highlight-value">{{
+          currentShippingMethod.cost | currency
+        }}</span>
+      </p>
+    </div>
   </div>
 </div>
