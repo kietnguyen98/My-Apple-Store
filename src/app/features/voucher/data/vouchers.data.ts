@@ -38,7 +38,7 @@ export const vouchersMockData: TVouchers = [
     description:
       "Discount 20$ off on shipping price when min purchased price is 1000$ or more",
     discountValue: 20,
-    maximumPriceDiscount: 20,
+    maximumDiscount: 20,
     minPriceRequirement: 1000,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
@@ -52,7 +52,7 @@ export const vouchersMockData: TVouchers = [
     description:
       "Discount 30$ off on shipping price when min purchased price is 1500$ or more",
     discountValue: 30,
-    maximumPriceDiscount: 30,
+    maximumDiscount: 30,
     minPriceRequirement: 1500,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
@@ -66,7 +66,7 @@ export const vouchersMockData: TVouchers = [
     description:
       "Discount 40$ off on shipping price when min purchased price is 2000$ or more",
     discountValue: 40,
-    maximumPriceDiscount: 40,
+    maximumDiscount: 40,
     minPriceRequirement: 2000,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
@@ -80,7 +80,7 @@ export const vouchersMockData: TVouchers = [
     description:
       "Discount 100$ off on total price when min purchased price is 1200$ or more",
     discountValue: 100,
-    maximumPriceDiscount: 100,
+    maximumDiscount: 100,
     minPriceRequirement: 1200,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
@@ -94,7 +94,7 @@ export const vouchersMockData: TVouchers = [
     description:
       "Discount 200$ off on total price when min purchased price is 1800$ or more",
     discountValue: 200,
-    maximumPriceDiscount: 200,
+    maximumDiscount: 200,
     minPriceRequirement: 1800,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
@@ -108,7 +108,7 @@ export const vouchersMockData: TVouchers = [
     description:
       "Discount 300$ off on total price when min purchased price is 2400$ or more",
     discountValue: 300,
-    maximumPriceDiscount: 300,
+    maximumDiscount: 300,
     minPriceRequirement: 2400,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
@@ -120,9 +120,9 @@ export const vouchersMockData: TVouchers = [
     title: "5% OFF",
     code: "DEC5%OFF",
     description:
-      "Discount 5% off (maximum 200$) on total price when min purchased price is 2200$ or more",
+      "Discount 5% off (maximum 165$) on total price when min purchased price is 2200$ or more",
     discountValue: 5,
-    maximumPriceDiscount: 200,
+    maximumDiscount: 165,
     minPriceRequirement: 2200,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
@@ -134,9 +134,9 @@ export const vouchersMockData: TVouchers = [
     title: "10% OFF",
     code: "DEC10%OFF",
     description:
-      "Discount 10% off (maximum 300$) on total price when min purchased price is 3200$ or more",
+      "Discount 10% off (maximum 480$) on total price when min purchased price is 3200$ or more",
     discountValue: 10,
-    maximumPriceDiscount: 300,
+    maximumDiscount: 480,
     minPriceRequirement: 3200,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),
@@ -148,9 +148,9 @@ export const vouchersMockData: TVouchers = [
     title: "15% OFF",
     code: "DEC15%OFF",
     description:
-      "Discount 15% off (maximum 400$) on total price when min purchased price is 4200$ or more",
+      "Discount 15% off (maximum 945$) on total price when min purchased price is 4200$ or more",
     discountValue: 15,
-    maximumPriceDiscount: 400,
+    maximumDiscount: 945,
     minPriceRequirement: 4200,
     applyFromDate: new Date("2023-12-01"),
     applyToDate: new Date("2023-12-30"),

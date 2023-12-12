@@ -1,16 +1,22 @@
 <div class="container">
   <div class="price-container">
     <div class="total-price-container">
-      <div class="title">Total price</div>
+      <div class="title">Total items price</div>
       <p class="value">{{ totalPrice | currency }}</p>
     </div>
+    <div class="shipping-price-container">
+      <div class="title">Shipping price</div>
+      <p class="value">{{ finalShippingPrice | currency }}</p>
+    </div>
     <div class="discount-price-container">
-      <div class="title">Discount price</div>
-      <p class="value">{{ totalPrice | currency }}</p>
+      <div class="title">Discount on items</div>
+      <p class="value">-{{ purchaseDiscount | currency }}</p>
     </div>
     <div class="final-price-container">
       <div class="title">Final price</div>
-      <p class="value">{{ totalPrice | currency }}</p>
+      <p class="value">
+        {{ totalPrice + finalShippingPrice - purchaseDiscount | currency }}
+      </p>
     </div>
   </div>
 

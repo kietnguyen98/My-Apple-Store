@@ -11,6 +11,7 @@ import { TVouchers } from "@/app/features/voucher/types";
 })
 export class PaymentVouchersInfoComponent {
   appliedVouchers: TVouchers = [];
+  isAppliedBestVouchers: boolean = false;
 
   constructor(
     private dialog: MatDialog,
@@ -19,6 +20,10 @@ export class PaymentVouchersInfoComponent {
     this.voucherService.getAppliedVouchers().subscribe(data => {
       this.appliedVouchers = data;
     });
+
+    this.voucherService
+      .getIsAppliedBestVouchers()
+      .subscribe(data => (this.isAppliedBestVouchers = data));
   }
 
   openDialog() {

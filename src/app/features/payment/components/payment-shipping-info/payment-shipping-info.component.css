@@ -18,7 +18,7 @@
         .shipping-method-info {
             border-radius: var(--border-radius-m);
             background-color: var(--color-accent);
-            padding: 0.5rem 1rem;
+            padding: 1rem;
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
@@ -36,6 +36,18 @@
                 .highlight-value{
                     color: var(--color-primary);            
                     font-weight: var(--font-weight-bold);
+                }
+
+                .discount-value {
+                    color: var(--color-secondary);
+                    font-weight: var(--font-weight-regular);
+                    text-decoration: line-through;
+                }
+
+                .price-value-container{
+                    display: flex;
+                    gap: 0.5rem;
+                    align-items: center;
                 }
             }
         }

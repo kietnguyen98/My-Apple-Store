@@ -31,10 +31,28 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                gap: 1rem;
 
-                .header-title {
-                    color: var(--color-secondary);
-                    font-size: var(--font-size-m);
+                .guide-text-container {
+                    flex: 3;
+                    .header-title {
+                        color: var(--color-secondary);
+                        font-size: var(--font-size-m);
+                    }
+
+                    .applied-best-vouchers-title{
+                        color: var(--color-success);
+                        font-size: var(--font-size-xs);
+                    }
+
+                    .not-applied-best-vouchers-title{
+                        color: var(--color-warn);
+                        font-size: var(--font-size-xs);
+                    }
+                }
+
+                .see-list-button {
+                    flex: 1;
                 }
             }
         }

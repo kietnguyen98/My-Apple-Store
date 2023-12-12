@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { PaymentService } from "../../services/payment.service";
 import { TCartItems } from "@/app/features/cart/types";
+import { cartHelper } from "@/utilities";
+import { VoucherService } from "@/app/features/voucher/services/voucher.service";
 
 @Component({
   selector: "app-payment-total-and-action",
@@ -9,20 +11,25 @@ import { TCartItems } from "@/app/features/cart/types";
 })
 export class PaymentTotalAndActionComponent {
   totalPrice: number = 0;
+  finalShippingPrice: number = 0;
+  purchaseDiscount: number = 0;
   items: TCartItems = [];
 
-  constructor(private paymentService: PaymentService) {
+  constructor(
+    private paymentService: PaymentService,
+    private voucherService: VoucherService
+  ) {
     this.paymentService.getPurchasedItems().subscribe(items => {
       this.items = items;
-      this.totalPrice = this.items.reduce(
-        (prev, item) =>
-          prev +
-          (item.checked
-            ? item.quantity *
-              (item.product.price + (item.selectedMemory?.plusPrice || 0))
-            : 0),
-        0
-      );
+      this.totalPrice = cartHelper.getTotalExactPrice(this.items);
     });
+
+    this.paymentService
+      .getShippingPrice()
+      .subscribe(data => (this.finalShippingPrice = data));
+
+    this.voucherService
+      .getPurchasesDiscount()
+      .subscribe(data => (this.purchaseDiscount = data));
   }
 }

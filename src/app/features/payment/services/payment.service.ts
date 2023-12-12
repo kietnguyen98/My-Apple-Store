@@ -7,7 +7,11 @@ import { TCartItems } from "../../cart/types";
 })
 export class PaymentService {
   purchasedItems: TCartItems = [];
-  purchasedItemsSubject = new BehaviorSubject<TCartItems>([]);
+  purchasedItemsSubject = new BehaviorSubject<TCartItems>(this.purchasedItems);
+  shippingPrice: number = 0;
+  shippingPriceSubject = new BehaviorSubject<number>(this.shippingPrice);
+  purchaseDiscount: number = 0;
+  purchaseDiscountSubject = new BehaviorSubject<number>(this.purchaseDiscount);
 
   constructor() {}
 
@@ -18,5 +22,14 @@ export class PaymentService {
 
   getPurchasedItems(): Observable<TCartItems> {
     return this.purchasedItemsSubject.asObservable();
+  }
+
+  updateShippingPrice(data: number) {
+    this.shippingPrice = data;
+    this.shippingPriceSubject.next(this.shippingPrice);
+  }
+
+  getShippingPrice(): Observable<number> {
+    return this.shippingPriceSubject.asObservable();
   }
 }

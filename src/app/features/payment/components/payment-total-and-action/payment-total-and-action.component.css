@@ -29,6 +29,23 @@
             }
         }
 
+        .shipping-price-container { 
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            .title{
+                color: var(--color-secondary);
+                font-size: var(--font-size-xs);
+            }
+
+            .value {
+                color: var(--color-primary);
+                font-size: var(--font-size-m);
+                letter-spacing: 0.025rem;
+            }
+        }
+
         .discount-price-container { 
             display: flex;
             flex-direction: column;
@@ -63,7 +80,7 @@
                 color: var(--color-primary);
                 font-size: var(--font-size-l);
                 font-weight: var(--font-weight-bold);
-                letter-spacing: 0.025rem;
+                letter-spacing: 0.05rem;
             }
         }
    }

@@ -21,7 +21,7 @@ export type TVoucher = {
   code: string;
   description: string;
   discountValue: number;
-  maximumPriceDiscount: number;
+  maximumDiscount: number;
   minPriceRequirement: number;
   applyFromDate: Date;
   applyToDate: Date;

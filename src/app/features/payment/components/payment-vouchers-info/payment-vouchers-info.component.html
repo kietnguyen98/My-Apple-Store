@@ -17,12 +17,24 @@
     </div>
     <div class="applied-vouchers-container" *ngIf="appliedVouchers.length > 0">
       <div class="header-container">
-        <p class="header-title">Applied vouchers:</p>
+        <div class="guide-text-container">
+          <p class="header-title">Applied vouchers:</p>
+          <p class="applied-best-vouchers-title" *ngIf="isAppliedBestVouchers">
+            All the best vouchers have been applied for your purchased !
+          </p>
+          <p
+            class="not-applied-best-vouchers-title"
+            *ngIf="!isAppliedBestVouchers">
+            You have not applied the best voucher for this purchased. Please,
+            check the vouchers list again !
+          </p>
+        </div>
         <button
           mat-button
           mat-raised-button
           color="primary"
-          (click)="openDialog()">
+          (click)="openDialog()"
+          class="see-list-button">
           <mat-icon>list</mat-icon> See list vouchers
         </button>
       </div>

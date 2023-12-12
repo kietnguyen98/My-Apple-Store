@@ -2,6 +2,12 @@ import { dateConvertHelper } from "@/utilities";
 import { Component } from "@angular/core";
 import { TShippingMethod } from "../../types";
 import { SHIPPING_METHOD_OPTIONS } from "../../constants";
+import { VoucherService } from "@/app/features/voucher/services/voucher.service";
+import { VOUCHER_TYPES } from "@/app/features/voucher/constants";
+import { TVoucher } from "@/app/features/voucher/types";
+import { PaymentService } from "../../services/payment.service";
+
+const { SHIPPING } = VOUCHER_TYPES;
 @Component({
   selector: "app-payment-shipping-info",
   templateUrl: "./payment-shipping-info.component.html",
@@ -16,6 +22,20 @@ export class PaymentShippingInfoComponent {
   maxDeliveryDate: string = this.getDeliveryDate(
     this.currentShippingMethod.maxDeliveryDays
   );
+  discountVoucher: TVoucher | undefined = undefined;
+  finalPrice: number = 0;
+
+  constructor(
+    private voucherService: VoucherService,
+    private paymentService: PaymentService
+  ) {
+    this.voucherService.getAppliedVouchers().subscribe(data => {
+      this.discountVoucher = data.find(
+        voucher => voucher.category.voucherType === SHIPPING
+      );
+      this.updateFinalPrice();
+    });
+  }
 
   getDeliveryDate(plusDate: number) {
     return dateConvertHelper.fromDateToDDMMYYYY(
@@ -35,5 +55,18 @@ export class PaymentShippingInfoComponent {
     this.maxDeliveryDate = this.getDeliveryDate(
       this.currentShippingMethod.maxDeliveryDays
     );
+
+    this.updateFinalPrice();
+  }
+
+  updateFinalPrice() {
+    this.finalPrice =
+      this.currentShippingMethod.cost >
+      (this.discountVoucher as TVoucher).discountValue
+        ? this.currentShippingMethod.cost -
+          (this.discountVoucher as TVoucher).discountValue
+        : 0;
+
+    this.paymentService.updateShippingPrice(this.finalPrice);
   }
 }

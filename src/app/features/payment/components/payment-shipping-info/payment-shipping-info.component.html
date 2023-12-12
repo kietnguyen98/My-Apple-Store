@@ -41,9 +41,19 @@
       </p>
       <p class="title">
         Cost:
-        <span class="highlight-value">{{
-          currentShippingMethod.cost | currency
-        }}</span>
+
+        <span class="price-value-container">
+          <span
+            [ngClass]="{
+              'highlight-value': discountVoucher === undefined,
+              'discount-value': discountVoucher !== undefined
+            }"
+            >{{ currentShippingMethod.cost | currency }}</span
+          >
+          <span class="highlight-value" *ngIf="discountVoucher !== undefined">{{
+            finalPrice | currency
+          }}</span>
+        </span>
       </p>
     </div>
   </div>
