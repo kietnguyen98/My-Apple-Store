@@ -10,8 +10,6 @@ export class PaymentService {
   purchasedItemsSubject = new BehaviorSubject<TCartItems>(this.purchasedItems);
   shippingPrice: number = 0;
   shippingPriceSubject = new BehaviorSubject<number>(this.shippingPrice);
-  purchaseDiscount: number = 0;
-  purchaseDiscountSubject = new BehaviorSubject<number>(this.purchaseDiscount);
 
   constructor() {}
 

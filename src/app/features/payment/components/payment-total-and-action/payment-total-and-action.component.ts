@@ -12,7 +12,7 @@ import { VoucherService } from "@/app/features/voucher/services/voucher.service"
 export class PaymentTotalAndActionComponent {
   totalPrice: number = 0;
   finalShippingPrice: number = 0;
-  purchaseDiscount: number = 0;
+  itemsDiscount: number = 0;
   items: TCartItems = [];
 
   constructor(
@@ -30,6 +30,6 @@ export class PaymentTotalAndActionComponent {
 
     this.voucherService
       .getPurchasesDiscount()
-      .subscribe(data => (this.purchaseDiscount = data));
+      .subscribe(data => (this.itemsDiscount = data));
   }
 }

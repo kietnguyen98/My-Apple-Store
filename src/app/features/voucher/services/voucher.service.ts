@@ -3,11 +3,10 @@ import { Observable, BehaviorSubject } from "rxjs";
 import { TVoucher, TVoucherCategories, TVouchers } from "../types";
 import { voucherCategoriesMockData, vouchersMockData } from "../data";
 import { PaymentService } from "../../payment/services/payment.service";
-import { cartHelper } from "@/utilities";
-import { VOUCHER_TYPES, DISCOUNT_TYPES } from "../../voucher/constants";
+import { cartHelper, voucherHelper } from "@/utilities";
+import { VOUCHER_TYPES } from "../../voucher/constants";
 
 const { ITEMS } = VOUCHER_TYPES;
-const { PERCENTAGE } = DISCOUNT_TYPES;
 @Injectable({
   providedIn: "root",
 })
@@ -20,18 +19,18 @@ export class VoucherService {
   voucherCategoriesSubject = new BehaviorSubject<TVoucherCategories>(
     this.voucherCategories
   );
-  totalProductPrice: number = 0;
+  totalItemsPrice: number = 0;
   isAppliedBestVouchers: boolean = false;
   isAppliedBestVouchersSubject = new BehaviorSubject<boolean>(false);
-  purchaseDiscount: number = 0;
-  purchaseDiscountSubject = new BehaviorSubject<number>(this.purchaseDiscount);
+  itemsDiscount: number = 0;
+  itemsDiscountSubject = new BehaviorSubject<number>(this.itemsDiscount);
 
   constructor(private paymentService: PaymentService) {
     this.paymentService.getPurchasedItems().subscribe(data => {
-      this.totalProductPrice = cartHelper.getTotalExactPrice(data);
+      this.totalItemsPrice = cartHelper.getTotalExactPrice(data);
 
       this.vouchers = this.vouchers.map(voucher =>
-        this.totalProductPrice >= voucher.minPriceRequirement
+        this.totalItemsPrice >= voucher.minPriceRequirement
           ? { ...voucher, available: true }
           : { ...voucher, available: false }
       );
@@ -66,22 +65,34 @@ export class VoucherService {
     this.appliedVouchers = data;
     this.appliedVouchersSubject.next(this.appliedVouchers);
 
+    this.checkAppliedBestVoucher();
+    this.updatePurchaseDiscount();
+  }
+
+  getAppliedVouchers(): Observable<TVouchers> {
+    return this.appliedVouchersSubject.asObservable();
+  }
+
+  checkAppliedBestVoucher() {
     let isAppliedBestVoucherCheck = true;
     this.voucherCategories.forEach(category => {
-      const applicableVouchers = this.vouchers
-        .filter(voucher => voucher.category.id === category.id)
-        .filter(
-          voucher => this.totalProductPrice >= voucher.minPriceRequirement
-        )
-        .sort((prev, cur) => cur.discountValue - prev.discountValue);
+      const applicableVouchers = voucherHelper.getApplicableVouchersByCategory(
+        category,
+        this.totalItemsPrice,
+        this.vouchers
+      );
 
       if (applicableVouchers.length > 0) {
         const appliedVoucherByCategory = this.appliedVouchers.find(
           voucher => voucher.category.id === category.id
-        );
+        ) as TVoucher;
 
         if (
-          applicableVouchers.indexOf(appliedVoucherByCategory as TVoucher) !== 0
+          appliedVoucherByCategory.id !==
+          voucherHelper.findBestVoucher(
+            this.totalItemsPrice,
+            applicableVouchers
+          ).id
         ) {
           isAppliedBestVoucherCheck = false;
           return;
@@ -91,28 +102,24 @@ export class VoucherService {
 
     this.isAppliedBestVouchers = isAppliedBestVoucherCheck;
     this.isAppliedBestVouchersSubject.next(this.isAppliedBestVouchers);
-
-    this.updatePurchaseDiscount();
-  }
-
-  getAppliedVouchers(): Observable<TVouchers> {
-    return this.appliedVouchersSubject.asObservable();
   }
 
   applyDefaultVoucher() {
     let defaultAppliedVoucher: TVouchers = [];
     this.voucherCategories.forEach(category => {
-      const applicableVouchers = this.vouchers
-        .filter(voucher => voucher.category.id === category.id)
-        .filter(
-          voucher => this.totalProductPrice >= voucher.minPriceRequirement
-        )
-        .sort((prev, cur) => cur.discountValue - prev.discountValue);
+      const applicableVouchers = voucherHelper.getApplicableVouchersByCategory(
+        category,
+        this.totalItemsPrice,
+        this.vouchers
+      );
 
       if (applicableVouchers.length > 0) {
         defaultAppliedVoucher = [
           ...defaultAppliedVoucher,
-          applicableVouchers[0],
+          voucherHelper.findBestVoucher(
+            this.totalItemsPrice,
+            applicableVouchers
+          ),
         ];
       }
     });
@@ -127,23 +134,18 @@ export class VoucherService {
   }
 
   updatePurchaseDiscount() {
-    this.purchaseDiscount = this.appliedVouchers
+    this.itemsDiscount = this.appliedVouchers
       .filter(voucher => voucher.category.voucherType === ITEMS)
-      .reduce((prev, cur) => {
-        if (cur.category.discountType === PERCENTAGE) {
-          let discount = (cur.discountValue * this.totalProductPrice) / 100;
-          return discount > cur.maximumDiscount
-            ? prev + cur.maximumDiscount
-            : discount;
-        } else {
-          return prev + cur.discountValue;
-        }
-      }, 0);
+      .reduce(
+        (prev, cur) =>
+          prev + voucherHelper.getVoucherDiscount(this.totalItemsPrice, cur),
+        0
+      );
 
-    this.purchaseDiscountSubject.next(this.purchaseDiscount);
+    this.itemsDiscountSubject.next(this.itemsDiscount);
   }
 
   getPurchasesDiscount(): Observable<number> {
-    return this.purchaseDiscountSubject.asObservable();
+    return this.itemsDiscountSubject.asObservable();
   }
 }

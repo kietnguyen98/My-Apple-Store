@@ -10,12 +10,12 @@
     </div>
     <div class="discount-price-container">
       <div class="title">Discount on items</div>
-      <p class="value">-{{ purchaseDiscount | currency }}</p>
+      <p class="value">-{{ itemsDiscount | currency }}</p>
     </div>
     <div class="final-price-container">
       <div class="title">Final price</div>
       <p class="value">
-        {{ totalPrice + finalShippingPrice - purchaseDiscount | currency }}
+        {{ totalPrice + finalShippingPrice - itemsDiscount | currency }}
       </p>
     </div>
   </div>
