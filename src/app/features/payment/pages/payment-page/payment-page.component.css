@@ -13,7 +13,7 @@
         .payment-content-container {
             width: var(--container-fix-width);
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
 
             .payment-info-wrapper{
                 flex: 2;

@@ -1,8 +1,9 @@
+<app-payment-section-header-badge
+  title="Voucher applied Information"
+  iconName="card_membership" />
 <div class="container">
-  <app-payment-section-header-badge
-    title="Voucher applied Information"
-    iconName="card_membership" />
   <div class="content-container">
+    <app-payment-voucher-apply-by-code />
     <div
       class="not-applied-any-voucher-container"
       *ngIf="appliedVouchers.length === 0">

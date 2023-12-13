@@ -1,8 +1,8 @@
 .container{
     padding: 1.25rem;
     background-color: white;
-    border-radius: var(--border-radius-m);
-    box-shadow: var(--box-shadow-container);
+    border-radius: var(--border-radius-s);
+    box-shadow: var(--box-shadow-border);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -19,13 +19,13 @@
 
             .title{
                 color: var(--color-secondary);
-                font-size: var(--font-size-xs);
+                font-size: var(--font-size-s);
             }
 
             .value {
                 color: var(--color-primary);
                 font-size: var(--font-size-m);
-                letter-spacing: 0.025rem;
+                font-weight: var(--font-weight-bold);
             }
         }
 
@@ -36,13 +36,13 @@
 
             .title{
                 color: var(--color-secondary);
-                font-size: var(--font-size-xs);
+                font-size: var(--font-size-s);
             }
 
             .value {
                 color: var(--color-primary);
                 font-size: var(--font-size-m);
-                letter-spacing: 0.025rem;
+                font-weight: var(--font-weight-bold);
             }
         }
 
@@ -53,13 +53,13 @@
 
             .title{
                 color: var(--color-secondary);
-                font-size: var(--font-size-xs);
+                font-size: var(--font-size-s);
             }
 
             .value {
                 color: var(--color-danger);
                 font-size: var(--font-size-m);
-                letter-spacing: 0.025rem;
+                font-weight: var(--font-weight-bold);
             }
         }
 

@@ -1,7 +1,7 @@
+<app-payment-section-header-badge
+  title="Receiver's Information"
+  iconName="person" />
 <div class="container">
-  <app-payment-section-header-badge
-    title="Receiver's Information"
-    iconName="person" />
   <div class="form-container">
     <div class="input-container">
       <div class="input-field">
@@ -15,6 +15,53 @@
           type="text"
           placeholder="enter receiver's full name" />
         <p class="error-message"></p>
+      </div>
+    </div>
+    <div class="general-address-inputs-container">
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">City / Province<span class="required">*</span></p>
+          <div class="select-wrapper">
+            <select
+              [ngClass]="{
+                select: true
+              }"
+              name="city"
+              formControlName="city"></select>
+            <mat-icon class="drop-down-icon">arrow_drop_down</mat-icon>
+          </div>
+          <p class="error-message"></p>
+        </div>
+      </div>
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">District<span class="required">*</span></p>
+          <div class="select-wrapper">
+            <select
+              [ngClass]="{
+                select: true
+              }"
+              name="district"
+              formControlName="district"></select>
+            <mat-icon class="drop-down-icon">arrow_drop_down</mat-icon>
+          </div>
+          <p class="error-message"></p>
+        </div>
+      </div>
+      <div class="input-container">
+        <div class="input-field">
+          <p class="label">Ward<span class="required">*</span></p>
+          <div class="select-wrapper">
+            <select
+              [ngClass]="{
+                select: true
+              }"
+              name="ward"
+              formControlName="ward"></select>
+            <mat-icon class="drop-down-icon">arrow_drop_down</mat-icon>
+          </div>
+          <p class="error-message"></p>
+        </div>
       </div>
     </div>
     <div class="input-container">

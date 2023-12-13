@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="code-input-container">
+    <div class="input-container">
+      <div class="input-field">
+        <p class="label">Voucher code</p>
+        <input
+          [ngClass]="{
+            input: true
+          }"
+          name="code"
+          type="text"
+          placeholder="please, enter voucher's code" />
+        <p class="error-message"></p>
+      </div>
+    </div>
+  </div>
+  <div class="button-container">
+    <button mat-flat-button class="apply-button" color="success">
+      <mat-icon> publish </mat-icon>
+      Apply
+    </button>
+  </div>
+</div>
