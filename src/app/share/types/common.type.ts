@@ -2,6 +2,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from "@angular/material/snack-bar";
+import { COMPONENT_SIZE_VALUES } from "../constants";
 
 export type TSnackBarConfigOptions = {
   horizontalPosition: MatSnackBarHorizontalPosition;
@@ -27,3 +28,6 @@ export type TUserMenuNavigation = Array<{
   navigateUrl: string;
   iconName: string;
 }>;
+
+export type TComponentSizeValues =
+  (typeof COMPONENT_SIZE_VALUES)[keyof typeof COMPONENT_SIZE_VALUES];

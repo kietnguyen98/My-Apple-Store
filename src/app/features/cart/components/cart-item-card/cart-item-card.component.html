@@ -36,9 +36,13 @@
       <span class="value"> {{ totalPrice | currency }}</span>
     </p>
     <div class="action-wrapper">
-      <app-cart-item-quantity-select
-        [itemId]="item.id"
-        [quantity]="item.quantity"></app-cart-item-quantity-select>
+      <app-item-quantity-select
+        *ngIf="item"
+        [quantity]="item.quantity"
+        [increaseQuantityCallback]="increaseItemQuantity"
+        [decreaseQuantityCallback]="
+          decreaseItemQuantity
+        "></app-item-quantity-select>
       <button
         mat-flat-button
         color="primary"
@@ -50,7 +54,7 @@
         mat-flat-button
         color="accent"
         class="action-button"
-        (click)="openDialog()">
+        (click)="handleRemoveItem()">
         Remove
       </button>
     </div>

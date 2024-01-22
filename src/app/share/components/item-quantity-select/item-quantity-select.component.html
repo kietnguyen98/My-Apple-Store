@@ -1,4 +1,9 @@
-<div class="quantity-selector">
+<div
+  [ngClass]="{
+    'quantity-selector': true,
+    'medium-size': size === 'medium',
+    'small-size': size === 'small'
+  }">
   <button
     type="button"
     matRipple

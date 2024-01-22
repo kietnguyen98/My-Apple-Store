@@ -44,7 +44,7 @@
             height: calc(100% - 1rem);
 
             .value {
-                color: var(--color-primary);
+                color: var(--color-warn);
                 font-weight: var(--font-weight-bold);
                 font-size: var(--font-size-m);
             }
@@ -109,7 +109,7 @@
   background-image: radial-gradient(
     circle at calc(20% - 0.5rem) 0,
     transparent 0.5rem,
-    var(--color-yellow-background) 0.5rem
+    var(--color-warn-background) 0.5rem
   );
 }
 
@@ -118,7 +118,7 @@
   background-image: radial-gradient(
     circle at calc(20% - 0.5rem) 100%,
     transparent 0.5rem,
-    var(--color-yellow-background) 0.5rem
+    var(--color-warn-background) 0.5rem
   );
 }
 

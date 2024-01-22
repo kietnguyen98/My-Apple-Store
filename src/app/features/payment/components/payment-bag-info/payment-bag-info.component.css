@@ -21,14 +21,26 @@
         gap: 0.5rem;
 
         .total-items {
-            padding: 0.5rem;
-            border-radius: var(--border-radius-s);
-            background-color: var(--color-accent);
-            font-size: var(--font-size-s);
-            color: var(--color-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            .value {
-                color: var(--color-primary);
+            .total-items-text{
+                padding: 0.5rem 1rem;
+                border-radius: var(--border-radius-s);
+                background-color: var(--color-accent);
+                font-size: var(--font-size-s);
+                color: var(--color-secondary);
+                font-weight: var(--font-weight-normal);
+
+                .value {
+                    color: var(--color-primary);
+                    font-weight: var(--font-weight-bold);
+                }
+            }
+
+            .total-items-edit-bag-button {
+                font-weight: var(--font-weight-bold);
             }
         }
     }

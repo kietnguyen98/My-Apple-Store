@@ -1,8 +1,19 @@
-<app-payment-section-header-badge title="In your bag" />
+<app-payment-section-header-badge
+  title="In your bag"
+  iconName="shopping_basket" />
 <div class="container">
   <div class="items-container">
     <div class="total-items">
-      Total items: <span class="value">{{ items.length }}</span>
+      <span class="total-items-text">
+        Total items: <span class="value">{{ items | totalBagItemsPipe }}</span>
+      </span>
+      <button
+        class="total-items-edit-bag-button"
+        mat-button
+        color="primary"
+        (click)="openEditBagPopup()">
+        <mat-icon>edit</mat-icon>Edit Bag
+      </button>
     </div>
     <app-payment-bag-item-card
       *ngFor="let item of items"

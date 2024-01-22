@@ -4,8 +4,6 @@ import { CommonModule } from "@angular/common";
 // components
 import { CartSideNavComponent } from "./components/cart-side-nav/cart-side-nav.component";
 import { CartItemCardComponent } from "./components/cart-item-card/cart-item-card.component";
-import { CartItemQuantitySelectComponent } from "./components/cart-item-quantity-select/cart-item-quantity-select.component";
-import { CartAlertDialogComponent } from "./components/cart-alert-dialog/cart-alert-dialog.component";
 
 // services
 import { CartService } from "./services/cart.service";
@@ -18,7 +16,6 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatRippleModule } from "@angular/material/core";
-import { MatDialogModule } from "@angular/material/dialog";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 
 @NgModule({
@@ -29,15 +26,12 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
     MatButtonModule,
     MatSidenavModule,
     MatRippleModule,
-    MatDialogModule,
     MatCheckboxModule,
   ],
   declarations: [
     //components
     CartSideNavComponent,
     CartItemCardComponent,
-    CartItemQuantitySelectComponent,
-    CartAlertDialogComponent,
   ],
   providers: [CartService],
   exports: [

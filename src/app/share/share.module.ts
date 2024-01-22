@@ -8,6 +8,8 @@ import { NotificationSnackBarComponent } from "./components/notification-snack-b
 import { CustomFormControlComponent } from "./components/custom-form-control/custom-form-control.component";
 import { ProductPriceDisplayComponent } from "./components/product-price-display/product-price-display.component";
 import { ProductListPaginationComponent } from "./components/product-list-pagination/product-list-pagination.component";
+import { ItemQuantitySelectComponent } from "./components/item-quantity-select/item-quantity-select.component";
+import { AlertDialogComponent } from "./components/alert-dialog/alert-dialog.component";
 
 // modules
 import { TopBarModule } from "./components/layout/header/header.module";
@@ -21,6 +23,7 @@ import {
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from "@angular/material/snack-bar";
+import { MatDialogModule } from "@angular/material/dialog";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -38,6 +41,7 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/app/share/configs";
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatDialogModule,
     MatButtonModule,
     MatTooltipModule,
     MatSnackBarModule,
@@ -53,6 +57,8 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/app/share/configs";
     CustomFormControlComponent,
     ProductPriceDisplayComponent,
     ProductListPaginationComponent,
+    ItemQuantitySelectComponent,
+    AlertDialogComponent,
   ],
   exports: [
     // components
@@ -63,6 +69,8 @@ import { SNACK_BAR_CONFIG_OPTION } from "@/app/share/configs";
     CustomFormControlComponent,
     ProductPriceDisplayComponent,
     ProductListPaginationComponent,
+    ItemQuantitySelectComponent,
+    AlertDialogComponent,
   ],
 })
 export class ShareModule {}

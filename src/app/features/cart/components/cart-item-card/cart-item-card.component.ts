@@ -2,11 +2,11 @@ import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { CartService } from "../../services/cart.service";
 import { PATH } from "@/app/share/configs";
 import { MatDialog } from "@angular/material/dialog";
-import { CartAlertDialogComponent } from "../cart-alert-dialog/cart-alert-dialog.component";
 import { RouteService } from "@/app/share/services/route.service";
 import { productHelper } from "@/utilities";
 import { TCartItem } from "../../types";
 import { MatCheckboxChange } from "@angular/material/checkbox";
+import { AlertDialogComponent } from "@/app/share/components/alert-dialog/alert-dialog.component";
 
 @Component({
   selector: "app-cart-item-card",
@@ -42,8 +42,26 @@ export class CartItemCardComponent implements OnChanges {
     this.cartService.removeItem(this.item?.id as string);
   }
 
-  openDialog() {
-    this.dialog.open(CartAlertDialogComponent, {
+  increaseItemQuantity = () => {
+    if (this.item) {
+      this.cartService.changeItemQuantity({
+        itemId: this.item.id,
+        value: this.item.quantity + 1,
+      });
+    }
+  };
+
+  decreaseItemQuantity = () => {
+    if (this.item && this.item.quantity > 1) {
+      this.cartService.changeItemQuantity({
+        itemId: this.item.id,
+        value: this.item.quantity - 1,
+      });
+    }
+  };
+
+  handleRemoveItem() {
+    this.dialog.open(AlertDialogComponent, {
       disableClose: true,
       hasBackdrop: true,
       width: "22.5rem",

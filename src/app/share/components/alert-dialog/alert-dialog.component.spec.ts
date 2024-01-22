@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CartAlertDialogComponent } from "./cart-alert-dialog.component";
+import { CartAlertDialogComponent } from "./alert-dialog.component";
 
 describe("CartAlertDialogComponent", () => {
   let component: CartAlertDialogComponent;

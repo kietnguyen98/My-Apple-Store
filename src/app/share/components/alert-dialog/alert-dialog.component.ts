@@ -8,10 +8,10 @@ type DialogData = {
 };
 
 @Component({
-  selector: "app-cart-alert-dialog",
-  templateUrl: "./cart-alert-dialog.component.html",
-  styleUrls: ["./cart-alert-dialog.component.css"],
+  selector: "app-alert-dialog",
+  templateUrl: "./alert-dialog.component.html",
+  styleUrls: ["./alert-dialog.component.css"],
 })
-export class CartAlertDialogComponent {
+export class AlertDialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

@@ -7,8 +7,8 @@ import {
 } from "@angular/core";
 import { TMemoryCapacity, TProduct } from "@/app/features/product/types";
 import { getOriginalPrice, getSalePrice } from "@/utilities/productHelper";
-
-type TProductPriceDisplayTextSize = "small" | "medium" | "large";
+import { TComponentSizeValues } from "../../types";
+import { COMPONENT_SIZE_VALUES } from "../../constants";
 
 @Component({
   selector: "app-product-price-display",
@@ -19,7 +19,7 @@ export class ProductPriceDisplayComponent implements OnInit, OnChanges {
   @Input() product?: TProduct;
   @Input() currentMemoryCapacity: TMemoryCapacity | undefined;
   @Input() showLabel: boolean = false;
-  @Input() textSize: TProductPriceDisplayTextSize = "medium";
+  @Input() textSize: TComponentSizeValues = COMPONENT_SIZE_VALUES.MEDIUM;
   originalPrice: number | undefined;
   salePrice: number | undefined;
 

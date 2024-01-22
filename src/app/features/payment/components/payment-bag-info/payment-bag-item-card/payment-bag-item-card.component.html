@@ -19,9 +19,17 @@
       Price:
       <span class="value">{{ item.product.price | currency }}</span>
     </p>
-    <p class="title">
+    <p class="title" *ngIf="!isEditable">
       Quantity:
       <span class="value">{{ item.quantity }}</span>
     </p>
+    <div class="quantity-edit" *ngIf="isEditable">
+      Quantity:
+      <app-item-quantity-select
+        [size]="'small'"
+        [quantity]="item.quantity"
+        [increaseQuantityCallback]="increaseItemQuantity"
+        [decreaseQuantityCallback]="decreaseItemQuantity" />
+    </div>
   </div>
 </div>

@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>In your bag</h1>
+<div mat-dialog-content class="dialog-content" *ngIf="items">
+  <p class="total-items">
+    Total items:
+    <span class="total-items-value">{{ items | totalBagItemsPipe }}</span>
+  </p>
+  <app-payment-bag-item-card
+    *ngFor="let item of items"
+    [isEditable]="true"
+    (updateItemQuantityEmitter)="updateItemQuantity($event)"
+    [item]="item"></app-payment-bag-item-card>
+</div>
+<div mat-dialog-actions align="end">
+  <button
+    mat-button
+    mat-raise-button
+    mat-dialog-close
+    color="success"
+    (click)="updateBagItems()"
+    [disabled]="!isChanges">
+    Update
+  </button>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

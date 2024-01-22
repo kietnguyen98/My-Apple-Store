@@ -26,7 +26,7 @@ export class PaymentVouchersInfoComponent {
       .subscribe(data => (this.isAppliedBestVouchers = data));
   }
 
-  openDialog() {
+  openListVouchers() {
     this.dialog.open(PaymentVouchersListPopupComponent);
   }
 }

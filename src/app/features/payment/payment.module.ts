@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 // components
 import { PaymentPageComponent } from "./pages/payment-page/payment-page.component";
 import { PaymentBagInfoComponent } from "./components/payment-bag-info/payment-bag-info.component";
+import { PaymentBagInfoPopupComponent } from "./components/payment-bag-info/payment-bag-info-popup/payment-bag-info-popup.component";
 import { PaymentBagItemCardComponent } from "./components/payment-bag-info/payment-bag-item-card/payment-bag-item-card.component";
 import { PaymentUserInfoComponent } from "./components/payment-user-info/payment-user-info.component";
 import { PaymentShippingInfoComponent } from "./components/payment-shipping-info/payment-shipping-info.component";
@@ -21,6 +22,9 @@ import { VoucherModule } from "../voucher/voucher.module";
 
 // services
 import { PaymentService } from "./services/payment.service";
+
+// pipes
+import { TotalBagItemsPipe } from "./pipes/total-bag-items-pipe.pipe";
 
 // angular material modules
 import { MatButtonModule } from "@angular/material/button";
@@ -44,6 +48,7 @@ import { MatRadioModule } from "@angular/material/radio";
     // components
     PaymentBagInfoComponent,
     PaymentBagItemCardComponent,
+    PaymentBagInfoPopupComponent,
     PaymentUserInfoComponent,
     PaymentShippingInfoComponent,
     PaymentVouchersInfoComponent,
@@ -53,6 +58,8 @@ import { MatRadioModule } from "@angular/material/radio";
     PaymentMethodInfoComponent,
     PaymentTotalAndActionComponent,
     PaymentSectionHeaderBadgeComponent,
+    // pipes
+    TotalBagItemsPipe,
   ],
   providers: [PaymentService],
   exports: [

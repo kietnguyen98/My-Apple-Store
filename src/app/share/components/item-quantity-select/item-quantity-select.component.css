@@ -1,0 +1,76 @@
+.quantity-selector {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-accent);
+    box-shadow: var(--box-shadow-badge);
+    border-radius: var(--border-radius-s);
+ 
+    .decrease-button, .increase-button{
+        cursor: pointer;
+        border: none;
+        background-color: white;
+        padding: 0rem;
+    }
+    
+    .decrease-button {
+        border-right: 0.0625rem solid var(--color-accent);
+        border-top-left-radius: var(--border-radius-s);
+        border-bottom-left-radius: var(--border-radius-s);
+    }
+    
+    .increase-button {
+        border-left: 0.0625rem solid var(--color-accent);
+        border-top-right-radius: var(--border-radius-s);
+        border-bottom-right-radius: var(--border-radius-s);
+    }
+
+    .quantity-value{
+        background-color: white;
+        width: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: var(--font-weight-regular);
+    }
+}
+
+.medium-size {
+    .decrease-button, .increase-button {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .icon {
+        height: var(--font-size-s);
+        width: var(--font-size-s);
+        font-size: var(--font-size-s);
+    }
+
+    .quantity-value {
+        height: 1.75rem;
+        font-size: var(--font-size-s);
+    }
+}
+
+.small-size {
+    .decrease-button, .increase-button {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .icon {
+        height: var(--font-size-2xs);
+        width: var(--font-size-2xs);
+        font-size: var(--font-size-2xs);
+    }
+
+    .quantity-value {
+        height: 1.5rem;
+        font-size: var(--font-size-xs);
+    }
+}
+
+
