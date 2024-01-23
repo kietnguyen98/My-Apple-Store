@@ -26,8 +26,19 @@
               [ngClass]="{
                 select: true
               }"
-              name="city"
-              formControlName="city"></select>
+              name="province"
+              formControlName="province"
+              [value]="selectedProvinceCode"
+              (change)="handleSelectProvince($event)">
+              <option class="placeholder" value="0" selected>
+                Select your province
+              </option>
+              <option
+                *ngFor="let province of provinces"
+                [value]="province.code">
+                {{ province.name }}
+              </option>
+            </select>
             <mat-icon class="drop-down-icon">arrow_drop_down</mat-icon>
           </div>
           <p class="error-message"></p>
@@ -42,7 +53,21 @@
                 select: true
               }"
               name="district"
-              formControlName="district"></select>
+              formControlName="district"
+              [value]="selectedDistrictCode"
+              (change)="handleSelectDistrict($event)">
+              <option class="placeholder" value="0" selected>
+                Select your district
+              </option>
+              <option
+                *ngFor="let district of districts"
+                [value]="district.code">
+                {{ district.name }}
+              </option>
+              <option value="" disabled *ngIf="districts.length === 0">
+                Select province first
+              </option>
+            </select>
             <mat-icon class="drop-down-icon">arrow_drop_down</mat-icon>
           </div>
           <p class="error-message"></p>
@@ -57,7 +82,19 @@
                 select: true
               }"
               name="ward"
-              formControlName="ward"></select>
+              formControlName="ward"
+              [value]="selectedWardCode"
+              (change)="handleSelectWard($event)">
+              <option class="placeholder" value="0" selected>
+                Select your ward
+              </option>
+              <option *ngFor="let ward of wards" [value]="ward.code">
+                {{ ward.name }}
+              </option>
+              <option value="" disabled *ngIf="wards.length === 0">
+                Select district first
+              </option>
+            </select>
             <mat-icon class="drop-down-icon">arrow_drop_down</mat-icon>
           </div>
           <p class="error-message"></p>

@@ -84,6 +84,10 @@ a {
   text-decoration: none;
 }
 
+option.placeholder {
+  display: none;
+}
+
 /* mat button color values */
 
 .mat-success {
