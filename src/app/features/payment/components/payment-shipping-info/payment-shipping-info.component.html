@@ -2,7 +2,7 @@
   title="Shipping Information"
   iconName="local_shipping" />
 <div class="container">
-  <div class="form-container">
+  <form class="form-container" [formGroup]="shippingInfoForm">
     <div class="input-container">
       <div class="input-field">
         <p class="label">Shipping method <span class="required">*</span></p>
@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </form>
   <div class="shipping-method-info-container">
     <div class="shipping-method-info">
       <p class="title">
@@ -41,7 +41,6 @@
       </p>
       <p class="title">
         Cost:
-
         <span class="price-value-container">
           <span
             [ngClass]="{

@@ -2,7 +2,7 @@
   title="Receiver's Information"
   iconName="person" />
 <div class="container">
-  <div class="form-container">
+  <form class="form-container" [formGroup]="receiverInfoForm">
     <div class="input-container">
       <div class="input-field">
         <p class="label">Full name <span class="required">*</span></p>
@@ -129,5 +129,5 @@
         <p class="error-message"></p>
       </div>
     </div>
-  </div>
+  </form>
 </div>

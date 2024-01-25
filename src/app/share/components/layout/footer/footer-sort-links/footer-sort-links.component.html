@@ -27,12 +27,12 @@
   <div class="column">
     <p class="title">Payments</p>
     <div class="short-links-container">
-      <p class="payment-name" *ngFor="let payment of payments">
-        {{ payment.name }}
+      <p class="payment-name" *ngFor="let method of PAYMENT_METHODS">
+        {{ method.name }}
         <img
           class="payment-icon"
-          [src]="payment.imageUrl"
-          [alt]="payment.name + ' payment method image'" />
+          [src]="method.imageUrl"
+          [alt]="method.name + ' payment method image'" />
       </p>
     </div>
   </div>

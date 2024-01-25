@@ -13,10 +13,15 @@ import { PaymentVouchersListPopupComponent } from "./components/payment-vouchers
 import { PaymentVoucherAppliedCardComponent } from "./components/payment-vouchers-info/payment-voucher-applied-card/payment-voucher-applied-card.component";
 import { PaymentVoucherApplyByCodeComponent } from "./components/payment-vouchers-info/payment-voucher-apply-by-code/payment-voucher-apply-by-code.component";
 import { PaymentMethodInfoComponent } from "./components/payment-method-info/payment-method-info.component";
+import { PaymentMethodChipComponent } from "./components/payment-method-info/payment-method-chip/payment-method-chip.component";
+import { PaymentMethodCardFormComponent } from "./components/payment-method-info/payment-method-card-form/payment-method-card-form.component";
 import { PaymentTotalAndActionComponent } from "./components/payment-total-and-action/payment-total-and-action.component";
 import { PaymentSectionHeaderBadgeComponent } from "./components/payment-section-header-badge/payment-section-header-badge.component";
 
-// modules
+// common modules
+import { ReactiveFormsModule } from "@angular/forms";
+
+// feature modules
 import { ShareModule } from "@/app/share/share.module";
 import { VoucherModule } from "../voucher/voucher.module";
 
@@ -25,6 +30,7 @@ import { PaymentService } from "./services/payment.service";
 
 // pipes
 import { TotalBagItemsPipe } from "./pipes/total-bag-items-pipe.pipe";
+import { CardNumberDisplayPipe } from "./pipes/card-number-display-pipe.pipe";
 
 // angular material modules
 import { MatButtonModule } from "@angular/material/button";
@@ -35,6 +41,7 @@ import { MatRadioModule } from "@angular/material/radio";
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     ShareModule,
     VoucherModule,
     MatButtonModule,
@@ -56,10 +63,13 @@ import { MatRadioModule } from "@angular/material/radio";
     PaymentVoucherAppliedCardComponent,
     PaymentVoucherApplyByCodeComponent,
     PaymentMethodInfoComponent,
+    PaymentMethodChipComponent,
+    PaymentMethodCardFormComponent,
     PaymentTotalAndActionComponent,
     PaymentSectionHeaderBadgeComponent,
     // pipes
     TotalBagItemsPipe,
+    CardNumberDisplayPipe,
   ],
   providers: [PaymentService],
   exports: [

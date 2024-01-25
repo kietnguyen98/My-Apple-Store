@@ -1,0 +1,127 @@
+<div class="card">
+  <p class="card-number">
+    <span
+      class="card-number-letter"
+      *ngFor="let char of cardForm.value.cardNumber | cardNumberDisplayPipe"
+      >{{ char }}</span
+    >
+  </p>
+  <p class="valid-thru">
+    valid thru:
+    <span class="valid-thru-value">{{
+      cardForm.value.cardValidDate && cardForm.value.cardValidDate.length > 0
+        ? cardForm.value.cardValidDate
+        : "XX/XX"
+    }}</span>
+  </p>
+  <p class="card-holder-name">
+    {{
+      cardForm.value.cardHolderName && cardForm.value.cardHolderName.length > 0
+        ? cardForm.value.cardHolderName
+        : "card holder name"
+    }}
+  </p>
+  <img class="card-chip" [src]="CARD_CHIP_IMAGE_URL" alt="card chip image" />
+  <img
+    class="card-logo"
+    [src]="MASTER_CARD_IMAGE_URL"
+    alt="master card logo"
+    *ngIf="cardType === PAYMENT_METHOD_CODES.MASTER_CARD" />
+  <img
+    class="card-logo"
+    [src]="VISA_CARD_IMAGE_URL"
+    alt="master card logo"
+    *ngIf="cardType === PAYMENT_METHOD_CODES.VISA" />
+</div>
+
+<form class="form" [formGroup]="cardForm">
+  <div class="input-container">
+    <div class="input-field">
+      <p class="label">Card number <span class="required">*</span></p>
+      <input
+        [ngClass]="{
+          input: true
+        }"
+        [maxLength]="25"
+        oninput="this.value = (function(value){
+          let transformedValued = value.replace(/[^0-9]/g, '');
+          let finalValue = '';
+          for(let i = 0; i < transformedValued.length; i++){
+            if(i > 0 && i % 4 === 0){
+              finalValue += ' - ';
+            }
+            finalValue += transformedValued[i];
+          }
+          return finalValue;
+        })(this.value);"
+        name="cardNumber"
+        formControlName="cardNumber"
+        type="text"
+        placeholder="enter card number" />
+      <p class="error-message"></p>
+    </div>
+  </div>
+  <div class="input-container">
+    <div class="input-field">
+      <p class="label">Card holder's name <span class="required">*</span></p>
+      <input
+        [ngClass]="{
+          input: true
+        }"
+        [maxLength]="25"
+        oninput="this.value = this.value.toUpperCase()"
+        name="cardHolderName"
+        formControlName="cardHolderName"
+        type="text"
+        placeholder="enter card's holder name" />
+      <p class="error-message"></p>
+    </div>
+  </div>
+  <div class="row-inputs">
+    <div class="input-container">
+      <div class="input-field">
+        <p class="label">Valid date <span class="required">*</span></p>
+        <input
+          [ngClass]="{
+            input: true
+          }"
+          [maxLength]="5"
+          oninput="
+          this.value = (function(value){
+            let transformedValue = value.replace(/[^0-9]/g, '');
+            // validate month value
+            let firstDigitMonthValue = Number.parseInt(transformedValue.slice(0,1))
+            let secondDigitMonthValue = Number.parseInt(transformedValue.slice(1,2))
+            if(firstDigitMonthValue > 1) 
+              return '';
+            if(firstDigitMonthValue === 1 && secondDigitMonthValue > 2)
+              return transformedValue.slice(0,1);
+            if (transformedValue.length >= 2)
+                return transformedValue.slice(0, 2) + '/' + transformedValue.slice(2);
+            return transformedValue;
+          })(this.value);"
+          name="cardValidDate"
+          formControlName="cardValidDate"
+          type="text"
+          placeholder="enter card's valid date" />
+        <p class="error-message"></p>
+      </div>
+    </div>
+    <div class="input-container">
+      <div class="input-field">
+        <p class="label">CVC <span class="required">*</span></p>
+        <input
+          [ngClass]="{
+            input: true
+          }"
+          [maxLength]="3"
+          oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+          name="cardCvc"
+          formControlName="cardCvc"
+          type="password"
+          placeholder="enter card's cvc" />
+        <p class="error-message"></p>
+      </div>
+    </div>
+  </div>
+</form>

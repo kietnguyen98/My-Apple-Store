@@ -1,6 +1,7 @@
 import { AdministrativeUnitService } from "@/app/share/services/administrative-unit.service";
 import { TDistricts, TProvinces, TWards } from "@/app/share/types";
 import { Component } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-payment-user-info",
@@ -14,6 +15,14 @@ export class PaymentUserInfoComponent {
   selectedProvinceCode: number = 0;
   selectedDistrictCode: number = 0;
   selectedWardCode: number = 0;
+  receiverInfoForm = new FormGroup({
+    fullName: new FormControl("", Validators.required),
+    province: new FormControl("", Validators.required),
+    district: new FormControl("", Validators.required),
+    ward: new FormControl("", Validators.required),
+    address: new FormControl("", Validators.required),
+    phoneNumber: new FormControl("", Validators.required),
+  });
 
   constructor(private administrativeUnitService: AdministrativeUnitService) {
     this.administrativeUnitService.getProvinces().subscribe(data => {

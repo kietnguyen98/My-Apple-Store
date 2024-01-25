@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { payments } from "@/app/share/constants/payments";
+import { PAYMENT_METHODS } from "@/app/share/constants/payments";
 
 @Component({
   selector: "app-footer-sort-links",
@@ -7,5 +7,5 @@ import { payments } from "@/app/share/constants/payments";
   styleUrls: ["./footer-sort-links.component.css"],
 })
 export class FooterSortLinksComponent {
-  payments = payments;
+  PAYMENT_METHODS = PAYMENT_METHODS;
 }

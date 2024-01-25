@@ -1,0 +1,56 @@
+.payment-method-container {
+    padding: 1rem;
+}
+
+.payment-method-selection {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.method-select {
+    cursor: pointer;
+    background-color: white;
+    padding: 0.5rem;
+    outline: none;
+    border-radius: var(--border-radius-m);
+    border: 0.0625rem solid var(--color-accent);
+    transition: all 0.15s ease-in-out;
+
+    &:hover{
+        background-color: var(--color-success-background);
+        border-color:  var(--color-success);
+    }
+
+    .method-select-image{
+        height: 1.5rem;
+    }
+
+    .method-select-name{
+        font-size: var(--font-size-s);
+        color: var(--color-primary);
+    }
+}
+
+.method-select-state--selected { 
+    background-color: var(--color-success-background);
+    border-color:  var(--color-success);
+}
+
+.discount {
+    margin-top: 1rem;
+}
+
+.discount-title{
+    font-size: var(--font-size-s);
+    color: var(--color-success);
+
+    .discount-title-value {
+        font-weight: var(--font-weight-bold);
+    }
+}
+
+.un-discount-title{
+    font-size: var(--font-size-s);
+    color: var(--color-secondary); 
+}

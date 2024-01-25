@@ -1,0 +1,77 @@
+.card {
+    margin-top: 2rem;
+    height: 15rem;
+    width: 27rem;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--box-shadow-badge);
+    border: 1px solid var(--color-accent);
+    position: relative;
+
+    .valid-thru{
+        font-size: var(--font-size-2xs);
+        font-weight: var(--font-weight-regular);
+        color: var(--color-secondary);
+        text-transform: uppercase;
+        position: absolute;
+        left: 1.5rem;
+        bottom: 3.25rem;
+
+        .valid-thru-value {
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-bold);
+        }
+    }
+
+    .card-holder-name{
+        font-size: var(--font-size-m);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-secondary);
+        letter-spacing: 0.0125rem;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: 1.5rem;
+        left: 1.5rem;
+    }
+
+    .card-chip {
+        height: 3rem;
+        position: absolute;
+        left: 2rem;
+        bottom: 8.5rem;
+    }
+
+    .card-logo {
+        height: 3.5rem;
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+.card-number {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+    position: absolute;
+    left: 1.5rem;
+    bottom: 5.25rem;
+
+    .card-number-letter{
+        display: inline-block;
+        width: 1.15rem;
+    }
+}
+
+.form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .row-inputs {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+    }
+}

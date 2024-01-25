@@ -1,0 +1,35 @@
+<div class="payment-method-container">
+  <div class="payment-method-selection">
+    <button
+      [ngClass]="{
+        'method-select': true,
+        'method-select-state--selected': currentMethod.code === method.code
+      }"
+      *ngFor="let method of PAYMENT_METHODS"
+      (click)="selectMethod(method)">
+      <img
+        class="method-select-image"
+        [src]="method.imageUrl"
+        [alt]="'payment method ' + method.name" />
+      <p class="method-select-name">{{ method.name }}</p>
+    </button>
+  </div>
+  <div class="discount">
+    <p class="discount-title" *ngIf="currentMethod.discountValue > 0">
+      This payment method support
+      <span class="discount-title-value"
+        >{{ currentMethod.discountValue }}%</span
+      >
+      discount on total
+    </p>
+    <p class="un-discount-title" *ngIf="currentMethod.discountValue === 0">
+      This payment method does not support discount
+    </p>
+  </div>
+  <app-payment-method-card-form
+    *ngIf="
+      currentMethod.code === PAYMENT_METHOD_CODS.VISA ||
+      currentMethod.code === PAYMENT_METHOD_CODS.MASTER_CARD
+    "
+    [cardType]="currentMethod.code"></app-payment-method-card-form>
+</div>

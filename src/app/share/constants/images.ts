@@ -51,3 +51,4 @@ export const masterCardPaymentImageUrl = "/assets/images/payments/master.png";
 export const visaCardImageUrl = "/assets/images/payments/visa.png";
 export const momoWalletPaymentImageUrl = "/assets/images/payments/momo.png";
 export const vnpayPaymentImageUrl = "/assets/images/payments/vnpay.png";
+export const cardChipImageUrl = "/assets/images/payments/card-chip.png";

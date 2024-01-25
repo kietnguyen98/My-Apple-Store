@@ -6,6 +6,7 @@ import { VoucherService } from "@/app/features/voucher/services/voucher.service"
 import { VOUCHER_TYPES } from "@/app/features/voucher/constants";
 import { TVoucher } from "@/app/features/voucher/types";
 import { PaymentService } from "../../services/payment.service";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 const { SHIPPING } = VOUCHER_TYPES;
 @Component({
@@ -24,6 +25,9 @@ export class PaymentShippingInfoComponent {
   );
   discountVoucher: TVoucher | undefined = undefined;
   finalPrice: number = 0;
+  shippingInfoForm = new FormGroup({
+    shippingMethod: new FormControl("", Validators.required),
+  });
 
   constructor(
     private voucherService: VoucherService,

@@ -27,6 +27,7 @@
   --color-warn: #f15125;
   --color-warn-background: #fcd9cf;
   --color-success: #28a745;
+  --color-success-background: #eef6f0;
   --color-danger: #dc3545;
   --color-yellow: #ffc107;
   --color-yellow-background: #ffe699;
@@ -153,7 +154,7 @@ option.placeholder {
           background-color: var(--color-accent);
         }
     }
-  
+
     .input-error{
         border: 0.0625rem solid var(--color-danger);
     }
