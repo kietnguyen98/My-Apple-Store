@@ -12,14 +12,11 @@ export class PaymentUserInfoComponent {
   provinces: TProvinces = [];
   districts: TDistricts = [];
   wards: TWards = [];
-  selectedProvinceCode: number = 0;
-  selectedDistrictCode: number = 0;
-  selectedWardCode: number = 0;
   receiverInfoForm = new FormGroup({
     fullName: new FormControl("", Validators.required),
-    province: new FormControl("", Validators.required),
-    district: new FormControl("", Validators.required),
-    ward: new FormControl("", Validators.required),
+    province: new FormControl("0", Validators.required),
+    district: new FormControl("0", Validators.required),
+    ward: new FormControl("0", Validators.required),
     address: new FormControl("", Validators.required),
     phoneNumber: new FormControl("", Validators.required),
   });
@@ -39,29 +36,21 @@ export class PaymentUserInfoComponent {
   }
 
   handleSelectProvince(event: Event) {
-    this.selectedProvinceCode = Number(
-      (event.target as HTMLSelectElement).value
+    this.administrativeUnitService.selectProvince(
+      Number((event.target as HTMLSelectElement).value)
     );
 
-    this.administrativeUnitService.selectProvince(this.selectedProvinceCode);
-
     // reset
-    this.selectedDistrictCode = 0;
-    this.selectedWardCode = 0;
+    this.receiverInfoForm.patchValue({ province: "0" });
+    this.receiverInfoForm.patchValue({ ward: "0" });
   }
 
   handleSelectDistrict(event: Event) {
-    this.selectedDistrictCode = Number(
-      (event.target as HTMLSelectElement).value
+    this.administrativeUnitService.selectDistrict(
+      Number((event.target as HTMLSelectElement).value)
     );
 
-    this.administrativeUnitService.selectDistrict(this.selectedDistrictCode);
-
     // reset
-    this.selectedWardCode = 0;
-  }
-
-  handleSelectWard(event: Event) {
-    this.selectedWardCode = Number((event.target as HTMLSelectElement).value);
+    this.receiverInfoForm.patchValue({ ward: "0" });
   }
 }

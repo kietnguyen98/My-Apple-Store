@@ -26,7 +26,10 @@ export class PaymentShippingInfoComponent {
   discountVoucher: TVoucher | undefined = undefined;
   finalPrice: number = 0;
   shippingInfoForm = new FormGroup({
-    shippingMethod: new FormControl("", Validators.required),
+    shippingMethod: new FormControl(
+      SHIPPING_METHOD_OPTIONS[0].value,
+      Validators.required
+    ),
   });
 
   constructor(

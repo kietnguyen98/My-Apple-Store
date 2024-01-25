@@ -28,7 +28,6 @@
               }"
               name="province"
               formControlName="province"
-              [value]="selectedProvinceCode"
               (change)="handleSelectProvince($event)">
               <option class="placeholder" value="0" selected>
                 Select your province
@@ -54,7 +53,6 @@
               }"
               name="district"
               formControlName="district"
-              [value]="selectedDistrictCode"
               (change)="handleSelectDistrict($event)">
               <option class="placeholder" value="0" selected>
                 Select your district
@@ -82,9 +80,7 @@
                 select: true
               }"
               name="ward"
-              formControlName="ward"
-              [value]="selectedWardCode"
-              (change)="handleSelectWard($event)">
+              formControlName="ward">
               <option class="placeholder" value="0" selected>
                 Select your ward
               </option>
